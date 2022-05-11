@@ -1,6 +1,6 @@
 {
-  "name": "shaper",
-  "description": "CLI for generating code",
+  "name": "myshaper",
+  "description": "Custom CLI for generating code",
   "version": "0.0.1",
   "author": "",
   "license": "",
@@ -9,7 +9,7 @@
   },
   "main": "./dist/index.js",
   "bin": {
-    "shaper": "bin/shaper"
+    "myshaper": "bin/myshaper"
   },
   "scripts": {
     "build": "rimraf dist && tsc && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",

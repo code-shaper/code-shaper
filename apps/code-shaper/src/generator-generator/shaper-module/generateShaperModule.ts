@@ -63,7 +63,12 @@ export async function generateShaperModule(inputContext: Arguments) {
   );
   console.log();
   console.log(
-    `2. Add the following switch case in the generateXyz() function of the same file:`
+    `2. If you see a placeholder module generator named ${moduleGeneratorFunction} in the same file,`
+  );
+  console.log(`   just delete it. It is replaced by the above import.`);
+  console.log();
+  console.log(
+    '   Otherwise, add the following switch case in the generateXyz() function:'
   );
   console.log(`     case '${moduleName}':`);
   console.log(`       await ${moduleGeneratorFunction}(context);`);
@@ -75,7 +80,7 @@ export async function generateShaperModule(inputContext: Arguments) {
   console.log(
     '4. Run the placeholder module generator from the root directory:'
   );
-  console.log(`     npm run shaper`);
+  console.log(`     myshaper`);
   console.log();
   console.log(
     `5. Finally implement your ${moduleName} module generator to generate real code.`

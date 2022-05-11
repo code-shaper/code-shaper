@@ -11,7 +11,7 @@ const generators = [
 ];
 
 // ----------------------------------------------------------------------------
-// These will generally be functions imported from your real generators
+// Placeholder generators to be replaced by real ones
 // ----------------------------------------------------------------------------
 async function generateReact(inputContext: Arguments) {
   console.log('Generating React using this context:');

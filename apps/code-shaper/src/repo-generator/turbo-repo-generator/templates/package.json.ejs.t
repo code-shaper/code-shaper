@@ -15,13 +15,11 @@
     "lint": "turbo run lint",
     "test": "turbo run test",
     "clean": "turbo run clean && rimraf node_modules",
-    "format": "prettier --write \"**/README.md\" \"**/src/**/*.{js,jsx,ts,tsx,json}\"",
-    "shaper": "ts-node apps/shaper/src/index.ts"
+    "format": "prettier --write \"**/README.md\" \"**/src/**/*.{js,jsx,ts,tsx,json}\""
   },
   "devDependencies": {
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
-    "ts-node": "^10.7.0",
     "turbo": "latest"
   },
   "engines": {

@@ -7,7 +7,7 @@ const moduleTypes = [
 ];
 
 // ----------------------------------------------------------------------------
-// These will generally be functions imported from your real modules
+// Placeholder modules to be replaced by real ones
 // ----------------------------------------------------------------------------
 async function generateApp(inputContext: Arguments) {
   console.log('Generating Application using this context:');

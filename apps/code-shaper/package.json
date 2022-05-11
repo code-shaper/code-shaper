@@ -14,7 +14,7 @@
   },
   "main": "./dist/index.js",
   "bin": {
-    "code-shaper": "bin/code-shaper"
+    "shaper": "bin/shaper"
   },
   "scripts": {
     "build": "rimraf dist && tsc && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",

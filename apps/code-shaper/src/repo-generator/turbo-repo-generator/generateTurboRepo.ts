@@ -33,17 +33,27 @@ export async function generateTurboRepo(inputContext: Arguments) {
   console.log('  git add .');
   console.log('  git commit -m "Initial commit"');
   console.log();
+  console.log('  # Set up myshaper command to run from anywhere');
+  console.log('  cd apps/myshaper');
+  console.log('  npm link');
+  console.log('  npm list -g  # shows the link to this folder');
+  console.log('  cd ../..');
+  console.log();
+  console.log('  # Run "myshaper" to see some placeholder generators');
+  console.log('  myshaper');
+  console.log();
   console.log('Code Generation');
   console.log('---------------');
-  console.log('The repo comes ready with code generation support.');
-  console.log('  - Run "npm run shaper" to see some placeholder generators.');
-  console.log();
-  console.log('You can install a pre-existing generator. For example:');
   console.log(
-    '  - Run "npm install @code-shaper/react -w shaper" in this repo.'
+    'As seen above, the repo comes ready with code generation support.'
   );
   console.log();
-  console.log('When you are ready to create your own generator:');
-  console.log('  - Run "code-shaper --generator generator" in this repo.');
+  console.log(
+    'You can install any published generator from the code-shaper ecosystem. For example:'
+  );
+  console.log('  npm install @code-shaper/react -w myshaper');
+  console.log();
+  console.log('Or you can create your own using a generator generator:');
+  console.log('  shaper --generator generator');
   console.log();
 }

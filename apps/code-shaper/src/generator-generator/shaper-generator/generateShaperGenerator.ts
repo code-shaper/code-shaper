@@ -52,16 +52,19 @@ export async function generateShaperGenerator(inputContext: Arguments) {
 
   console.log('Done.');
   console.log();
-  console.log('1. Add the following dependency in apps/shaper/package.json:');
+  console.log('1. Add the following dependency in apps/myshaper/package.json:');
   console.log(`     "${packageName}": "*"`);
   console.log();
-  console.log(
-    `2. Add the following generator import to apps/shaper/src/index.ts:`
-  );
+  console.log(`2. Import ${generatorFunction} in apps/myshaper/src/index.ts:`);
   console.log(`     import { ${generatorFunction} } from '${packageName}';`);
   console.log();
   console.log(
-    `3. Add the following switch case in the main() function of the same file:`
+    `3. If you see a placeholder generator named ${generatorFunction} in the same file,`
+  );
+  console.log(`   just delete it. It is replaced by the above import.`);
+  console.log();
+  console.log(
+    '   Otherwise, add the following switch case in the main() function:'
   );
   console.log(`     case '${generatorName}':`);
   console.log(`       await ${generatorFunction}(context);`);
@@ -73,6 +76,6 @@ export async function generateShaperGenerator(inputContext: Arguments) {
   console.log(`     npm run build`);
   console.log();
   console.log('5. Run the new generator from the root directory:');
-  console.log(`     npm run shaper`);
+  console.log(`     myshaper`);
   console.log();
 }
