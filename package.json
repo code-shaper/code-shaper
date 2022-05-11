@@ -1,0 +1,47 @@
+{
+  "name": "code-shaper",
+  "description": "A general purpose code generator with focus on modularity and generator sharing",
+  "version": "0.0.1",
+  "author": "Naresh Bhatia",
+  "license": "MIT",
+  "homepage": "https://github.com/code-shaper/code-shaper",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/code-shaper/code-shaper"
+  },
+  "keywords": [
+    "cli",
+    "codegen",
+    "generator",
+    "monorepo",
+    "nodejs",
+    "turborepo",
+    "typescript"
+  ],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "graph": "turbo run build --graph",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "clean": "turbo run clean && rimraf node_modules",
+    "format": "prettier --write \"**/README.md\" \"**/src/**/*.{js,jsx,ts,tsx,json}\"",
+    "code-shaper": "ts-node apps/code-shaper/src/index.ts",
+    "shaper": "ts-node apps/shaper/src/index.ts"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.7.0",
+    "turbo": "latest"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "npm@8.4.0"
+}

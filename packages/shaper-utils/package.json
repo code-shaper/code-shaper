@@ -1,0 +1,45 @@
+{
+  "name": "@code-shaper/shaper-utils",
+  "description": "Code Shaper utilities",
+  "version": "0.0.4",
+  "author": "Naresh Bhatia",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/code-shaper/code-shaper",
+    "directory": "packages/shaper-utils"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "dev": "tsc",
+    "lint": "TIMING=1 eslint src/**/*.ts*",
+    "clean": "rimraf .turbo node_modules dist"
+  },
+  "dependencies": {
+    "change-case": "^4.1.2",
+    "ejs": "^3.1.7",
+    "fs-extra": "^10.1.0",
+    "inquirer": "^8.2.4",
+    "lower-case": "^2.0.2",
+    "klaw-sync": "^6.0.0",
+    "title-case": "^3.0.3",
+    "upper-case": "^2.0.2",
+    "yargs": "^17.4.1"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.0",
+    "@types/fs-extra": "^9.0.13",
+    "@types/inquirer": "^8.2.1",
+    "@types/klaw-sync": "^6.0.1",
+    "@types/node": "^17.0.31",
+    "@types/yargs": "^17.0.10",
+    "eslint": "^8.15.0",
+    "eslint-config-custom": "*",
+    "tsconfig": "*",
+    "typescript": "^4.6.4"
+  }
+}
