@@ -43,10 +43,21 @@ export async function generateApp(inputContext: Arguments) {
   console.log();
   console.log(`Creating ${appName}...`);
 
-  console.log();
-  console.log('context:');
-  console.log(JSON.stringify(context, null, '  '));
-  console.log();
+  // console.log();
+  // console.log('context:');
+  // console.log(JSON.stringify(context, null, '  '));
+  // console.log();
 
   FileUtils.transformFiles(srcDir, dstDir, context);
+
+  console.log('Done.');
+  console.log();
+  console.log('1. In the root directory, run:');
+  console.log(`     npm run clean`);
+  console.log(`     npm install`);
+  console.log(`     npm run build`);
+  console.log();
+  console.log(`2. Run ${appName} from the root directory:`);
+  console.log(`     npm run dev`);
+  console.log();
 }

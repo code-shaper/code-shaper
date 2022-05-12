@@ -15,7 +15,6 @@
   "main": "./dist/index.js",
   "scripts": {
     "build": "rimraf dist && tsc",
-    "dev": "tsc",
     "lint": "TIMING=1 eslint src/**/*.ts*",
     "clean": "rimraf .turbo node_modules dist"
   },

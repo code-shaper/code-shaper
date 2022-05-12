@@ -10,7 +10,6 @@
   "main": "./dist/index.js",
   "scripts": {
     "build": "rimraf dist && tsc && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",
-    "dev": "tsc && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",
     "lint": "TIMING=1 eslint src/**/*.ts*",
     "clean": "rimraf .turbo node_modules dist"
   },
