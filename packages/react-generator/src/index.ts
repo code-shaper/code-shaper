@@ -1,21 +1,12 @@
 import inquirer from 'inquirer';
 import { Arguments } from 'yargs-parser';
 import { generateApp } from './app-generator/generateApp';
+import { generateComponent } from './component-generator/generateComponent';
 
 const moduleTypes = [
   { name: 'Application', value: 'app' },
   { name: 'Component', value: 'component' },
 ];
-
-// ----------------------------------------------------------------------------
-// These will generally be functions imported from your real modules
-// ----------------------------------------------------------------------------
-async function generateComponent(inputContext: Arguments) {
-  console.log('Generating Component using this context:');
-  console.log(inputContext);
-  // Enhance inputContext before calling a module generator (use inquirer)
-}
-// ----------------------------------------------------------------------------
 
 export async function generateReact(inputContext: Arguments) {
   const questions = [

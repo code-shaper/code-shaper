@@ -4,13 +4,13 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
-    "test": {
-      "dependsOn": [],
-      "outputs": ["coverage/**"]
-    },
     "lint": {
       "dependsOn": ["^build"],
       "outputs": []
+    },
+    "test": {
+      "dependsOn": ["^lint"],
+      "outputs": ["coverage/**"]
     },
     "dev": {
       "cache": false

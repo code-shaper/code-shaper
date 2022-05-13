@@ -52,12 +52,23 @@ export async function generateApp(inputContext: Arguments) {
 
   console.log('Done.');
   console.log();
-  console.log('1. In the root directory, run:');
-  console.log(`     npm run clean`);
-  console.log(`     npm install`);
-  console.log(`     npm run build`);
+  console.log(
+    '1. In the root directory, edit package.json to force the latest version of React.'
+  );
+  console.log(
+    '   This is done by adding the following overrides section after the devDependencies section:'
+  );
+  console.log('     "overrides": {');
+  console.log('       "react": "^18.1.0",');
+  console.log('       "react-dom": "^18.1.0"');
+  console.log('     },');
+  console.log();
+  console.log('2. In the root directory, run:');
+  console.log('     npm run clean');
+  console.log('     npm install');
+  console.log('     npm run build');
   console.log();
   console.log(`2. Run ${appName} from the root directory:`);
-  console.log(`     npm run dev`);
+  console.log('     npm run dev');
   console.log();
 }
