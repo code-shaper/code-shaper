@@ -1,0 +1,23 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",
+    "lint": "TIMING=1 eslint src/**/*.ts*",
+    "clean": "rimraf .turbo node_modules dist"
+  },
+  "files": [
+    "*.js",
+    "*.map",
+    "*.d.ts"
+  ],
+  "dependencies": {
+    "@code-shaper/shaper-utils": "^0.0.4",
+    "inquirer": "^8.2.4"
+  },
+  "author": "",
+  "license": "ISC",
+  "shaper": {}
+}

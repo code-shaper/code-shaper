@@ -119,3 +119,53 @@ export const FileUtils = {
   transformFiles,
   resolvePaths,
 };
+
+export type Plugin = (args: Array<string | number>) => Promise<any>;
+
+export function getPlugin(name: string, dir = 'node_modules'): Plugin  {
+  const root = process.cwd();
+  const modulePath = path.join(root, dir, name);
+
+  if (!fs.existsSync(modulePath)) {
+    throw new Error('module does not exist');
+  }
+  
+  const module = require(modulePath);
+  return module.default as Plugin;
+}
+
+export function getAvailablePlugins(dir: string): Array<string> {
+  const root = process.cwd();
+  const modulesPath = path.join(root, dir);
+
+  if (!fs.existsSync(modulesPath)) {
+    throw new Error('plugin directory does not exist');
+  }
+  
+  const directories = fs.readdirSync(modulesPath).filter(function (file) {
+    let isPlugin = false;
+    const folderPath = path.join(modulesPath, file);
+
+    if (fs.statSync(folderPath).isDirectory()) {
+      isPlugin = isDirectoryPlugin(folderPath);
+    }
+    return isPlugin;
+  });
+
+  return directories;
+}
+
+export function isDirectoryPlugin(directoryPath: string): boolean {
+  let isPlugin = false;
+  const packageJsonPath = path.join(directoryPath, 'package.json');
+
+  if (fs.existsSync(packageJsonPath)) {
+    const packageJson = fs.readJSONSync(packageJsonPath);
+    
+    if (typeof packageJson.shaper !== 'undefined') {
+      isPlugin = true
+    }
+  }
+
+  return isPlugin;
+}

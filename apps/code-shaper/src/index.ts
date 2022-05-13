@@ -1,41 +1,42 @@
-import inquirer from 'inquirer';
 // @ts-ignore
-import inquirerDirectory from 'inquirer-directory';
+import inquirer from 'inquirer';
 import yargs from 'yargs/yargs';
-import { generateGenerator } from './generator-generator/generateGenerator';
-import { generateRepo } from './repo-generator/generateRepo';
-
-const generators = [
-  { name: 'Repository generator', value: 'repo' },
-  { name: 'Generator generator', value: 'generator' },
-];
+import {getPlugin, Plugin, getAvailablePlugins} from '@code-shaper/shaper-utils';
 
 async function main() {
   const argv = await yargs().parse(process.argv.slice(2));
 
-  const questions = [
-    {
-      type: 'list',
-      name: 'generator',
-      message: 'Which generator would you like to run?',
-      choices: generators,
-    },
-  ];
+  const nameArg = argv._[0] as string;
+  const dir: string = argv["pluginDir"] as string || 'node_modules';
 
-  inquirer.registerPrompt('directory', inquirerDirectory);
-  const context = await inquirer.prompt(questions, argv);
+  // get available plugins
+  const availablePlugins = getAvailablePlugins(dir);
 
-  // Execute generator
-  switch (context.generator) {
-    case 'repo':
-      await generateRepo(context);
-      break;
-    case 'generator':
-      await generateGenerator(context);
-      break;
-    default:
-      console.error(`Unknown generator: ${context.generator}`);
-      break;
+  if (availablePlugins.length > 0) {
+
+    const questions = [
+      {
+        type: 'list',
+        name: 'pluginName',
+        message: 'Which plugin would you like to run?',
+        choices: availablePlugins,
+      }
+    ];
+    
+    const {pluginName} = await inquirer.prompt(questions, {pluginName: nameArg ? nameArg : undefined});
+
+    let plugin: Plugin;
+    try {
+      plugin = getPlugin(pluginName, dir);
+    } catch (err) {
+      console.log(`could not find a plugin named ${pluginName} in the ${dir} directory.`);
+      process.exit();
+    }
+
+    // call the plugin with the rest of the args
+    plugin(argv._.slice(1));
+  } else {
+    console.log(`There are no plugins in the ${dir} directory.`);
   }
 }
 
