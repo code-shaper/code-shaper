@@ -2,41 +2,25 @@ import inquirer from 'inquirer';
 // @ts-ignore
 import inquirerDirectory from 'inquirer-directory';
 import yargs from 'yargs/yargs';
-import { generateGenerator } from './generator-generator/generateGenerator';
-import { generateRepo } from './repo-generator/generateRepo';
+import { shaper } from './shaper';
 
-const generators = [
-  { name: 'Repository generator', value: 'repo' },
-  { name: 'Generator generator', value: 'generator' },
-];
+// Register needed inquirer prompts
+inquirer.registerPrompt('directory', inquirerDirectory);
 
 async function main() {
+  // Parse command line
   const argv = await yargs().parse(process.argv.slice(2));
+  const { _, $0: command, ...options } = argv; // eslint-disable-line
 
-  const questions = [
-    {
-      type: 'list',
-      name: 'generator',
-      message: 'Which generator would you like to run?',
-      choices: generators,
-    },
-  ];
-
-  inquirer.registerPrompt('directory', inquirerDirectory);
-  const context = await inquirer.prompt(questions, argv);
-
-  // Execute generator
-  switch (context.generator) {
-    case 'repo':
-      await generateRepo(context);
-      break;
-    case 'generator':
-      await generateGenerator(context);
-      break;
-    default:
-      console.error(`Unknown generator: ${context.generator}`);
-      break;
+  // Set pluginId if specified on the command line
+  // Otherwise, leave it as undefined
+  let pluginId;
+  if (_.length > 0 && typeof _[0] === 'string') {
+    pluginId = _[0];
   }
+
+  // Run shaper
+  await shaper.run(pluginId, options);
 }
 
-main().catch((err) => console.error(err));
+main().catch((err) => console.error('Error:', err));

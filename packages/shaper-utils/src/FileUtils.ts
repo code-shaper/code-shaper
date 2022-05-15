@@ -2,19 +2,19 @@ import treeWalk from 'klaw-sync';
 import path from 'path';
 import ejs from 'ejs';
 import fs from 'fs-extra';
-import { Arguments } from 'yargs-parser';
+import { Options } from './models';
 
 /**
  * Transforms files from source directory to destination directory.
  *
- * - Files with ".ejs.t" extension are transformed using the context
+ * - Files with ".ejs.t" extension are transformed using the options
  * - Files without ".ejs.t" extension are copied as is
  *
  * @param srcDir
  * @param dstDir
- * @param context
+ * @param options
  */
-function transformFiles(srcDir: string, dstDir: string, context: Arguments) {
+function transformFiles(srcDir: string, dstDir: string, options: Options) {
   // get all source files (no directories)
   const srcFiles = treeWalk(srcDir, { nodir: true });
 
@@ -32,7 +32,7 @@ function transformFiles(srcDir: string, dstDir: string, context: Arguments) {
     dstRelativePath = dstRelativePath.replace(
       /\[(\w+)]/g,
       function (_, token: string) {
-        return context[token];
+        return options[token] as string;
       }
     );
 
@@ -43,7 +43,7 @@ function transformFiles(srcDir: string, dstDir: string, context: Arguments) {
 
     // Copy srcFile to destination
     if (isEjsTemplate) {
-      ejs.renderFile(srcPath, context, {}, function (err, outputString) {
+      ejs.renderFile(srcPath, options, {}, function (err, outputString) {
         if (err) {
           console.error(err);
         }

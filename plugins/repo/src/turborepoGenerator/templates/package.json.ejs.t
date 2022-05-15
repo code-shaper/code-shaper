@@ -1,23 +1,8 @@
 {
-  "name": "code-shaper",
-  "description": "A general purpose code generator with focus on modularity and generator sharing",
+  "name": "<%= repoName %>",
+  "description": "",
   "version": "0.0.1",
-  "author": "Naresh Bhatia",
   "license": "MIT",
-  "homepage": "https://github.com/code-shaper/code-shaper",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/code-shaper/code-shaper"
-  },
-  "keywords": [
-    "cli",
-    "codegen",
-    "generator",
-    "monorepo",
-    "nodejs",
-    "turborepo",
-    "typescript"
-  ],
   "workspaces": [
     "apps/*",
     "configs/*",

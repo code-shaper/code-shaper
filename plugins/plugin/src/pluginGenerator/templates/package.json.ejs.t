@@ -1,37 +1,25 @@
 {
-  "name": "code-shaper",
-  "description": "CLI for generating code",
+  "name": "<%= packageName %>",
+  "description": "<%= pluginName %> plugin",
   "version": "0.0.1",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/code-shaper/code-shaper",
-    "directory": "apps/code-shaper"
-  },
   "publishConfig": {
     "access": "public"
   },
   "main": "./dist/index.js",
-  "bin": {
-    "shaper": "bin/shaper"
-  },
   "scripts": {
     "build": "rimraf dist && tsc && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",
     "lint": "eslint src/**/*.ts*",
     "clean": "rimraf .turbo node_modules dist"
   },
   "dependencies": {
-    "@code-shaper/plugin": "*",
-    "@code-shaper/react": "*",
-    "@code-shaper/repo": "*",
-    "@code-shaper/shaper-utils": "*",
+    "@code-shaper/shaper-utils": "^0.0.5",
     "inquirer": "^8.2.4",
-    "inquirer-directory": "^2.2.0",
-    "yargs": "^17.5.0"
+    "yargs": "^17.4.1"
   },
   "devDependencies": {
     "@types/inquirer": "^8.2.1",
-    "@types/node": "^17.0.33",
+    "@types/node": "^17.0.31",
     "@types/yargs": "^17.0.10",
     "copyfiles": "^2.4.1",
     "eslint": "^8.15.0",
