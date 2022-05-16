@@ -13,7 +13,7 @@
     "clean": "rimraf .turbo node_modules dist"
   },
   "dependencies": {
-    "@code-shaper/shaper-utils": "^0.0.5",
+    "@code-shaper/shaper-utils": "latest",
     "inquirer": "^8.2.4",
     "yargs": "^17.4.1"
   },

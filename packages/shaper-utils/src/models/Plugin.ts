@@ -34,19 +34,19 @@ export type PluginMap = { [id: string]: Plugin };
 /**
  * returns plugin choices to drive inquirer list prompt
  *
- * @param pluginMap
+ * @param plugins
  * @return Example:
  * [
  *   { name: 'React', value: '@code-shaper/react' }
  *   { name: 'Nextjs', value: '@code-shaper/nextjs' }
  * ]
  */
-export function getPluginChoices(pluginMap: PluginMap) {
-  const pluginIds = Object.keys(pluginMap);
+export function getPluginChoices(plugins: PluginMap) {
+  const pluginIds = Object.keys(plugins);
   return pluginIds.map((pluginId) => {
-    const plugin = pluginMap[pluginId];
+    const plugin = plugins[pluginId];
     return {
-      name: `${plugin.name} (${plugin.description})`,
+      name: `${plugin.name} (${plugin.id} - ${plugin.description})`,
       value: plugin.id,
     };
   });

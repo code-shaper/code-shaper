@@ -5,7 +5,7 @@ import path from 'path';
 export const turborepoGenerator: Generator = {
   id: 'turborepo',
   name: 'Turborepo',
-  description: 'Generates a Turborepo',
+  description: 'generates a Turborepo',
   generate: generateTurborepo,
 };
 
