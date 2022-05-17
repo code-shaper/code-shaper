@@ -26,5 +26,6 @@
     "eslint-config-custom": "*",
     "typescript": "^4.6.4",
     "typescript-config": "*"
-  }
+  },
+  "shaper": {}
 }
