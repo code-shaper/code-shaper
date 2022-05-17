@@ -19,7 +19,7 @@ function registerGenerator(generator: Generator) {
 export const <%= pluginName %>Plugin: Plugin = {
   id: '<%= packageName %>',
   name: '<%= pluginName %>',
-  description: 'Generates <%= pluginName %> artifacts',
+  description: 'generates <%= pluginName %> artifacts',
   run: async (inputOptions: Options) => {
     const generator = await selectGenerator(generators, inputOptions);
     if (!generator) {

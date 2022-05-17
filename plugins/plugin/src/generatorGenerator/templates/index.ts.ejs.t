@@ -5,7 +5,7 @@ import path from 'path';
 export const <%= generatorModuleName %>: Generator = {
   id: '<%= generatorName %>',
   name: '<%= generatorPascalCaseName %>',
-  description: 'Generates a <%= generatorName %>',
+  description: 'generates a <%= generatorName %>',
   generate: <%= generatorFunctionName %>,
 };
 
