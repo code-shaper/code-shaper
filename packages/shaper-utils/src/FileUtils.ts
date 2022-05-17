@@ -1,8 +1,10 @@
 import treeWalk from 'klaw-sync';
 import path from 'path';
 import ejs from 'ejs';
-import fs from 'fs-extra';
-import { Options } from './models';
+import fs, { readFileSync } from 'fs-extra';
+import { Options, Plugin } from './models';
+import { parse, ParseError, printParseErrorCode } from 'jsonc-parser';
+import { PackageJson } from './models/PackageJSON';
 
 /**
  * Appends data to a file
@@ -125,10 +127,151 @@ function transformFiles(srcDir: string, dstDir: string, options: Options) {
       fs.copySync(srcPath, dstPath, {});
     }
   });
+export interface JsonParseOptions {
+  /**
+   * Expect JSON with javascript-style
+   * @default false
+   */
+  expectComments?: boolean;
+  /**
+   * Disallow javascript-style
+   * @default false
+   */
+  disallowComments?: boolean;
+}
+
+export interface JsonReadOptions extends JsonParseOptions {
+  /**
+   * mutable field recording whether JSON ends with new line
+   * @default false
+   */
+  endsWithNewline?: boolean;
+}
+
+/**
+ * Reads a JSON file and returns the object the JSON content represents.
+ *
+ * @param path A path to a file.
+ * @param options JSON parse options
+ * @returns Object the JSON content of the file represents
+ */
+ function readJsonFile<T extends object = any>(
+  path: string,
+  options?: JsonReadOptions
+): T {
+  const content = readFileSync(path, 'utf-8');
+  if (options) {
+    options.endsWithNewline = content.charCodeAt(content.length - 1) === 10;
+  }
+  try {
+    return parseJson<T>(content, options);
+  } catch (e: any) {
+    e.message = e.message.replace('JSON', path);
+    throw e;
+  }
+}
+
+/**
+ * Parses the given JSON string and returns the object the JSON content represents.
+ * By default javascript-style comments are allowed.
+ *
+ * @param input JSON content as string
+ * @param options JSON parse options
+ * @returns Object the JSON content represents
+ */
+ export function parseJson<T extends object = any>(
+  input: string,
+  options?: JsonParseOptions
+): T {
+  try {
+    if (
+      options?.disallowComments === true ||
+      options?.expectComments !== true
+    ) {
+      return JSON.parse(input);
+    }
+  } catch (error) {
+    if (options?.disallowComments === true) {
+      throw error;
+    }
+  }
+
+  const errors: ParseError[] = [];
+  const result: T = parse(input, errors);
+
+  if (errors.length > 0) {
+    const { error, offset } = errors[0];
+    throw new Error(
+      `${printParseErrorCode(error)} in JSON at position ${offset}`
+    );
+  }
+
+  return result;
+}
+
+function getInstalledPluginsFromPackageJson(
+  rootPath: string
+): Map<string, Plugin> {
+  const packageJson = readJsonFile(`${rootPath}/package.json`) as PackageJson;
+
+  const dependencyNames = new Set([
+    ...Object.keys(packageJson.dependencies || {}),
+    ...Object.keys(packageJson.devDependencies || {}),
+  ]);
+
+  const allDependencyNames = Array.from(dependencyNames);
+  const plugins = new Map<string, Plugin>();
+
+  // loop through all the dependencies
+  allDependencyNames.forEach((dependencyName) => {
+    // Get the package.json file
+    const dependencyPackageJson = getPluginPackageJson(rootPath, dependencyName);
+    
+    // check to see that if has the required properties
+    if (dependencyPackageJson && !!(dependencyPackageJson.shaper) && !!(dependencyPackageJson.main)) {
+      // get the plugin 
+      const plugin = getPluginMainDefaultExport(path.join(rootPath, 'node_modules', dependencyName), dependencyPackageJson.main);
+
+      if (plugin && !!(plugin.run)) {
+        plugins.set(dependencyName, plugin);
+      }
+    }
+  });
+
+  return plugins;
+}
+
+function getPluginMainDefaultExport(rootPath: string, mainPath: string): Plugin | null {
+  try {
+    const fullMainPath = require.resolve(mainPath, {
+      paths: [rootPath],
+    });
+    const plugin = require(fullMainPath).default as Plugin;
+    return plugin;
+  } catch (err) {
+    console.log('error requiring plugin', err);
+    return null;
+  }
+}
+
+function getPluginPackageJson(
+  workspaceRoot: string,
+  pluginName: string
+): PackageJson | null {
+  try {
+    const packageJsonPath = require.resolve(`${pluginName}/package.json`, {
+      paths: [workspaceRoot],
+    });
+    const packageJson = readJsonFile(packageJsonPath) as PackageJson;
+    return packageJson;
+  } catch {
+    return null;
+  }
 }
 
 export const FileUtils = {
   appendToFile,
   resolvePaths,
   transformFiles,
+  getInstalledPluginsFromPackageJson
 };

@@ -34,6 +34,8 @@
     "format": "prettier --write \"**/README.md\" \"**/src/**/*.{js,jsx,ts,tsx,json}\""
   },
   "devDependencies": {
+    "@code-shaper/react": "^0.0.1",
+    "@code-shaper/plugin": "^0.0.1",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
     "turbo": "latest"
@@ -42,5 +44,8 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "npm@8.4.0"
+  "packageManager": "npm@8.4.0",
+  "dependencies": {
+    "jsonc-parser": "^3.0.0"
+  }
 }

@@ -21,7 +21,7 @@ registerGenerator(appGenerator);
 registerGenerator(reactLibraryGenerator);
 registerGenerator(componentGenerator);
 
-export const reactPlugin: Plugin = {
+const reactPlugin: Plugin = {
   id: '@code-shaper/react',
   name: 'React',
   description: 'generates React applications',
@@ -34,3 +34,5 @@ export const reactPlugin: Plugin = {
     return generator.generate(inputOptions);
   },
 };
+
+export default reactPlugin;
