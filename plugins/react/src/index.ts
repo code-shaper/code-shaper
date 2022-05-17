@@ -7,6 +7,7 @@ import {
 } from '@code-shaper/shaper-utils';
 import { componentGenerator } from './componentGenerator';
 import { appGenerator } from './appGenerator';
+import { reactLibraryGenerator } from './reactLibraryGenerator';
 
 const generators: GeneratorMap = {};
 
@@ -17,6 +18,7 @@ function registerGenerator(generator: Generator) {
 
 // ----- Register Generators -----
 registerGenerator(appGenerator);
+registerGenerator(reactLibraryGenerator);
 registerGenerator(componentGenerator);
 
 export const reactPlugin: Plugin = {

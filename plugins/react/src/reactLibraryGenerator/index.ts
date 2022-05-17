@@ -1,57 +1,49 @@
-import { cc, FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
+import { FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
 import inquirer from 'inquirer';
 import path from 'path';
 
-export const appGenerator: Generator = {
-  id: 'app',
-  name: 'Application',
-  description: 'generates a React application',
-  generate: generateApp,
+export const reactLibraryGenerator: Generator = {
+  id: 'react-library',
+  name: 'React Library',
+  description: 'generates a React library',
+  generate: generateReactLibrary,
 };
 
-async function generateApp(inputOptions: Options) {
+async function generateReactLibrary(inputOptions: Options) {
   const questions = [
     {
       type: 'input',
-      name: 'appName',
-      message: 'Application name? (e.g. "Movie Magic")',
+      name: 'reactLibraryName',
+      message: 'Library name? (e.g. "ui-lib")',
     },
     {
       type: 'directory',
       name: 'parentDir',
-      message: 'Parent directory? (usually "apps")',
+      message: 'Parent directory? (usually "packages")',
       basePath: '.',
     },
     {
       type: 'input',
       name: 'packageName',
       message:
-        'Package name used for publishing? (e.g. "movie-magic" or "@movie-magic/movie-magic")',
+        'Package name used for publishing? (e.g. "ui-lib" or "@movie-magic/ui-lib")',
     },
   ];
 
   const options = await inquirer.prompt(questions, inputOptions);
-  const { appName, parentDir } = options;
+  const { reactLibraryName, parentDir } = options;
 
   // --------------------------------------------------------------------------
-  // Add more options for code generation
+  // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // Example: movie-magic
-  const appDir = cc.kebabCase(appName);
-  options['appDir'] = appDir;
-
+  // ...
   // --------------------------------------------------------------------------
 
   const srcDir = path.join(__dirname, 'templates');
-  const dstDir = path.join(parentDir, appDir);
+  const dstDir = path.join(parentDir, reactLibraryName);
 
   console.log();
-  console.log(`Creating ${appName}...`);
-
-  // console.log();
-  // console.log('options:');
-  // console.log(JSON.stringify(options, null, '  '));
-  // console.log();
+  console.log(`Creating ${reactLibraryName}...`);
 
   FileUtils.transformFiles(srcDir, dstDir, options);
 
@@ -73,10 +65,8 @@ async function generateApp(inputOptions: Options) {
   console.log('2. In the root directory, run:');
   console.log('     npm run clean');
   console.log('     npm install');
-  console.log('     npm run build');
   console.log();
-  console.log(`3. Run ${appName} from the root directory:`);
-  console.log('     npm run dev');
+  console.log('3. Start adding components to your library');
   console.log();
 
   return Promise.resolve();

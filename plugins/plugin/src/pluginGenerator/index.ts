@@ -39,11 +39,6 @@ async function generatePlugin(inputOptions: Options) {
   console.log();
   console.log(`Creating ${dstRelativeDir}...`);
 
-  // console.log();
-  // console.log('options:');
-  // console.log(JSON.stringify(options, null, '  '));
-  // console.log();
-
   FileUtils.transformFiles(srcDir, dstDir, options);
 
   console.log('Done.');
@@ -53,6 +48,11 @@ async function generatePlugin(inputOptions: Options) {
   console.log(`     npm install`);
   console.log();
   console.log('2. Add plugin to "shaperPlugins" in ./package.json');
+  console.log();
+  console.log('3. Start adding generators to your plugin');
+  console.log();
+  console.log('options available for this plugin:');
+  console.log(JSON.stringify(options, null, '  '));
   console.log();
 
   return Promise.resolve();

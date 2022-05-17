@@ -52,19 +52,20 @@ async function generateComponent(inputOptions: Options) {
 
   console.log('Done.');
   console.log();
-  console.log('1. Use the component somewhere in your app');
-  console.log();
-  console.log('2. Run your app to see your component in action:');
-  console.log('     npm run dev');
+  console.log(
+    '1. Implement the component using Storybook (we have added a placeholder story for you):'
+  );
+  console.log('     npm run storybook');
   console.log();
   console.log(
-    '4. Run units tests to see the placeholder test that was added for your component:'
+    '2. Implement units tests (we have added a placeholder test for you):'
   );
   console.log('     npm run test');
   console.log();
-  console.log('5. A Storybook story was also added. Check it out:');
-  console.log('   TODO: Add instructions for Storybook setup.');
-  console.log('     npm run storybook');
+  console.log('3. Use the component somewhere in your app');
+  console.log();
+  console.log('4. Run your app to see the component in action:');
+  console.log('     npm run dev');
   console.log();
 
   return Promise.resolve();

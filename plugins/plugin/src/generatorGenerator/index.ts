@@ -14,7 +14,7 @@ async function generateGenerator(inputOptions: Options) {
     {
       type: 'input',
       name: 'generatorName',
-      message: 'Generator name? (e.g. "app")',
+      message: 'Generator name? (e.g. "react-library")',
     },
     {
       type: 'list',
@@ -42,19 +42,23 @@ async function generateGenerator(inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation
   // --------------------------------------------------------------------------
-  // Example: app
+  // Example: reactLibrary
   const generatorCamelCaseName = cc.camelCase(generatorName);
   options['generatorCamelCaseName'] = generatorCamelCaseName;
 
-  // Example: App
+  // Example: ReactLibrary
   const generatorPascalCaseName = cc.pascalCase(generatorName);
   options['generatorPascalCaseName'] = generatorPascalCaseName;
 
-  // Example: appGenerator
+  // Example: ReactLibrary
+  const generatorCapitalCaseName = cc.capitalCase(generatorName);
+  options['generatorCapitalCaseName'] = generatorCapitalCaseName;
+
+  // Example: reactLibraryGenerator
   const generatorModuleName = `${generatorCamelCaseName}Generator`;
   options['generatorModuleName'] = generatorModuleName;
 
-  // Example: generateApp
+  // Example: generateReactLibrary
   const generatorFunctionName = `generate${generatorPascalCaseName}`;
   options['generatorFunctionName'] = generatorFunctionName;
 
@@ -65,11 +69,6 @@ async function generateGenerator(inputOptions: Options) {
 
   console.log();
   console.log(`Creating ${generatorModuleName}...`);
-
-  // console.log();
-  // console.log('options:');
-  // console.log(JSON.stringify(options, null, '  '));
-  // console.log();
 
   FileUtils.transformFiles(srcDir, dstDir, options);
 
@@ -90,6 +89,9 @@ async function generateGenerator(inputOptions: Options) {
   console.log(
     `4. Finally implement ${generatorModuleName} to generate real code.`
   );
+  console.log();
+  console.log('options available for this generator:');
+  console.log(JSON.stringify(options, null, '  '));
   console.log();
 
   return Promise.resolve();
