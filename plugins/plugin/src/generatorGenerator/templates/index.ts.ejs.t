@@ -34,7 +34,7 @@ async function <%= generatorFunctionName %>(inputOptions: Options) {
   console.log(`Creating ${<%= generatorName %>Name}...`);
 
   // TODO: Create templates and then uncomment this line
-  // FileUtils.transformFiles(srcDir, dstDir, context);
+  // FileUtils.transformFiles(srcDir, dstDir, options);
   console.log();
   console.log('TODO: Run FileUtils.transformFiles() with following arguments:');
   console.log(`srcDir: ${path.relative(process.cwd(), srcDir)}`);

@@ -85,7 +85,7 @@ async function generateGenerator(inputOptions: Options) {
   console.log(`     registerGenerator(${generatorModuleName});`);
   console.log();
   console.log('3. In the root directory, run:');
-  console.log(`     npm run build`);
+  console.log('     npm run build');
   console.log();
   console.log(
     `4. Finally implement ${generatorModuleName} to generate real code.`
