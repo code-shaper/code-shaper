@@ -43,15 +43,18 @@ async function generateComponent(inputOptions: Options) {
   console.log();
   console.log(`Creating ${componentName}...`);
 
+  // Create the component
   FileUtils.transformFiles(srcDir, dstDir, options);
+
+  // Import it in src/components/index.ts
+  const indexTs = path.join(workspace, `src/components/index.ts`);
+  FileUtils.appendToFile(indexTs, `export * from './${componentName}';\n`);
 
   console.log('Done.');
   console.log();
-  console.log('1. Import the component in src/components/index.ts.');
+  console.log('1. Use the component somewhere in your app');
   console.log();
-  console.log('2. Use the component somewhere in your app');
-  console.log();
-  console.log('3. Run your app to see your component in action:');
+  console.log('2. Run your app to see your component in action:');
   console.log('     npm run dev');
   console.log();
   console.log(

@@ -5,55 +5,15 @@ import fs from 'fs-extra';
 import { Options } from './models';
 
 /**
- * Transforms files from source directory to destination directory.
+ * Appends data to a file
  *
- * - Files with ".ejs.t" extension are transformed using the options
- * - Files without ".ejs.t" extension are copied as is
- *
- * @param srcDir
- * @param dstDir
- * @param options
+ * @param path to the file
+ * @param data to be appended
  */
-function transformFiles(srcDir: string, dstDir: string, options: Options) {
-  // get all source files (no directories)
-  const srcFiles = treeWalk(srcDir, { nodir: true });
-
-  // transform each source file
-  srcFiles.forEach((srcFile) => {
-    const srcPath = srcFile.path;
-    const srcRelativePath = path.relative(srcDir, srcPath);
-
-    // compute destination relative path
-    const isEjsTemplate = srcRelativePath.endsWith('.ejs.t');
-    let dstRelativePath = isEjsTemplate
-      ? srcRelativePath.slice(0, srcRelativePath.length - '.ejs.t'.length)
-      : srcRelativePath;
-    // replace tokens with values
-    dstRelativePath = dstRelativePath.replace(
-      /\[(\w+)]/g,
-      function (_, token: string) {
-        return options[token] as string;
-      }
-    );
-
-    console.log(`  ${dstRelativePath}`);
-
-    // compute full destination path
-    const dstPath = path.join(dstDir, dstRelativePath);
-
-    // Copy srcFile to destination
-    if (isEjsTemplate) {
-      ejs.renderFile(srcPath, options, {}, function (err, outputString) {
-        if (err) {
-          console.error(err);
-        }
-
-        fs.outputFileSync(dstPath, outputString);
-      });
-    } else {
-      fs.copySync(srcPath, dstPath, {});
-    }
-  });
+function appendToFile(path: string, data: any) {
+  const stream = fs.createWriteStream(path, { flags: 'a' });
+  stream.write(data);
+  stream.end();
 }
 
 /**
@@ -115,7 +75,60 @@ function resolvePaths(
   return specs;
 }
 
+/**
+ * Transforms files from source directory to destination directory.
+ *
+ * - Files with ".ejs.t" extension are transformed using the options
+ * - Files without ".ejs.t" extension are copied as is
+ *
+ * @param srcDir
+ * @param dstDir
+ * @param options
+ */
+function transformFiles(srcDir: string, dstDir: string, options: Options) {
+  // get all source files (no directories)
+  const srcFiles = treeWalk(srcDir, { nodir: true });
+
+  // transform each source file
+  srcFiles.forEach((srcFile) => {
+    const srcPath = srcFile.path;
+    const srcRelativePath = path.relative(srcDir, srcPath);
+
+    // compute destination relative path
+    const isEjsTemplate = srcRelativePath.endsWith('.ejs.t');
+    let dstRelativePath = isEjsTemplate
+      ? srcRelativePath.slice(0, srcRelativePath.length - '.ejs.t'.length)
+      : srcRelativePath;
+    // replace tokens with values
+    dstRelativePath = dstRelativePath.replace(
+      /\[(\w+)]/g,
+      function (_, token: string) {
+        return options[token] as string;
+      }
+    );
+
+    console.log(`  ${dstRelativePath}`);
+
+    // compute full destination path
+    const dstPath = path.join(dstDir, dstRelativePath);
+
+    // Copy srcFile to destination
+    if (isEjsTemplate) {
+      ejs.renderFile(srcPath, options, {}, function (err, outputString) {
+        if (err) {
+          console.error(err);
+        }
+
+        fs.outputFileSync(dstPath, outputString);
+      });
+    } else {
+      fs.copySync(srcPath, dstPath, {});
+    }
+  });
+}
+
 export const FileUtils = {
-  transformFiles,
+  appendToFile,
   resolvePaths,
+  transformFiles,
 };
