@@ -50,23 +50,49 @@ body {
 
 /* ----- Components ----- */
 
-.header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0 1.5rem;
-  min-height: 3rem;
-  background-color: var(--color-primary-main);
-  color: var(--color-primary-contrast-text);
-  box-shadow: var(--box-shadow-1);
+.button {
+  font-family: inherit;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  border-radius: var(--button-border-radius);
 }
 
-.header__text {
-  font-family: var(--font-family-sans);
-  font-size: 1.125rem;
-  font-weight: var(--font-weight-medium);
-  line-height: 1;
-  letter-spacing: 0.0075em;
+.button--medium {
+  font-size: 0.875rem;
+  line-height: 1rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+}
+
+.button--contained {
+  border-width: var(--border-width-default);
+  border-color: var(--color-transparent);
+}
+
+.button--contained-default {
+  color: var(--button-contained-default-text-color);
+  background-color: var(--button-contained-default-background-color);
+}
+
+.button--contained-default:hover {
+  background-color: var(--button-contained-default-state-hover);
+}
+
+.button--contained-primary {
+  color: var(--color-primary-contrast-text);
+  background-color: var(--color-primary-main);
+}
+
+.button--contained-primary:hover {
+  background-color: var(--button-contained-primary-state-hover);
+}
+
+.button--contained-secondary {
+  color: var(--color-secondary-contrast-text);
+  background-color: var(--color-secondary-main);
+}
+
+.button--contained-secondary:hover {
+  background-color: var(--button-contained-secondary-state-hover);
 }
 
 /* ----- CSS Variables ----- */
@@ -157,4 +183,16 @@ body {
   /* ----- Box Shadows ----- */
   --box-shadow-1: 0px 2px 4px -1px #00000033, 0px 4px 5px 0px #00000024,
     0px 1px 10px 0px #0000001f;
+
+  /* ----- Components ----- */
+  --button-border-radius: var(--border-radius-4);
+  --button-contained-default-background-color: var(--color-grey-300);
+  --button-contained-default-text-color: #000000de;
+  --button-contained-default-state-hover: var(--color-grey-400);
+  --button-contained-primary-state-hover: var(--color-blue-900);
+  --button-contained-secondary-state-hover: var(--color-yellow-500);
+  --button-outlined-default-border-color: var(--color-grey-300);
+  --button-outlined-default-state-hover: var(--color-grey-300);
+  --button-outlined-primary-state-hover: var(--color-blue-50);
+  --button-outlined-secondary-state-hover: var(--color-yellow-100);
 }

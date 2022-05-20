@@ -1,6 +1,6 @@
 {
   "name": "<%= packageName %>",
-  "description": "<%= appName %>",
+  "description": "<%= itemNameCapitalCase %>",
   "private": true,
   "version": "0.0.1",
   "scripts": {
@@ -10,7 +10,7 @@
     "lint": "eslint src/**/*.ts*",
     "test": "jest --coverage",
     "cypress": "cypress open",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+    "clean": "rimraf .turbo node_modules dist"
   },
   "dependencies": {
     "react": "^18.0.0",

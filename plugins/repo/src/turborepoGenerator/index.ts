@@ -13,26 +13,26 @@ async function generateTurborepo(inputOptions: Options) {
   const questions = [
     {
       type: 'input',
-      name: 'repoName',
+      name: 'itemName',
       message: 'Repository name? (e.g. my-org, my-group, my-project)',
     },
   ];
 
   const options = await inquirer.prompt(questions, inputOptions);
-  const { repoName } = options;
+  const { itemName } = options;
 
   const srcDir = path.join(__dirname, 'templates');
-  const dstDir = path.join(process.cwd(), repoName);
+  const dstDir = path.join(process.cwd(), itemName);
 
   console.log();
-  console.log(`Creating ${repoName}...`);
+  console.log(`Creating ${itemName}...`);
 
   FileUtils.transformFiles(srcDir, dstDir, options);
 
   console.log();
   console.log('Done. Now run:');
   console.log();
-  console.log(`  cd ${repoName}`);
+  console.log(`  cd ${itemName}`);
   console.log('  git init');
   console.log('  npm install');
   console.log('  git add .');

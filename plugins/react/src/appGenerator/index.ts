@@ -13,8 +13,8 @@ async function generateApp(inputOptions: Options) {
   const questions = [
     {
       type: 'input',
-      name: 'appName',
-      message: 'Application name? (e.g. "Movie Magic")',
+      name: 'itemName',
+      message: 'Application name? (e.g. "movie-magic")',
     },
     {
       type: 'directory',
@@ -31,30 +31,35 @@ async function generateApp(inputOptions: Options) {
   ];
 
   const options = await inquirer.prompt(questions, inputOptions);
-  const { appName, parentDir } = options;
+  const { itemName, parentDir } = options;
 
   // --------------------------------------------------------------------------
-  // Add more options for code generation
+  // Add more options for code generation here
   // --------------------------------------------------------------------------
   // Example: movie-magic
-  const appDir = cc.kebabCase(appName);
-  options['appDir'] = appDir;
+  options['itemNameKebabCase'] = cc.kebabCase(itemName);
 
+  // Example: movieMagic
+  options['itemNameCamelCase'] = cc.camelCase(itemName);
+
+  // Example: MovieMagic
+  options['itemNamePascalCase'] = cc.pascalCase(itemName);
+
+  // Example: Movie Magic
+  options['itemNameCapitalCase'] = cc.capitalCase(itemName);
   // --------------------------------------------------------------------------
 
+  const { itemNameKebabCase } = options;
+
   const srcDir = path.join(__dirname, 'templates');
-  const dstDir = path.join(parentDir, appDir);
+  const dstDir = path.join(parentDir, itemNameKebabCase);
 
   console.log();
-  console.log(`Creating ${appName}...`);
-
-  // console.log();
-  // console.log('options:');
-  // console.log(JSON.stringify(options, null, '  '));
-  // console.log();
+  console.log(`Creating ${itemName}...`);
 
   FileUtils.transformFiles(srcDir, dstDir, options);
 
+  console.log();
   console.log('Done.');
   console.log();
   console.log(
@@ -75,7 +80,7 @@ async function generateApp(inputOptions: Options) {
   console.log('     npm install');
   console.log('     npm run build');
   console.log();
-  console.log(`3. Run ${appName} from the root directory:`);
+  console.log(`3. Run ${itemName} from the root directory:`);
   console.log('     npm run dev');
   console.log();
 

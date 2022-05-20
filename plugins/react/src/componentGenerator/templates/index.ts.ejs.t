@@ -1,1 +1,1 @@
-export * from './<%= componentName %>';
+export * from './<%= itemNamePascalCase %>';
