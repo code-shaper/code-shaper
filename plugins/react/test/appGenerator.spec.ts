@@ -8,11 +8,12 @@ describe('appGenerator e2e', () => {
         TestUtils.createE2eDirectory();
         await reactPlugin.run({
             generator: 'app',
-            appName: 'test',
-            parentDir: 'tmp/e2e/apps',
+            itemName: 'test',
+            parentDir: 'tmp/e2e',
             packageName: '@myOrg/myApp'
         });
 
         expect(true).toBeTruthy();
+
     });
 });
