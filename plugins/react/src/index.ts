@@ -30,7 +30,6 @@ const reactPlugin: Plugin = {
     if (!generator) {
       return Promise.resolve();
     }
-
     return generator.generate(inputOptions);
   },
 };

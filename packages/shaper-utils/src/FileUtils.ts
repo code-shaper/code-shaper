@@ -1,7 +1,7 @@
 import treeWalk from 'klaw-sync';
 import path from 'path';
 import ejs from 'ejs';
-import fs, { readFileSync } from 'fs-extra';
+import fs, { readFileSync, ensureDirSync, emptydirSync } from 'fs-extra';
 import { Options, Plugin } from './models';
 import { parse, ParseError, printParseErrorCode } from 'jsonc-parser';
 import { PackageJson } from './models/PackageJSON';
@@ -127,6 +127,7 @@ function transformFiles(srcDir: string, dstDir: string, options: Options) {
       fs.copySync(srcPath, dstPath, {});
     }
   });
+}
 export interface JsonParseOptions {
   /**
    * Expect JSON with javascript-style
@@ -179,7 +180,7 @@ export interface JsonReadOptions extends JsonParseOptions {
  * @param options JSON parse options
  * @returns Object the JSON content represents
  */
- export function parseJson<T extends object = any>(
+export function parseJson<T extends object = any>(
   input: string,
   options?: JsonParseOptions
 ): T {
@@ -269,9 +270,33 @@ function getPluginPackageJson(
   }
 }
 
+function createDirectory(
+  workspaceRoot: string,
+  name: string,
+  empty = false
+): string {
+  const dir = path.join(workspaceRoot, name);
+  const cmd = empty ? emptydirSync : ensureDirSync;
+  try {
+    cmd(dir);
+  } catch (err) {
+    console.log(`Error creating ${dir} directory`);
+    process.exit();
+  }
+  return dir;
+}
+
+function createTempDirectory(): string {
+    return createDirectory(process.cwd(), 'tmp');
+}
+
+
+
 export const FileUtils = {
   appendToFile,
   resolvePaths,
   transformFiles,
-  getInstalledPluginsFromPackageJson
+  getInstalledPluginsFromPackageJson,
+  createDirectory,
+  createTempDirectory
 };

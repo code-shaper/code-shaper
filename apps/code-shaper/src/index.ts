@@ -11,7 +11,7 @@ async function main() {
   // Parse command line
   const argv = await yargs().parse(process.argv.slice(2));
   const { _, $0: command, ...options } = argv; // eslint-disable-line
-
+  
   // Set pluginId if specified on the command line
   // Otherwise, leave it as undefined
   let pluginId;
