@@ -127,6 +127,7 @@ function transformFiles(srcDir: string, dstDir: string, options: Options) {
       fs.copySync(srcPath, dstPath, {});
     }
   });
+}
 export interface JsonParseOptions {
   /**
    * Expect JSON with javascript-style
