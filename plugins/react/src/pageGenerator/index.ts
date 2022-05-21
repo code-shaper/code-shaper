@@ -2,19 +2,19 @@ import { cc, FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
 import inquirer from 'inquirer';
 import path from 'path';
 
-export const componentGenerator: Generator = {
-  id: 'component',
-  name: 'Component',
-  description: 'generates a component',
-  generate: generateComponent,
+export const pageGenerator: Generator = {
+  id: 'page',
+  name: 'Page',
+  description: 'generates a page',
+  generate: generatePage,
 };
 
-async function generateComponent(inputOptions: Options) {
+async function generatePage(inputOptions: Options) {
   const questions = [
     {
       type: 'input',
       name: 'itemName',
-      message: 'Component name? (e.g. TextField)',
+      message: 'Page name? (e.g. "SettingsPage")',
     },
     {
       type: 'list',
@@ -40,55 +40,52 @@ async function generateComponent(inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // Example: text-field
+  // Example: settings-page
   options['itemNameKebabCase'] = cc.kebabCase(itemName);
 
-  // Example: textField
+  // Example: settingsPage
   options['itemNameCamelCase'] = cc.camelCase(itemName);
 
-  // Example: TextField
+  // Example: SettingsPage
   options['itemNamePascalCase'] = cc.pascalCase(itemName);
 
-  // Example: Text Field
+  // Example: Settings Page
   options['itemNameCapitalCase'] = cc.capitalCase(itemName);
 
-  // Example: TextField (then add extension)
+  // Example: SettingsPage (then add extension)
   options['filename'] = cc.pascalCase(itemName);
   // --------------------------------------------------------------------------
 
   const { itemNamePascalCase } = options;
 
   const srcDir = path.join(__dirname, 'templates');
-  const dstDir = path.join(workspace, `src/components/${itemNamePascalCase}`);
+  const dstDir = path.join(workspace, `src/pages/${itemNamePascalCase}`);
 
   console.log();
   console.log(`Creating ${itemNamePascalCase}...`);
 
-  // Create the component
+  // Create the page
   FileUtils.transformFiles(srcDir, dstDir, options);
 
-  // Import it in src/components/index.ts
+  // Import it in src/pages/index.ts
   console.log();
-  console.log('Updating src/components/index.ts...');
-  const indexTs = path.join(workspace, `src/components/index.ts`);
+  console.log('Updating src/pages/index.ts...');
+  const indexTs = path.join(workspace, `src/pages/index.ts`);
   FileUtils.appendToFile(indexTs, `export * from './${itemNamePascalCase}';\n`);
 
   console.log();
   console.log('Done.');
   console.log();
-  console.log(
-    '1. Implement the component using Storybook (we have added a placeholder story for you):'
-  );
-  console.log('     npm run storybook');
+  console.log('1. Implement the page.');
   console.log();
   console.log(
     '2. Implement units tests (we have added a placeholder test for you):'
   );
   console.log('     npm test');
   console.log();
-  console.log('3. Use the component somewhere in your app');
+  console.log('3. Import the page in src/App.tsx and give it a route');
   console.log();
-  console.log('4. Run your app to see the component in action:');
+  console.log('4. Run your app to see the page in action:');
   console.log('     npm run dev');
   console.log();
 

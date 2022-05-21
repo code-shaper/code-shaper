@@ -19,7 +19,7 @@ function registerGenerator(generator: Generator) {
 registerGenerator(pluginGenerator);
 registerGenerator(generatorGenerator);
 
-export const pluginPlugin: Plugin = {
+const pluginPlugin: Plugin = {
   id: '@code-shaper/plugin',
   name: 'Plugin',
   description: 'generates custom plugins',
@@ -32,3 +32,5 @@ export const pluginPlugin: Plugin = {
     return generator.generate(inputOptions);
   },
 };
+
+export default pluginPlugin;

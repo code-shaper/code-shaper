@@ -1,6 +1,6 @@
-import { pluginPlugin } from '@code-shaper/plugin';
-import { reactPlugin } from '@code-shaper/react';
-import { repoPlugin } from '@code-shaper/repo';
+import pluginPlugin from '@code-shaper/plugin';
+import reactPlugin from '@code-shaper/react';
+import repoPlugin from '@code-shaper/repo';
 import {
   getPluginChoices,
   Options,

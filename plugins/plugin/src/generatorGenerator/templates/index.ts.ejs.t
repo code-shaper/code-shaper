@@ -14,7 +14,7 @@ async function <%= generatorFunctionName %>(inputOptions: Options) {
     {
       type: 'input',
       name: 'itemName',
-      message: '<%= generatorName %> name? (e.g. "movie-magic")',
+      message: '<%= generatorNameCapitalCase %> name? (e.g. "movie-magic")',
     },
     {
       type: 'directory',

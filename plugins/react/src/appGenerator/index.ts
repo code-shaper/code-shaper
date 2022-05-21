@@ -80,6 +80,9 @@ async function generateApp(inputOptions: Options) {
   console.log('     npm install');
   console.log('     npm run build');
   console.log();
+  console.log('     # run a sample test');
+  console.log('     npm test');
+  console.log();
   console.log(`3. Run ${itemName} from the root directory:`);
   console.log('     npm run dev');
   console.log();

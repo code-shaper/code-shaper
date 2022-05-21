@@ -1,6 +1,6 @@
+/** @type { import('@jest/types').Config.InitialOptions } */
 module.exports = {
   verbose: true,
-  testEnvironment: 'jsdom',
   roots: ['<rootDir>/src'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',

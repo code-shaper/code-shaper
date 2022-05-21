@@ -32,6 +32,7 @@
     "eslint": "^8.15.0",
     "eslint-config-custom": "*",
     "jest": "^27.5.1",
+    "jest-config": "*",
     "msw": "^0.39.2",
     "ts-jest": "^27.1.4",
     "typescript": "^4.6.3",
