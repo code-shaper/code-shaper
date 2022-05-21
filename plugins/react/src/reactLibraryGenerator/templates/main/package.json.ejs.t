@@ -19,20 +19,21 @@
     "react": "^18.1.0"
   },
   "devDependencies": {
-    "@storybook/react": "next",
+    "@storybook/react": "^6.5.3",
     "@testing-library/dom": "^8.13.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
-    "@testing-library/user-event": "^14.1.1",
-    "@types/jest": "^27.5.0",
-    "@types/node": "^17.0.33",
+    "@testing-library/user-event": "^14.2.0",
+    "@types/jest": "^27.5.1",
+    "@types/node": "^17.0.35",
     "@types/react": "^18.0.9",
     "copyfiles": "^2.4.1",
-    "eslint": "^8.15.0",
+    "eslint": "^8.16.0",
     "eslint-config-custom": "*",
-    "jest": "^27.5.1",
+    "jest": "^28.1.0",
     "jest-config": "*",
-    "ts-jest": "^27.1.4",
+    "jest-environment-jsdom": "^28.1.0",
+    "ts-jest": "^28.0.2",
     "typescript": "^4.6.4",
     "typescript-config": "*"
   }
