@@ -7,6 +7,7 @@ import {
   Plugin,
   PluginMap,
 } from '@code-shaper/shaper-utils';
+import typescriptPlugin from '@code-shaper/typescript';
 import inquirer from 'inquirer';
 
 // ---------- Plugin Store ----------
@@ -34,6 +35,7 @@ registerStaticPlugin(repoPlugin);
 // TODO: Implement mechanism to dynamically load these plugins
 registerDynamicPlugin(pluginPlugin);
 registerDynamicPlugin(reactPlugin);
+registerDynamicPlugin(typescriptPlugin);
 
 // ---------- Run shaper ----------
 async function run(

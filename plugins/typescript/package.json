@@ -1,6 +1,6 @@
 {
-  "name": "@code-shaper/repo",
-  "description": "Repo plugin",
+  "name": "@code-shaper/typescript",
+  "description": "Typescript plugin",
   "version": "0.0.1",
   "license": "MIT",
   "publishConfig": {

@@ -61,4 +61,6 @@ async function <%= generatorFunctionName %>(inputOptions: Options) {
   console.log('options available for this generator:');
   console.log(JSON.stringify(options, null, '  '));
   console.log();
+
+  return Promise.resolve();
 }
