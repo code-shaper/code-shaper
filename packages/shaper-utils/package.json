@@ -27,6 +27,7 @@
     "klaw-sync": "^6.0.0",
     "lower-case": "^2.0.2",
     "title-case": "^3.0.3",
+    "type-fest": "^2.12.2",
     "upper-case": "^2.0.2"
   },
   "devDependencies": {
