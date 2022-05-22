@@ -1,9 +1,9 @@
 import repoPlugin from '@code-shaper/repo';
 import {
-  FileUtils,
   getPluginChoices,
   Options,
   Plugin,
+  PluginUtils,
   PluginMap,
 } from '@code-shaper/shaper-utils';
 import inquirer from 'inquirer';
@@ -30,7 +30,7 @@ function registerDynamicPlugin(plugin: Plugin) {
 registerStaticPlugin(repoPlugin);
 
 // Register dynamic plugins
-const plugins = FileUtils.getInstalledPluginsFromPackageJson(
+const plugins = PluginUtils.getInstalledPluginsFromPackageJson(
   process.cwd()
 ) as Map<string, Plugin>;
 plugins.forEach(registerDynamicPlugin);
