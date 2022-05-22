@@ -1,42 +1,35 @@
-import fs from 'fs-extra';
 import { parse, ParseError, printParseErrorCode } from 'jsonc-parser';
+import fs from 'fs-extra';
 
-interface JsonParseOptions {
+type JsonParseOptions = {
   /**
-   * Expect JSON with javascript-style
-   * @default false
+   * Expect JSON with javascript-style comments
+   * If comments are expected, then uses a parser that supports comments
+   * @default true
    */
-  expectComments?: boolean;
-  /**
-   * Disallow javascript-style
-   * @default false
-   */
-  disallowComments?: boolean;
-}
+  expectComments: boolean;
 
-interface JsonReadOptions extends JsonParseOptions {
   /**
-   * mutable field recording whether JSON ends with new line
+   * Disallow javascript-style comments
+   * If comments are disallowed, then uses a parser that does not support
+   * comments and throws an error if comments are found
    * @default false
    */
-  endsWithNewline?: boolean;
-}
+  disallowComments: boolean;
+};
 
 /**
- * Reads a JSON file and returns the object the JSON content represents.
+ * Reads a JSON file and returns an object representing the JSON content.
  *
- * @param path A path to a file.
+ * @param path A path to a file
  * @param options JSON parse options
- * @returns Object the JSON content of the file represents
+ * @returns Object representing the JSON content
  */
 function readJsonFile<T extends object = any>(
   path: string,
-  options?: JsonReadOptions
+  options: Partial<JsonParseOptions> = {}
 ): T {
   const content = fs.readFileSync(path, 'utf-8');
-  if (options) {
-    options.endsWithNewline = content.charCodeAt(content.length - 1) === 10;
-  }
   try {
     return parseJson<T>(content, options);
   } catch (e: any) {
@@ -46,26 +39,30 @@ function readJsonFile<T extends object = any>(
 }
 
 /**
- * Parses the given JSON string and returns the object the JSON content represents.
- * By default javascript-style comments are allowed.
+ * Parses a JSON string and returns an object representing the JSON content.
  *
  * @param input JSON content as string
  * @param options JSON parse options
- * @returns Object the JSON content represents
+ * @returns Object representing the JSON content
  */
 function parseJson<T extends object = any>(
   input: string,
-  options?: JsonParseOptions
+  options: Partial<JsonParseOptions> = {}
 ): T {
+  const opts = Object.assign(
+    {
+      expectComments: true,
+      disallowComments: false,
+    },
+    options
+  );
+
   try {
-    if (
-      options?.disallowComments === true ||
-      options?.expectComments !== true
-    ) {
+    if (opts.expectComments !== true || opts.disallowComments === true) {
       return JSON.parse(input);
     }
   } catch (error) {
-    if (options?.disallowComments === true) {
+    if (opts.disallowComments === true) {
       throw error;
     }
   }
@@ -85,4 +82,5 @@ function parseJson<T extends object = any>(
 
 export const JsonUtils = {
   readJsonFile,
+  parseJson,
 };

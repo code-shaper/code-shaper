@@ -9,9 +9,9 @@ function getDynamicPlugins(): Map<string, Plugin> {
 function getInstalledPluginsFromPackageJson(
   rootPath: string
 ): Map<string, Plugin> {
-  const packageJson = JsonUtils.readJsonFile(
+  const packageJson = JsonUtils.readJsonFile<PackageJson>(
     `${rootPath}/package.json`
-  ) as PackageJson;
+  );
 
   const dependencyNames = new Set([
     ...Object.keys(packageJson.dependencies || {}),
@@ -73,7 +73,7 @@ function getPluginPackageJson(
     const packageJsonPath = require.resolve(`${pluginName}/package.json`, {
       paths: [workspaceRoot],
     });
-    return JsonUtils.readJsonFile(packageJsonPath) as PackageJson;
+    return JsonUtils.readJsonFile<PackageJson>(packageJsonPath);
   } catch {
     return null;
   }
