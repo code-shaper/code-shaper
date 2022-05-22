@@ -2,6 +2,10 @@ import path from 'path';
 import { PackageJson, Plugin } from './models';
 import { JsonUtils } from './JsonUtils';
 
+function getDynamicPlugins(): Map<string, Plugin> {
+  return getInstalledPluginsFromPackageJson(process.cwd());
+}
+
 function getInstalledPluginsFromPackageJson(
   rootPath: string
 ): Map<string, Plugin> {
@@ -76,5 +80,5 @@ function getPluginPackageJson(
 }
 
 export const PluginUtils = {
-  getInstalledPluginsFromPackageJson,
+  getDynamicPlugins,
 };
