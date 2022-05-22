@@ -1,10 +1,9 @@
 import treeWalk from 'klaw-sync';
 import path from 'path';
 import ejs from 'ejs';
-import fs, { readFileSync } from 'fs-extra';
-import { Options, Plugin } from './models';
+import fs from 'fs-extra';
 import { parse, ParseError, printParseErrorCode } from 'jsonc-parser';
-import { PackageJson } from './models/PackageJSON';
+import { Options, PkgJson, Plugin } from './models';
 
 /**
  * Appends data to a file
@@ -160,7 +159,7 @@ export interface JsonReadOptions extends JsonParseOptions {
   path: string,
   options?: JsonReadOptions
 ): T {
-  const content = readFileSync(path, 'utf-8');
+  const content = fs.readFileSync(path, 'utf-8');
   if (options) {
     options.endsWithNewline = content.charCodeAt(content.length - 1) === 10;
   }
@@ -213,7 +212,7 @@ export interface JsonReadOptions extends JsonParseOptions {
 function getInstalledPluginsFromPackageJson(
   rootPath: string
 ): Map<string, Plugin> {
-  const packageJson = readJsonFile(`${rootPath}/package.json`) as PackageJson;
+  const packageJson = readJsonFile(`${rootPath}/package.json`) as PkgJson;
 
   const dependencyNames = new Set([
     ...Object.keys(packageJson.dependencies || {}),
@@ -227,10 +226,10 @@ function getInstalledPluginsFromPackageJson(
   allDependencyNames.forEach((dependencyName) => {
     // Get the package.json file
     const dependencyPackageJson = getPluginPackageJson(rootPath, dependencyName);
-    
+
     // check to see that if has the required properties
     if (dependencyPackageJson && !!(dependencyPackageJson.shaper) && !!(dependencyPackageJson.main)) {
-      // get the plugin 
+      // get the plugin
       const plugin = getPluginMainDefaultExport(path.join(rootPath, 'node_modules', dependencyName), dependencyPackageJson.main);
 
       if (plugin && !!(plugin.run)) {
@@ -258,12 +257,12 @@ function getPluginMainDefaultExport(rootPath: string, mainPath: string): Plugin 
 function getPluginPackageJson(
   workspaceRoot: string,
   pluginName: string
-): PackageJson | null {
+): PkgJson | null {
   try {
     const packageJsonPath = require.resolve(`${pluginName}/package.json`, {
       paths: [workspaceRoot],
     });
-    const packageJson = readJsonFile(packageJsonPath) as PackageJson;
+    const packageJson = readJsonFile(packageJsonPath) as PkgJson;
     return packageJson;
   } catch {
     return null;

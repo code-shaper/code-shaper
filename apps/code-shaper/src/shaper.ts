@@ -1,10 +1,10 @@
-import { repoPlugin } from '@code-shaper/repo';
+import repoPlugin from '@code-shaper/repo';
 import {
+  FileUtils,
   getPluginChoices,
   Options,
   Plugin,
   PluginMap,
-  FileUtils
 } from '@code-shaper/shaper-utils';
 import inquirer from 'inquirer';
 

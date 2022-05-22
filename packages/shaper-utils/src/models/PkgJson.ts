@@ -2,7 +2,7 @@ export interface ShaperPackageJsonConfiguration {
 name?: string;
 }
 
-export interface PackageJson {
+export interface PkgJson {
 // Generic Package.Json Configuration
 name: string;
 version: string;

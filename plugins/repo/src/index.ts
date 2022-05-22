@@ -19,7 +19,7 @@ function registerGenerator(generator: Generator) {
 registerGenerator(turborepoGenerator);
 registerGenerator(storybookGenerator);
 
-export const repoPlugin: Plugin = {
+const repoPlugin: Plugin = {
   id: '@code-shaper/repo',
   name: 'Repo',
   description: 'generates repositories and related features',
@@ -32,3 +32,5 @@ export const repoPlugin: Plugin = {
     return generator.generate(inputOptions);
   },
 };
+
+export default repoPlugin;
