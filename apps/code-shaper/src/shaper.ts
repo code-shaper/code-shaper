@@ -30,7 +30,9 @@ function registerDynamicPlugin(plugin: Plugin) {
 registerStaticPlugin(repoPlugin);
 
 // Register dynamic plugins
-const plugins = FileUtils.getInstalledPluginsFromPackageJson(process.cwd()) as Map<string, Plugin>;
+const plugins = FileUtils.getInstalledPluginsFromPackageJson(
+  process.cwd()
+) as Map<string, Plugin>;
 plugins.forEach(registerDynamicPlugin);
 
 // ---------- Run shaper ----------

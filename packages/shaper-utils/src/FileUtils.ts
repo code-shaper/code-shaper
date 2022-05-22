@@ -3,7 +3,7 @@ import path from 'path';
 import ejs from 'ejs';
 import fs from 'fs-extra';
 import { parse, ParseError, printParseErrorCode } from 'jsonc-parser';
-import { Options, PkgJson, Plugin } from './models';
+import { Options, PackageJson, Plugin } from './models';
 
 /**
  * Appends data to a file
@@ -155,7 +155,7 @@ export interface JsonReadOptions extends JsonParseOptions {
  * @param options JSON parse options
  * @returns Object the JSON content of the file represents
  */
- function readJsonFile<T extends object = any>(
+function readJsonFile<T extends object = any>(
   path: string,
   options?: JsonReadOptions
 ): T {
@@ -179,7 +179,7 @@ export interface JsonReadOptions extends JsonParseOptions {
  * @param options JSON parse options
  * @returns Object the JSON content represents
  */
- export function parseJson<T extends object = any>(
+export function parseJson<T extends object = any>(
   input: string,
   options?: JsonParseOptions
 ): T {
@@ -212,7 +212,7 @@ export interface JsonReadOptions extends JsonParseOptions {
 function getInstalledPluginsFromPackageJson(
   rootPath: string
 ): Map<string, Plugin> {
-  const packageJson = readJsonFile(`${rootPath}/package.json`) as PkgJson;
+  const packageJson = readJsonFile(`${rootPath}/package.json`) as PackageJson;
 
   const dependencyNames = new Set([
     ...Object.keys(packageJson.dependencies || {}),
@@ -225,14 +225,24 @@ function getInstalledPluginsFromPackageJson(
   // loop through all the dependencies
   allDependencyNames.forEach((dependencyName) => {
     // Get the package.json file
-    const dependencyPackageJson = getPluginPackageJson(rootPath, dependencyName);
+    const dependencyPackageJson = getPluginPackageJson(
+      rootPath,
+      dependencyName
+    );
 
     // check to see that if has the required properties
-    if (dependencyPackageJson && !!(dependencyPackageJson.shaper) && !!(dependencyPackageJson.main)) {
+    if (
+      dependencyPackageJson &&
+      !!dependencyPackageJson.shaper &&
+      !!dependencyPackageJson.main
+    ) {
       // get the plugin
-      const plugin = getPluginMainDefaultExport(path.join(rootPath, 'node_modules', dependencyName), dependencyPackageJson.main);
+      const plugin = getPluginMainDefaultExport(
+        path.join(rootPath, 'node_modules', dependencyName),
+        dependencyPackageJson.main
+      );
 
-      if (plugin && !!(plugin.run)) {
+      if (plugin && !!plugin.run) {
         plugins.set(dependencyName, plugin);
       }
     }
@@ -241,7 +251,10 @@ function getInstalledPluginsFromPackageJson(
   return plugins;
 }
 
-function getPluginMainDefaultExport(rootPath: string, mainPath: string): Plugin | null {
+function getPluginMainDefaultExport(
+  rootPath: string,
+  mainPath: string
+): Plugin | null {
   try {
     const fullMainPath = require.resolve(mainPath, {
       paths: [rootPath],
@@ -257,12 +270,12 @@ function getPluginMainDefaultExport(rootPath: string, mainPath: string): Plugin 
 function getPluginPackageJson(
   workspaceRoot: string,
   pluginName: string
-): PkgJson | null {
+): PackageJson | null {
   try {
     const packageJsonPath = require.resolve(`${pluginName}/package.json`, {
       paths: [workspaceRoot],
     });
-    const packageJson = readJsonFile(packageJsonPath) as PkgJson;
+    const packageJson = readJsonFile(packageJsonPath) as PackageJson;
     return packageJson;
   } catch {
     return null;
@@ -273,5 +286,5 @@ export const FileUtils = {
   appendToFile,
   resolvePaths,
   transformFiles,
-  getInstalledPluginsFromPackageJson
+  getInstalledPluginsFromPackageJson,
 };

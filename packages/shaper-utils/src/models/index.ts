@@ -1,4 +1,4 @@
 export * from './Generator';
 export * from './Options';
-export * from './PkgJson';
+export * from './PackageJson';
 export * from './Plugin';
