@@ -1,5 +1,5 @@
 import { parse, ParseError, printParseErrorCode } from 'jsonc-parser';
-import fs from 'fs-extra';
+import { FileUtils } from './FileUtils';
 
 type JsonParseOptions = {
   /**
@@ -29,7 +29,7 @@ function readJsonFile<T extends object = any>(
   path: string,
   options: Partial<JsonParseOptions> = {}
 ): T {
-  const content = fs.readFileSync(path, 'utf-8');
+  const content = FileUtils.readFile(path);
   try {
     return parseJson<T>(content, options);
   } catch (e: any) {

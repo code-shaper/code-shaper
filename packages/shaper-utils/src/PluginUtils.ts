@@ -1,4 +1,5 @@
 import path from 'path';
+import { FileUtils } from './FileUtils';
 import { JsonUtils } from './JsonUtils';
 import { PackageJson, Plugin } from './models';
 
@@ -12,16 +13,22 @@ function getDynamicPlugins(): Map<string, Plugin> {
 
 /**
  * Returns shaper plugins installed in the package.json file
- * of the specified root path
+ * at the specified root path
  *
  * @param rootPath
  */
 function getInstalledPluginsFromPackageJson(
   rootPath: string
 ): Map<string, Plugin> {
-  const packageJson = JsonUtils.readJsonFile<PackageJson>(
-    `${rootPath}/package.json`
-  );
+  // If package.json file does not exist, return an empty map
+  const plugins = new Map<string, Plugin>();
+  const packageJsonPath = `${rootPath}/package.json`;
+  if (!FileUtils.fileExists(packageJsonPath)) {
+    return plugins;
+  }
+
+  // Read the package.json file at the root path
+  const packageJson = JsonUtils.readJsonFile<PackageJson>(packageJsonPath);
 
   // Create a list of all dependencies
   // These could either be ordinary dependencies or shaper plugins
@@ -32,7 +39,6 @@ function getInstalledPluginsFromPackageJson(
   const allDependencyNames = Array.from(dependencyNames);
 
   // Loop through all dependencies and build a map of shaper plugins
-  const plugins = new Map<string, Plugin>();
   allDependencyNames.forEach((dependencyName) => {
     // Get the package.json file of the dependency
     const dependencyPackageJson = getDependencyPackageJson(
@@ -111,4 +117,5 @@ function getPluginMainDefaultExport(
 
 export const PluginUtils = {
   getDynamicPlugins,
+  getInstalledPluginsFromPackageJson,
 };
