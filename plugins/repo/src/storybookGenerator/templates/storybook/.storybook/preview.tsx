@@ -1,4 +1,5 @@
-// import any required css here
+// Import any required css here
+// Example:
 // import '../../packages/ui-lib/src/styles/main.css';
 
 export const parameters = {

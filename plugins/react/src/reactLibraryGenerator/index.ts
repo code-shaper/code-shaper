@@ -1,4 +1,4 @@
-import { FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
+import { cc, FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
 import inquirer from 'inquirer';
 import path from 'path';
 
@@ -13,7 +13,7 @@ async function generateReactLibrary(inputOptions: Options) {
   const questions = [
     {
       type: 'input',
-      name: 'reactLibraryName',
+      name: 'itemName',
       message: 'Library name? (e.g. "ui-lib")',
     },
     {
@@ -31,21 +31,38 @@ async function generateReactLibrary(inputOptions: Options) {
   ];
 
   const options = await inquirer.prompt(questions, inputOptions);
-  const { reactLibraryName, parentDir } = options;
+  const { itemName, parentDir } = options;
 
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // ...
+  // Example: ui-lib
+  options['itemNameKebabCase'] = cc.kebabCase(itemName);
+
+  // Example: uiLib
+  options['itemNameCamelCase'] = cc.camelCase(itemName);
+
+  // Example: UiLib
+  options['itemNamePascalCase'] = cc.pascalCase(itemName);
+
+  // Example: Ui Lib
+  options['itemNameCapitalCase'] = cc.capitalCase(itemName);
   // --------------------------------------------------------------------------
 
-  const srcDir = path.join(__dirname, 'templates');
-  const dstDir = path.join(parentDir, reactLibraryName);
+  const { itemNameKebabCase } = options;
+
+  const srcDir = path.join(__dirname, 'templates/main');
+  const dstDir = path.join(parentDir, itemNameKebabCase);
 
   console.log();
-  console.log(`Creating ${reactLibraryName}...`);
+  console.log(`Creating ${itemName}...`);
 
   FileUtils.transformFiles(srcDir, dstDir, options);
+
+  // Copy TypeScript configuration
+  const srcDirConfig = path.join(__dirname, 'templates/typescript-config');
+  const dstDirConfig = path.join(process.cwd(), 'configs', 'typescript-config');
+  FileUtils.transformFiles(srcDirConfig, dstDirConfig, options);
 
   console.log('Done.');
   console.log();

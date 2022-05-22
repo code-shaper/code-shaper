@@ -1,0 +1,208 @@
+/*
+  This is a sample stylesheet to demonstrate our components without
+  creating dependencies on external styling libraries. Please replace
+  it with your choice of styling solution.
+*/
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  color: var(--color-text-primary);
+  background-color: var(--color-background-default);
+  margin: 0;
+  font-family: var(--font-family-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+/* ----- Spacing ----- */
+
+.p-0 {
+  padding: 0;
+}
+
+.p-1 {
+  padding: 0.25rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+/* ----- Components ----- */
+
+.button {
+  font-family: inherit;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  border-radius: var(--button-border-radius);
+}
+
+.button--medium {
+  font-size: 0.875rem;
+  line-height: 1rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+}
+
+.button--contained {
+  border-width: var(--border-width-default);
+  border-color: var(--color-transparent);
+}
+
+.button--contained-default {
+  color: var(--button-contained-default-text-color);
+  background-color: var(--button-contained-default-background-color);
+}
+
+.button--contained-default:hover {
+  background-color: var(--button-contained-default-state-hover);
+}
+
+.button--contained-primary {
+  color: var(--color-primary-contrast-text);
+  background-color: var(--color-primary-main);
+}
+
+.button--contained-primary:hover {
+  background-color: var(--button-contained-primary-state-hover);
+}
+
+.button--contained-secondary {
+  color: var(--color-secondary-contrast-text);
+  background-color: var(--color-secondary-main);
+}
+
+.button--contained-secondary:hover {
+  background-color: var(--button-contained-secondary-state-hover);
+}
+
+/* ----- CSS Variables ----- */
+
+:root {
+  /* ----- Color Palette ----- */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-transparent: #00000000;
+
+  --color-grey-50: #fafafa;
+  --color-grey-100: #f5f5f5;
+  --color-grey-200: #eeeeee;
+  --color-grey-300: #e0e0e0;
+  --color-grey-400: #bdbdbd;
+  --color-grey-500: #9e9e9e;
+  --color-grey-600: #757575;
+  --color-grey-700: #616161;
+  --color-grey-800: #424242;
+  --color-grey-900: #212121;
+
+  --color-blue-50: #dceefb;
+  --color-blue-100: #b6e0fe;
+  --color-blue-200: #84c5f4;
+  --color-blue-300: #62b0e8;
+  --color-blue-400: #4098d7;
+  --color-blue-500: #2680c2;
+  --color-blue-600: #186faf;
+  --color-blue-700: #0f609b;
+  --color-blue-800: #0a558c;
+  --color-blue-900: #003e6b;
+
+  --color-blue-grey-50: #f0f4f8;
+  --color-blue-grey-100: #d9e2ec;
+  --color-blue-grey-200: #bcccdc;
+  --color-blue-grey-300: #9fb3c8;
+  --color-blue-grey-400: #829ab1;
+  --color-blue-grey-500: #627d98;
+  --color-blue-grey-600: #486581;
+  --color-blue-grey-700: #334e68;
+  --color-blue-grey-800: #243b53;
+  --color-blue-grey-900: #102a43;
+
+  --color-yellow-50: #fffbea;
+  --color-yellow-100: #fff3c4;
+  --color-yellow-200: #fce588;
+  --color-yellow-300: #fadb5f;
+  --color-yellow-400: #f7c948;
+  --color-yellow-500: #f0b429;
+  --color-yellow-600: #de911d;
+  --color-yellow-700: #cb6e17;
+  --color-yellow-800: #b44d12;
+  --color-yellow-900: #8d2b0b;
+
+  --color-primary-main: var(--color-blue-800);
+  --color-primary-contrast-text: var(--color-white);
+  --color-text-primary: var(--color-blue-grey-900);
+  --color-secondary-main: var(--color-yellow-400);
+  --color-secondary-contrast-text: var(--color-blue-grey-900);
+  --color-text-secondary: var(--color-blue-grey-600);
+
+  --color-background-default: var(--color-grey-50);
+  --color-background-paper: var(--color-white);
+
+  /* ----- Typography ----- */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  --font-family-sans: Inter;
+
+  /* ----- Borders ----- */
+  --border-width-0: 0px;
+  --border-width-1: 1px;
+  --border-width-2: 2px;
+  --border-width-4: 4px;
+  --border-width-8: 8px;
+  --border-width-none: var(--border-width-0);
+  --border-width-default: var(--border-width-1);
+
+  --border-radius-2: 2px;
+  --border-radius-4: 4px;
+  --border-radius-6: 6px;
+  --border-radius-8: 8px;
+  --border-radius-full: 9999px;
+  --border-radius-none: 0px;
+
+  /* ----- Box Shadows ----- */
+  --box-shadow-1: 0px 2px 4px -1px #00000033, 0px 4px 5px 0px #00000024,
+    0px 1px 10px 0px #0000001f;
+
+  /* ----- Components ----- */
+  --button-border-radius: var(--border-radius-4);
+  --button-contained-default-background-color: var(--color-grey-300);
+  --button-contained-default-text-color: #000000de;
+  --button-contained-default-state-hover: var(--color-grey-400);
+  --button-contained-primary-state-hover: var(--color-blue-900);
+  --button-contained-secondary-state-hover: var(--color-yellow-500);
+  --button-outlined-default-border-color: var(--color-grey-300);
+  --button-outlined-default-state-hover: var(--color-grey-300);
+  --button-outlined-primary-state-hover: var(--color-blue-50);
+  --button-outlined-secondary-state-hover: var(--color-yellow-100);
+}

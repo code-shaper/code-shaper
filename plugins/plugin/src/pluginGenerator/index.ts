@@ -14,7 +14,7 @@ async function generatePlugin(inputOptions: Options) {
     {
       type: 'input',
       name: 'pluginName',
-      message: 'Plugin name? (e.g. "react")',
+      message: 'Plugin name? (e.g. "nextjs")',
     },
     {
       type: 'directory',
@@ -25,7 +25,7 @@ async function generatePlugin(inputOptions: Options) {
     {
       type: 'input',
       name: 'packageName',
-      message: 'Package name used for publishing? (e.g. "@my-org/react")',
+      message: 'Package name used for publishing? (e.g. "@movie-magic/nextjs")',
     },
   ];
 
@@ -41,11 +41,11 @@ async function generatePlugin(inputOptions: Options) {
 
   FileUtils.transformFiles(srcDir, dstDir, options);
 
+  console.log();
   console.log('Done.');
   console.log();
   console.log('1. In the root directory, run:');
-  console.log(`     npm run clean`);
-  console.log(`     npm install`);
+  console.log('     npm install');
   console.log();
   console.log('2. Add plugin to "shaperPlugins" in ./package.json');
   console.log();

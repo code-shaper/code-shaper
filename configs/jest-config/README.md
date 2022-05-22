@@ -1,4 +1,3 @@
 # jest-config
 
-These are shared Jest configurations from which all other `jest.config.js`'s
-inherit.
+This is a shared Jest preset which is used by all workspaces.

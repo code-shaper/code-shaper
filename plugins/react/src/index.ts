@@ -5,8 +5,10 @@ import {
   GeneratorMap,
   selectGenerator,
 } from '@code-shaper/shaper-utils';
-import { componentGenerator } from './componentGenerator';
 import { appGenerator } from './appGenerator';
+import { componentGenerator } from './componentGenerator';
+import { contextGenerator } from './contextGenerator';
+import { pageGenerator } from './pageGenerator';
 import { reactLibraryGenerator } from './reactLibraryGenerator';
 
 const generators: GeneratorMap = {};
@@ -19,7 +21,9 @@ function registerGenerator(generator: Generator) {
 // ----- Register Generators -----
 registerGenerator(appGenerator);
 registerGenerator(reactLibraryGenerator);
+registerGenerator(pageGenerator);
 registerGenerator(componentGenerator);
+registerGenerator(contextGenerator);
 
 const reactPlugin: Plugin = {
   id: '@code-shaper/react',

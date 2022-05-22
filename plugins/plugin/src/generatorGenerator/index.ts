@@ -14,7 +14,7 @@ async function generateGenerator(inputOptions: Options) {
     {
       type: 'input',
       name: 'generatorName',
-      message: 'Generator name? (e.g. "react-library")',
+      message: 'Generator name? (e.g. "app" or "component-library")',
     },
     {
       type: 'list',
@@ -42,25 +42,25 @@ async function generateGenerator(inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation
   // --------------------------------------------------------------------------
-  // Example: reactLibrary
-  const generatorCamelCaseName = cc.camelCase(generatorName);
-  options['generatorCamelCaseName'] = generatorCamelCaseName;
+  // Example generatorName: component-library
 
-  // Example: ReactLibrary
-  const generatorPascalCaseName = cc.pascalCase(generatorName);
-  options['generatorPascalCaseName'] = generatorPascalCaseName;
+  // Example: componentLibrary
+  const generatorNameCamelCase = cc.camelCase(generatorName);
+  options['generatorNameCamelCase'] = generatorNameCamelCase;
 
-  // Example: ReactLibrary
-  const generatorCapitalCaseName = cc.capitalCase(generatorName);
-  options['generatorCapitalCaseName'] = generatorCapitalCaseName;
+  // Example: ComponentLibrary
+  const generatorNamePascalCase = cc.pascalCase(generatorName);
+  options['generatorNamePascalCase'] = generatorNamePascalCase;
 
-  // Example: reactLibraryGenerator
-  const generatorModuleName = `${generatorCamelCaseName}Generator`;
+  // Example: Component Library
+  options['generatorNameCapitalCase'] = cc.capitalCase(generatorName);
+
+  // Example: componentLibraryGenerator
+  const generatorModuleName = `${generatorNameCamelCase}Generator`;
   options['generatorModuleName'] = generatorModuleName;
 
-  // Example: generateReactLibrary
-  const generatorFunctionName = `generate${generatorPascalCaseName}`;
-  options['generatorFunctionName'] = generatorFunctionName;
+  // Example: generateComponentLibrary
+  options['generatorFunctionName'] = `generate${generatorNamePascalCase}`;
 
   // --------------------------------------------------------------------------
 

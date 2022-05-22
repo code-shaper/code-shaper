@@ -26,6 +26,38 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+/* ----- Spacing ----- */
+
+.p-0 {
+  padding: 0;
+}
+
+.p-1 {
+  padding: 0.25rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
 /* ----- Components ----- */
 
 .header {
@@ -88,9 +120,24 @@ body {
   --color-blue-grey-800: #243b53;
   --color-blue-grey-900: #102a43;
 
+  --color-yellow-50: #fffbea;
+  --color-yellow-100: #fff3c4;
+  --color-yellow-200: #fce588;
+  --color-yellow-300: #fadb5f;
+  --color-yellow-400: #f7c948;
+  --color-yellow-500: #f0b429;
+  --color-yellow-600: #de911d;
+  --color-yellow-700: #cb6e17;
+  --color-yellow-800: #b44d12;
+  --color-yellow-900: #8d2b0b;
+
   --color-primary-main: var(--color-blue-800);
   --color-primary-contrast-text: var(--color-white);
   --color-text-primary: var(--color-blue-grey-900);
+  --color-secondary-main: var(--color-yellow-400);
+  --color-secondary-contrast-text: var(--color-blue-grey-900);
+  --color-text-secondary: var(--color-blue-grey-600);
+
   --color-background-default: var(--color-grey-50);
   --color-background-paper: var(--color-white);
 
@@ -100,6 +147,22 @@ body {
   --font-weight-medium: 500;
 
   --font-family-sans: Inter;
+
+  /* ----- Borders ----- */
+  --border-width-0: 0px;
+  --border-width-1: 1px;
+  --border-width-2: 2px;
+  --border-width-4: 4px;
+  --border-width-8: 8px;
+  --border-width-none: var(--border-width-0);
+  --border-width-default: var(--border-width-1);
+
+  --border-radius-2: 2px;
+  --border-radius-4: 4px;
+  --border-radius-6: 6px;
+  --border-radius-8: 8px;
+  --border-radius-full: 9999px;
+  --border-radius-none: 0px;
 
   /* ----- Box Shadows ----- */
   --box-shadow-1: 0px 2px 4px -1px #00000033, 0px 4px 5px 0px #00000024,

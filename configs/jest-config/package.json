@@ -2,8 +2,5 @@
   "name": "jest-config",
   "version": "0.0.1",
   "license": "MIT",
-  "main": "index.js",
-  "files": [
-    "base.js"
-  ]
+  "main": "index.js"
 }

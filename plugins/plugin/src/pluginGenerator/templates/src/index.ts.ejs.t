@@ -16,7 +16,7 @@ function registerGenerator(generator: Generator) {
 // ----- Register Generators Here -----
 
 
-export const <%= pluginName %>Plugin: Plugin = {
+const <%= pluginName %>Plugin: Plugin = {
   id: '<%= packageName %>',
   name: '<%= pluginName %>',
   description: 'generates <%= pluginName %> artifacts',
@@ -29,3 +29,5 @@ export const <%= pluginName %>Plugin: Plugin = {
     return generator.generate(inputOptions);
   },
 };
+
+export default <%= pluginName %>Plugin;
