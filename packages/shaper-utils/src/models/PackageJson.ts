@@ -1,9 +1,9 @@
-export interface ShaperPackageJsonConfiguration {
+export interface ShaperConfig {
   name?: string;
 }
 
 export interface PackageJson {
-  // Generic Package.Json Configuration
+  // Generic package.json configuration
   name: string;
   version: string;
   scripts?: Record<string, string>;
@@ -17,6 +17,6 @@ export interface PackageJson {
         packages: string[];
       };
 
-  // Shaper Configuration
-  shaper?: ShaperPackageJsonConfiguration;
+  // Shaper configuration
+  shaper?: ShaperConfig;
 }
