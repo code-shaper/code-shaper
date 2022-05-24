@@ -23,9 +23,11 @@
     "ejs": "^3.1.8",
     "fs-extra": "^10.1.0",
     "inquirer": "^8.2.4",
+    "jsonc-parser": "^3.0.0",
     "klaw-sync": "^6.0.0",
     "lower-case": "^2.0.2",
     "title-case": "^3.0.3",
+    "type-fest": "^2.12.2",
     "upper-case": "^2.0.2"
   },
   "devDependencies": {

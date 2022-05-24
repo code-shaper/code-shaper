@@ -1,13 +1,11 @@
-import pluginPlugin from '@code-shaper/plugin';
-import reactPlugin from '@code-shaper/react';
 import repoPlugin from '@code-shaper/repo';
 import {
   getPluginChoices,
   Options,
   Plugin,
+  PluginUtils,
   PluginMap,
 } from '@code-shaper/shaper-utils';
-import typescriptPlugin from '@code-shaper/typescript';
 import inquirer from 'inquirer';
 
 // ---------- Plugin Store ----------
@@ -32,10 +30,8 @@ function registerDynamicPlugin(plugin: Plugin) {
 registerStaticPlugin(repoPlugin);
 
 // Register dynamic plugins
-// TODO: Implement mechanism to dynamically load these plugins
-registerDynamicPlugin(pluginPlugin);
-registerDynamicPlugin(reactPlugin);
-registerDynamicPlugin(typescriptPlugin);
+const plugins = PluginUtils.getDynamicPlugins();
+plugins.forEach(registerDynamicPlugin);
 
 // ---------- Run shaper ----------
 async function run(

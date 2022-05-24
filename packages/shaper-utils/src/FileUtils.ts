@@ -5,6 +5,32 @@ import fs from 'fs-extra';
 import { Options } from './models';
 
 /**
+ * Returns true if a file with the specified path exists, false otherwise
+ * @param path
+ */
+function fileExists(path: string): boolean {
+  return fs.existsSync(path);
+}
+
+/**
+ * Returns the contents of the file at the specified path
+ *
+ * @param path
+ * @param options
+ */
+function readFile(
+  path: string,
+  options:
+    | {
+        encoding: BufferEncoding;
+        flag?: string | undefined;
+      }
+    | BufferEncoding = 'utf8'
+): string {
+  return fs.readFileSync(path, options);
+}
+
+/**
  * Appends data to a file
  *
  * @param path to the file
@@ -129,6 +155,8 @@ function transformFiles(srcDir: string, dstDir: string, options: Options) {
 
 export const FileUtils = {
   appendToFile,
+  fileExists,
+  readFile,
   resolvePaths,
   transformFiles,
 };

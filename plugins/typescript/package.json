@@ -31,5 +31,6 @@
     "ts-jest": "^28.0.2",
     "typescript": "^4.6.4",
     "typescript-config": "*"
-  }
+  },
+  "shaper": {}
 }
