@@ -15,9 +15,6 @@
     "test": "jest --coverage",
     "clean": "rimraf .turbo node_modules dist"
   },
-  "peerDependencies": {
-    "react": "^18.1.0"
-  },
   "devDependencies": {
     "@storybook/react": "^6.5.3",
     "@testing-library/dom": "^8.13.0",
@@ -31,10 +28,13 @@
     "eslint": "^8.16.0",
     "eslint-config-custom": "*",
     "jest": "^28.1.0",
-    "jest-config": "*",
+    "jest-config-custom": "*",
     "jest-environment-jsdom": "^28.1.0",
-    "ts-jest": "^28.0.2",
+    "ts-jest": "^28.0.3",
     "typescript": "^4.6.4",
-    "typescript-config": "*"
+    "typescript-config-custom": "*"
+  },
+  "peerDependencies": {
+    "react": "^18.*"
   }
 }

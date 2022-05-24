@@ -60,19 +60,38 @@ async function generateTypescriptLibrary(inputOptions: Options) {
   FileUtils.transformFiles(srcDir, dstDir, options);
 
   // Copy TypeScript configuration
-  const srcDirConfig = path.join(__dirname, 'templates/typescript-config');
-  const dstDirConfig = path.join(process.cwd(), 'configs', 'typescript-config');
+  const srcDirConfig = path.join(
+    __dirname,
+    'templates/typescript-config-custom'
+  );
+  const dstDirConfig = path.join(
+    process.cwd(),
+    'configs',
+    'typescript-config-custom'
+  );
   FileUtils.transformFiles(srcDirConfig, dstDirConfig, options);
 
   console.log('Done.');
   console.log();
-  console.log('1. In the root directory, run:');
+  console.log(
+    '1. Edit /configs/typescript-config-custom/package.json to add a new typescript configuration'
+  );
+  console.log(
+    '   (typescript-library.json) if it is not already there. See below:'
+  );
+  console.log();
+  console.log('     "files": [');
+  console.log('       "base.json",');
+  console.log('       "typescript-library.json",');
+  console.log('     ],');
+  console.log();
+  console.log('2. In the root directory, run:');
   console.log('     npm install');
   console.log();
-  console.log('2. Run sample tests:');
+  console.log('3. Run sample tests:');
   console.log('     npm test');
   console.log();
-  console.log('2. Start adding features to your library');
+  console.log('4. Start adding features to your library');
   console.log();
 
   return Promise.resolve();

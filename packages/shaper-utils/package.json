@@ -1,7 +1,7 @@
 {
   "name": "@code-shaper/shaper-utils",
   "description": "Code Shaper utilities",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -22,12 +22,11 @@
     "change-case": "^4.1.2",
     "ejs": "^3.1.8",
     "fs-extra": "^10.1.0",
-    "inquirer": "^8.2.4",
     "jsonc-parser": "^3.0.0",
     "klaw-sync": "^6.0.0",
     "lower-case": "^2.0.2",
     "title-case": "^3.0.3",
-    "type-fest": "^2.12.2",
+    "type-fest": "^2.13.0",
     "upper-case": "^2.0.2"
   },
   "devDependencies": {
@@ -40,9 +39,12 @@
     "eslint": "^8.16.0",
     "eslint-config-custom": "*",
     "jest": "^28.1.0",
-    "jest-config": "*",
-    "ts-jest": "^28.0.2",
+    "jest-config-custom": "*",
+    "ts-jest": "^28.0.3",
     "typescript": "^4.6.4",
-    "typescript-config": "*"
+    "typescript-config-custom": "*"
+  },
+  "peerDependencies": {
+    "inquirer": "^8.x"
   }
 }

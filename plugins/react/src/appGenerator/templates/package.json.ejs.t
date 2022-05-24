@@ -32,12 +32,12 @@
     "eslint": "^8.16.0",
     "eslint-config-custom": "*",
     "jest": "^28.1.0",
-    "jest-config": "*",
+    "jest-config-custom": "*",
     "jest-environment-jsdom": "^28.1.0",
     "msw": "^0.40.2",
-    "ts-jest": "^28.0.2",
+    "ts-jest": "^28.0.3",
     "typescript": "^4.6.4",
-    "typescript-config": "*",
+    "typescript-config-custom": "*",
     "vite": "^2.9.9"
   }
 }

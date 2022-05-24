@@ -30,7 +30,7 @@ async function generatePlugin(inputOptions: Options) {
   ];
 
   const options = await inquirer.prompt(questions, inputOptions);
-  const { pluginName, parentDir } = options;
+  const { packageName, pluginName, parentDir } = options;
 
   const srcDir = path.join(__dirname, 'templates');
   const dstDir = path.join(parentDir, pluginName);
@@ -46,10 +46,17 @@ async function generatePlugin(inputOptions: Options) {
   console.log();
   console.log('1. In the root directory, run:');
   console.log('     npm install');
+  console.log('     npm run build');
   console.log();
-  console.log('2. Add plugin to "shaperPlugins" in ./package.json');
+  console.log('2. Add the following devDependency to /package.json:');
+  console.log(`     "${packageName}": "*",`);
   console.log();
-  console.log('3. Start adding generators to your plugin');
+  console.log(
+    '3. Run shaper in the root directory and confirm that your plugin shows up:'
+  );
+  console.log('     shaper');
+  console.log();
+  console.log('4. Start adding generators to your plugin');
   console.log();
   console.log('options available for this plugin:');
   console.log(JSON.stringify(options, null, '  '));

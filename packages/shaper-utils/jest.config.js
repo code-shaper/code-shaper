@@ -1,5 +1,5 @@
 module.exports = {
-  preset: 'jest-config',
+  preset: 'jest-config-custom',
   testEnvironment: 'node',
   coverageThreshold: {
     global: {

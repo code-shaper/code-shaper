@@ -8,6 +8,8 @@ import {
 
 const generators: GeneratorMap = {};
 
+// TODO: Remove ts-ignore once you start using registerGenerator
+// @ts-ignore
 function registerGenerator(generator: Generator) {
   const { id } = generator;
   generators[id] = generator;

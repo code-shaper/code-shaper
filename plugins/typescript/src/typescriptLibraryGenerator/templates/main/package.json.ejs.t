@@ -21,9 +21,9 @@
     "eslint": "^8.16.0",
     "eslint-config-custom": "*",
     "jest": "^28.1.0",
-    "jest-config": "*",
-    "ts-jest": "^28.0.2",
+    "jest-config-custom": "*",
+    "ts-jest": "^28.0.3",
     "typescript": "^4.6.4",
-    "typescript-config": "*"
+    "typescript-config-custom": "*"
   }
 }

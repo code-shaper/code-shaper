@@ -87,7 +87,12 @@ async function generateGenerator(inputOptions: Options) {
   console.log('     npm run build');
   console.log();
   console.log(
-    `4. Finally implement ${generatorModuleName} to generate real code.`
+    '4. Run shaper in the root directory and confirm that your generator shows up:'
+  );
+  console.log('     shaper');
+  console.log();
+  console.log(
+    `5. Finally implement ${generatorModuleName} to generate real code.`
   );
   console.log();
   console.log('options available for this generator:');
