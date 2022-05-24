@@ -1,7 +1,7 @@
 {
   "name": "@code-shaper/repo",
   "description": "Repo plugin",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
