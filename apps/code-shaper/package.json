@@ -1,6 +1,6 @@
 {
   "name": "code-shaper",
-  "description": "CLI for generating code",
+  "description": "Code Shaper CLI",
   "version": "0.0.1",
   "license": "MIT",
   "repository": {
