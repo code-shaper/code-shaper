@@ -19,7 +19,7 @@ async function generateApp(inputOptions: Options) {
     {
       type: 'directory',
       name: 'parentDir',
-      message: 'Parent directory? (usually "apps")',
+      message: 'Parent directory? (usually "./apps")',
       basePath: '.',
     },
     {

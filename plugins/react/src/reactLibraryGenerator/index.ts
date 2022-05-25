@@ -19,7 +19,7 @@ async function generateReactLibrary(inputOptions: Options) {
     {
       type: 'directory',
       name: 'parentDir',
-      message: 'Parent directory? (usually "packages")',
+      message: 'Parent directory? (usually "./packages")',
       basePath: '.',
     },
     {
