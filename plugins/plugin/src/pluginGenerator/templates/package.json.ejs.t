@@ -11,7 +11,7 @@
     "build": "rimraf dist && tsc && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",
     "lint": "eslint src/**/*.ts*",
     "test": "jest --coverage",
-    "clean": "rimraf .turbo node_modules dist"
+    "clean": "rimraf .turbo node_modules dist coverage"
   },
   "devDependencies": {
     "@code-shaper/shaper-utils": "*",
@@ -28,7 +28,8 @@
     "typescript-config-custom": "*"
   },
   "peerDependencies": {
-    "inquirer": "^8.x"
+    "inquirer": "^8.x",
+    "inquirer-directory": "^2.2.0"
   },
   "shaper": {}
 }

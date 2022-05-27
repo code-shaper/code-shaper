@@ -36,7 +36,7 @@ async function generateTurborepo(inputOptions: Options) {
   console.log('  git init');
   console.log('  npm install');
   console.log('  git add .');
-  console.log('  git commit -m "Initial commit"');
+  console.log('  git commit -m "initial commit"');
   console.log();
   console.log('What to do next?');
   console.log('----------------');

@@ -10,7 +10,7 @@
     "lint": "eslint src/**/*.ts*",
     "test": "jest --coverage",
     "cypress": "cypress open",
-    "clean": "rimraf .turbo node_modules dist"
+    "clean": "rimraf .turbo node_modules dist coverage"
   },
   "dependencies": {
     "react": "^18.1.0",
@@ -34,10 +34,13 @@
     "jest": "^28.1.0",
     "jest-config-custom": "*",
     "jest-environment-jsdom": "^28.1.0",
-    "msw": "^0.40.2",
+    "msw": "^0.41.0",
     "ts-jest": "^28.0.3",
     "typescript": "^4.6.4",
     "typescript-config-custom": "*",
     "vite": "^2.9.9"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

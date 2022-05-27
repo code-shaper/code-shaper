@@ -1,7 +1,7 @@
 {
   "name": "@code-shaper/typescript",
   "description": "Typescript plugin",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -11,7 +11,7 @@
     "build": "rimraf dist && tsc && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",
     "lint": "eslint src/**/*.ts*",
     "test": "echo No tests in this package yet",
-    "clean": "rimraf .turbo node_modules dist"
+    "clean": "rimraf .turbo node_modules dist coverage"
   },
   "devDependencies": {
     "@code-shaper/shaper-utils": "*",
@@ -28,7 +28,8 @@
     "typescript-config-custom": "*"
   },
   "peerDependencies": {
-    "inquirer": "^8.x"
+    "inquirer": "^8.x",
+    "inquirer-directory": "^2.2.0"
   },
   "shaper": {}
 }

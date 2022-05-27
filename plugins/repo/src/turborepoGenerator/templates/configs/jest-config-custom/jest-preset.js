@@ -7,10 +7,12 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
+    '!src/**/index.{js,jsx,ts,tsx}',
     '!src/**/*.stories.{js,jsx,ts,tsx}',
-    '!src/test/**',
-    '!src/index.{js,jsx,ts,tsx}',
+    '!src/**/*.d.ts',
     '!src/**/templates/**',
+    '!src/mocks/**',
+    '!src/test/**',
   ],
   coverageThreshold: {
     global: {

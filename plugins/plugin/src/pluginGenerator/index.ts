@@ -1,6 +1,11 @@
 import { FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
 import inquirer from 'inquirer';
+// @ts-ignore
+import inquirerDirectory from 'inquirer-directory';
 import path from 'path';
+
+// Register inquirer prompts
+inquirer.registerPrompt('directory', inquirerDirectory);
 
 export const pluginGenerator: Generator = {
   id: 'plugin',
@@ -14,7 +19,7 @@ async function generatePlugin(inputOptions: Options) {
     {
       type: 'input',
       name: 'pluginName',
-      message: 'Plugin name? (e.g. "nextjs")',
+      message: 'Plugin name? (e.g. "react-patterns")',
     },
     {
       type: 'directory',
@@ -25,7 +30,8 @@ async function generatePlugin(inputOptions: Options) {
     {
       type: 'input',
       name: 'packageName',
-      message: 'Package name used for publishing? (e.g. "@movie-magic/nextjs")',
+      message:
+        'Package name used for publishing? (e.g. "@movie-magic/react-patterns")',
     },
   ];
 

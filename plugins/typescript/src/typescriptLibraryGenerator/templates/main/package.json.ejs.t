@@ -13,7 +13,7 @@
     "build": "rimraf dist && tsc",
     "lint": "eslint src/**/*.ts*",
     "test": "jest --coverage",
-    "clean": "rimraf .turbo node_modules dist"
+    "clean": "rimraf .turbo node_modules dist coverage"
   },
   "devDependencies": {
     "@types/jest": "^27.5.1",

@@ -4,7 +4,7 @@ import inquirerDirectory from 'inquirer-directory';
 import yargs from 'yargs/yargs';
 import { shaper } from './shaper';
 
-// Register needed inquirer prompts
+// Register inquirer prompts
 inquirer.registerPrompt('directory', inquirerDirectory);
 
 async function main() {

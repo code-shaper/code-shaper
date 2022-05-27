@@ -1,6 +1,11 @@
 import { cc, Generator, Options } from '@code-shaper/shaper-utils';
 import inquirer from 'inquirer';
+// @ts-ignore
+import inquirerDirectory from 'inquirer-directory';
 import path from 'path';
+
+// Register inquirer prompts
+inquirer.registerPrompt('directory', inquirerDirectory);
 
 export const <%= generatorModuleName %>: Generator = {
   id: '<%= generatorName %>',

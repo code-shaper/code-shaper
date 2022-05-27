@@ -36,7 +36,49 @@ p {
   margin: 0;
 }
 
-/* ----- Spacing ----- */
+/* ----- Margin ----- */
+
+.m-0 {
+  margin: 0;
+}
+
+.m-1 {
+  margin: 0.25rem;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
+.m-3 {
+  margin: 0.75rem;
+}
+
+.m-4 {
+  margin: 1rem;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+/* ----- Padding ----- */
 
 .p-0 {
   padding: 0;
@@ -58,51 +100,105 @@ p {
   padding: 1rem;
 }
 
-/* ----- Components ----- */
+/* ----- Text Alignment ----- */
+
+.text-center {
+  text-align: center;
+}
+
+/* ----- Buttons ----- */
 
 .button {
   font-family: inherit;
+  font-size: 0.75rem;
   font-weight: var(--font-weight-medium);
-  cursor: pointer;
-  border-radius: var(--button-border-radius);
-}
-
-.button--medium {
-  font-size: 0.875rem;
   line-height: 1rem;
-  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-}
-
-.button--contained {
+  border-radius: 4px;
   border-width: var(--border-width-default);
   border-color: var(--color-transparent);
+  padding: 0.375rem 0.625rem;
+  cursor: pointer;
 }
 
-.button--contained-default {
-  color: var(--button-contained-default-text-color);
-  background-color: var(--button-contained-default-background-color);
+.button--default {
+  color: var(--button-default-text-color);
+  background-color: var(--button-default-background-color);
 }
 
-.button--contained-default:hover {
-  background-color: var(--button-contained-default-state-hover);
+.button--default:hover {
+  background-color: var(--button-default-state-hover);
 }
 
-.button--contained-primary {
+.button--primary {
   color: var(--color-primary-contrast-text);
   background-color: var(--color-primary-main);
 }
 
-.button--contained-primary:hover {
-  background-color: var(--button-contained-primary-state-hover);
+.button--primary:hover {
+  background-color: var(--button-primary-state-hover);
 }
 
-.button--contained-secondary {
+.button--secondary {
   color: var(--color-secondary-contrast-text);
   background-color: var(--color-secondary-main);
 }
 
-.button--contained-secondary:hover {
-  background-color: var(--button-contained-secondary-state-hover);
+.button--secondary:hover {
+  background-color: var(--button-secondary-state-hover);
+}
+
+/* ----- Tables ----- */
+
+table {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left;
+}
+
+table tr:nth-of-type(2n) {
+  background-color: var(--color-blue-grey-50);
+}
+
+td,
+th {
+  vertical-align: middle;
+  padding: 0.75rem 0.25rem;
+}
+
+thead {
+  border-bottom: 0.125rem solid var(--color-blue-grey-100);
+}
+
+/* ----- Card ----- */
+
+.card {
+  background-color: var(--color-background-paper);
+  border: var(--border-width-default) solid var(--card-border-color);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow-1);
+}
+
+/* ----- Header ----- */
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 1.5rem;
+  min-height: 3rem;
+  background-color: var(--color-primary-main);
+  color: var(--color-primary-contrast-text);
+  box-shadow: var(--box-shadow-1);
+}
+
+.header__title {
+  font-family: var(--font-family-sans);
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  letter-spacing: 0.0075em;
 }
 
 /* ----- CSS Variables ----- */
@@ -183,26 +279,16 @@ p {
   --border-width-none: var(--border-width-0);
   --border-width-default: var(--border-width-1);
 
-  --border-radius-2: 2px;
-  --border-radius-4: 4px;
-  --border-radius-6: 6px;
-  --border-radius-8: 8px;
-  --border-radius-full: 9999px;
-  --border-radius-none: 0px;
-
   /* ----- Box Shadows ----- */
   --box-shadow-1: 0px 2px 4px -1px #00000033, 0px 4px 5px 0px #00000024,
     0px 1px 10px 0px #0000001f;
 
   /* ----- Components ----- */
-  --button-border-radius: var(--border-radius-4);
-  --button-contained-default-background-color: var(--color-grey-300);
-  --button-contained-default-text-color: #000000de;
-  --button-contained-default-state-hover: var(--color-grey-400);
-  --button-contained-primary-state-hover: var(--color-blue-900);
-  --button-contained-secondary-state-hover: var(--color-yellow-500);
-  --button-outlined-default-border-color: var(--color-grey-300);
-  --button-outlined-default-state-hover: var(--color-grey-300);
-  --button-outlined-primary-state-hover: var(--color-blue-50);
-  --button-outlined-secondary-state-hover: var(--color-yellow-100);
+  --button-default-background-color: var(--color-grey-300);
+  --button-default-text-color: #000000de;
+  --button-default-state-hover: var(--color-grey-400);
+  --button-primary-state-hover: var(--color-blue-900);
+  --button-secondary-state-hover: var(--color-yellow-500);
+
+  --card-border-color: var(--color-grey-300);
 }

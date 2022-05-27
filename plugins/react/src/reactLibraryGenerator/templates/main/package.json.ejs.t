@@ -13,7 +13,7 @@
     "build": "rimraf dist && tsc && copyfiles --all --up 1 \"src/**/*.css\" dist",
     "lint": "eslint src/**/*.ts*",
     "test": "jest --coverage",
-    "clean": "rimraf .turbo node_modules dist"
+    "clean": "rimraf .turbo node_modules dist coverage"
   },
   "devDependencies": {
     "@storybook/react": "^6.5.3",
