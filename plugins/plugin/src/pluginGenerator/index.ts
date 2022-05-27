@@ -24,7 +24,7 @@ async function generatePlugin(inputOptions: Options) {
     {
       type: 'directory',
       name: 'parentDir',
-      message: 'Parent directory? (usually "./plugins")',
+      message: 'Parent directory? (usually "plugins")',
       basePath: '.',
     },
     {

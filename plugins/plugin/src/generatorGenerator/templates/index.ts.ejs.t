@@ -24,7 +24,7 @@ async function <%= generatorFunctionName %>(inputOptions: Options) {
     {
       type: 'directory',
       name: 'parentDir',
-      message: 'Parent directory? (usually "./<directory name>")',
+      message: 'Parent directory? (usually "<directory name>")',
       basePath: '.',
     },
   ];
