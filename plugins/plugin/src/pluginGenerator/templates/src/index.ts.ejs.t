@@ -18,9 +18,9 @@ function registerGenerator(generator: Generator) {
 // ----- Register Generators Here -----
 
 
-const <%= pluginName %>Plugin: Plugin = {
+const <%= pluginModuleName %>: Plugin = {
   id: '<%= packageName %>',
-  name: '<%= pluginName %>',
+  name: '<%= pluginNameCapitalCase %>',
   description: 'generates <%= pluginName %> artifacts',
   run: async (inputOptions: Options) => {
     const generator = await selectGenerator(generators, inputOptions);
@@ -32,4 +32,4 @@ const <%= pluginName %>Plugin: Plugin = {
   },
 };
 
-export default <%= pluginName %>Plugin;
+export default <%= pluginModuleName %>;

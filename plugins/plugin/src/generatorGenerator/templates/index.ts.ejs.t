@@ -19,7 +19,7 @@ async function <%= generatorFunctionName %>(inputOptions: Options) {
     {
       type: 'input',
       name: 'itemName',
-      message: '<%= generatorNameCapitalCase %> name? (e.g. "movie-magic")',
+      message: '<%= generatorNameCapitalCase %> name? (e.g. "<%= generatorNameCamelCase %>")',
     },
     {
       type: 'directory',
@@ -35,16 +35,16 @@ async function <%= generatorFunctionName %>(inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // Example: movie-magic
+  // itemNameKebabCase = movie-magic
   options['itemNameKebabCase'] = cc.kebabCase(itemName);
 
-  // Example: movieMagic
+  // itemNameCamelCase = movieMagic
   options['itemNameCamelCase'] = cc.camelCase(itemName);
 
-  // Example: MovieMagic
+  // itemNamePascalCase = MovieMagic
   options['itemNamePascalCase'] = cc.pascalCase(itemName);
 
-  // Example: Movie Magic
+  // itemNameCapitalCase = Movie Magic
   options['itemNameCapitalCase'] = cc.capitalCase(itemName);
   // --------------------------------------------------------------------------
 

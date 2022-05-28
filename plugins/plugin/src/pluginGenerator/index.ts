@@ -1,4 +1,4 @@
-import { FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
+import { cc, FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
 import inquirer from 'inquirer';
 // @ts-ignore
 import inquirerDirectory from 'inquirer-directory';
@@ -37,6 +37,26 @@ async function generatePlugin(inputOptions: Options) {
 
   const options = await inquirer.prompt(questions, inputOptions);
   const { packageName, pluginName, parentDir } = options;
+
+  // --------------------------------------------------------------------------
+  // Add more options for code generation
+  // --------------------------------------------------------------------------
+  // Example pluginName: react-patterns
+
+  // pluginNameCamelCase = reactPatterns
+  const pluginNameCamelCase = cc.camelCase(pluginName);
+  options['pluginNameCamelCase'] = pluginNameCamelCase;
+
+  // pluginNamePascalCase = ReactPatterns
+  options['pluginNamePascalCase'] = cc.pascalCase(pluginName);
+
+  // pluginNameCapitalCase = React Patterns
+  options['pluginNameCapitalCase'] = cc.capitalCase(pluginName);
+
+  // pluginModuleName = reactPatternsPlugin
+  options['pluginModuleName'] = `${pluginNameCamelCase}Plugin`;
+
+  // --------------------------------------------------------------------------
 
   const srcDir = path.join(__dirname, 'templates');
   const dstDir = path.join(parentDir, pluginName);

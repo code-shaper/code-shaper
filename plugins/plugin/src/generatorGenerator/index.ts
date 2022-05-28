@@ -42,24 +42,24 @@ async function generateGenerator(inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation
   // --------------------------------------------------------------------------
-  // Example generatorName: component-library
+  // Example: generatorName = component-library
 
-  // Example: componentLibrary
+  // generatorNameCamelCase = componentLibrary
   const generatorNameCamelCase = cc.camelCase(generatorName);
   options['generatorNameCamelCase'] = generatorNameCamelCase;
 
-  // Example: ComponentLibrary
+  // generatorNamePascalCase = ComponentLibrary
   const generatorNamePascalCase = cc.pascalCase(generatorName);
   options['generatorNamePascalCase'] = generatorNamePascalCase;
 
-  // Example: Component Library
+  // generatorNameCapitalCase = Component Library
   options['generatorNameCapitalCase'] = cc.capitalCase(generatorName);
 
-  // Example: componentLibraryGenerator
+  // generatorModuleName = componentLibraryGenerator
   const generatorModuleName = `${generatorNameCamelCase}Generator`;
   options['generatorModuleName'] = generatorModuleName;
 
-  // Example: generateComponentLibrary
+  // generatorFunctionName = generateComponentLibrary
   options['generatorFunctionName'] = `generate${generatorNamePascalCase}`;
 
   // --------------------------------------------------------------------------
