@@ -13,17 +13,17 @@
     "build": "rimraf dist && tsc",
     "lint": "eslint src/**/*.ts*",
     "test": "jest --coverage",
-    "clean": "rimraf .turbo node_modules dist coverage"
+    "clean": "rimraf .turbo node_modules dist coverage test-output"
   },
   "devDependencies": {
     "@types/jest": "^27.5.1",
-    "@types/node": "^17.0.35",
+    "@types/node": "^17.0.36",
     "eslint": "^8.16.0",
     "eslint-config-custom": "*",
     "jest": "^28.1.0",
     "jest-config-custom": "*",
     "ts-jest": "^28.0.3",
-    "typescript": "^4.6.4",
+    "typescript": "^4.7.2",
     "typescript-config-custom": "*"
   }
 }
