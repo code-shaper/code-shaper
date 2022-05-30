@@ -2,6 +2,7 @@
   "name": "<%= itemName %>",
   "description": "",
   "version": "0.0.1",
+  "private": true,
   "license": "MIT",
   "workspaces": [
     "apps/*",
