@@ -40,19 +40,21 @@ async function generateComponent(inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // Example: text-field
+  // Example: item-name = TextField
+
+  // itemNameKebabCase = text-field
   options['itemNameKebabCase'] = cc.kebabCase(itemName);
 
-  // Example: textField
+  // itemNameCamelCase = textField
   options['itemNameCamelCase'] = cc.camelCase(itemName);
 
-  // Example: TextField
+  // itemNamePascalCase = TextField
   options['itemNamePascalCase'] = cc.pascalCase(itemName);
 
-  // Example: Text Field
+  // itemNameCapitalCase = Text Field
   options['itemNameCapitalCase'] = cc.capitalCase(itemName);
 
-  // Example: TextField (then add extension)
+  // filename = TextField (then add extension)
   options['filename'] = cc.pascalCase(itemName);
   // --------------------------------------------------------------------------
 

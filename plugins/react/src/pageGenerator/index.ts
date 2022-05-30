@@ -40,19 +40,21 @@ async function generatePage(inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // Example: settings-page
+  // Example: itemName = settings-page
+
+  // itemNameKebabCase = settings-page
   options['itemNameKebabCase'] = cc.kebabCase(itemName);
 
-  // Example: settingsPage
+  // itemNameCamelCase = settingsPage
   options['itemNameCamelCase'] = cc.camelCase(itemName);
 
-  // Example: SettingsPage
+  // itemNamePascalCase = SettingsPage
   options['itemNamePascalCase'] = cc.pascalCase(itemName);
 
-  // Example: Settings Page
+  // itemNameCapitalCase = Settings Page
   options['itemNameCapitalCase'] = cc.capitalCase(itemName);
 
-  // Example: SettingsPage (then add extension)
+  // filename = SettingsPage (then add extension)
   options['filename'] = cc.pascalCase(itemName);
   // --------------------------------------------------------------------------
 

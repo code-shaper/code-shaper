@@ -7,19 +7,19 @@ import path from 'path';
 // Register inquirer prompts
 inquirer.registerPrompt('directory', inquirerDirectory);
 
-export const appGenerator: Generator = {
-  id: 'app',
-  name: 'Application',
-  description: 'generates a React application',
-  generate: generateApp,
+export const cliGenerator: Generator = {
+  id: 'cli',
+  name: 'CLI',
+  description: 'generates a CLI',
+  generate: generateCli,
 };
 
-async function generateApp(inputOptions: Options) {
+async function generateCli(inputOptions: Options) {
   const questions = [
     {
       type: 'input',
       name: 'itemName',
-      message: 'Application name? (e.g. "movie-magic")',
+      message: 'CLI name? (e.g. "react-shaper")',
     },
     {
       type: 'directory',
@@ -31,7 +31,7 @@ async function generateApp(inputOptions: Options) {
       type: 'input',
       name: 'packageName',
       message:
-        'Package name used for publishing? (e.g. "movie-magic" or "@movie-magic/movie-magic")',
+        'Package name used for publishing? (e.g. "react-shaper" or "@movie-magic/react-shaper")',
     },
   ];
 
@@ -41,19 +41,22 @@ async function generateApp(inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // Example: itemName = movie-magic
+  // Example: itemName = react-shaper
 
-  // itemNameKebabCase = movie-magic
+  // itemNameKebabCase = react-shaper
   options['itemNameKebabCase'] = cc.kebabCase(itemName);
 
-  // itemNameCamelCase = movieMagic
+  // itemNameCamelCase = reactShaper
   options['itemNameCamelCase'] = cc.camelCase(itemName);
 
-  // itemNamePascalCase = MovieMagic
+  // itemNamePascalCase = ReactShaper
   options['itemNamePascalCase'] = cc.pascalCase(itemName);
 
-  // itemNameCapitalCase = Movie Magic
+  // itemNameCapitalCase = React Shaper
   options['itemNameCapitalCase'] = cc.capitalCase(itemName);
+
+  // filename = react-shaper (then add extension)
+  options['filename'] = itemName;
   // --------------------------------------------------------------------------
 
   const { itemNameKebabCase } = options;
@@ -69,29 +72,8 @@ async function generateApp(inputOptions: Options) {
   console.log();
   console.log('Done.');
   console.log();
-  console.log(
-    '1. In the root directory, edit package.json to force the latest version of React.'
-  );
-  console.log(
-    '   This is done by adding the following overrides section after the devDependencies'
-  );
-  console.log('   section (ignore if these overrides already exist):');
-  console.log();
-  console.log('     "overrides": {');
-  console.log('       "react": "^18.1.0",');
-  console.log('       "react-dom": "^18.1.0"');
-  console.log('     },');
-  console.log();
-  console.log('2. In the root directory, run:');
-  console.log('     npm run clean');
-  console.log('     npm install');
-  console.log('     npm run build');
-  console.log();
-  console.log('     # run a sample test');
-  console.log('     npm test');
-  console.log();
-  console.log(`3. Run ${itemName} from the root directory:`);
-  console.log('     npm run dev');
+  console.log('Now start creating plugins for ${itemName}');
+  console.log(JSON.stringify(options, null, '  '));
   console.log();
 
   return Promise.resolve();

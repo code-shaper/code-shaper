@@ -41,16 +41,18 @@ async function generateReactLibrary(inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // Example: ui-lib
+  // Example: itemName = ui-lib
+
+  // itemNameKebabCase = ui-lib
   options['itemNameKebabCase'] = cc.kebabCase(itemName);
 
-  // Example: uiLib
+  // itemNameCamelCase = uiLib
   options['itemNameCamelCase'] = cc.camelCase(itemName);
 
-  // Example: UiLib
+  // itemNamePascalCase = UiLib
   options['itemNamePascalCase'] = cc.pascalCase(itemName);
 
-  // Example: Ui Lib
+  // itemNameCapitalCase = Ui Lib
   options['itemNameCapitalCase'] = cc.capitalCase(itemName);
   // --------------------------------------------------------------------------
 

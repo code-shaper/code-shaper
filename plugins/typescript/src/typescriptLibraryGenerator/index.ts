@@ -41,16 +41,18 @@ async function generateTypescriptLibrary(inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // Example: string-utils
+  // Example: itemName = string-utils
+
+  // itemNameKebabCase = string-utils
   options['itemNameKebabCase'] = cc.kebabCase(itemName);
 
-  // Example: stringUtils
+  // itemNameCamelCase = stringUtils
   options['itemNameCamelCase'] = cc.camelCase(itemName);
 
-  // Example: StringUtils
+  // itemNamePascalCase = StringUtils
   options['itemNamePascalCase'] = cc.pascalCase(itemName);
 
-  // Example: String Utils
+  // itemNameCapitalCase = String Utils
   options['itemNameCapitalCase'] = cc.capitalCase(itemName);
   // --------------------------------------------------------------------------
 

@@ -1,3 +1,3 @@
 # Code Shaper
 
-A delightful modular code generator
+A delightful, modular code generator

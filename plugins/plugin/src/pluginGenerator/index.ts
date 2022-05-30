@@ -39,7 +39,7 @@ async function generatePlugin(inputOptions: Options) {
   const { packageName, pluginName, parentDir } = options;
 
   // --------------------------------------------------------------------------
-  // Add more options for code generation
+  // Add more options for code generation here
   // --------------------------------------------------------------------------
   // Example pluginName: react-patterns
 
@@ -55,7 +55,6 @@ async function generatePlugin(inputOptions: Options) {
 
   // pluginModuleName = reactPatternsPlugin
   options['pluginModuleName'] = `${pluginNameCamelCase}Plugin`;
-
   // --------------------------------------------------------------------------
 
   const srcDir = path.join(__dirname, 'templates');

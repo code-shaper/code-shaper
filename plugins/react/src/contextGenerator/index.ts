@@ -43,42 +43,42 @@ async function generateContext(inputOptions: Options) {
   // Assume that the item in this generator is the state we are keeping in context.
   // Example: itemName = ViewState
 
-  // Example: view-state
+  // itemNameKebabCase = view-state
   options['itemNameKebabCase'] = cc.kebabCase(itemName);
 
-  // Example: viewState
+  // itemNameCamelCase = viewState
   options['itemNameCamelCase'] = cc.camelCase(itemName);
 
-  // Example: ViewState
+  // itemNamePascalCase = ViewState
   options['itemNamePascalCase'] = cc.pascalCase(itemName);
 
-  // Example: View State
+  // itemNameCapitalCase = View State
   options['itemNameCapitalCase'] = cc.capitalCase(itemName);
 
   const { itemNameCamelCase, itemNamePascalCase } = options;
 
-  // Example: ViewStateContext (then add extension)
+  // filename = ViewStateContext (then add extension)
   options['filename'] = `${itemNamePascalCase}Context`;
 
-  // Example: ViewState
+  // stateName = ViewState
   options['stateName'] = itemNamePascalCase;
 
-  // Example: viewState
+  // stateNameCamelCase = viewState
   options['stateNameCamelCase'] = itemNameCamelCase;
 
-  // Example: ViewStateSetter
+  // stateSetter = ViewStateSetter
   options['stateSetter'] = `${itemNamePascalCase}Setter`;
 
-  // Example: ViewStateContext
+  // contextName = ViewStateContext
   options['contextName'] = `${itemNamePascalCase}Context`;
 
-  // Example: viewStateContext
+  // contextNameCamelCase = viewStateContext
   options['contextNameCamelCase'] = `${itemNameCamelCase}Context`;
 
-  // Example: ViewStateContextProvider
+  // providerName = ViewStateContextProvider
   options['providerName'] = `${itemNamePascalCase}ContextProvider`;
 
-  // Example: useViewStateContext
+  // hookName = useViewStateContext
   options['hookName'] = `use${itemNamePascalCase}Context`;
   // --------------------------------------------------------------------------
 

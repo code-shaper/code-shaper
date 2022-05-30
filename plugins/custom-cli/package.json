@@ -1,6 +1,6 @@
 {
-  "name": "@code-shaper/repo",
-  "description": "Repo plugin",
+  "name": "@code-shaper/custom-cli",
+  "description": "custom-cli plugin",
   "version": "0.0.10",
   "license": "MIT",
   "publishConfig": {

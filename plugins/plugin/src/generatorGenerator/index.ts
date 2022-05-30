@@ -40,7 +40,7 @@ async function generateGenerator(inputOptions: Options) {
   const { generatorName, workspace } = options;
 
   // --------------------------------------------------------------------------
-  // Add more options for code generation
+  // Add more options for code generation here
   // --------------------------------------------------------------------------
   // Example: generatorName = component-library
 
@@ -61,7 +61,6 @@ async function generateGenerator(inputOptions: Options) {
 
   // generatorFunctionName = generateComponentLibrary
   options['generatorFunctionName'] = `generate${generatorNamePascalCase}`;
-
   // --------------------------------------------------------------------------
 
   const srcDir = path.join(__dirname, 'templates');
