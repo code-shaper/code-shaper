@@ -13,6 +13,7 @@ describe('reactLibraryGenerator', () => {
     //   packageName: '@movie-magic/ui-lib',
     // });
 
+    // TODO: Compare test-output with expected-output
     expect(true).toBeTruthy();
 
     // restore console logs

@@ -13,6 +13,7 @@ describe('typescriptLibraryGenerator', () => {
     //   packageName: '@movie-magic/string-utils',
     // });
 
+    // TODO: Compare test-output with expected-output
     expect(true).toBeTruthy();
 
     // restore console logs

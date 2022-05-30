@@ -12,6 +12,7 @@ describe('generatorGenerator', () => {
       workspace: './plugins/plugin/test-output',
     });
 
+    // TODO: Compare test-output with expected-output
     expect(true).toBeTruthy();
 
     // restore console logs

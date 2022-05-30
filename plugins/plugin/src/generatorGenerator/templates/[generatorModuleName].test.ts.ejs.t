@@ -1,7 +1,7 @@
 import plugin from '../index';
 
 describe('<%= generatorModuleName %>', () => {
-  test('should create a <%= generatorNamePascalCase %> from templates', async () => {
+  test('should create a <%= generatorNameCamelCase %> from templates', async () => {
     // suppress console logs
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(console, 'log').mockImplementation(() => {});
@@ -10,6 +10,7 @@ describe('<%= generatorModuleName %>', () => {
       generator: '<%= generatorName %>',
     });
 
+    // TODO: Compare test-output with expected-output
     expect(true).toBeTruthy();
 
     // restore console logs

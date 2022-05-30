@@ -11,6 +11,7 @@ describe('turborepoGenerator', () => {
     //     itemName: 'movie-magic',
     // });
 
+    // TODO: Compare test-output with expected-output
     expect(true).toBeTruthy();
 
     // restore console logs

@@ -6,10 +6,10 @@ module.exports = {
     '../../apps/*/src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
-    '@storybook/addon-a11y',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-links',
+    '@storybook/addon-a11y',
   ],
   framework: '@storybook/react',
 };
