@@ -1,4 +1,10 @@
-import { cc, FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
+import {
+  cc,
+  FileUtils,
+  Generator,
+  Options,
+  PackageJsonUtils,
+} from '@code-shaper/shaper-utils';
 import inquirer from 'inquirer';
 import path from 'path';
 
@@ -10,6 +16,14 @@ export const componentGenerator: Generator = {
 };
 
 async function generateComponent(inputOptions: Options) {
+  // Get workspaces
+  const cwd = process.cwd();
+  const workspaces = PackageJsonUtils.getWorkspacesFromPackageJson(cwd);
+  if (!workspaces) {
+    return Promise.reject('workspaces not found');
+  }
+
+  // Get input from user
   const questions = [
     {
       type: 'input',
@@ -19,23 +33,28 @@ async function generateComponent(inputOptions: Options) {
     {
       type: 'list',
       name: 'workspace',
+      pageSize: 20,
+      loop: false,
       message: 'Which workspace should this go to?',
       choices: () => {
-        // TODO: Get workspace globs from package.json, don't hardcode here.
-        const dirSpecs = FileUtils.resolvePaths(process.cwd(), [
-          'apps/*',
-          'packages/*',
-        ]);
+        const dirSpecs = FileUtils.resolvePaths(cwd, workspaces);
         return dirSpecs.map((dirSpec) => ({
           name: dirSpec.name,
           value: dirSpec.path,
         }));
       },
     },
+    {
+      type: 'input',
+      name: 'dirInWorkspace',
+      message: 'Parent directory within workspace?',
+      default: (answers: Options) =>
+        `src/components/${cc.pascalCase(answers['itemName'] as string)}`,
+    },
   ];
 
   const options = await inquirer.prompt(questions, inputOptions);
-  const { itemName, workspace } = options;
+  const { itemName, workspace, dirInWorkspace } = options;
 
   // --------------------------------------------------------------------------
   // Add more options for code generation here
@@ -61,7 +80,7 @@ async function generateComponent(inputOptions: Options) {
   const { itemNamePascalCase } = options;
 
   const srcDir = path.join(__dirname, 'templates');
-  const dstDir = path.join(workspace, `src/components/${itemNamePascalCase}`);
+  const dstDir = path.join(workspace, dirInWorkspace);
 
   console.log();
   console.log(`Creating ${itemNamePascalCase}...`);
@@ -69,10 +88,10 @@ async function generateComponent(inputOptions: Options) {
   // Create the component
   FileUtils.transformFiles(srcDir, dstDir, options);
 
-  // Import it in src/components/index.ts
+  // Import it in ../index.ts
   console.log();
-  console.log('Updating src/components/index.ts...');
-  const indexTs = path.join(workspace, `src/components/index.ts`);
+  console.log('Updating parent index.ts...');
+  const indexTs = path.join(path.dirname(dstDir), `index.ts`);
   FileUtils.appendToFile(indexTs, `export * from './${itemNamePascalCase}';\n`);
 
   console.log();

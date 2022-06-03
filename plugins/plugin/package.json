@@ -1,7 +1,7 @@
 {
   "name": "@code-shaper/plugin",
   "description": "Plugin to generate a plugin",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -29,7 +29,7 @@
   },
   "peerDependencies": {
     "inquirer": "^8.x",
-    "inquirer-directory": "^2.2.0"
+    "inquirer-directory": "^2.x"
   },
   "shaper": {}
 }

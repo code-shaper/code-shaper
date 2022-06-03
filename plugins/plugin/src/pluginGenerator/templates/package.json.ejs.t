@@ -29,7 +29,7 @@
   },
   "peerDependencies": {
     "inquirer": "^8.x",
-    "inquirer-directory": "^2.2.0"
+    "inquirer-directory": "^2.x"
   },
   "shaper": {}
 }

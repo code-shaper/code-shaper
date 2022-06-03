@@ -1,4 +1,10 @@
-import { cc, FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
+import {
+  cc,
+  FileUtils,
+  Generator,
+  Options,
+  PackageJsonUtils,
+} from '@code-shaper/shaper-utils';
 import inquirer from 'inquirer';
 import path from 'path';
 
@@ -10,6 +16,14 @@ export const generatorGenerator: Generator = {
 };
 
 async function generateGenerator(inputOptions: Options) {
+  // Get workspaces
+  const cwd = process.cwd();
+  const workspaces = PackageJsonUtils.getWorkspacesFromPackageJson(cwd);
+  if (!workspaces) {
+    return Promise.reject('workspaces not found');
+  }
+
+  // Get input from user
   const questions = [
     {
       type: 'input',
@@ -19,15 +33,11 @@ async function generateGenerator(inputOptions: Options) {
     {
       type: 'list',
       name: 'workspace',
+      pageSize: 20,
+      loop: false,
       message: 'Which plugin should this go under?',
       choices: () => {
-        // TODO: Get workspace globs from package.json, don't hardcode here.
-        const dirSpecs = FileUtils.resolvePaths(process.cwd(), [
-          'apps/*',
-          'configs/*',
-          'packages/*',
-          'plugins/*',
-        ]);
+        const dirSpecs = FileUtils.resolvePaths(cwd, workspaces);
         return dirSpecs.map((dirSpec) => ({
           name: dirSpec.name,
           value: dirSpec.path,
