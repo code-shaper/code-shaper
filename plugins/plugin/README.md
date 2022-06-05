@@ -1,1 +1,6 @@
-# Plugin Plugin
+# Plugin plugin
+
+This plugin generates scaffolding for creating your own plugins and generators.
+Please see
+[Plugin plugin](https://code-shaper.dev/docs/how-to-guides/creating-a-custom-cli)
+for details.
