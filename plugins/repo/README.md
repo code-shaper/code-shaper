@@ -2,7 +2,7 @@
 
 This plugin generates an empty repository and repository-wide artifacts such as
 Storybook support. Please see
-[Repo plugin](https://code-shaper.dev/docs/reference/repo-plugin.md) for
+[Repo plugin](https://code-shaper.dev/docs/reference/repo-plugin) for
 details.
 
 > Warning: Do not remove the `.ejs.t` extension from the `.gitignore.ejs.t`
