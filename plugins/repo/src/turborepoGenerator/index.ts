@@ -1,4 +1,4 @@
-import { FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
+import { cc, FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
 import inquirer from 'inquirer';
 import path from 'path';
 
@@ -21,6 +21,24 @@ async function generateTurborepo(inputOptions: Options) {
   const options = await inquirer.prompt(questions, inputOptions);
   const { itemName } = options;
 
+  // --------------------------------------------------------------------------
+  // Add more options for code generation here
+  // --------------------------------------------------------------------------
+  // Example: itemName = movie-magic
+
+  // itemNameKebabCase = movie-magic
+  options['itemNameKebabCase'] = cc.kebabCase(itemName);
+
+  // itemNameCamelCase = movieMagic
+  options['itemNameCamelCase'] = cc.camelCase(itemName);
+
+  // itemNamePascalCase = MovieMagic
+  options['itemNamePascalCase'] = cc.pascalCase(itemName);
+
+  // itemNameCapitalCase = Movie Magic
+  options['itemNameCapitalCase'] = cc.capitalCase(itemName);
+  // --------------------------------------------------------------------------
+
   const srcDir = path.join(__dirname, 'templates');
   const dstDir = path.join(process.cwd(), itemName);
 
@@ -36,7 +54,7 @@ async function generateTurborepo(inputOptions: Options) {
   console.log('  git init');
   console.log('  npm install');
   console.log('  git add .');
-  console.log('  git commit -m "initial commit"');
+  console.log('  git commit -m "Initial commit"');
   console.log();
   console.log('What to do next?');
   console.log('----------------');

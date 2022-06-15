@@ -1,6 +1,6 @@
 {
-  "name": "@code-shaper/custom-cli",
-  "description": "custom-cli plugin",
+  "name": "@code-shaper/express",
+  "description": "express plugin",
   "version": "0.0.12",
   "license": "MIT",
   "publishConfig": {

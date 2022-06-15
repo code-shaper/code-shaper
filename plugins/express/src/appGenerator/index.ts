@@ -7,32 +7,32 @@ import path from 'path';
 // Register inquirer prompts
 inquirer.registerPrompt('directory', inquirerDirectory);
 
-export const reactLibraryGenerator: Generator = {
-  id: 'react-library',
-  name: 'React Library',
-  description: 'generates a React library',
-  generate: generateReactLibrary,
+export const appGenerator: Generator = {
+  id: 'app',
+  name: 'Application',
+  description: 'generates an Express application',
+  generate: generateApp,
 };
 
-async function generateReactLibrary(inputOptions: Options) {
+async function generateApp(inputOptions: Options) {
   const questions = [
     {
       type: 'input',
       name: 'itemName',
-      message: 'Library name? (e.g. "ui-lib")',
+      message: 'Application name? (e.g. "movie-magic-api")',
     },
     {
       type: 'directory',
       name: 'parentDir',
       pageSize: 20,
-      message: 'Parent directory? (usually "packages")',
+      message: 'Parent directory? (usually "apps")',
       basePath: '.',
     },
     {
       type: 'input',
       name: 'packageName',
       message:
-        'Package name used for publishing? (e.g. "ui-lib" or "@movie-magic/ui-lib")',
+        'Package name used for publishing? (e.g. "movie-magic-api" or "@movie-magic/movie-magic-api")',
     },
   ];
 
@@ -42,18 +42,18 @@ async function generateReactLibrary(inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // Example: itemName = ui-lib
+  // Example: itemName = movie-magic-api
 
-  // itemNameKebabCase = ui-lib
+  // itemNameKebabCase = movie-magic-api
   options['itemNameKebabCase'] = cc.kebabCase(itemName);
 
-  // itemNameCamelCase = uiLib
+  // itemNameCamelCase = movieMagicApi
   options['itemNameCamelCase'] = cc.camelCase(itemName);
 
-  // itemNamePascalCase = UiLib
+  // itemNamePascalCase = MovieMagicApi
   options['itemNamePascalCase'] = cc.pascalCase(itemName);
 
-  // itemNameCapitalCase = Ui Lib
+  // itemNameCapitalCase = Movie Magic API
   options['itemNameCapitalCase'] = cc.capitalCase(itemName);
   // --------------------------------------------------------------------------
 
@@ -79,36 +79,31 @@ async function generateReactLibrary(inputOptions: Options) {
   );
   FileUtils.transformFiles(srcDirConfig, dstDirConfig, options);
 
+  console.log();
   console.log('Done.');
   console.log();
   console.log(
-    '1. In the root directory, edit package.json to force the latest version of React.'
+    '1. Edit /configs/typescript-config-custom/package.json to add a new typescript configuration'
   );
   console.log(
-    '   This is done by adding the following overrides section after the devDependencies'
+    '   (typescript-library.json) if it is not already there. See below:'
   );
-  console.log('   section (ignore if these overrides already exist):');
-  console.log();
-  console.log('     "overrides": {');
-  console.log('       "react": "^18.1.0",');
-  console.log('       "react-dom": "^18.1.0"');
-  console.log('     },');
-  console.log();
-  console.log(
-    '2. Edit /configs/typescript-config-custom/package.json to add a new typescript configuration'
-  );
-  console.log('   (react-library.json) if it is not already there. See below:');
   console.log();
   console.log('     "files": [');
   console.log('       "base.json",');
-  console.log('       "react-library.json"');
+  console.log('       "typescript-library.json"');
   console.log('     ],');
   console.log();
-  console.log('3. In the root directory, run:');
-  console.log('     npm run clean');
+  console.log('2. In the root directory, run:');
   console.log('     npm install');
+  console.log('     npm run build');
   console.log();
-  console.log('4. Start adding components to your library');
+  console.log(`3. Run ${itemName} from the root directory:`);
+  console.log('     npm run dev');
+  console.log();
+  console.log(
+    '4. Point your browser to http://localhost:8080/top-10-movies to call the sample API:'
+  );
   console.log();
 
   return Promise.resolve();

@@ -1,1 +1,1 @@
-# <%= pluginName %>
+# <%= pluginNameCapitalCase %>

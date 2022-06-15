@@ -1,1 +1,1 @@
-# <%= itemName %>
+# <%= itemNameCapitalCase %>

@@ -24,6 +24,7 @@ async function <%= generatorFunctionName %>(inputOptions: Options) {
     {
       type: 'directory',
       name: 'parentDir',
+      pageSize: 20,
       message: 'Parent directory? (usually "<directory name>")',
       basePath: '.',
     },
@@ -35,6 +36,8 @@ async function <%= generatorFunctionName %>(inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
+  // Example: itemName = movie-magic
+
   // itemNameKebabCase = movie-magic
   options['itemNameKebabCase'] = cc.kebabCase(itemName);
 

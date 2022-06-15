@@ -24,6 +24,7 @@ async function generateTypescriptLibrary(inputOptions: Options) {
     {
       type: 'directory',
       name: 'parentDir',
+      pageSize: 20,
       message: 'Parent directory? (usually "packages")',
       basePath: '.',
     },
@@ -78,6 +79,7 @@ async function generateTypescriptLibrary(inputOptions: Options) {
   );
   FileUtils.transformFiles(srcDirConfig, dstDirConfig, options);
 
+  console.log();
   console.log('Done.');
   console.log();
   console.log(
