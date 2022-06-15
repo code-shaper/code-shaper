@@ -109,7 +109,7 @@ function getPluginMainDefaultExport(
     });
     return require(fullMainPath).default as Plugin;
   } catch (err) {
-    console.log('error requiring plugin', err);
+    console.log(`Error loading plugin at ${rootPath}`, err);
     return null;
   }
 }
