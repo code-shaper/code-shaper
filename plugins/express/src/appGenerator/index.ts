@@ -102,7 +102,7 @@ async function generateApp(inputOptions: Options) {
   console.log('     npm run dev');
   console.log();
   console.log(
-    '4. Point your browser to http://localhost:8080/top-10-movies to call the sample API:'
+    '4. Point your browser to http://localhost:8080/top-10-movies to call the sample API.'
   );
   console.log();
 
