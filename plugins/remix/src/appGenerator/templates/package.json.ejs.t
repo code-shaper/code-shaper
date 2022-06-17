@@ -8,6 +8,7 @@
     "dev": "remix dev",
     "build": "remix build",
     "start": "remix-serve build",
+    "test": "jest",
     "clean": "rimraf .turbo node_modules build public/build coverage test-output"
   },
   "dependencies": {
