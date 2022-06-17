@@ -22,8 +22,8 @@
   },
   "devDependencies": {
     "husky": "^8.0.1",
-    "lint-staged": "^12.4.2",
-    "prettier": "^2.6.2",
+    "lint-staged": "^13.0.1",
+    "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "turbo": "latest"
   },

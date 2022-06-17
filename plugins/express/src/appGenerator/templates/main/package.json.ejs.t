@@ -13,7 +13,7 @@
     "dev": "nodemon --watch src -e ts --exec ts-node src/index.ts",
     "build": "rimraf dist && tsc",
     "lint": "eslint src/**/*.ts*",
-    "test": "jest --coverage",
+    "test": "jest --coverage --passWithNoTests",
     "clean": "rimraf .turbo node_modules dist coverage test-output"
   },
   "dependencies": {
@@ -25,17 +25,17 @@
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
-    "@types/jest": "^27.5.1",
+    "@types/jest": "^28.1.1",
     "@types/morgan": "^1.9.3",
-    "@types/node": "^17.0.36",
-    "eslint": "^8.16.0",
+    "@types/node": "^18.0.0",
+    "eslint": "^8.17.0",
     "eslint-config-custom": "*",
-    "jest": "^28.1.0",
+    "jest": "^28.1.1",
     "jest-config-custom": "*",
     "nodemon": "^2.0.16",
-    "ts-jest": "^28.0.3",
+    "ts-jest": "^28.0.5",
     "ts-node": "^10.8.1",
-    "typescript": "^4.7.2",
+    "typescript": "^4.7.3",
     "typescript-config-custom": "*"
   }
 }

@@ -15,16 +15,16 @@
   },
   "devDependencies": {
     "@code-shaper/shaper-utils": "*",
-    "@types/jest": "^27.5.1",
+    "@types/jest": "^28.1.1",
     "@types/inquirer": "^8.2.1",
-    "@types/node": "^17.0.36",
+    "@types/node": "^18.0.0",
     "copyfiles": "^2.4.1",
-    "eslint": "^8.16.0",
+    "eslint": "^8.17.0",
     "eslint-config-custom": "*",
-    "jest": "^28.1.0",
+    "jest": "^28.1.1",
     "jest-config-custom": "*",
-    "ts-jest": "^28.0.3",
-    "typescript": "^4.7.2",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.3",
     "typescript-config-custom": "*"
   },
   "peerDependencies": {
