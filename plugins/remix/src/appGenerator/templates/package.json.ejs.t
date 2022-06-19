@@ -9,7 +9,7 @@
     "build": "remix build",
     "start": "remix-serve build",
     "test": "jest",
-    "clean": "rimraf .turbo node_modules build public/build coverage test-output"
+    "clean": "rimraf .turbo .cache node_modules build public/build coverage test-output"
   },
   "dependencies": {
     "@remix-run/node": "^1.6.0",
