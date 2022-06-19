@@ -2,17 +2,20 @@
   "name": "<%= packageName %>",
   "description": "<%= itemName %>",
   "version": "0.0.1",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "sideEffects": false,
   "license": "MIT",
   "files": [
     "dist/**"
   ],
   "scripts": {
-    "build": "rimraf dist && tsc",
+    "dev": "npm run bundle -- --watch",
+    "build": "rimraf dist && npm run bundle",
     "lint": "eslint src/**/*.ts*",
     "test": "jest --coverage",
+    "bundle": "tsup src/index.ts --format esm,cjs --dts --external react",
     "clean": "rimraf .turbo node_modules dist coverage test-output"
   },
   "devDependencies": {
@@ -23,6 +26,7 @@
     "jest": "^28.1.0",
     "jest-config-custom": "*",
     "ts-jest": "^28.0.3",
+    "tsup": "^6.1.2",
     "typescript": "^4.7.2",
     "typescript-config-custom": "*"
   }

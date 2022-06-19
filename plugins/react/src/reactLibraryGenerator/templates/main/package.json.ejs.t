@@ -2,17 +2,21 @@
   "name": "<%= packageName %>",
   "description": "<%= itemName %>",
   "version": "0.0.1",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "sideEffects": false,
   "license": "MIT",
   "files": [
     "dist/**"
   ],
   "scripts": {
-    "build": "rimraf dist && tsc && copyfiles --all --up 1 \"src/**/*.css\" dist",
+    "dev": "npm run bundle -- --watch && npm run copy-css",
+    "build": "rimraf dist && npm run bundle && npm run copy-css",
     "lint": "eslint src/**/*.ts*",
     "test": "jest --coverage",
+    "bundle": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "copy-css": "copyfiles --all --up 1 \"src/**/*.css\" dist",
     "clean": "rimraf .turbo node_modules dist coverage test-output"
   },
   "devDependencies": {
@@ -31,6 +35,7 @@
     "jest-config-custom": "*",
     "jest-environment-jsdom": "^28.1.1",
     "ts-jest": "^28.0.5",
+    "tsup": "^6.1.2",
     "typescript": "^4.7.3",
     "typescript-config-custom": "*"
   },
