@@ -90,8 +90,8 @@ async function generateReactLibrary(inputOptions: Options) {
   console.log('   section (ignore if these overrides already exist):');
   console.log();
   console.log('     "overrides": {');
-  console.log('       "react": "^18.1.0",');
-  console.log('       "react-dom": "^18.1.0"');
+  console.log('       "react": "^18.2.0",');
+  console.log('       "react-dom": "^18.2.0"');
   console.log('     },');
   console.log();
   console.log(
