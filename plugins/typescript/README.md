@@ -1,4 +1,4 @@
-# TypeScript plugin
+# TypeScript Plugin
 
 This plugin contains a single generator to scaffold reusable TypeScript
 libraries. Please see

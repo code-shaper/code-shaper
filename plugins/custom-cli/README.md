@@ -1,4 +1,4 @@
-# Custom CLI plugin
+# Custom CLI Plugin
 
 This plugin allows you to create a CLI which is customized to your project.
 Please see

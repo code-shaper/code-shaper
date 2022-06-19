@@ -1,4 +1,4 @@
-# Repo plugin
+# Repo Plugin
 
 This plugin generates an empty repository and repository-wide artifacts such as
 Storybook support. Please see

@@ -1,4 +1,4 @@
-# Express plugin
+# Express Plugin
 
 This plugin contains a single generator to scaffold reusable Express apps.
 Please see

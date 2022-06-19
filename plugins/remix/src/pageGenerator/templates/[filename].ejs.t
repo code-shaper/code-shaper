@@ -30,10 +30,8 @@ export default function <%= itemNamePascalCase %>() {
 
   return (
     <div className="p-3">
-      <div className="card p-3">
-        <h1 className="text-2xl font-semibold mb-2"><%= itemNameCapitalCase %></h1>
-        <p>{movies.length} movies</p>
-      </div>
+      <h1 className="text-2xl font-semibold mb-2"><%= itemNameCapitalCase %></h1>
+      <p>{movies.length} movies</p>
     </div>
   );
 }

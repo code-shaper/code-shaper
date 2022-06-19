@@ -38,13 +38,14 @@
   "devDependencies": {
     "@code-shaper/custom-cli": "*",
     "@code-shaper/express": "*",
+    "@code-shaper/nextjs": "*",
     "@code-shaper/plugin": "*",
     "@code-shaper/react": "*",
     "@code-shaper/remix": "*",
     "@code-shaper/typescript": "*",
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.1",
-    "prettier": "^2.7.0",
+    "lint-staged": "^13.0.2",
+    "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "turbo": "latest"
   },

@@ -52,6 +52,7 @@ async function run(
       {
         type: 'list',
         name: 'pluginId',
+        pageSize: 20,
         message: 'Which plugin would you like to run?',
         choices: allChoices,
       },
