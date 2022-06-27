@@ -8,6 +8,11 @@ describe('pageGenerator', () => {
 
     await plugin.run({
       generator: 'page',
+      itemName: 'movie-magic',
+      rootDir: '../../',
+      workspace: '/plugins/nextjs',
+      dirInWorkspace: '/test-output/movie-magic/src/pages',
+      filename: 'test.tsx',
     });
 
     // TODO: Compare test-output with expected-output
