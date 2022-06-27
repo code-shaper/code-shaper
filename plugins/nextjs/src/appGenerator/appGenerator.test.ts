@@ -1,5 +1,5 @@
 import plugin from '../index';
-
+import { ApplicationUtil } from '@code-shaper/shaper-utils';
 describe('appGenerator', () => {
   test('should create a new app from templates', async () => {
     // suppress console logs
@@ -8,10 +8,17 @@ describe('appGenerator', () => {
 
     await plugin.run({
       generator: 'app',
+      itemName: 'movie-magic',
+      parentDir: 'test-output/',
+      packageName: '@movie-magic/movie-magic',
     });
 
+    const isNextJsApplication = ApplicationUtil.isNextJsApplication(
+      'test-output/movie-magic'
+    );
+
     // TODO: Compare test-output with expected-output
-    expect(true).toBeTruthy();
+    expect(isNextJsApplication).toBeTruthy();
 
     // restore console logs
     jest.restoreAllMocks();

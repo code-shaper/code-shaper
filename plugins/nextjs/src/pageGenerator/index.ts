@@ -17,7 +17,7 @@ export const pageGenerator: Generator = {
 
 async function generatePage(inputOptions: Options) {
   // Get workspaces
-  const cwd = process.cwd();
+  const cwd = (inputOptions['rootDir'] as string) || process.cwd();
   const workspaces = PackageJsonUtils.getWorkspacesFromPackageJson(cwd);
   if (!workspaces) {
     return Promise.reject('workspaces not found');
@@ -29,6 +29,13 @@ async function generatePage(inputOptions: Options) {
       type: 'input',
       name: 'itemName',
       message: 'Page name? (e.g. "SettingsPage")',
+    },
+    {
+      type: 'input',
+      name: 'rootDir',
+      message:
+        'What is the root Directory for this? (default set to current working directory)',
+      default: process.cwd(),
     },
     {
       type: 'list',
@@ -58,7 +65,7 @@ async function generatePage(inputOptions: Options) {
   ];
 
   const options = await inquirer.prompt(questions, inputOptions);
-  const { itemName, workspace, dirInWorkspace } = options;
+  const { itemName, rootDir, workspace, dirInWorkspace } = options;
 
   // --------------------------------------------------------------------------
   // Add more options for code generation here
@@ -81,7 +88,8 @@ async function generatePage(inputOptions: Options) {
   const { itemNamePascalCase } = options;
 
   const srcDir = path.join(__dirname, 'templates');
-  const dstDir = path.join(workspace, dirInWorkspace);
+  const workspaceDir = path.join(rootDir, workspace);
+  const dstDir = path.join(workspaceDir, dirInWorkspace);
 
   console.log();
   console.log(`Creating ${itemNamePascalCase}...`);
