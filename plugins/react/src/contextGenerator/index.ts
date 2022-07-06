@@ -28,7 +28,7 @@ async function generateContext(inputOptions: Options) {
     {
       type: 'input',
       name: 'itemName',
-      message: 'State to be kept in context? (e.g. "User" or "ViewState")',
+      message: 'State to be kept in context? (e.g. "Cart" or "AuthState")',
     },
     {
       type: 'list',
@@ -49,7 +49,7 @@ async function generateContext(inputOptions: Options) {
       name: 'dirInWorkspace',
       message: 'Parent directory within workspace?',
       default: (answers: Options) =>
-        `src/contexts/${cc.pascalCase(answers['itemName'] as string)}`,
+        `src/contexts/${cc.pascalCase(answers['itemName'] as string)}Context`,
     },
   ];
 
