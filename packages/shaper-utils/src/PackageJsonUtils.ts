@@ -22,20 +22,20 @@ function getPackageJson(parentPath: string): PackageJson | null {
 }
 
 /**
- * Returns workspaces from the package.json file under the specified parentPath
+ * Returns workspaces from the package.json file under the specified parentPath.
+ * If package.json is not found, or "workspaces" property in package.json is
+ * not found, simply returns an empty array.
  *
  * @param parentPath
  * @returns Array<string> e.g. [ 'apps/*', 'packages/*' ]
  */
-function getWorkspacesFromPackageJson(
-  parentPath: string
-): Array<string> | null {
+function getWorkspacesFromPackageJson(parentPath: string): Array<string> {
   const packageJson = getPackageJson(parentPath);
   if (!packageJson) {
-    return null;
+    return [];
   }
 
-  return Array.isArray(packageJson.workspaces) ? packageJson.workspaces : null;
+  return Array.isArray(packageJson.workspaces) ? packageJson.workspaces : [];
 }
 
 export const PackageJsonUtils = {

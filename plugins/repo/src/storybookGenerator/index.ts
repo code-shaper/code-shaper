@@ -9,9 +9,8 @@ export const storybookGenerator: Generator = {
   generate: generateStorybook,
 };
 
-async function generateStorybook(inputOptions: Options) {
-  const repoDir = process.cwd();
-  const repoName = path.basename(repoDir);
+async function generateStorybook(rootDir: string, inputOptions: Options) {
+  const repoName = path.basename(rootDir);
 
   const questions = [
     {
@@ -30,7 +29,7 @@ async function generateStorybook(inputOptions: Options) {
   }
 
   const srcDir = path.join(__dirname, 'templates');
-  const dstDir = repoDir;
+  const dstDir = rootDir;
 
   console.log();
   console.log(`Adding Storybook support to ${repoName}...`);

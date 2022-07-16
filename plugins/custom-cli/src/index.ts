@@ -27,7 +27,7 @@ const customCliPlugin: Plugin = {
       return Promise.resolve();
     }
 
-    return generator.generate(inputOptions);
+    return generator.generate(process.cwd(), inputOptions);
   },
 };
 

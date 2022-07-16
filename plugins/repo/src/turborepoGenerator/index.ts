@@ -9,7 +9,7 @@ export const turborepoGenerator: Generator = {
   generate: generateTurborepo,
 };
 
-async function generateTurborepo(inputOptions: Options) {
+async function generateTurborepo(rootDir: string, inputOptions: Options) {
   const questions = [
     {
       type: 'input',
@@ -40,7 +40,7 @@ async function generateTurborepo(inputOptions: Options) {
   // --------------------------------------------------------------------------
 
   const srcDir = path.join(__dirname, 'templates');
-  const dstDir = path.join(process.cwd(), itemName);
+  const dstDir = path.join(rootDir, itemName);
 
   console.log();
   console.log(`Creating ${itemName}...`);

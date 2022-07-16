@@ -14,7 +14,10 @@ export const typescriptLibraryGenerator: Generator = {
   generate: generateTypescriptLibrary,
 };
 
-async function generateTypescriptLibrary(inputOptions: Options) {
+async function generateTypescriptLibrary(
+  rootDir: string,
+  inputOptions: Options
+) {
   const questions = [
     {
       type: 'input',
@@ -26,7 +29,7 @@ async function generateTypescriptLibrary(inputOptions: Options) {
       name: 'parentDir',
       pageSize: 20,
       message: 'Parent directory? (usually "packages")',
-      basePath: '.',
+      basePath: rootDir,
     },
     {
       type: 'input',
@@ -73,7 +76,7 @@ async function generateTypescriptLibrary(inputOptions: Options) {
     'templates/typescript-config-custom'
   );
   const dstDirConfig = path.join(
-    process.cwd(),
+    rootDir,
     'configs',
     'typescript-config-custom'
   );

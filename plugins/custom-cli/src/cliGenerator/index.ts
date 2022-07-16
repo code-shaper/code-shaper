@@ -14,7 +14,7 @@ export const cliGenerator: Generator = {
   generate: generateCli,
 };
 
-async function generateCli(inputOptions: Options) {
+async function generateCli(rootDir: string, inputOptions: Options) {
   const questions = [
     {
       type: 'input',
@@ -26,7 +26,7 @@ async function generateCli(inputOptions: Options) {
       name: 'parentDir',
       pageSize: 20,
       message: 'Parent directory? (usually "apps")',
-      basePath: '.',
+      basePath: rootDir,
     },
     {
       type: 'input',

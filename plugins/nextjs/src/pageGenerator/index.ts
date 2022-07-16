@@ -15,13 +15,9 @@ export const pageGenerator: Generator = {
   generate: generatePage,
 };
 
-async function generatePage(inputOptions: Options) {
+async function generatePage(rootDir: string, inputOptions: Options) {
   // Get workspaces
-  const rootDir = (inputOptions['rootDir'] as string) || process.cwd();
   const workspaces = PackageJsonUtils.getWorkspacesFromPackageJson(rootDir);
-  if (!workspaces) {
-    return Promise.reject('workspaces not found');
-  }
 
   // Get input from user
   const questions = [

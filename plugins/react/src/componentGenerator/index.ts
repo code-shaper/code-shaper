@@ -15,13 +15,9 @@ export const componentGenerator: Generator = {
   generate: generateComponent,
 };
 
-async function generateComponent(inputOptions: Options) {
+async function generateComponent(rootDir: string, inputOptions: Options) {
   // Get workspaces
-  const cwd = process.cwd();
-  const workspaces = PackageJsonUtils.getWorkspacesFromPackageJson(cwd);
-  if (!workspaces) {
-    return Promise.reject('workspaces not found');
-  }
+  const workspaces = PackageJsonUtils.getWorkspacesFromPackageJson(rootDir);
 
   // Get input from user
   const questions = [
@@ -37,7 +33,7 @@ async function generateComponent(inputOptions: Options) {
       loop: false,
       message: 'Which workspace should this go to?',
       choices: () => {
-        const dirSpecs = FileUtils.resolvePaths(cwd, workspaces);
+        const dirSpecs = FileUtils.resolvePaths(rootDir, workspaces);
         return dirSpecs.map((dirSpec) => ({
           name: dirSpec.name,
           value: dirSpec.path,

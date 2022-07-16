@@ -5,5 +5,10 @@
     "outDir": "dist"
   },
   "include": ["src"],
-  "exclude": ["**/*.test.ts", "**/templates"]
+  "exclude": [
+    "**/*.test.ts",
+    "**/templates",
+    "**/expected-output",
+    "**/test-output"
+  ]
 }

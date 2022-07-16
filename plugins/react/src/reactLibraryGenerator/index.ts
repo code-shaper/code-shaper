@@ -14,7 +14,7 @@ export const reactLibraryGenerator: Generator = {
   generate: generateReactLibrary,
 };
 
-async function generateReactLibrary(inputOptions: Options) {
+async function generateReactLibrary(rootDir: string, inputOptions: Options) {
   const questions = [
     {
       type: 'input',
@@ -26,7 +26,7 @@ async function generateReactLibrary(inputOptions: Options) {
       name: 'parentDir',
       pageSize: 20,
       message: 'Parent directory? (usually "packages")',
-      basePath: '.',
+      basePath: rootDir,
     },
     {
       type: 'input',
