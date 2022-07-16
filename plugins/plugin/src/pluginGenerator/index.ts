@@ -14,7 +14,7 @@ export const pluginGenerator: Generator = {
   generate: generatePlugin,
 };
 
-async function generatePlugin(inputOptions: Options) {
+async function generatePlugin(rootDir: string, inputOptions: Options) {
   const questions = [
     {
       type: 'input',
@@ -26,7 +26,7 @@ async function generatePlugin(inputOptions: Options) {
       name: 'parentDir',
       pageSize: 20,
       message: 'Parent directory? (usually "plugins")',
-      basePath: '.',
+      basePath: rootDir,
     },
     {
       type: 'input',

@@ -1,4 +1,5 @@
-import plugin from '../index';
+import path from 'path';
+import { pageGenerator } from './index';
 
 describe('pageGenerator', () => {
   test('should create a new page from templates', async () => {
@@ -6,13 +7,12 @@ describe('pageGenerator', () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(console, 'log').mockImplementation(() => {});
 
-    await plugin.run({
-      generator: 'page',
-      itemName: 'movie-magic',
-      rootDir: '../../',
-      workspace: '/plugins/nextjs',
-      dirInWorkspace: '/test-output/movie-magic/src/pages',
-      filename: 'test.tsx',
+    const rootDir = path.join(__dirname, 'test-output');
+    await pageGenerator.generate(rootDir, {
+      itemName: 'SettingsPage',
+      workspace: path.join('apps', 'movie-magic'),
+      dirInWorkspace: 'src/pages',
+      filename: 'settings.tsx',
     });
 
     // TODO: Compare test-output with expected-output

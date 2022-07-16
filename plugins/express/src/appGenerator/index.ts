@@ -14,7 +14,7 @@ export const appGenerator: Generator = {
   generate: generateApp,
 };
 
-async function generateApp(inputOptions: Options) {
+async function generateApp(rootDir: string, inputOptions: Options) {
   const questions = [
     {
       type: 'input',
@@ -26,7 +26,7 @@ async function generateApp(inputOptions: Options) {
       name: 'parentDir',
       pageSize: 20,
       message: 'Parent directory? (usually "apps")',
-      basePath: '.',
+      basePath: rootDir,
     },
     {
       type: 'input',
