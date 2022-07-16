@@ -17,8 +17,8 @@ export const pageGenerator: Generator = {
 
 async function generatePage(inputOptions: Options) {
   // Get workspaces
-  const cwd = (inputOptions['rootDir'] as string) || process.cwd();
-  const workspaces = PackageJsonUtils.getWorkspacesFromPackageJson(cwd);
+  const rootDir = (inputOptions['rootDir'] as string) || process.cwd();
+  const workspaces = PackageJsonUtils.getWorkspacesFromPackageJson(rootDir);
   if (!workspaces) {
     return Promise.reject('workspaces not found');
   }
@@ -31,20 +31,13 @@ async function generatePage(inputOptions: Options) {
       message: 'Page name? (e.g. "SettingsPage")',
     },
     {
-      type: 'input',
-      name: 'rootDir',
-      message:
-        'What is the root Directory for this? (default set to current working directory)',
-      default: process.cwd(),
-    },
-    {
       type: 'list',
       name: 'workspace',
       pageSize: 20,
       loop: false,
       message: 'Which workspace should this go to?',
       choices: () => {
-        const dirSpecs = FileUtils.resolvePaths(cwd, workspaces);
+        const dirSpecs = FileUtils.resolvePaths(rootDir, workspaces);
         return dirSpecs.map((dirSpec) => ({
           name: dirSpec.name,
           value: dirSpec.path,
@@ -65,7 +58,7 @@ async function generatePage(inputOptions: Options) {
   ];
 
   const options = await inquirer.prompt(questions, inputOptions);
-  const { itemName, rootDir, workspace, dirInWorkspace } = options;
+  const { itemName, workspace, dirInWorkspace } = options;
 
   // --------------------------------------------------------------------------
   // Add more options for code generation here
