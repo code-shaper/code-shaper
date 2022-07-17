@@ -30,7 +30,7 @@ function registerDynamicPlugin(plugin: Plugin) {
 registerStaticPlugin(repoPlugin);
 
 // Register dynamic plugins
-const plugins = PluginUtils.getDynamicPlugins();
+const plugins = PluginUtils.getDynamicPlugins(process.cwd());
 plugins.forEach(registerDynamicPlugin);
 
 // ---------- Run shaper ----------

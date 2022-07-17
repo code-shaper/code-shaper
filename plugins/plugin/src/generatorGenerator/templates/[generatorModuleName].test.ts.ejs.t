@@ -1,4 +1,6 @@
-import plugin from '../index';
+import path from 'path';
+import { FileUtils } from '@code-shaper/shaper-utils';
+import { <%= generatorModuleName %> } from './index';
 
 describe('<%= generatorModuleName %>', () => {
   test('should create a new <%= generatorNameCamelCase %> from templates', async () => {
@@ -6,12 +8,20 @@ describe('<%= generatorModuleName %>', () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(console, 'log').mockImplementation(() => {});
 
-    await plugin.run({
-      generator: '<%= generatorName %>',
+    // Delete test-output if it exists
+    const testOutput = path.join(__dirname, 'test-output');
+    FileUtils.deletePath(testOutput);
+
+    // Run the generator
+    await appGenerator.generate(testOutput, {
+      // ----- insert options here -----
+      itemName: '<%= generatorNameCamelCase %>',
     });
 
-    // TODO: Compare test-output with expected-output
-    expect(true).toBeTruthy();
+    // Compare test-output with expected-output
+    const expectedOutput = path.join(__dirname, 'expected-output');
+    const result = FileUtils.compareDirectories(expectedOutput, testOutput);
+    expect(result.same).toBe(true);
 
     // restore console logs
     jest.restoreAllMocks();
