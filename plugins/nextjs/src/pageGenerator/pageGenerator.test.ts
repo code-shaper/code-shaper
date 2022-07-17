@@ -1,4 +1,5 @@
 import path from 'path';
+import { FileUtils } from '@code-shaper/shaper-utils';
 import { pageGenerator } from './index';
 
 describe('pageGenerator', () => {
@@ -7,16 +8,22 @@ describe('pageGenerator', () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(console, 'log').mockImplementation(() => {});
 
-    const rootDir = path.join(__dirname, 'test-output');
-    await pageGenerator.generate(rootDir, {
+    // Delete test-output if it exists
+    const testOutput = path.join(__dirname, 'test-output');
+    FileUtils.deletePath(testOutput);
+
+    // Run the generator
+    await pageGenerator.generate(testOutput, {
       itemName: 'SettingsPage',
       workspace: path.join('apps', 'movie-magic'),
       dirInWorkspace: 'src/pages',
       filename: 'settings.tsx',
     });
 
-    // TODO: Compare test-output with expected-output
-    expect(true).toBeTruthy();
+    // Compare test-output with expected-output
+    const expectedOutput = path.join(__dirname, 'expected-output');
+    const result = FileUtils.compareDirectories(expectedOutput, testOutput);
+    expect(result.same).toBe(true);
 
     // restore console logs
     jest.restoreAllMocks();

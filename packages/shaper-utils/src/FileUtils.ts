@@ -1,8 +1,31 @@
+import { compareSync, Options as DirCompareOptions } from 'dir-compare';
 import treeWalk from 'klaw-sync';
 import path from 'path';
 import ejs from 'ejs';
 import fs from 'fs-extra';
 import { Options } from './models';
+
+/**
+ * Compares two directories and returns a Result object
+ * @param path1
+ * @param path2
+ * @param options
+ */
+function compareDirectories(
+  path1: string,
+  path2: string,
+  options: DirCompareOptions = { compareSize: true, compareContent: true }
+) {
+  return compareSync(path1, path2, options);
+}
+
+/**
+ * Deletes file or directory at the specified path
+ * @param path
+ */
+function deletePath(path: string): void {
+  fs.removeSync(path);
+}
 
 /**
  * Returns true if a file with the specified path exists, false otherwise
@@ -155,6 +178,8 @@ function transformFiles(srcDir: string, dstDir: string, options: Options) {
 
 export const FileUtils = {
   appendToFile,
+  compareDirectories,
+  deletePath,
   fileExists,
   readFile,
   resolvePaths,

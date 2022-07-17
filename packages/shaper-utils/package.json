@@ -16,10 +16,11 @@
     "build": "rimraf dist && tsc",
     "lint": "eslint src/**/*.ts*",
     "test": "jest",
-    "clean": "rimraf .turbo node_modules dist coverage test-output"
+    "clean": "rimraf .turbo node_modules dist coverage **/test-output"
   },
   "dependencies": {
     "change-case": "^4.1.2",
+    "dir-compare": "^4.0.0",
     "ejs": "^3.1.8",
     "fs-extra": "^10.1.0",
     "jsonc-parser": "^3.1.0",
