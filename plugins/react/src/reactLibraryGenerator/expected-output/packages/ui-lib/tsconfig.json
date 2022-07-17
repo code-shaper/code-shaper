@@ -1,0 +1,9 @@
+{
+  "extends": "typescript-config-custom/react-library.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "include": ["src"],
+  "exclude": ["**/*.test.ts", "**/*.test.tsx", "**/*.stories.tsx", "**/test/*"]
+}
