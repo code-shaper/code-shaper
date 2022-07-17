@@ -8,7 +8,7 @@
   },
   "main": "./dist/index.js",
   "scripts": {
-    "build": "rimraf dist && tsc && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",
+    "build": "rimraf dist && tsc --project tsconfig.build.json && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",
     "lint": "eslint src/**/*.ts*",
     "test": "jest",
     "clean": "rimraf .turbo node_modules dist coverage **/test-output"
