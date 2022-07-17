@@ -1,9 +1,9 @@
 import path from 'path';
 import { FileUtils } from '@code-shaper/shaper-utils';
-import { appGenerator } from './index';
+import { componentGenerator } from './index';
 
-describe('appGenerator', () => {
-  test('should create a new app from templates', async () => {
+describe('componentGenerator', () => {
+  test('should create a new React library from templates', async () => {
     // suppress console logs
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(console, 'log').mockImplementation(() => {});
@@ -13,10 +13,10 @@ describe('appGenerator', () => {
     FileUtils.deletePath(testOutput);
 
     // Run the generator
-    await appGenerator.generate(testOutput, {
-      itemName: 'movie-magic',
-      parentDir: path.join(testOutput, 'apps'),
-      packageName: '@movie-magic/movie-magic',
+    await componentGenerator.generate(testOutput, {
+      itemName: 'TextField',
+      workspace: path.join('packages', 'ui-lib'),
+      dirInWorkspace: 'src/components/TextField',
     });
 
     // Compare test-output with expected-output
