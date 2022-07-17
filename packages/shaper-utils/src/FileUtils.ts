@@ -1,4 +1,8 @@
-import { compareSync, Options as DirCompareOptions } from 'dir-compare';
+import {
+  compareSync,
+  Options as DirCompareOptions,
+  Result as DirCompareResult,
+} from 'dir-compare';
 import treeWalk from 'klaw-sync';
 import path from 'path';
 import ejs from 'ejs';
@@ -17,6 +21,32 @@ function compareDirectories(
   options: DirCompareOptions = { compareSize: true, compareContent: true }
 ) {
   return compareSync(path1, path2, options);
+}
+
+function logDirCompareResult(result: DirCompareResult) {
+  console.log('Directories are %s', result.same ? 'identical' : 'different');
+
+  console.log(
+    'Statistics - equal entries: %s, distinct entries: %s, left only entries: %s, right only entries: %s, differences: %s',
+    result.equal,
+    result.distinct,
+    result.left,
+    result.right,
+    result.differences
+  );
+
+  if (result.diffSet) {
+    result.diffSet.forEach((dif) =>
+      console.log(
+        'Difference - name1: %s, type1: %s, name2: %s, type2: %s, state: %s',
+        dif.name1,
+        dif.type1,
+        dif.name2,
+        dif.type2,
+        dif.state
+      )
+    );
+  }
 }
 
 /**
@@ -60,9 +90,17 @@ function readFile(
  * @param data to be appended
  */
 function appendToFile(path: string, data: any) {
-  const stream = fs.createWriteStream(path, { flags: 'a' });
-  stream.write(data);
-  stream.end();
+  // The following method was recommended by a dev.to article:
+  // https://dev.to/sergchr/tricks-on-writing-appending-to-a-file-in-node-1hik
+  // However, it does an asynchronous write, which causes problems with testing.
+  //
+  // const stream = fs.createWriteStream(path, { flags: 'a' });
+  // stream.write(data);
+  // stream.end();
+  //
+  // Hence we are replacing with a synchronous write, even though it loads the
+  // entire file in memory and rewrites it completely.
+  fs.appendFileSync(path, data);
 }
 
 /**
@@ -181,6 +219,7 @@ export const FileUtils = {
   compareDirectories,
   deletePath,
   fileExists,
+  logDirCompareResult,
   readFile,
   resolvePaths,
   transformFiles,
