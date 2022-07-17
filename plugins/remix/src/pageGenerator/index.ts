@@ -77,7 +77,8 @@ async function generatePage(rootDir: string, inputOptions: Options) {
   const { itemNamePascalCase } = options;
 
   const srcDir = path.join(__dirname, 'templates');
-  const dstDir = path.join(workspace, dirInWorkspace);
+  const workspaceDir = path.join(rootDir, workspace);
+  const dstDir = path.join(workspaceDir, dirInWorkspace);
 
   console.log();
   console.log(`Creating ${itemNamePascalCase}...`);
