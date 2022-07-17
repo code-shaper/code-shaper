@@ -10,7 +10,7 @@
   "scripts": {
     "build": "rimraf dist && tsc --project tsconfig.build.json && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",
     "lint": "eslint src/**/*.ts*",
-    "test": "echo Tests disabled due to known issues",
+    "test": "jest",
     "clean": "rimraf .turbo node_modules dist coverage **/test-output"
   },
   "devDependencies": {
