@@ -11,7 +11,7 @@
     "build": "rimraf dist && tsc && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",
     "lint": "eslint src/**/*.ts*",
     "test": "jest",
-    "clean": "rimraf .turbo node_modules dist coverage test-output"
+    "clean": "rimraf .turbo node_modules dist coverage **/test-output"
   },
   "devDependencies": {
     "@code-shaper/shaper-utils": "*",
