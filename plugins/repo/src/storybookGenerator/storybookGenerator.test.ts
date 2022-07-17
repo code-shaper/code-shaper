@@ -1,4 +1,6 @@
-// import plugin from '../index';
+import path from 'path';
+import { FileUtils } from '@code-shaper/shaper-utils';
+import { storybookGenerator } from './index';
 
 describe('storybookGenerator', () => {
   test('should create a storybook directory from templates', async () => {
@@ -6,13 +8,19 @@ describe('storybookGenerator', () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(console, 'log').mockImplementation(() => {});
 
-    // await plugin.run({
-    //     generator: 'storybook',
-    //     okToProceed: true,
-    // });
+    // Delete test-output if it exists
+    const testOutput = path.join(__dirname, 'test-output');
+    FileUtils.deletePath(testOutput);
 
-    // TODO: Compare test-output with expected-output
-    expect(true).toBeTruthy();
+    // Run the generator
+    await storybookGenerator.generate(testOutput, {
+      okToProceed: true,
+    });
+
+    // Compare test-output with expected-output
+    const expectedOutput = path.join(__dirname, 'expected-output');
+    const result = FileUtils.compareDirectories(expectedOutput, testOutput);
+    expect(result.same).toBe(true);
 
     // restore console logs
     jest.restoreAllMocks();
