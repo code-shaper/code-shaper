@@ -1,7 +1,7 @@
 {
-  "name": "@code-shaper/plugin",
-  "description": "Plugin to generate a plugin",
-  "version": "0.0.18",
+  "name": "@movie-magic/react-patterns",
+  "description": "react-patterns plugin",
+  "version": "0.0.1",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -15,16 +15,16 @@
   },
   "devDependencies": {
     "@code-shaper/shaper-utils": "*",
-    "@types/jest": "^28.1.6",
+    "@types/jest": "^28.1.1",
     "@types/inquirer": "^8.2.1",
-    "@types/node": "^18.0.5",
+    "@types/node": "^18.0.0",
     "copyfiles": "^2.4.1",
-    "eslint": "^8.20.0",
+    "eslint": "^8.17.0",
     "eslint-config-custom": "*",
-    "jest": "^28.1.3",
+    "jest": "^28.1.1",
     "jest-config-custom": "*",
-    "ts-jest": "^28.0.7",
-    "typescript": "^4.7.4",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.3",
     "typescript-config-custom": "*"
   },
   "peerDependencies": {

@@ -13,7 +13,7 @@ describe('<%= generatorModuleName %>', () => {
     FileUtils.deletePath(testOutput);
 
     // Run the generator
-    await appGenerator.generate(testOutput, {
+    await <%= generatorModuleName %>.generate(testOutput, {
       // ----- insert options here -----
       itemName: '<%= generatorNameCamelCase %>',
     });

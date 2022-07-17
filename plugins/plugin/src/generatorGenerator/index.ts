@@ -24,7 +24,7 @@ async function generateGenerator(rootDir: string, inputOptions: Options) {
     {
       type: 'input',
       name: 'generatorName',
-      message: 'Generator name? (e.g. "app" or "component-library")',
+      message: 'Generator name? (e.g. "app" or "react-library")',
     },
     {
       type: 'list',
@@ -70,7 +70,8 @@ async function generateGenerator(rootDir: string, inputOptions: Options) {
   // --------------------------------------------------------------------------
 
   const srcDir = path.join(__dirname, 'templates');
-  const dstDir = path.join(workspace, `src/${generatorModuleName}`);
+  const workspaceDir = path.join(rootDir, workspace);
+  const dstDir = path.join(workspaceDir, `src/${generatorModuleName}`);
 
   console.log();
   console.log(`Creating ${generatorModuleName}...`);
