@@ -71,6 +71,6 @@ async function run(
   return plugin.run(options);
 }
 
-export const <%= itemNameCamelCase %> = {
+export const reactShaper = {
   run,
 };

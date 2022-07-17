@@ -1,4 +1,6 @@
-// import plugin from '../index';
+import path from 'path';
+import { FileUtils } from '@code-shaper/shaper-utils';
+import { cliGenerator } from './index';
 
 describe('cliGenerator', () => {
   test('should create a new cli from templates', async () => {
@@ -6,15 +8,21 @@ describe('cliGenerator', () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(console, 'log').mockImplementation(() => {});
 
-    // await plugin.run({
-    //   generator: 'cli',
-    //   itemName: 'react-shaper',
-    //   parentDir: 'test-output',
-    //   packageName: 'react-shaper',
-    // });
+    // Delete test-output if it exists
+    const testOutput = path.join(__dirname, 'test-output');
+    FileUtils.deletePath(testOutput);
 
-    // TODO: Compare test-output with expected-output
-    expect(true).toBeTruthy();
+    // Run the generator
+    await cliGenerator.generate(testOutput, {
+      itemName: 'react-shaper',
+      parentDir: path.join(testOutput, 'apps'),
+      packageName: 'react-shaper',
+    });
+
+    // Compare test-output with expected-output
+    const expectedOutput = path.join(__dirname, 'expected-output');
+    const result = FileUtils.compareDirectories(expectedOutput, testOutput);
+    expect(result.same).toBe(true);
 
     // restore console logs
     jest.restoreAllMocks();
