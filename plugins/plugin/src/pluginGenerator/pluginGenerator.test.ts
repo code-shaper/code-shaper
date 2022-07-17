@@ -1,9 +1,9 @@
 import path from 'path';
 import { FileUtils } from '@code-shaper/shaper-utils';
-import { generatorGenerator } from './index';
+import { pluginGenerator } from './index';
 
-describe('generatorGenerator', () => {
-  test('should create a new generator from templates', async () => {
+describe('pluginGenerator', () => {
+  test('should create a new plugin from templates', async () => {
     // suppress console logs
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(console, 'log').mockImplementation(() => {});
@@ -13,10 +13,10 @@ describe('generatorGenerator', () => {
     FileUtils.deletePath(testOutput);
 
     // Run the generator
-    await generatorGenerator.generate(testOutput, {
-      itemName: 'SettingsPage',
-      generatorName: 'react-library',
-      workspace: path.join('plugins', 'react'),
+    await pluginGenerator.generate(testOutput, {
+      pluginName: 'react-patterns',
+      parentDir: path.join(testOutput, 'plugins'),
+      packageName: '@movie-magic/react-patterns',
     });
 
     // Compare test-output with expected-output

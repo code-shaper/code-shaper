@@ -17,10 +17,10 @@ function registerGenerator(generator: Generator) {
 
 // ----- Register Generators Here -----
 
-const <%= pluginModuleName %>: Plugin = {
-  id: '<%= packageName %>',
-  name: '<%= pluginNameCapitalCase %>',
-  description: 'generates <%= pluginNameCapitalCase %> artifacts',
+const reactPatternsPlugin: Plugin = {
+  id: '@movie-magic/react-patterns',
+  name: 'React Patterns',
+  description: 'generates React Patterns artifacts',
   run: async (inputOptions: Options) => {
     const generator = await selectGenerator(generators, inputOptions);
     if (!generator) {
@@ -31,4 +31,4 @@ const <%= pluginModuleName %>: Plugin = {
   },
 };
 
-export default <%= pluginModuleName %>;
+export default reactPatternsPlugin;
