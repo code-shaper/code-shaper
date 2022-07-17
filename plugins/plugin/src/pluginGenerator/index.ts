@@ -60,7 +60,7 @@ async function generatePlugin(rootDir: string, inputOptions: Options) {
 
   const srcDir = path.join(__dirname, 'templates');
   const dstDir = path.join(parentDir, pluginName);
-  const dstRelativeDir = path.relative(process.cwd(), dstDir);
+  const dstRelativeDir = path.relative(rootDir, dstDir);
 
   console.log();
   console.log(`Creating ${dstRelativeDir}...`);

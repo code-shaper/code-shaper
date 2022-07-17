@@ -5,10 +5,10 @@ import { PackageJson, Plugin } from './models';
 
 /**
  * Returns shaper plugins installed in the package.json file
- * of the current working directory
+ * of the specified path
  */
-function getDynamicPlugins(): Map<string, Plugin> {
-  return getInstalledPluginsFromPackageJson(process.cwd());
+function getDynamicPlugins(path: string): Map<string, Plugin> {
+  return getInstalledPluginsFromPackageJson(path);
 }
 
 /**

@@ -31,7 +31,7 @@ function registerDynamicPlugin(plugin: Plugin) {
 
 
 // Register dynamic plugins
-const plugins = PluginUtils.getDynamicPlugins();
+const plugins = PluginUtils.getDynamicPlugins(process.cwd());
 plugins.forEach(registerDynamicPlugin);
 
 // ---------- Run CLI ----------

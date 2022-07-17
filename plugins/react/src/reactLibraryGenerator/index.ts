@@ -73,7 +73,7 @@ async function generateReactLibrary(rootDir: string, inputOptions: Options) {
     'templates/typescript-config-custom'
   );
   const dstDirConfig = path.join(
-    process.cwd(),
+    rootDir,
     'configs',
     'typescript-config-custom'
   );

@@ -14,7 +14,7 @@ export const <%= generatorModuleName %>: Generator = {
   generate: <%= generatorFunctionName %>,
 };
 
-async function <%= generatorFunctionName %>(inputOptions: Options) {
+async function <%= generatorFunctionName %>(rootDir: string, inputOptions: Options) {
   const questions = [
     {
       type: 'input',
@@ -26,7 +26,7 @@ async function <%= generatorFunctionName %>(inputOptions: Options) {
       name: 'parentDir',
       pageSize: 20,
       message: 'Parent directory? (usually "<directory name>")',
-      basePath: '.',
+      basePath: rootDir,
     },
   ];
 
@@ -63,8 +63,8 @@ async function <%= generatorFunctionName %>(inputOptions: Options) {
   // FileUtils.transformFiles(srcDir, dstDir, options);
   console.log();
   console.log('TODO: Run FileUtils.transformFiles() with following arguments:');
-  console.log(`srcDir: ${path.relative(process.cwd(), srcDir)}`);
-  console.log(`dstDir: ${path.relative(process.cwd(), dstDir)}`);
+  console.log(`srcDir: ${path.relative(rootDir, srcDir)}`);
+  console.log(`dstDir: ${path.relative(rootDir, dstDir)}`);
   console.log();
   console.log('options available for this generator:');
   console.log(JSON.stringify(options, null, '  '));
