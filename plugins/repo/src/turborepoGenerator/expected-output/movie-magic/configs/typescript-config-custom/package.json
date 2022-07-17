@@ -1,0 +1,12 @@
+{
+  "name": "typescript-config-custom",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "base.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
