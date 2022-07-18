@@ -15,7 +15,7 @@ describe('componentGenerator', () => {
     // Run the generator
     await componentGenerator.generate(testOutput, {
       itemName: 'TextField',
-      workspace: path.join('packages', 'ui-lib'),
+      workspace: path.join(testOutput, 'packages', 'ui-lib'),
       dirInWorkspace: 'src/components/TextField',
     });
 

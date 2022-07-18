@@ -15,7 +15,7 @@ describe('contextGenerator', () => {
     // Run the generator
     await contextGenerator.generate(testOutput, {
       itemName: 'AuthState',
-      workspace: path.join('apps', 'movie-magic'),
+      workspace: path.join(testOutput, 'apps', 'movie-magic'),
       dirInWorkspace: 'src/contexts/AuthStateContext',
     });
 

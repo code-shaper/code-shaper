@@ -100,8 +100,7 @@ async function generateContext(rootDir: string, inputOptions: Options) {
   const { contextName, hookName, providerName } = options;
 
   const srcDir = path.join(__dirname, 'templates');
-  const workspaceDir = path.join(rootDir, workspace);
-  const dstDir = path.join(workspaceDir, dirInWorkspace);
+  const dstDir = path.join(workspace, dirInWorkspace);
 
   console.log();
   console.log(`Creating ${contextName}...`);

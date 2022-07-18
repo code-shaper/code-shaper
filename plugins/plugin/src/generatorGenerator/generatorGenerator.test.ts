@@ -16,7 +16,7 @@ describe('generatorGenerator', () => {
     await generatorGenerator.generate(testOutput, {
       itemName: 'SettingsPage',
       generatorName: 'react-library',
-      workspace: path.join('plugins', 'react'),
+      workspace: path.join(testOutput, 'plugins', 'react'),
     });
 
     // Compare test-output with expected-output

@@ -70,8 +70,7 @@ async function generateGenerator(rootDir: string, inputOptions: Options) {
   // --------------------------------------------------------------------------
 
   const srcDir = path.join(__dirname, 'templates');
-  const workspaceDir = path.join(rootDir, workspace);
-  const dstDir = path.join(workspaceDir, `src/${generatorModuleName}`);
+  const dstDir = path.join(workspace, `src/${generatorModuleName}`);
 
   console.log();
   console.log(`Creating ${generatorModuleName}...`);

@@ -15,7 +15,7 @@ describe('pageGenerator', () => {
     // Run the generator
     await pageGenerator.generate(testOutput, {
       itemName: 'SettingsPage',
-      workspace: path.join('apps', 'movie-magic'),
+      workspace: path.join(testOutput, 'apps', 'movie-magic'),
       dirInWorkspace: 'src/pages',
       filename: 'settings.tsx',
     });

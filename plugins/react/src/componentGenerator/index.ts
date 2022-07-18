@@ -76,8 +76,7 @@ async function generateComponent(rootDir: string, inputOptions: Options) {
   const { itemNamePascalCase } = options;
 
   const srcDir = path.join(__dirname, 'templates');
-  const workspaceDir = path.join(rootDir, workspace);
-  const dstDir = path.join(workspaceDir, dirInWorkspace);
+  const dstDir = path.join(workspace, dirInWorkspace);
 
   console.log();
   console.log(`Creating ${itemNamePascalCase}...`);
