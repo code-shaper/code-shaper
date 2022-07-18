@@ -1,7 +1,7 @@
 {
   "name": "code-shaper",
   "description": "A delightful, modular code generator",
-  "version": "0.0.1",
+  "version": "0.0.22",
   "private": true,
   "author": "Naresh Bhatia",
   "license": "MIT",
