@@ -19,8 +19,13 @@ async function main() {
     pluginId = _[0];
   }
 
+  let runCmd;
+  if (_.length > 1 && typeof _[1] === 'string') {
+    runCmd = _.slice(1) as string[];
+  }
+
   // Run shaper
-  await shaper.run(pluginId, options);
+  await shaper.run(pluginId, runCmd, options);
 }
 
 main().catch((err) => console.error('Error:', err));

@@ -36,6 +36,7 @@ plugins.forEach(registerDynamicPlugin);
 // ---------- Run shaper ----------
 async function run(
   pluginId: string | undefined,
+  runCmd: string[] | undefined,
   options: Options
 ): Promise<void> {
   let selectedPluginId: string;
@@ -68,8 +69,28 @@ async function run(
     console.error(`Plugin ${selectedPluginId} not found`);
     return Promise.resolve();
   }
+  console.log('runcmd: ' + runCmd);
 
-  return plugin.run(options);
+  let runType, runName;
+  if (runCmd?.length == 2) {
+    runType = runCmd[0];
+    runName = runCmd[1];
+  } else if (runCmd?.length == 1) {
+    runType = 'g';
+    runName = runCmd[0];
+  }
+
+  let runType_ = 0;
+  if (runType === 'generate' || runType === 'g') {
+    runType_ = 0;
+  } else if (runType === 'execute' || runType === 'e') {
+    runType_ = 1;
+  } else {
+    console.error(`Option ${runType} not recognized`);
+    return Promise.resolve();
+  }
+
+  return plugin.run(options, runType_, runName);
 }
 
 export const shaper = {

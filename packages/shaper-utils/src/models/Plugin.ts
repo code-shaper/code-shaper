@@ -26,7 +26,11 @@ export interface Plugin {
    * @param options specific to the plugin - if a required option is not
    * specified, the plugin should prompt for it.
    */
-  run: (options: Options) => Promise<void>;
+  run: (
+    options: Options,
+    runType: number,
+    runName: string | undefined
+  ) => Promise<void>;
 }
 
 export type PluginMap = { [id: string]: Plugin };
