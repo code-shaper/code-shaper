@@ -7,6 +7,7 @@ import {
   PluginMap,
 } from '@code-shaper/shaper-utils';
 import inquirer from 'inquirer';
+//import { option } from 'yargs';
 
 // ---------- Plugin Store ----------
 // Static plugins are built into Code Shaper
@@ -69,7 +70,6 @@ async function run(
     console.error(`Plugin ${selectedPluginId} not found`);
     return Promise.resolve();
   }
-  console.log('runcmd: ' + runCmd);
 
   let runType, runName;
   if (runCmd?.length == 2) {
@@ -83,11 +83,9 @@ async function run(
   let runType_ = 0;
   if (runType === 'generate' || runType === 'g') {
     runType_ = 0;
-  } else if (runType === 'execute' || runType === 'e') {
+    options = { ['generator']: runName, ...options };
+  } else if (runType === 'run' || runType === 'r') {
     runType_ = 1;
-  } else {
-    console.error(`Option ${runType} not recognized`);
-    return Promise.resolve();
   }
 
   return plugin.run(options, runType_, runName);
