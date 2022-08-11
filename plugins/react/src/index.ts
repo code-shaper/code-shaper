@@ -29,7 +29,25 @@ const reactPlugin: Plugin = {
   id: '@code-shaper/react',
   name: 'React',
   description: 'generates React applications',
-  run: async (inputOptions: Options) => {
+  run: async (
+    inputOptions: Options,
+    runType: number,
+    runName: string | undefined
+  ) => {
+    console.log(
+      'Options:' +
+        JSON.stringify(inputOptions) +
+        ' runType:' +
+        runType +
+        ' runName:' +
+        runName
+    );
+
+    if (runType == 1) {
+      //executors
+      console.log('run script: ' + runName);
+      return Promise.resolve();
+    }
     const generator = await selectGenerator(generators, inputOptions);
     if (!generator) {
       return Promise.resolve();
