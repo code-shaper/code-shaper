@@ -1,4 +1,5 @@
 import { Options } from './Options';
+import { RunType } from './RunType';
 
 export interface Plugin {
   /**
@@ -28,7 +29,7 @@ export interface Plugin {
    */
   run: (
     options: Options,
-    runType: number,
+    runType: RunType | undefined,
     runName: string | undefined
   ) => Promise<void>;
 }

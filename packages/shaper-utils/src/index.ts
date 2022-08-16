@@ -5,3 +5,4 @@ export * from './JsonUtils';
 export * from './models';
 export * from './PackageJsonUtils';
 export * from './PluginUtils';
+export * from './ScriptUtils';

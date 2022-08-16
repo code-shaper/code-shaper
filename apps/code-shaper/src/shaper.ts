@@ -5,6 +5,7 @@ import {
   Plugin,
   PluginUtils,
   PluginMap,
+  RunType,
 } from '@code-shaper/shaper-utils';
 import inquirer from 'inquirer';
 //import { option } from 'yargs';
@@ -80,12 +81,15 @@ async function run(
     runName = runCmd[0];
   }
 
-  let runType_ = 0;
+  let runType_;
   if (runType === 'generate' || runType === 'g') {
-    runType_ = 0;
+    runType_ = RunType.Generator;
     options = { ['generator']: runName, ...options };
   } else if (runType === 'run' || runType === 'r') {
-    runType_ = 1;
+    runType_ = RunType.Script;
+  } else {
+    console.error(`Unrecognized paramter: ${runType}`);
+    return Promise.resolve();
   }
 
   return plugin.run(options, runType_, runName);
