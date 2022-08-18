@@ -87,9 +87,6 @@ async function run(
     options = { ['generator']: runName, ...options };
   } else if (runType === 'run' || runType === 'r') {
     runType_ = RunType.Script;
-  } else {
-    console.error(`Unrecognized paramter: ${runType}`);
-    return Promise.resolve();
   }
 
   return plugin.run(options, runType_, runName);

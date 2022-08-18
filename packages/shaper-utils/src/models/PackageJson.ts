@@ -1,7 +1,7 @@
-import type { PackageJson as BasePackageJson } from 'type-fest';
+import type { JsonObject, PackageJson as BasePackageJson } from 'type-fest';
 
 export type ShaperConfig = {
-  name?: string;
+  scripts: JsonObject;
 };
 
 export type PackageJson = BasePackageJson & { shaper?: ShaperConfig };
