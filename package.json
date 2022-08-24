@@ -59,5 +59,18 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
+  "shaper": {
+    "scripts": {
+      "build": {
+        "plugin": "@code-shaper/react",
+        "target": "build",
+        "options": {
+          "key1" : "value1",
+          "key2" : "value2",
+          "key3" : "value3"
+        }
+      }
+    }
+  },
   "packageManager": "npm@8.4.0"
 }

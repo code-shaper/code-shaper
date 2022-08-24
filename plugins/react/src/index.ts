@@ -4,18 +4,29 @@ import {
   Generator,
   GeneratorMap,
   selectGenerator,
+  RunType,
+  ScriptUtils,
+  Script,
+  ScriptMap,
 } from '@code-shaper/shaper-utils';
 import { appGenerator } from './appGenerator';
 import { componentGenerator } from './componentGenerator';
 import { contextGenerator } from './contextGenerator';
 import { pageGenerator } from './pageGenerator';
 import { reactLibraryGenerator } from './reactLibraryGenerator';
+import { buildScript } from './buildScript';
 
 const generators: GeneratorMap = {};
+const scripts: ScriptMap = {};
 
 function registerGenerator(generator: Generator) {
   const { id } = generator;
   generators[id] = generator;
+}
+
+function registerScript(script: Script) {
+  const { id } = script;
+  scripts[id] = script;
 }
 
 // ----- Register Generators -----
@@ -25,29 +36,34 @@ registerGenerator(pageGenerator);
 registerGenerator(componentGenerator);
 registerGenerator(contextGenerator);
 
+// ------ Register Scripts -------
+registerScript(buildScript);
+
 const reactPlugin: Plugin = {
   id: '@code-shaper/react',
   name: 'React',
   description: 'generates React applications',
   run: async (
     inputOptions: Options,
-    runType: number,
+    runType: RunType | undefined,
     runName: string | undefined
   ) => {
-    console.log(
-      'Options:' +
-        JSON.stringify(inputOptions) +
-        ' runType:' +
-        runType +
-        ' runName:' +
-        runName
-    );
+    //console.log( 'Options:' + JSON.stringify(inputOptions) + ' runType:' + runType + ' runName:' + runName);
 
-    if (runType == 1) {
-      //executors
-      console.log('run script: ' + runName);
-      return Promise.resolve();
+    if (runType == RunType.Script && runName) {
+      const scriptOptions = ScriptUtils.getScriptOptions(
+        process.cwd(),
+        runName
+      );
+      const script = scripts[runName];
+
+      if (!script) {
+        return Promise.resolve();
+      }
+
+      return script.run(process.cwd(), scriptOptions as Options);
     }
+
     const generator = await selectGenerator(generators, inputOptions);
     if (!generator) {
       return Promise.resolve();

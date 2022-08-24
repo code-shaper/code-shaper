@@ -1,4 +1,4 @@
-//import { Options } from './models';
+import { Options } from './models';
 import { PackageJsonUtils } from './PackageJsonUtils';
 
 /**
@@ -11,7 +11,7 @@ import { PackageJsonUtils } from './PackageJsonUtils';
 function getScriptOptions(
   parentPath: string,
   scriptName: string
-): Object | undefined {
+): Options | undefined {
   let packageJson = PackageJsonUtils.getPackageJson(parentPath);
   if (!packageJson) {
     return undefined;
@@ -27,7 +27,7 @@ function getScriptOptions(
 
   //console.log(packageJson.shaper?.scripts[scriptName]);
 
-  return packageJson.shaper?.scripts[scriptName] as object;
+  return packageJson.shaper?.scripts[scriptName] as Options;
 }
 
 export const ScriptUtils = {
