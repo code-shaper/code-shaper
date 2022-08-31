@@ -7,6 +7,7 @@ import {
 } from '@code-shaper/shaper-utils';
 import { generatorGenerator } from './generatorGenerator';
 import { pluginGenerator } from './pluginGenerator';
+import { scriptGenerator } from './scriptGenerator';
 
 const generators: GeneratorMap = {};
 
@@ -18,6 +19,7 @@ function registerGenerator(generator: Generator) {
 // ----- Register Generators -----
 registerGenerator(pluginGenerator);
 registerGenerator(generatorGenerator);
+registerGenerator(scriptGenerator);
 
 const pluginPlugin: Plugin = {
   id: '@code-shaper/plugin',
