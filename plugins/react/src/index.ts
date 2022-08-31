@@ -55,9 +55,19 @@ const reactPlugin: Plugin = {
         process.cwd(),
         runName
       );
+      if (!scriptOptions) {
+        console.error(`Script tag ${runName} not found in package.json`);
+        return Promise.resolve();
+      }
+      if (!scriptOptions['script']) {
+        console.error(`Script tag ${runName} does not contain script name`);
+        return Promise.resolve();
+      }
+
       const script = scripts[runName];
 
       if (!script) {
+        console.error(`Script ${scriptOptions['script']} does not exist`);
         return Promise.resolve();
       }
 

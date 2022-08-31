@@ -62,12 +62,11 @@
   "shaper": {
     "scripts": {
       "build": {
-        "plugin": "@code-shaper/react",
-        "target": "build",
+        "script": "build",
         "options": {
-          "key1" : "value1",
-          "key2" : "value2",
-          "key3" : "value3"
+          "inputDir" : "shaper/src",
+          "outputDir" : "shaper/dist",
+          "verbose" : true
         }
       }
     }
