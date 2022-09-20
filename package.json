@@ -61,7 +61,7 @@
   },
   "shaper": {
     "scripts": {
-      "build": {
+      "builder": {
         "script": "build",
         "options": {
           "inputDir" : "shaper/src",

@@ -5,7 +5,7 @@ import {
   GeneratorMap,
   selectGenerator,
   RunType,
-  ScriptUtils,
+  PackageJsonUtils,
   Script,
   ScriptMap,
 } from '@code-shaper/shaper-utils';
@@ -38,7 +38,7 @@ const reactPatternsPlugin: Plugin = {
     runName: string | undefined) => {
 
     if (runType == RunType.Script && runName) {
-      const scriptOptions = ScriptUtils.getScriptOptions(process.cwd(), runName);
+      const scriptOptions = PackageJsonUtils.getScriptOptionsFromPackageJson(process.cwd(), runName);
       if (!scriptOptions) {
         console.error(`Script tag ${runName} not found in package.json`);
         return Promise.resolve();
@@ -48,7 +48,8 @@ const reactPatternsPlugin: Plugin = {
         return Promise.resolve();
       }
 
-      const script = scripts[runName];
+      const scriptName = scriptOptions['script'] as string;
+      const script = scripts[scriptName];
 
       if (!script) {
         console.error(`Script ${scriptOptions['script']} does not exist`);
