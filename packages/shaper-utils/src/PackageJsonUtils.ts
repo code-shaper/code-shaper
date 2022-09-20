@@ -2,6 +2,7 @@ import path from 'path';
 import { FileUtils } from './FileUtils';
 import { JsonUtils } from './JsonUtils';
 import { PackageJson } from './models';
+import { Options } from './models';
 
 /**
  * Returns the package.json file under the specified parentPath
@@ -38,7 +39,27 @@ function getWorkspacesFromPackageJson(parentPath: string): Array<string> {
   return Array.isArray(packageJson.workspaces) ? packageJson.workspaces : [];
 }
 
+/**
+ * Returns options from the shaper oject in the Package.json file
+ * with the specified name
+ *
+ * @param parentPath e.g. ~/projects/code-shaper
+ * @param scriptName name of script
+ */
+function getScriptOptionsFromPackageJson(
+  parentPath: string,
+  scriptName: string
+): Options | undefined {
+  let packageJson = PackageJsonUtils.getPackageJson(parentPath);
+  if (!packageJson) {
+    return undefined;
+  }
+
+  return packageJson.shaper?.scripts[scriptName] as Options;
+}
+
 export const PackageJsonUtils = {
   getPackageJson,
   getWorkspacesFromPackageJson,
+  getScriptOptionsFromPackageJson,
 };
