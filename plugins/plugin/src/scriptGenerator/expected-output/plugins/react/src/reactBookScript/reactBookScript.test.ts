@@ -1,9 +1,9 @@
 import path from 'path';
 import { FileUtils } from '@code-shaper/shaper-utils';
-import { reactLibraryGenerator } from './index';
+import { reactBookScript } from './index';
 
-describe('reactLibraryGenerator', () => {
-  test('should create a new reactLibrary from templates', async () => {
+describe('reactBookScript', () => {
+  test('should create a new reactBook from templates', async () => {
     // suppress console logs
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(console, 'log').mockImplementation(() => {});
@@ -13,9 +13,9 @@ describe('reactLibraryGenerator', () => {
     FileUtils.deletePath(testOutput);
 
     // Run the generator
-    await reactLibraryGenerator.generate(testOutput, {
+    await reactBookScript.generate(testOutput, {
       // ----- insert options here -----
-      itemName: 'reactLibrary',
+      itemName: 'reactBook',
     });
 
     // Compare test-output with expected-output

@@ -1,9 +1,9 @@
 import path from 'path';
 import { FileUtils } from '@code-shaper/shaper-utils';
-import { generatorGenerator } from './index';
+import { scriptGenerator } from './index';
 
-describe('generatorGenerator', () => {
-  test('should create a new generator from templates', async () => {
+describe('scriptGenerator', () => {
+  test('should create a new script from templates', async () => {
     // suppress console logs
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(console, 'log').mockImplementation(() => {});
@@ -13,9 +13,9 @@ describe('generatorGenerator', () => {
     FileUtils.deletePath(testOutput);
 
     // Run the generator
-    await generatorGenerator.generate(testOutput, {
+    await scriptGenerator.generate(testOutput, {
       itemName: 'SettingsPage',
-      generatorName: 'react-library',
+      scriptName: 'react-book',
       workspace: path.join(testOutput, 'plugins', 'react'),
     });
 
