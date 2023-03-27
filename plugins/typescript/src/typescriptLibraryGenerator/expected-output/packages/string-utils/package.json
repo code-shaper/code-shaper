@@ -19,6 +19,7 @@
     "clean": "rimraf .turbo node_modules dist coverage test-output"
   },
   "devDependencies": {
+    "@swc/core": "^1.3.42",
     "@types/jest": "^27.5.1",
     "@types/node": "^17.0.36",
     "eslint": "^8.16.0",
