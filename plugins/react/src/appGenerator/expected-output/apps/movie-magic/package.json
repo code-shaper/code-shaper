@@ -34,7 +34,7 @@
     "jest": "^28.1.3",
     "jest-config-custom": "*",
     "jest-environment-jsdom": "^28.1.3",
-    "msw": "0.44.2",
+    "msw": "1.2.1",
     "ts-jest": "^28.0.7",
     "typescript": "^4.7.4",
     "typescript-config-custom": "*",
