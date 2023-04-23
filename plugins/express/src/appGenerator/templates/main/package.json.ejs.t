@@ -17,25 +17,25 @@
     "clean": "rimraf .turbo node_modules dist coverage test-output"
   },
   "dependencies": {
-    "body-parser": "^1.20.0",
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "express": "^4.18.1",
+    "express": "^4.18.2",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.12",
-    "@types/express": "^4.17.13",
-    "@types/jest": "^28.1.1",
-    "@types/morgan": "^1.9.3",
-    "@types/node": "^18.0.0",
-    "eslint": "^8.17.0",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.1",
+    "@types/morgan": "^1.9.4",
+    "@types/node": "^18.16.0",
+    "eslint": "^8.39.0",
     "eslint-config-custom": "*",
-    "jest": "^28.1.1",
+    "jest": "^29.5.0",
     "jest-config-custom": "*",
-    "nodemon": "^2.0.16",
-    "ts-jest": "^28.0.5",
-    "ts-node": "^10.8.1",
-    "typescript": "^4.7.3",
+    "nodemon": "^2.0.22",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
     "typescript-config-custom": "*"
   }
 }
