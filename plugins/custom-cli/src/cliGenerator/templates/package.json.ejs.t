@@ -17,22 +17,22 @@
   },
   "dependencies": {
     "@code-shaper/shaper-utils": "*",
-    "inquirer": "^8.2.4",
+    "inquirer": "^8.2.5",
     "inquirer-directory": "^2.2.0",
-    "yargs": "^17.5.1"
+    "yargs": "^17.7.1"
   },
   "devDependencies": {
-    "@types/jest": "^27.5.1",
-    "@types/inquirer": "^8.2.1",
-    "@types/node": "^17.0.36",
-    "@types/yargs": "^17.0.10",
+    "@types/jest": "^29.5.1",
+    "@types/inquirer": "^8.2.6",
+    "@types/node": "^18.16.0",
+    "@types/yargs": "^17.0.24",
     "copyfiles": "^2.4.1",
-    "eslint": "^8.16.0",
+    "eslint": "^8.39.0",
     "eslint-config-custom": "*",
-    "jest": "^28.1.0",
+    "jest": "^29.5.0",
     "jest-config-custom": "*",
-    "ts-jest": "^28.0.3",
-    "typescript": "^4.7.2",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4",
     "typescript-config-custom": "*"
   }
 }
