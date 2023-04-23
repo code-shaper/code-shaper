@@ -19,16 +19,16 @@
     "clean": "rimraf .turbo node_modules dist coverage test-output"
   },
   "devDependencies": {
-    "@swc/core": "^1.3.42",
-    "@types/jest": "^27.5.1",
-    "@types/node": "^17.0.36",
-    "eslint": "^8.16.0",
+    "@swc/core": "^1.3.53",
+    "@types/jest": "^29.5.1",
+    "@types/node": "^18.16.0",
+    "eslint": "^8.39.0",
     "eslint-config-custom": "*",
-    "jest": "^28.1.0",
+    "jest": "^29.5.0",
     "jest-config-custom": "*",
-    "ts-jest": "^28.0.3",
-    "tsup": "^6.1.2",
-    "typescript": "^4.7.2",
+    "ts-jest": "^29.1.0",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.4",
     "typescript-config-custom": "*"
   }
 }
