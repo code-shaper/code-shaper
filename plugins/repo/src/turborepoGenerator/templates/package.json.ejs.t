@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
+    "dev": "turbo run dev",
     "graph": "turbo run build --graph",
     "lint": "turbo run lint",
     "test": "turbo run test",
@@ -21,18 +21,21 @@
     "format": "prettier --write \"**/README.md\" \"**/src/**/*.{js,jsx,ts,tsx,json}\""
   },
   "devDependencies": {
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
-    "rimraf": "^3.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "eslint": "^8.39.0",
+    "eslint-config-custom": "*",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
+    "prettier": "^2.8.8",
+    "rimraf": "^5.0.0",
     "turbo": "latest"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json}": "prettier --write"
   },
   "engines": {
-    "npm": ">=7.0.0",
-    "node": ">=14.0.0"
+    "npm": ">=8.0.0",
+    "node": ">=16.0.0"
   },
-  "packageManager": "npm@8.4.0"
+  "packageManager": "npm@8.15.0"
 }
