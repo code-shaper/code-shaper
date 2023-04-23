@@ -13,7 +13,8 @@
       "outputs": ["coverage/**", "test-output/**"]
     },
     "dev": {
-      "cache": false
+      "cache": false,
+      "persistent": true
     },
     "clean": {
       "cache": false
