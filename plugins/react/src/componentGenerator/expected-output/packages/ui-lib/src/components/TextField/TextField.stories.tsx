@@ -1,17 +1,17 @@
-import { Story, Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { TextField } from './TextField';
 
-export default {
+const meta = {
   title: 'Components/TextField',
   component: TextField,
-} as Meta;
+  tags: ['autodocs'],
+} satisfies Meta<typeof TextField>;
 
-const Template: Story = (args) => {
-  return <TextField>{args.children}</TextField>;
-};
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const TextFieldStory = Template.bind({});
-TextFieldStory.storyName = 'TextField';
-TextFieldStory.args = {
-  children: 'TextField',
+export const TextFieldStory: Story = {
+  args: {
+    children: 'TextField',
+  },
 };

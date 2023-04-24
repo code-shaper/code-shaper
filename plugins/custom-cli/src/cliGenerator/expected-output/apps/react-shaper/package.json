@@ -6,6 +6,11 @@
     "access": "public"
   },
   "main": "./dist/index.js",
+  "files": [
+    "bin/react-shaper",
+    "dist",
+    "README.md"
+  ],
   "bin": {
     "react-shaper": "bin/react-shaper"
   },

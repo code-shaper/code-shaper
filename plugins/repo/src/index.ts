@@ -5,7 +5,6 @@ import {
   GeneratorMap,
   selectGenerator,
 } from '@code-shaper/shaper-utils';
-import { storybookGenerator } from './storybookGenerator';
 import { turborepoGenerator } from './turborepoGenerator';
 
 const generators: GeneratorMap = {};
@@ -17,7 +16,6 @@ function registerGenerator(generator: Generator) {
 
 // ----- Register Generators -----
 registerGenerator(turborepoGenerator);
-registerGenerator(storybookGenerator);
 
 const repoPlugin: Plugin = {
   id: '@code-shaper/repo',

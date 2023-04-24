@@ -6,6 +6,11 @@
     "access": "public"
   },
   "main": "./dist/index.js",
+  "files": [
+    "bin/<%= itemName %>",
+    "dist",
+    "README.md"
+  ],
   "bin": {
     "<%= itemName %>": "bin/<%= itemName %>"
   },

@@ -8,7 +8,8 @@
   "sideEffects": false,
   "license": "MIT",
   "files": [
-    "dist/**"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "dev": "npm run bundle -- --watch",

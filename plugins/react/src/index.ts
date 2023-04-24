@@ -10,6 +10,7 @@ import { componentGenerator } from './componentGenerator';
 import { contextGenerator } from './contextGenerator';
 import { pageGenerator } from './pageGenerator';
 import { reactLibraryGenerator } from './reactLibraryGenerator';
+import { storybookGenerator } from './storybookGenerator';
 
 const generators: GeneratorMap = {};
 
@@ -21,6 +22,7 @@ function registerGenerator(generator: Generator) {
 // ----- Register Generators -----
 registerGenerator(appGenerator);
 registerGenerator(reactLibraryGenerator);
+registerGenerator(storybookGenerator);
 registerGenerator(pageGenerator);
 registerGenerator(componentGenerator);
 registerGenerator(contextGenerator);

@@ -1,12 +1,16 @@
 {
   "name": "@code-shaper/typescript",
   "description": "TypeScript plugin",
-  "version": "0.0.23",
+  "version": "0.1.1",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "rimraf dist && tsc --project tsconfig.build.json && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",
     "lint": "eslint src/**/*.ts*",

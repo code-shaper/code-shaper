@@ -8,7 +8,8 @@
   "sideEffects": false,
   "license": "MIT",
   "files": [
-    "dist/**"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "dev": "npm run bundle -- --watch && npm run copy-css",
@@ -20,6 +21,7 @@
     "clean": "rimraf .turbo node_modules dist coverage test-output"
   },
   "devDependencies": {
+    "@storybook/react": "^7.0.6",
     "@swc/core": "^1.3.53",
     "@testing-library/dom": "^9.2.0",
     "@testing-library/jest-dom": "^5.16.5",

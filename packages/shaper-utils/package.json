@@ -1,7 +1,7 @@
 {
   "name": "@code-shaper/shaper-utils",
   "description": "Code Shaper utilities",
-  "version": "0.0.22",
+  "version": "0.1.1",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -12,6 +12,10 @@
     "access": "public"
   },
   "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "rimraf dist && tsc",
     "lint": "eslint src/**/*.ts*",

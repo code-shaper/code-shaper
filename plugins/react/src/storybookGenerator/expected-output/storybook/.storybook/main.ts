@@ -1,4 +1,6 @@
-module.exports = {
+import type { StorybookConfig } from '@storybook/react-vite';
+
+const config: StorybookConfig = {
   stories: [
     '../../packages/*/src/**/*.stories.mdx',
     '../../packages/*/src/**/*.stories.@(js|jsx|ts|tsx)',
@@ -11,8 +13,13 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-a11y',
   ],
-  framework: '@storybook/react',
-  core: {
-    builder: '@storybook/builder-webpack5',
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
+  },
+  docs: {
+    autodocs: 'tag',
   },
 };
+
+export default config;

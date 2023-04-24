@@ -1,17 +1,17 @@
-import { Story, Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { <%= itemNamePascalCase %> } from './<%= itemNamePascalCase %>';
 
-export default {
+const meta = {
   title: 'Components/<%= itemNamePascalCase %>',
   component: <%= itemNamePascalCase %>,
-} as Meta;
+  tags: ['autodocs'],
+} satisfies Meta<typeof <%= itemNamePascalCase %>>;
 
-const Template: Story = (args) => {
-  return <<%= itemNamePascalCase %>>{args.children}</<%= itemNamePascalCase %>>;
-};
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const <%= itemNamePascalCase %>Story = Template.bind({});
-<%= itemNamePascalCase %>Story.storyName = '<%= itemNamePascalCase %>';
-<%= itemNamePascalCase %>Story.args = {
-  children: '<%= itemNamePascalCase %>',
+export const <%= itemNamePascalCase %>Story: Story = {
+  args: {
+    children: '<%= itemNamePascalCase %>',
+  },
 };
