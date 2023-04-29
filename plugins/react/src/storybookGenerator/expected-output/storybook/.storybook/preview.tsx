@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from '@storybook/react';
 
 // Import any required css here
 // Example:
@@ -7,7 +7,7 @@ import type { Preview } from "@storybook/react";
 const preview: Preview = {
   parameters: {
     // Show calls to "on*" arguments (based on user actions) in the Actions panel
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    actions: { argTypesRegex: '^on[A-Z].*' },
 
     controls: {
       matchers: {
