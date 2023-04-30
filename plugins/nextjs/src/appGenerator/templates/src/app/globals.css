@@ -667,8 +667,6 @@ thead {
   --color-state-disabled-text: #00000042;
 
   /* ----- Typography ----- */
-  --font-family-fira-sans: Fira Sans;
-  --font-family-inter: Inter;
   --font-family-sans: var(--font-family-inter);
 
   --letter-spacing-none: 0em;
