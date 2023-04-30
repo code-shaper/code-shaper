@@ -13,26 +13,26 @@
     "clean": "rimraf .turbo node_modules .next out build"
   },
   "dependencies": {
-    "next": "^12.2.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "next": "13.3.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@storybook/react": "^6.5.9",
-    "@testing-library/dom": "^8.16.0",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^14.2.5",
-    "@types/jest": "^28.1.6",
-    "@types/node": "18.0.5",
-    "@types/react": "18.0.15",
-    "@types/react-dom": "18.0.6",
-    "eslint": "8.20.0",
-    "eslint-config-next": "12.2.2",
-    "jest": "^28.1.3",
+    "@storybook/react": "^7.0.7",
+    "@testing-library/dom": "^9.2.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.5.1",
+    "@types/node": "18.16.3",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.1",
+    "eslint": "8.39.0",
+    "eslint-config-next": "13.3.2",
+    "jest": "^29.5.0",
     "jest-config-custom": "*",
-    "jest-environment-jsdom": "^28.1.3",
-    "ts-jest": "^28.0.7",
-    "typescript": "4.7.4"
+    "jest-environment-jsdom": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "5.0.4"
   }
 }
