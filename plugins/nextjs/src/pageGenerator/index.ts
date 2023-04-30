@@ -42,19 +42,13 @@ async function generatePage(rootDir: string, inputOptions: Options) {
     },
     {
       type: 'input',
-      name: 'dirInWorkspace',
-      message: 'Parent directory within workspace?',
-      default: 'src/pages',
-    },
-    {
-      type: 'input',
-      name: 'filename',
-      message: 'Filename of the page? (e.g. "settings.tsx")',
+      name: 'urlPath',
+      message: 'URL Path? (e.g. /dashboard/settings or /blog/[slug])',
     },
   ];
 
   const options = await inquirer.prompt(questions, inputOptions);
-  const { itemName, workspace, dirInWorkspace } = options;
+  const { itemName, workspace, urlPath } = options;
 
   // --------------------------------------------------------------------------
   // Add more options for code generation here
@@ -77,7 +71,7 @@ async function generatePage(rootDir: string, inputOptions: Options) {
   const { itemNamePascalCase } = options;
 
   const srcDir = path.join(__dirname, 'templates');
-  const dstDir = path.join(workspace, dirInWorkspace);
+  const dstDir = path.join(workspace, 'src', 'app', urlPath);
 
   console.log();
   console.log(`Creating ${itemNamePascalCase}...`);
