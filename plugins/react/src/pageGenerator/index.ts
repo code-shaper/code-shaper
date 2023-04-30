@@ -84,12 +84,6 @@ async function generatePage(rootDir: string, inputOptions: Options) {
   // Create the page
   FileUtils.transformFiles(srcDir, dstDir, options);
 
-  // Import it in ../index.ts
-  console.log();
-  console.log('Updating parent index.ts...');
-  const indexTs = path.join(path.dirname(dstDir), `index.ts`);
-  FileUtils.appendToFile(indexTs, `export * from './${itemNamePascalCase}';\n`);
-
   console.log();
   console.log('Done.');
   console.log();
