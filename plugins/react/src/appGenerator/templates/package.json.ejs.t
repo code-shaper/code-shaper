@@ -18,7 +18,7 @@
     "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
-    "@storybook/react": "^6.5.10",
+    "@storybook/react": "^7.0.7",
     "@testing-library/dom": "^8.16.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",

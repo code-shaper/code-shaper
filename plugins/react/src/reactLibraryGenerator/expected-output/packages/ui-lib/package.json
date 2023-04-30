@@ -21,7 +21,7 @@
     "clean": "rimraf .turbo node_modules dist coverage test-output"
   },
   "devDependencies": {
-    "@storybook/react": "^7.0.6",
+    "@storybook/react": "^7.0.7",
     "@swc/core": "^1.3.53",
     "@testing-library/dom": "^9.2.0",
     "@testing-library/jest-dom": "^5.16.5",
