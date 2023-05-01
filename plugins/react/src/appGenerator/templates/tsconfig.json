@@ -15,12 +15,7 @@
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-
-    /* Paths */
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "noUnusedLocals": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
