@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Inter } from 'next/font/google';
-import { AuthStateContextProvider } from '@/components/AuthStateContextProvider';
 import './globals.css';
 
 // Load the Inter font using next/font/google. For details, see
@@ -15,9 +14,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <head />
-      <body className={inter.className}>
-        <AuthStateContextProvider>{children}</AuthStateContextProvider>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
