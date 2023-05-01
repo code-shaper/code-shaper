@@ -1,1 +1,1 @@
-export * from './<%= contextName %>';
+export * from './<%= providerName %>';

@@ -45,7 +45,9 @@ async function generateContext(rootDir: string, inputOptions: Options) {
       name: 'dirInWorkspace',
       message: 'Parent directory within workspace?',
       default: (answers: Options) =>
-        `src/contexts/${cc.pascalCase(answers['itemName'] as string)}Context`,
+        `src/components/${cc.pascalCase(
+          answers['itemName'] as string
+        )}ContextProvider`,
     },
   ];
 
@@ -72,8 +74,8 @@ async function generateContext(rootDir: string, inputOptions: Options) {
 
   const { itemNameCamelCase, itemNamePascalCase } = options;
 
-  // filename = ViewStateContext (then add extension)
-  options['filename'] = `${itemNamePascalCase}Context`;
+  // filename = ViewStateContextProvider (then add extension)
+  options['filename'] = `${itemNamePascalCase}ContextProvider`;
 
   // stateName = ViewState
   options['stateName'] = itemNamePascalCase;
