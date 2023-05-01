@@ -30,3 +30,10 @@ npm test
 cd plugins/react
 npm publish  # you will be prompted for an OTP from Google Authenticator
 ```
+
+### Package publishing order
+
+1. packages/shaper-utils
+2. plugins/repo
+3. apps/code-shaper
+4. remaining plugins
