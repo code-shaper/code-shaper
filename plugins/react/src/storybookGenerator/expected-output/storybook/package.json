@@ -32,7 +32,8 @@
     "prop-types": "^15.8.1",
     "storybook": "^7.0.7",
     "typescript": "^5.0.4",
-    "vite": "^4.3.3"
+    "vite": "^4.3.3",
+    "vite-tsconfig-paths": "^4.2.0"
   },
   "overrides": {
     "react": "^18.2.0",

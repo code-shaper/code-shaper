@@ -40,7 +40,8 @@
     "msw": "1.2.1",
     "ts-jest": "^29.1.0",
     "typescript": "^5.0.4",
-    "vite": "^4.3.3"
+    "vite": "^4.3.3",
+    "vite-tsconfig-paths": "^4.2.0"
   },
   "msw": {
     "workerDirectory": "public"
