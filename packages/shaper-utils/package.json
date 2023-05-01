@@ -31,7 +31,7 @@
     "klaw-sync": "^6.0.0",
     "lower-case": "^2.0.2",
     "title-case": "^3.0.3",
-    "type-fest": "^3.8.0",
+    "type-fest": "^3.9.0",
     "upper-case": "^2.0.2"
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
     "@types/inquirer": "^8.2.6",
     "@types/jest": "^29.5.1",
     "@types/klaw-sync": "^6.0.1",
-    "@types/node": "^18.16.0",
+    "@types/node": "^18.16.3",
     "eslint": "^8.39.0",
     "eslint-config-custom": "*",
     "jest": "^29.5.0",
