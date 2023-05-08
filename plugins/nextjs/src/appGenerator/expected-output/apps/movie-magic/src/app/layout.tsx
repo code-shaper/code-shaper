@@ -7,8 +7,8 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-    title: 'Movie Magic',
-    description: 'Movie Magic',
+  title: 'Movie Magic',
+  description: 'Movie Magic',
 };
 
 interface RootLayoutProps {

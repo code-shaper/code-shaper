@@ -7,8 +7,8 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-    title: '<%= itemNameCapitalCase %>',
-    description: '<%= itemNameCapitalCase %>',
+  title: '<%= itemNameCapitalCase %>',
+  description: '<%= itemNameCapitalCase %>',
 };
 
 interface RootLayoutProps {
