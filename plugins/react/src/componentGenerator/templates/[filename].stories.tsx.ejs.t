@@ -10,8 +10,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const <%= itemNamePascalCase %>Story: Story = {
+export const Basic = {
   args: {
     children: '<%= itemNamePascalCase %>',
   },
-};
+} satisfies Story;
