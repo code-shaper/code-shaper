@@ -6,7 +6,6 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
-  "license": "MIT",
   "files": [
     "dist",
     "README.md"

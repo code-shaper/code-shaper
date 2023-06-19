@@ -2,7 +2,6 @@
   "name": "<%= packageName %>",
   "description": "<%= pluginName %> plugin",
   "version": "0.0.1",
-  "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
