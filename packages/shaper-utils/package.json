@@ -20,7 +20,7 @@
     "build": "rimraf dist && tsc",
     "lint": "eslint src/**/*.ts*",
     "test": "jest",
-    "clean": "rimraf .turbo node_modules dist coverage **/test-output"
+    "clean": "rimraf .turbo node_modules dist coverage"
   },
   "dependencies": {
     "change-case": "^4.1.2",
