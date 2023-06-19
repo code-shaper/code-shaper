@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface <%= itemNamePascalCase %>Props {
+export interface <%= itemNamePascalCase %>Props {
   children?: React.ReactNode;
 }
 

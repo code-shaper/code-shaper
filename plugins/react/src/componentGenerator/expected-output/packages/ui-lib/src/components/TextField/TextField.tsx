@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface TextFieldProps {
+export interface TextFieldProps {
   children?: React.ReactNode;
 }
 
