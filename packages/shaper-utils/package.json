@@ -40,7 +40,7 @@
     "@types/inquirer": "^8.2.6",
     "@types/jest": "^29.5.2",
     "@types/klaw-sync": "^6.0.1",
-    "@types/node": "^18.16.3",
+    "@types/node": "^18.16.18",
     "eslint": "^8.43.0",
     "eslint-config-custom": "*",
     "jest": "^29.5.0",
