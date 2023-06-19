@@ -13,7 +13,7 @@
     "build": "rimraf dist && tsc",
     "lint": "eslint src/**/*.ts*",
     "test": "jest --coverage --passWithNoTests",
-    "clean": "rimraf .turbo node_modules dist coverage test-output"
+    "clean": "rimraf .turbo node_modules dist coverage"
   },
   "dependencies": {
     "body-parser": "^1.20.2",

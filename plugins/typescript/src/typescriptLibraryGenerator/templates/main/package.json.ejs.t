@@ -17,7 +17,7 @@
     "lint": "eslint src/**/*.ts*",
     "test": "jest --coverage",
     "bundle": "tsup src/index.ts --format esm,cjs --dts --external react",
-    "clean": "rimraf .turbo node_modules dist coverage test-output"
+    "clean": "rimraf .turbo node_modules dist coverage"
   },
   "devDependencies": {
     "@swc/core": "^1.3.53",
