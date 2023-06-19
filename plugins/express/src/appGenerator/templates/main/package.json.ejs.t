@@ -5,7 +5,6 @@
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "sideEffects": false,
-  "license": "MIT",
   "files": [
     "dist/**"
   ],
