@@ -16,7 +16,7 @@
     "build": "rimraf dist && npm run bundle && npm run copy-css",
     "lint": "eslint src/**/*.ts*",
     "test": "jest --coverage",
-    "bundle": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "bundle": "tsup src/index.ts --format esm,cjs --dts --external react --inject ./react-import.js",
     "copy-css": "copyfiles --all --up 1 \"src/**/*.css\" dist",
     "clean": "rimraf .turbo node_modules dist coverage test-output"
   },
