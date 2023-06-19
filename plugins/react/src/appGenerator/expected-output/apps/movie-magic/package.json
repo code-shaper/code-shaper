@@ -33,7 +33,6 @@
     "cypress": "^12.11.0",
     "eslint": "^8.39.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.0",
     "jest": "^29.5.0",
     "jest-config-custom": "*",
     "jest-environment-jsdom": "^29.5.0",

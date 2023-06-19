@@ -3,7 +3,7 @@ import { FileUtils } from '@code-shaper/shaper-utils';
 import { storybookGenerator } from './index';
 
 describe('storybookGenerator', () => {
-  test('should create a storybook directory from templates', async () => {
+  test('should create a storybook app from templates', async () => {
     // suppress console logs
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(console, 'log').mockImplementation(() => {});
@@ -14,7 +14,9 @@ describe('storybookGenerator', () => {
 
     // Run the generator
     await storybookGenerator.generate(testOutput, {
-      okToProceed: true,
+      itemName: 'movie-magic-storybook',
+      parentDir: path.join(testOutput, 'apps'),
+      packageName: '@movie-magic/movie-magic-storybook',
     });
 
     // Compare test-output with expected-output
