@@ -24,20 +24,20 @@
     "@code-shaper/shaper-utils": "*",
     "inquirer": "^8.2.5",
     "inquirer-directory": "^2.2.0",
-    "yargs": "^17.7.1"
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.1",
+    "@types/jest": "^29.5.2",
     "@types/inquirer": "^8.2.6",
-    "@types/node": "^18.16.0",
+    "@types/node": "^18.16.18",
     "@types/yargs": "^17.0.24",
     "copyfiles": "^2.4.1",
-    "eslint": "^8.39.0",
+    "eslint": "^8.43.0",
     "eslint-config-custom": "*",
     "jest": "^29.5.0",
     "jest-config-custom": "*",
     "ts-jest": "^29.1.0",
-    "typescript": "^5.0.4",
+    "typescript": "^5.1.3",
     "typescript-config-custom": "*"
   }
 }
