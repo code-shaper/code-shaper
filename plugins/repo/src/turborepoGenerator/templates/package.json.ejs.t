@@ -4,6 +4,10 @@
   "version": "0.0.1",
   "private": true,
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<%= itemName %>/<%= itemName %>"
+  },
   "workspaces": [
     "apps/*",
     "configs/*",
