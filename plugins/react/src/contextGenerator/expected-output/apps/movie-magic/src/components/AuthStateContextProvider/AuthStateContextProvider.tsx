@@ -18,13 +18,15 @@ const AuthStateContext = React.createContext<
 
 // ---------- AuthStateContextProvider ----------
 interface AuthStateContextProviderProps {
+  initialState?: AuthState;
   children?: React.ReactNode;
 }
 
-function AuthStateContextProvider({ children }: AuthStateContextProviderProps) {
-  const [authState, setAuthState] = React.useState<AuthState>({
-    isEditing: false,
-  });
+function AuthStateContextProvider({
+  initialState = { isEditing: false },
+  children,
+}: AuthStateContextProviderProps) {
+  const [authState, setAuthState] = React.useState<AuthState>(initialState);
 
   const value = { authState, setAuthState };
   return (

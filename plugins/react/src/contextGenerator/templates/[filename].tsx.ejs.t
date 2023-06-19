@@ -18,13 +18,15 @@ const <%= contextName %> = React.createContext<
 
 // ---------- <%= providerName %> ----------
 interface <%= providerName %>Props {
+  initialState?: <%= stateName %>;
   children?: React.ReactNode;
 }
 
-function <%= providerName %>({ children }: <%= providerName %>Props) {
-  const [<%= stateNameCamelCase %>, set<%= stateName %>] = React.useState<<%= stateName %>>({
-    isEditing: false,
-  });
+function <%= providerName %>({
+  initialState = { isEditing: false },
+  children,
+}: <%= providerName %>Props) {
+  const [<%= stateNameCamelCase %>, set<%= stateName %>] = React.useState<<%= stateName %>>(initialState);
 
   const value = { <%= stateNameCamelCase %>, set<%= stateName %> };
   return (
