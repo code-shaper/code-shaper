@@ -59,25 +59,13 @@ async function generateReactLibrary(rootDir: string, inputOptions: Options) {
 
   const { itemNameKebabCase } = options;
 
-  const srcDir = path.join(__dirname, 'templates/main');
+  const srcDir = path.join(__dirname, 'templates');
   const dstDir = path.join(parentDir, itemNameKebabCase);
 
   console.log();
   console.log(`Creating ${itemName}...`);
 
   FileUtils.transformFiles(srcDir, dstDir, options);
-
-  // Copy TypeScript configuration
-  const srcDirConfig = path.join(
-    __dirname,
-    'templates/typescript-config-custom'
-  );
-  const dstDirConfig = path.join(
-    rootDir,
-    'configs',
-    'typescript-config-custom'
-  );
-  FileUtils.transformFiles(srcDirConfig, dstDirConfig, options);
 
   console.log('Done.');
   console.log();
@@ -94,17 +82,7 @@ async function generateReactLibrary(rootDir: string, inputOptions: Options) {
   console.log('       "react-dom": "^18.2.0"');
   console.log('     },');
   console.log();
-  console.log(
-    '2. Edit /configs/typescript-config-custom/package.json to add a new typescript configuration'
-  );
-  console.log('   (react-library.json) if it is not already there. See below:');
-  console.log();
-  console.log('     "files": [');
-  console.log('       "base.json",');
-  console.log('       "react-library.json"');
-  console.log('     ],');
-  console.log();
-  console.log('3. In the root directory, run:');
+  console.log('2. In the root directory, run:');
   console.log('     npm run clean');
   console.log('     npm install');
   console.log();
