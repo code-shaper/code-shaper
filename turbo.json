@@ -1,23 +1,40 @@
 {
+  "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
     "lint": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["build"],
       "outputs": []
     },
+    "format": {
+      "dependsOn": ["lint"]
+    },
     "test": {
-      "dependsOn": ["^lint"],
+      "dependsOn": ["format"],
       "outputs": ["coverage/**", "test-output/**"]
+    },
+    "ci-validate": {
+      "dependsOn": ["test"]
+    },
+    "postdeploy": {
+      "dependsOn": ["build"]
+    },
+    "lint:fix": {},
+    "format:fix": {
+      "dependsOn": ["lint:fix"]
+    },
+    "fix": {
+      "dependsOn": ["format:fix"]
+    },
+    "clean": {
+      "cache": false
     },
     "dev": {
       "cache": false,
       "persistent": true
-    },
-    "clean": {
-      "cache": false
     }
   }
 }

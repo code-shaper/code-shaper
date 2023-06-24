@@ -1,4 +1,4 @@
-import inquirer from 'inquirer';
+import { prompt } from 'inquirer';
 import { Options } from './Options';
 
 export interface Generator {
@@ -76,7 +76,7 @@ export async function selectGenerator(
     },
   ];
 
-  const options = await inquirer.prompt(questions, inputOptions);
+  const options = await prompt(questions, inputOptions);
   const generatorId = options.generator;
 
   const generator = generators[generatorId];

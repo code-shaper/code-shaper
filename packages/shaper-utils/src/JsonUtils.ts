@@ -25,15 +25,14 @@ type JsonParseOptions = {
  * @param options JSON parse options
  * @returns Object representing the JSON content
  */
-function readJsonFile<T extends object = any>(
-  path: string,
-  options: Partial<JsonParseOptions> = {}
-): T {
+function readJsonFile(path: string, options: Partial<JsonParseOptions> = {}) {
   const content = FileUtils.readFile(path);
   try {
-    return parseJson<T>(content, options);
-  } catch (e: any) {
-    e.message = e.message.replace('JSON', path);
+    return parseJson(content, options);
+  } catch (e) {
+    if (e instanceof Error) {
+      e.message = e.message.replace('JSON', path);
+    }
     throw e;
   }
 }
@@ -45,10 +44,7 @@ function readJsonFile<T extends object = any>(
  * @param options JSON parse options
  * @returns Object representing the JSON content
  */
-function parseJson<T extends object = any>(
-  input: string,
-  options: Partial<JsonParseOptions> = {}
-): T {
+function parseJson(input: string, options: Partial<JsonParseOptions> = {}) {
   const opts = Object.assign(
     {
       expectComments: true,
@@ -68,7 +64,7 @@ function parseJson<T extends object = any>(
   }
 
   const errors: ParseError[] = [];
-  const result: T = parse(input, errors);
+  const result = parse(input, errors);
 
   if (errors.length > 0) {
     const { error, offset } = errors[0];

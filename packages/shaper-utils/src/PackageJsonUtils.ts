@@ -15,7 +15,7 @@ function getPackageJson(parentPath: string): PackageJson | null {
   }
 
   try {
-    return JsonUtils.readJsonFile<PackageJson>(packageJsonPath);
+    return JsonUtils.readJsonFile(packageJsonPath);
   } catch {
     return null;
   }

@@ -17,10 +17,13 @@
     "README.md"
   ],
   "scripts": {
-    "build": "rimraf dist && tsc",
-    "lint": "eslint src/**/*.ts*",
-    "test": "jest",
-    "clean": "rimraf .turbo node_modules dist coverage"
+    "build": "rimraf dist && tsc --project tsconfig.build.json",
+    "clean": "rimraf .turbo node_modules dist coverage",
+    "format": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,md}'",
+    "format:fix": "npm run format -- --write",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "jest"
   },
   "dependencies": {
     "change-case": "^4.1.2",

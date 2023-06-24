@@ -1,5 +1,5 @@
 import { execSync } from 'child_process';
-import fs from 'fs-extra';
+import { removeSync } from 'fs-extra';
 import path from 'path';
 
 /**
@@ -63,7 +63,7 @@ function tryGitCommit(dstDir: string, message: string) {
     console.warn('Git commit not created', e);
     console.warn('Removing .git directory...');
     try {
-      fs.removeSync(path.join(dstDir, '.git'));
+      removeSync(path.join(dstDir, '.git'));
     } catch (removeErr) {
       // Ignore.
     }

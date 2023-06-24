@@ -5,8 +5,15 @@ import {
 } from 'dir-compare';
 import treeWalk from 'klaw-sync';
 import path from 'path';
-import ejs from 'ejs';
-import fs from 'fs-extra';
+import { renderFile } from 'ejs';
+import {
+  appendFileSync,
+  copySync,
+  existsSync,
+  outputFileSync,
+  readFileSync,
+  removeSync,
+} from 'fs-extra';
 import { Options } from './models';
 
 /**
@@ -54,7 +61,7 @@ function logDirCompareResult(result: DirCompareResult) {
  * @param path
  */
 function deletePath(path: string): void {
-  fs.removeSync(path);
+  removeSync(path);
 }
 
 /**
@@ -62,7 +69,7 @@ function deletePath(path: string): void {
  * @param path
  */
 function fileExists(path: string): boolean {
-  return fs.existsSync(path);
+  return existsSync(path);
 }
 
 /**
@@ -80,7 +87,7 @@ function readFile(
       }
     | BufferEncoding = 'utf8'
 ): string {
-  return fs.readFileSync(path, options);
+  return readFileSync(path, options);
 }
 
 /**
@@ -89,18 +96,18 @@ function readFile(
  * @param path to the file
  * @param data to be appended
  */
-function appendToFile(path: string, data: any) {
+function appendToFile(path: string, data: string) {
   // The following method was recommended by a dev.to article:
   // https://dev.to/sergchr/tricks-on-writing-appending-to-a-file-in-node-1hik
   // However, it does an asynchronous write, which causes problems with testing.
   //
-  // const stream = fs.createWriteStream(path, { flags: 'a' });
+  // const stream = createWriteStream(path, { flags: 'a' });
   // stream.write(data);
   // stream.end();
   //
   // Hence we are replacing with a synchronous write, even though it loads the
   // entire file in memory and rewrites it completely.
-  fs.appendFileSync(path, data);
+  appendFileSync(path, data);
 }
 
 /**
@@ -201,15 +208,15 @@ function transformFiles(srcDir: string, dstDir: string, options: Options) {
 
     // Copy srcFile to destination
     if (isEjsTemplate) {
-      ejs.renderFile(srcPath, options, {}, function (err, outputString) {
+      renderFile(srcPath, options, {}, function (err, outputString) {
         if (err) {
           console.error(err);
         }
 
-        fs.outputFileSync(dstPath, outputString);
+        outputFileSync(dstPath, outputString);
       });
     } else {
-      fs.copySync(srcPath, dstPath, {});
+      copySync(srcPath, dstPath, {});
     }
   });
 }

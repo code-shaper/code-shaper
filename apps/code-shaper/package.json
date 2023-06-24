@@ -22,9 +22,12 @@
   },
   "scripts": {
     "build": "rimraf dist && tsc && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",
-    "lint": "eslint src/**/*.ts*",
-    "test": "echo No tests in this package yet",
-    "clean": "rimraf .turbo node_modules dist coverage"
+    "clean": "rimraf .turbo node_modules dist coverage",
+    "format": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,md}'",
+    "format:fix": "npm run format -- --write",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "echo No tests in this package yet"
   },
   "dependencies": {
     "@code-shaper/repo": "*",

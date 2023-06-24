@@ -80,7 +80,7 @@ function getDependencyPackageJson(
     const packageJsonPath = require.resolve(`${dependencyName}/package.json`, {
       paths: [rootPath],
     });
-    return JsonUtils.readJsonFile<PackageJson>(packageJsonPath);
+    return JsonUtils.readJsonFile(packageJsonPath);
   } catch {
     return null;
   }
