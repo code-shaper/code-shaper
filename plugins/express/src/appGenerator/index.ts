@@ -59,7 +59,7 @@ async function generateApp(rootDir: string, inputOptions: Options) {
 
   const { itemNameKebabCase } = options;
 
-  const srcDir = path.join(__dirname, 'templates/main');
+  const srcDir = path.join(__dirname, 'templates');
   const dstDir = path.join(parentDir, itemNameKebabCase);
 
   console.log();
@@ -67,38 +67,14 @@ async function generateApp(rootDir: string, inputOptions: Options) {
 
   FileUtils.transformFiles(srcDir, dstDir, options);
 
-  // Copy TypeScript configuration
-  const srcDirConfig = path.join(
-    __dirname,
-    'templates/typescript-config-custom'
-  );
-  const dstDirConfig = path.join(
-    rootDir,
-    'configs',
-    'typescript-config-custom'
-  );
-  FileUtils.transformFiles(srcDirConfig, dstDirConfig, options);
-
   console.log();
   console.log('Done.');
   console.log();
-  console.log(
-    '1. Edit /configs/typescript-config-custom/package.json to add a new typescript configuration'
-  );
-  console.log(
-    '   (typescript-library.json) if it is not already there. See below:'
-  );
-  console.log();
-  console.log('     "files": [');
-  console.log('       "base.json",');
-  console.log('       "typescript-library.json"');
-  console.log('     ],');
-  console.log();
-  console.log('2. In the root directory, run:');
+  console.log('1. In the root directory, run:');
   console.log('     npm install');
   console.log('     npm run build');
   console.log();
-  console.log(`3. Run ${itemName} from the root directory:`);
+  console.log(`2. Run ${itemName} from the root directory:`);
   console.log('     npm run dev');
   console.log();
   console.log(
