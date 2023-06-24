@@ -5,7 +5,7 @@ import {
   Options,
   PackageJsonUtils,
 } from '@code-shaper/shaper-utils';
-import inquirer from 'inquirer';
+import { prompt } from 'inquirer';
 import path from 'path';
 
 export const pageGenerator: Generator = {
@@ -53,7 +53,7 @@ async function generatePage(rootDir: string, inputOptions: Options) {
     },
   ];
 
-  const options = await inquirer.prompt(questions, inputOptions);
+  const options = await prompt(questions, inputOptions);
   const { itemName, workspace, dirInWorkspace } = options;
 
   // --------------------------------------------------------------------------

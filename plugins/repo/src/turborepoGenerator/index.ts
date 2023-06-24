@@ -1,5 +1,5 @@
 import { cc, FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
-import inquirer from 'inquirer';
+import { prompt } from 'inquirer';
 import path from 'path';
 
 export const turborepoGenerator: Generator = {
@@ -18,7 +18,7 @@ async function generateTurborepo(rootDir: string, inputOptions: Options) {
     },
   ];
 
-  const options = await inquirer.prompt(questions, inputOptions);
+  const options = await prompt(questions, inputOptions);
   const { itemName } = options;
 
   // --------------------------------------------------------------------------

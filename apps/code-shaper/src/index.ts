@@ -1,11 +1,11 @@
-import inquirer from 'inquirer';
+import { registerPrompt } from 'inquirer';
 // @ts-ignore
 import inquirerDirectory from 'inquirer-directory';
 import yargs from 'yargs/yargs';
 import { shaper } from './shaper';
 
 // Register inquirer prompts
-inquirer.registerPrompt('directory', inquirerDirectory);
+registerPrompt('directory', inquirerDirectory);
 
 async function main() {
   // Parse command line

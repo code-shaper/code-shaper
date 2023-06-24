@@ -6,7 +6,7 @@ import {
   PluginUtils,
   PluginMap,
 } from '@code-shaper/shaper-utils';
-import inquirer from 'inquirer';
+import { prompt } from 'inquirer';
 
 // ---------- Plugin Store ----------
 // Static plugins are built into Code Shaper
@@ -58,7 +58,7 @@ async function run(
       },
     ];
 
-    const answers = await inquirer.prompt(questions);
+    const answers = await prompt(questions);
     selectedPluginId = answers.pluginId;
   }
 

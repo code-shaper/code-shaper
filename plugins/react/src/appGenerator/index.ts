@@ -1,11 +1,11 @@
 import { cc, FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
-import inquirer from 'inquirer';
+import { prompt, registerPrompt } from 'inquirer';
 // @ts-ignore
 import inquirerDirectory from 'inquirer-directory';
 import path from 'path';
 
 // Register inquirer prompts
-inquirer.registerPrompt('directory', inquirerDirectory);
+registerPrompt('directory', inquirerDirectory);
 
 export const appGenerator: Generator = {
   id: 'app',
@@ -36,7 +36,7 @@ async function generateApp(rootDir: string, inputOptions: Options) {
     },
   ];
 
-  const options = await inquirer.prompt(questions, inputOptions);
+  const options = await prompt(questions, inputOptions);
   const { itemName, parentDir } = options;
 
   // --------------------------------------------------------------------------
