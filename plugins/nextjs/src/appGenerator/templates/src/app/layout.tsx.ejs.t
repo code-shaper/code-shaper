@@ -1,9 +1,11 @@
-import * as React from 'react';
 import { Inter } from 'next/font/google';
+import type * as React from 'react';
 import './globals.css';
 
-// Load the Inter font using next/font/google. For details, see
-// https://beta.nextjs.org/docs/optimizing/fonts
+/*
+ * Load the Inter font using next/font/google. For details, see
+ * https://beta.nextjs.org/docs/optimizing/fonts
+ */
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {

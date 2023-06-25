@@ -1,0 +1,6 @@
+/.next/
+/.swc/
+/.turbo/
+/coverage/
+/node_modules/
+/out/

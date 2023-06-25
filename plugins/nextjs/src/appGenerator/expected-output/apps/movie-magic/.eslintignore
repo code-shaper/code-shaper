@@ -1,0 +1,8 @@
+!.*
+/.next/
+/.swc/
+/.turbo/
+/coverage/
+/next-env.d.ts
+/node_modules/
+/out/
