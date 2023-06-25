@@ -1,0 +1,4 @@
+!.*
+/.turbo/
+/coverage/
+/node_modules/
