@@ -1,18 +1,19 @@
-/** @type { import('@jest/types').Config.InitialOptions } */
+/** @type { import('jest').Config } */
 module.exports = {
   verbose: false,
   roots: ['<rootDir>/src'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
+    '!src/**/*.d.ts',
     '!src/**/*.stories.{js,jsx,ts,tsx}',
-    '!src/test/**',
-    '!src/index.{js,jsx,ts,tsx}',
+    '!src/**/index.{js,jsx,ts,tsx}',
     '!src/**/templates/**',
+    '!src/mocks/**',
+    '!src/test/**',
   ],
   coverageThreshold: {
     global: {

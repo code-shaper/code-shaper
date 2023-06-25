@@ -1,3 +1,4 @@
+/** @type { import('jest').Config } */
 module.exports = {
   verbose: false,
   roots: ['<rootDir>/src'],
@@ -7,9 +8,9 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
-    '!src/**/index.{js,jsx,ts,tsx}',
-    '!src/**/*.stories.{js,jsx,ts,tsx}',
     '!src/**/*.d.ts',
+    '!src/**/*.stories.{js,jsx,ts,tsx}',
+    '!src/**/index.{js,jsx,ts,tsx}',
     '!src/**/templates/**',
     '!src/mocks/**',
     '!src/test/**',

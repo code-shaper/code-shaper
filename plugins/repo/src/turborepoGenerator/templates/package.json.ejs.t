@@ -15,30 +15,50 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "ci-validate": "run-s _ci-validate:root _ci-validate:rest",
+    "clean": "run-s _clean:rest _clean:root",
+    "commit": "cz",
     "dev": "turbo run dev",
+    "fix": "run-s _fix:root _fix:rest",
+    "format": "run-s _format:root _format:rest",
     "graph": "turbo run build --graph",
-    "lint": "turbo run lint",
-    "test": "turbo run test",
-    "clean": "turbo run clean && rimraf node_modules",
+    "lint": "run-s _lint:root _lint:rest",
+    "postdeploy": "turbo run postdeploy",
     "prepare": "husky install",
-    "format": "prettier --write \"**/README.md\" \"**/src/**/*.{js,jsx,ts,tsx,json}\""
+    "test": "turbo run test",
+    "_ci-validate:rest": "turbo run ci-validate",
+    "_ci-validate:root": "run-s _lint:root _format:root",
+    "_clean:rest": "turbo run clean",
+    "_clean:root": "rimraf node_modules",
+    "_fix:rest": "turbo run fix",
+    "_fix:root": "run-s _lint:root:fix _format:root:fix",
+    "_format:rest": "turbo run format",
+    "_format:root": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,md}' '!apps/**/*.*' '!packages/**/*.*' '!plugins/**/*.*'",
+    "_format:root:fix": "npm run --silent _format:root -- --write",
+    "_lint:rest": "turbo run lint",
+    "_lint:root": "eslint '**/*.{js,jsx,ts,tsx}' --ignore-pattern '/apps/' --ignore-pattern '/packages/' --ignore-pattern '/plugins/'",
+    "_lint:root:fix": "npm run --silent _lint:root -- --fix"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "commitizen": "^4.3.0",
+    "commitlint": "^17.6.5",
     "eslint": "^8.43.0",
     "eslint-config-custom": "*",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.8.8",
     "rimraf": "^5.0.1",
     "turbo": "latest"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json}": "prettier --write"
-  },
   "engines": {
-    "npm": ">=8.0.0",
-    "node": ">=16.0.0"
+    "npm": "9.5.1",
+    "node": "18.16.0"
   },
-  "packageManager": "npm@8.15.0"
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  }
 }

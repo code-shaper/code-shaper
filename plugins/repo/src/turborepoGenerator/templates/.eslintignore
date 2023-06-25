@@ -1,4 +1,5 @@
 # Keep in sync with .gitignore + .prettierignore
+!.*
 **/node_modules
 **/dist
 **/coverage
