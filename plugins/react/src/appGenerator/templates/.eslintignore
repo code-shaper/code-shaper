@@ -1,0 +1,13 @@
+!.*
+/.turbo/
+/coverage/
+/cypress/
+/dist/
+/node_modules/
+/public/mockServiceWorker.js
+.eslintrc.js
+.lintstagedrc.js
+cypress.config.ts
+jest.config.js
+vite.config.ts
+src/vite-env.d.ts

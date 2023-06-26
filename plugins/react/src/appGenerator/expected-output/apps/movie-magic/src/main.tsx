@@ -1,7 +1,7 @@
-import * as React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { App } from './App';
+import * as React from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './styles/main.css';
 
 // Start mock service worker in dev environment
@@ -13,30 +13,34 @@ async function startMockServiceWorker() {
   }
 }
 
-startMockServiceWorker().then(() => {
-  const root = ReactDOM.createRoot(
-    document.getElementById('root') as HTMLElement
-  );
+startMockServiceWorker()
+  .then(() => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const root = createRoot(document.getElementById('root')!);
+    root.render(
+      <React.StrictMode>
+        <Router>
+          <App />
+        </Router>
+      </React.StrictMode>
+    );
+    return true;
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
-  root.render(
-    <React.StrictMode>
-      <Router>
-        <App />
-      </Router>
-    </React.StrictMode>
-  );
-});
-
-// -----------------------------------------------------------------------------
-// If you don't use Mock Service Worker, simplify the above code as shown below.
-// -----------------------------------------------------------------------------
-// const root = ReactDOM.createRoot(
-//   document.getElementById('root') as HTMLElement
-// );
-// root.render(
-//   <React.StrictMode>
-//     <Router>
-//       <App />
-//     </Router>
-//   </React.StrictMode>
-// );
+/*
+ * -----------------------------------------------------------------------------
+ * If you don't use Mock Service Worker, simplify the above code as shown below.
+ * -----------------------------------------------------------------------------
+ * // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+ * const root = createRoot(document.getElementById('root')!);
+ * root.render(
+ *   <React.StrictMode>
+ *     <Router>
+ *       <App />
+ *     </Router>
+ *   </React.StrictMode>
+ * );
+ */

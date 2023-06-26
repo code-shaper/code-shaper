@@ -1,4 +1,4 @@
 module.exports = {
   preset: 'jest-config-custom',
-  testEnvironment: 'jsdom',
+  testEnvironment: 'jest-environment-jsdom',
 };
