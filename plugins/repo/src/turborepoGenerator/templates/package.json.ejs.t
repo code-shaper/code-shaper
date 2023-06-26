@@ -40,6 +40,7 @@
     "_lint:root:fix": "npm run --silent _lint:root -- --fix"
   },
   "devDependencies": {
+    "@commitlint/cz-commitlint": "^17.5.0",
     "@typescript-eslint/eslint-plugin": "^5.60.0",
     "commitizen": "^4.3.0",
     "commitlint": "^17.6.6",

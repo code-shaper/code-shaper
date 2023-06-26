@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "redhat.vscode-yaml",
+    "ritwickdey.LiveServer",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}

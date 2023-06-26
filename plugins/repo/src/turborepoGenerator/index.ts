@@ -54,7 +54,23 @@ async function generateTurborepo(rootDir: string, inputOptions: Options) {
   console.log('  git init');
   console.log('  npm install');
   console.log('  git add .');
-  console.log('  git commit -m "Initial commit"');
+  console.log();
+  console.log('Make an initial commit using the conventional commit spec');
+  console.log('This is equivalent to: git commit -m "chore: initialize repo"');
+  console.log('  npm run commit');
+  console.log('  ? Select the TYPE of this change (required): chore');
+  console.log(
+    '  ? Select the SCOPE of this change (optional) (press enter to skip):'
+  );
+  console.log(
+    '  ? Finish this SHORT sentence (required): "Applying this commit will...": (max 100 chars)'
+  );
+  console.log('  (15) initialize repo');
+  console.log(
+    '  ? Provide a LONGER description of the change (optional): (press enter to skip):'
+  );
+  console.log('  ? Are there any breaking changes?: No');
+  console.log('  [master (root-commit)] chore: initialize repo');
   console.log();
   console.log('What to do next?');
   console.log('----------------');
