@@ -88,9 +88,8 @@ async function generateComponent(rootDir: string, inputOptions: Options) {
   console.log('Done.');
   console.log();
   console.log(
-    '1. Implement the component using Storybook (we have added a placeholder story for you):'
+    '1. Implement the component using Storybook (we have added a placeholder story for you)'
   );
-  console.log('     npm run storybook');
   console.log();
   console.log(
     '2. Implement units tests (we have added a placeholder test for you):'
