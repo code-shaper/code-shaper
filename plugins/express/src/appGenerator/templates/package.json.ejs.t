@@ -9,11 +9,14 @@
     "dist/**"
   ],
   "scripts": {
-    "dev": "nodemon --watch src -e ts --exec ts-node src/index.ts",
     "build": "rimraf dist && tsc",
-    "lint": "eslint src/**/*.ts*",
-    "test": "jest --coverage --passWithNoTests",
-    "clean": "rimraf .turbo node_modules dist coverage"
+    "clean": "rimraf .turbo node_modules dist coverage",
+    "dev": "nodemon --watch src -e ts --exec ts-node src/index.ts",
+    "format": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,md}'",
+    "format:fix": "npm run format -- --write",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "jest --coverage --passWithNoTests"
   },
   "dependencies": {
     "body-parser": "^1.20.2",

@@ -1,50 +1,60 @@
 [
   {
+    "id": "65667a66-d848-4eba-a2ca-c167c39d8f57",
     "name": "The Shawshank Redemption",
     "year": 1994,
     "rating": 9.3
   },
   {
+    "id": "116dac8b-e75b-4abb-8da3-4f72e2274e50",
     "name": "The Godfather",
     "year": 1972,
     "rating": 9.2
   },
   {
+    "id": "2fd1e450-6622-43b7-977f-2640a48cb032",
     "name": "The Godfather: Part II",
     "year": 1974,
     "rating": 9.0
   },
   {
+    "id": "aca55373-155b-49c0-9561-e23a4cb19870",
     "name": "The Dark Knight",
     "year": 2008,
     "rating": 9.0
   },
   {
+    "id": "5a78da59-0799-4ac9-80ad-4ffefbde233b",
     "name": "12 Angry Men",
     "year": 1957,
     "rating": 8.9
   },
   {
+    "id": "8c4b74d2-d5fd-4d8e-894b-7e36efef13e7",
     "name": "Schindler's List",
     "year": 1993,
     "rating": 8.9
   },
   {
+    "id": "77b01a0f-6778-4287-a5ee-23ce4e3f8157",
     "name": "The Lord Of The Rings: The Return Of The King",
     "year": 2003,
     "rating": 8.9
   },
   {
+    "id": "31ba7b74-7b3f-4fb5-add8-cb6b14c7a454",
     "name": "Pulp Fiction",
     "year": 1994,
     "rating": 8.9
   },
   {
+    "id": "9421df8c-e4b6-43d3-a8e9-b5f3e9faaa3d",
     "name": "The Good, The Bad And The Ugly",
     "year": 1966,
     "rating": 8.8
   },
   {
+    "id": "6f0f8008-a0ea-4bfd-8136-d7b21e3094f8",
     "name": "The Lord Of The Rings: The Fellowship Of The Rings",
     "year": 2001,
     "rating": 8.8

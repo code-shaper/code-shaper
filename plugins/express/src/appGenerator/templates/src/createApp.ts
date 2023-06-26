@@ -1,8 +1,22 @@
+import { rootRouter } from './routes';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import express, { Request, Response, NextFunction } from 'express';
+import type { Request, Response, NextFunction } from 'express';
+import express from 'express';
 import morgan from 'morgan';
-import { rootRouter } from './routes';
+
+function appErrorHandler(
+  err: Error,
+  _: Request,
+  res: Response,
+  next: NextFunction
+) {
+  if (err.message) {
+    res.status(500).send({ error: err.message });
+  } else {
+    next(err);
+  }
+}
 
 export function createApp() {
   // Create Express App
@@ -27,17 +41,4 @@ export function createApp() {
   app.use(appErrorHandler);
 
   return app;
-}
-
-function appErrorHandler(
-  err: Error,
-  _: Request,
-  res: Response,
-  next: NextFunction
-) {
-  if (err.message) {
-    res.status(500).send({ error: err.message });
-  } else {
-    next(err);
-  }
 }
