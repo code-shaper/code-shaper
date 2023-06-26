@@ -42,7 +42,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.60.0",
     "commitizen": "^4.3.0",
-    "commitlint": "^17.6.5",
+    "commitlint": "^17.6.6",
     "eslint": "^8.43.0",
     "eslint-config-custom": "*",
     "husky": "^8.0.3",
