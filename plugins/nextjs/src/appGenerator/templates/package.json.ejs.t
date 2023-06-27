@@ -35,6 +35,7 @@
     "jest": "^29.5.0",
     "jest-config-custom": "*",
     "jest-environment-jsdom": "^29.5.0",
+    "ts-jest": "^29.1.0",
     "typescript": "^5.1.3"
   }
 }
