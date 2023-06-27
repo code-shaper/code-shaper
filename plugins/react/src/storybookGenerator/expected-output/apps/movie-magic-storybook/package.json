@@ -38,9 +38,5 @@
     "typescript": "^5.1.3",
     "vite": "^4.3.9",
     "vite-tsconfig-paths": "^4.2.0"
-  },
-  "overrides": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
   }
 }
