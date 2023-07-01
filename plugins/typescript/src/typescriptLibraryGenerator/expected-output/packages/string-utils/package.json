@@ -11,12 +11,16 @@
     "README.md"
   ],
   "scripts": {
+    "build": "rimraf dist && run-s bundle",
+    "bundle": "tsup src/index.ts --format esm,cjs --dts",
+    "clean": "rimraf .turbo node_modules dist coverage",
+    "copy-css": "copyfiles --all --up 1 \"src/**/*.css\" dist",
     "dev": "npm run bundle -- --watch",
-    "build": "rimraf dist && npm run bundle",
-    "lint": "eslint src/**/*.ts*",
-    "test": "jest --coverage",
-    "bundle": "tsup src/index.ts --format esm,cjs --dts --external react",
-    "clean": "rimraf .turbo node_modules dist coverage"
+    "format": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,md}'",
+    "format:fix": "npm run format -- --write",
+    "lint": "eslint '**/*.{js,ts}'",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "jest --coverage"
   },
   "devDependencies": {
     "@swc/core": "^1.3.66",

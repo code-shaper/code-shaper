@@ -7,6 +7,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["**/*.test.ts", "**/*.test.tsx", "**/*.stories.tsx", "**/test/*"]
+  "include": ["**/*.ts"],
+  "exclude": ["**/*.test.ts", "**/test/*"]
 }
