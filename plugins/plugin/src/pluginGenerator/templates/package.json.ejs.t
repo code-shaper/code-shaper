@@ -11,10 +11,15 @@
     "README.md"
   ],
   "scripts": {
-    "build": "rimraf dist && tsc --project tsconfig.build.json && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",
-    "lint": "eslint src/**/*.ts*",
+    "build": "rimraf dist && run-s _bundle _copyfiles",
+    "clean": "rimraf .turbo node_modules dist coverage **/test-output",
+    "format": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,md}'",
+    "format:fix": "npm run format -- --write",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "npm run lint -- --fix",
     "test": "jest",
-    "clean": "rimraf .turbo node_modules dist coverage */**/test-output"
+    "_bundle": "tsc --project tsconfig.build.json",
+    "_copyfiles": "copyfiles --all --up 1 \"src/**/templates/**/*\" dist"
   },
   "devDependencies": {
     "@code-shaper/shaper-utils": "*",
