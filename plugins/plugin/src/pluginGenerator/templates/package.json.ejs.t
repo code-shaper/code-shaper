@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "build": "rimraf dist && run-s _bundle _copyfiles",
-    "clean": "rimraf .turbo node_modules dist coverage **/test-output",
+    "clean": "rimraf --glob .turbo node_modules dist coverage ./**/test-output",
     "format": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,md}'",
     "format:fix": "npm run format -- --write",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
