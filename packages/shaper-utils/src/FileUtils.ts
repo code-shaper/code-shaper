@@ -43,16 +43,19 @@ function logDirCompareResult(result: DirCompareResult) {
   );
 
   if (result.diffSet) {
-    result.diffSet.forEach((dif) =>
-      console.log(
-        'Difference - name1: %s, type1: %s, name2: %s, type2: %s, state: %s',
-        dif.name1,
-        dif.type1,
-        dif.name2,
-        dif.type2,
-        dif.state
-      )
-    );
+    result.diffSet.forEach((dif) => {
+      if (dif.state !== 'equal') {
+        console.log(
+          'Difference - name1: %s, type1: %s, name2: %s, type2: %s, state: "%s", reason: %s',
+          dif.name1,
+          dif.type1,
+          dif.name2,
+          dif.type2,
+          dif.state,
+          dif.reason
+        );
+      }
+    });
   }
 }
 
