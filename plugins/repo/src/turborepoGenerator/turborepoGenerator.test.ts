@@ -17,12 +17,16 @@ describe('turborepoGenerator', () => {
       itemName: 'movie-magic',
     });
 
+    // restore console logs
+    jest.restoreAllMocks();
+
     // Compare test-output with expected-output
     const expectedOutput = path.join(__dirname, 'expected-output');
     const result = FileUtils.compareDirectories(expectedOutput, testOutput);
+    if (!result.same) {
+      console.log('%s did not match the expected output', testOutput);
+      FileUtils.logDirCompareResult(result);
+    }
     expect(result.same).toBe(true);
-
-    // restore console logs
-    jest.restoreAllMocks();
   });
 });

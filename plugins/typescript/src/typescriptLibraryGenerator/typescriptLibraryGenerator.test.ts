@@ -8,13 +8,6 @@ describe('typescriptLibraryGenerator', () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(console, 'log').mockImplementation(() => {});
 
-    // await plugin.run({
-    //   generator: 'typescript-library',
-    //   itemName: 'string-utils',
-    //   parentDir: 'test-output',
-    //   packageName: '@movie-magic/string-utils',
-    // });
-
     // Delete test-output if it exists
     const testOutput = path.join(__dirname, 'test-output');
     FileUtils.deletePath(testOutput);
@@ -26,12 +19,16 @@ describe('typescriptLibraryGenerator', () => {
       packageName: '@movie-magic/string-utils',
     });
 
+    // restore console logs
+    jest.restoreAllMocks();
+
     // Compare test-output with expected-output
     const expectedOutput = path.join(__dirname, 'expected-output');
     const result = FileUtils.compareDirectories(expectedOutput, testOutput);
+    if (!result.same) {
+      console.log('%s did not match the expected output', testOutput);
+      FileUtils.logDirCompareResult(result);
+    }
     expect(result.same).toBe(true);
-
-    // restore console logs
-    jest.restoreAllMocks();
   });
 });
