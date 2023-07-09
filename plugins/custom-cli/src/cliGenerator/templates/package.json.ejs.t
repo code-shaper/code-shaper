@@ -21,7 +21,7 @@
     "clean": "rimraf .turbo node_modules dist coverage"
   },
   "dependencies": {
-    "@code-shaper/shaper-utils": "*",
+    "@code-shaper/shaper-utils": "latest",
     "inquirer": "^8.2.5",
     "inquirer-directory": "^2.2.0",
     "yargs": "^17.7.2"

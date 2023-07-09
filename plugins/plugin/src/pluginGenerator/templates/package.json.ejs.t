@@ -21,8 +21,12 @@
     "_bundle": "tsc --project tsconfig.build.json",
     "_copyfiles": "copyfiles --all --up 1 \"src/**/templates/**/*\" dist"
   },
+  "dependencies": {
+    "@code-shaper/shaper-utils": "latest",
+    "inquirer": "^8.2.5",
+    "inquirer-directory": "^2.2.0"
+  },
   "devDependencies": {
-    "@code-shaper/shaper-utils": "*",
     "@types/jest": "^29.5.2",
     "@types/inquirer": "^8.2.6",
     "@types/node": "^18.16.18",
@@ -34,10 +38,6 @@
     "ts-jest": "^29.1.0",
     "typescript": "^5.1.3",
     "typescript-config-custom": "*"
-  },
-  "peerDependencies": {
-    "inquirer": "^8.x",
-    "inquirer-directory": "^2.x"
   },
   "shaper": {}
 }
