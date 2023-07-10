@@ -1,7 +1,7 @@
 {
   "name": "code-shaper",
   "description": "Code Shaper CLI",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -30,7 +30,6 @@
     "test": "echo No tests in this package yet"
   },
   "dependencies": {
-    "@code-shaper/repo": "latest",
     "@code-shaper/shaper-utils": "latest",
     "inquirer": "^8.2.5",
     "inquirer-directory": "^2.2.0",

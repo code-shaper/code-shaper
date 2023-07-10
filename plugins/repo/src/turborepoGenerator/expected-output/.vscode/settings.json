@@ -1,21 +1,11 @@
 {
   "cSpell.words": [
     "autodocs",
-    "camelcase",
     "clsx",
     "commitlint",
     "copyfiles",
-    "ghpages",
-    "headlessui",
-    "heroicons",
-    "hookform",
-    "klaw",
     "nextjs",
     "postdeploy",
-    "signin",
-    "tailwindcss",
-    "tanstack",
-    "testid",
     "tsup",
     "turborepo"
   ],
@@ -25,6 +15,15 @@
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "editor.indentSize": 2,
+  "eslint.rules.customizations": [
+    { "rule": "import/no-unresolved", "severity": "off" }
+  ],
+  "eslint.workingDirectories": [
+    "./",
+    { "pattern": "./apps/*/" },
+    { "pattern": "./packages/*/" },
+    { "pattern": "./plugins/*/" }
+  ],
   "files.insertFinalNewline": true,
   "prettier.enable": true,
   "[javascript]": {

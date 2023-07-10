@@ -14,6 +14,7 @@ describe('turborepoGenerator', () => {
 
     // Run the generator
     await turborepoGenerator.generate(testOutput, {
+      okToProceed: true,
       itemName: 'movie-magic',
     });
 

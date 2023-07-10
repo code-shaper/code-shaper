@@ -1,4 +1,3 @@
-import repoPlugin from '@code-shaper/repo';
 import {
   getPluginChoices,
   Options,
@@ -8,30 +7,18 @@ import {
 } from '@code-shaper/shaper-utils';
 import { prompt } from 'inquirer';
 
-// ---------- Plugin Store ----------
-// Static plugins are built into Code Shaper
-const staticPlugins: PluginMap = {};
-
-// Dynamic plugins are loaded at runtime
-const dynamicPlugins: PluginMap = {};
+// ---------- Plugin Map ----------
+const pluginMap: PluginMap = {};
 
 // ---------- Plugin Registration ----------
-function registerStaticPlugin(plugin: Plugin) {
+function registerPlugin(plugin: Plugin) {
   const { id } = plugin;
-  staticPlugins[id] = plugin;
+  pluginMap[id] = plugin;
 }
-
-function registerDynamicPlugin(plugin: Plugin) {
-  const { id } = plugin;
-  dynamicPlugins[id] = plugin;
-}
-
-// Register static plugins
-registerStaticPlugin(repoPlugin);
 
 // Register dynamic plugins
-const plugins = PluginUtils.getDynamicPlugins(process.cwd());
-plugins.forEach(registerDynamicPlugin);
+const dynamicPlugins = PluginUtils.getDynamicPlugins(process.cwd());
+dynamicPlugins.forEach(registerPlugin);
 
 // ---------- Run shaper ----------
 async function run(
@@ -44,9 +31,7 @@ async function run(
   if (pluginId) {
     selectedPluginId = pluginId;
   } else {
-    const coreChoices = getPluginChoices(staticPlugins);
-    const otherChoices = getPluginChoices(dynamicPlugins);
-    const allChoices = coreChoices.concat(otherChoices);
+    const pluginChoices = getPluginChoices(pluginMap);
 
     const questions = [
       {
@@ -54,7 +39,7 @@ async function run(
         name: 'pluginId',
         pageSize: 20,
         message: 'Which plugin would you like to run?',
-        choices: allChoices,
+        choices: pluginChoices,
       },
     ];
 
@@ -62,14 +47,13 @@ async function run(
     selectedPluginId = answers.pluginId;
   }
 
-  const plugin =
-    staticPlugins[selectedPluginId] || dynamicPlugins[selectedPluginId];
-  if (!plugin) {
+  const selectedPlugin = pluginMap[selectedPluginId];
+  if (!selectedPlugin) {
     console.error(`Plugin ${selectedPluginId} not found`);
     return Promise.resolve();
   }
 
-  return plugin.run(options);
+  return selectedPlugin.run(options);
 }
 
 export const shaper = {

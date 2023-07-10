@@ -18,7 +18,7 @@
     "ci-validate": "run-s _ci-validate:root _ci-validate:rest",
     "clean": "run-s _clean:rest _clean:root",
     "commit": "cz",
-    "dev": "turbo run dev",
+    "dev": "turbo run dev --concurrency 100",
     "fix": "run-s _fix:root _fix:rest",
     "format": "run-s _format:root _format:rest",
     "graph": "turbo run build --graph",
@@ -41,17 +41,23 @@
   },
   "devDependencies": {
     "@commitlint/cz-commitlint": "^17.5.0",
-    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "code-shaper": "latest",
     "commitizen": "^4.3.0",
     "commitlint": "^17.6.6",
-    "eslint": "^8.43.0",
+    "eslint": "^8.44.0",
     "eslint-config-custom": "*",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.2",
+    "lint-staged": "^13.2.3",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.8",
     "rimraf": "^5.0.1",
     "turbo": "latest"
+  },
+  "overrides": {
+    "@types/testing-library__jest-dom": "5.14.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "engines": {
     "npm": "9.5.1",
