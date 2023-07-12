@@ -67,26 +67,18 @@ async function generateReactLibrary(rootDir: string, inputOptions: Options) {
 
   FileUtils.transformFiles(srcDir, dstDir, options);
 
+  console.log();
   console.log('Done.');
   console.log();
-  console.log(
-    '1. In the root directory, edit package.json to force the latest version of React.'
-  );
-  console.log(
-    '   This is done by adding the following overrides section after the devDependencies'
-  );
-  console.log('   section (ignore if these overrides already exist):');
+  console.log('What to do next?');
+  console.log('----------------');
   console.log();
-  console.log('     "overrides": {');
-  console.log('       "react": "^18.2.0",');
-  console.log('       "react-dom": "^18.2.0"');
-  console.log('     },');
+  console.log('# Install newly added dependencies');
+  console.log('npm install');
   console.log();
-  console.log('2. In the root directory, run:');
-  console.log('     npm run clean');
-  console.log('     npm install');
-  console.log();
-  console.log('4. Start adding components to your library');
+  console.log('# Make a commit');
+  console.log('git add .');
+  console.log(`git commit -m "chore: add ${itemName} library"`);
   console.log();
 
   return Promise.resolve();

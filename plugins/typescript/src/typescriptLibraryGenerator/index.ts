@@ -73,14 +73,18 @@ async function generateTypescriptLibrary(
   console.log();
   console.log('Done.');
   console.log();
-  console.log('1. In the root directory, run:');
-  console.log('     npm install');
+  console.log('What to do next?');
+  console.log('----------------');
   console.log();
-  console.log('2. Run sample tests:');
-  console.log('     npm test');
+  console.log('# Install newly added dependencies');
+  console.log('npm install');
   console.log();
-  console.log('4. Start adding features to your library');
+  console.log('# Make a commit');
+  console.log('git add .');
+  console.log(`git commit -m "chore: add ${itemName} library"`);
   console.log();
+  console.log('# Run sample tests');
+  console.log('npm test');
 
   return Promise.resolve();
 }

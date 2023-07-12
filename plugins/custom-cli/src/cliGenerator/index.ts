@@ -73,7 +73,7 @@ async function generateCli(rootDir: string, inputOptions: Options) {
   console.log();
   console.log('Done.');
   console.log();
-  console.log('Now start creating plugins for ${itemName}');
+  console.log(`Now start creating plugins for ${itemName}`);
   console.log(JSON.stringify(options, null, '  '));
   console.log();
 

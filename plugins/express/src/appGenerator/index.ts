@@ -70,15 +70,21 @@ async function generateApp(rootDir: string, inputOptions: Options) {
   console.log();
   console.log('Done.');
   console.log();
-  console.log('1. In the root directory, run:');
-  console.log('     npm install');
-  console.log('     npm run build');
+  console.log('What to do next?');
+  console.log('----------------');
   console.log();
-  console.log(`2. Run ${itemName} from the root directory:`);
-  console.log('     npm run dev');
+  console.log('# Install newly added dependencies');
+  console.log('npm install');
+  console.log();
+  console.log('# Make a commit');
+  console.log('git add .');
+  console.log(`git commit -m "chore: add ${itemName} app"`);
+  console.log();
+  console.log(`# Run ${itemName} from the root directory:`);
+  console.log('npm run dev');
   console.log();
   console.log(
-    '4. Point your browser to http://localhost:8080/top-10-movies to call the sample API.'
+    '# Point your browser to http://localhost:8080/top-10-movies to call the sample API.'
   );
   console.log();
 

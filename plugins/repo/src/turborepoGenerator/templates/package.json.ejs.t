@@ -55,7 +55,6 @@
     "turbo": "latest"
   },
   "overrides": {
-    "@types/testing-library__jest-dom": "5.14.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

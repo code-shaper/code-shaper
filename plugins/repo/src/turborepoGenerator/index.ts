@@ -67,37 +67,48 @@ async function generateTurborepo(rootDir: string, inputOptions: Options) {
   console.log();
   console.log('What to do next?');
   console.log('----------------');
-  console.log('1. Do a clean install with the generated package.json file.');
-  console.log('2. Install Code Shaper plugins that you need for your project.');
-  console.log('3. Initialize your git repo.');
   console.log();
-  console.log('For example:');
-  console.log();
+  console.log(
+    '# Do a clean install with the newly generated package.json file'
+  );
   console.log('rm -rf package-lock.json node_modules');
   console.log('nvm use        # use the required version of node');
   console.log('npm install    # install dependencies');
-  console.log('npm install @code-shaper/react');
-  console.log('git init');
-  console.log('git add .');
   console.log();
-  console.log('Now make an initial commit using the conventional commit spec');
   console.log(
-    '(steps below are equivalent to: git commit -m "chore: initial commit")'
+    '# Install Code Shaper plugins that you need for your project, for example:'
   );
-  console.log('  npm run commit');
-  console.log('  ? Select the TYPE of this change (required): chore');
+  console.log('npm install @code-shaper/react');
+  console.log();
+  console.log('# Initialize your git');
+  console.log('git init');
+  console.log();
+  console.log('# Make an initial commit');
   console.log(
-    '  ? Select the SCOPE of this change (optional) (press enter to skip):'
+    '# Note that we are using the conventional commit spec for commit messages'
   );
   console.log(
-    '  ? Finish this SHORT sentence (required): "Applying this commit will...": (max 100 chars)'
+    '# The `npm run commit` command helps us with this using prompts'
   );
-  console.log('  (15) initial commit');
   console.log(
-    '  ? Provide a LONGER description of the change (optional): (press enter to skip):'
+    '# This is equivalent to executing the following git command directly:'
   );
-  console.log('  ? Are there any breaking changes?: No');
-  console.log('  [master (root-commit)] chore: initial commit');
+  console.log('#   git commit -m "chore: initial commit"');
+  console.log('git add .');
+  console.log('npm run commit');
+  console.log('? Select the TYPE of this change (required): chore');
+  console.log(
+    '? Select the SCOPE of this change (optional) (press enter to skip):'
+  );
+  console.log(
+    '? Finish this SHORT sentence (required): "Applying this commit will...": (max 100 chars)'
+  );
+  console.log('  initial commit');
+  console.log(
+    '? Provide a LONGER description of the change (optional): (press enter to skip):'
+  );
+  console.log('? Are there any breaking changes?: No');
+  console.log('[master (root-commit)] chore: initial commit');
   console.log();
 
   return Promise.resolve();

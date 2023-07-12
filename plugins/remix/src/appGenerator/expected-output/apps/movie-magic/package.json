@@ -26,7 +26,7 @@
     "@remix-run/eslint-config": "^1.6.0",
     "@storybook/react": "^7.0.23",
     "@testing-library/dom": "^8.13.0",
-    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.2.0",
     "@types/jest": "^28.1.1",
