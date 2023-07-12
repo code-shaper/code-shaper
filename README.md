@@ -12,7 +12,7 @@ A delightful, modular code generator
 ```shell
 nvm use        # use the required version of node
 npm ci         # install dependencies
-npm run dev    # run apps and storybook
+npm run build  # builds all workspaces
 ```
 
 > Note: Do not run `npm install` or `npm ci` in any of the subdirectories. It
@@ -27,7 +27,7 @@ npm run build            # builds all workspaces
 npm run ci-validate      # builds, lints, formats, and tests all code (runs in CI pipeline, don't run locally)
 npm run clean            # deletes all build artifacts
 npm run commit           # displays commit helper prompt to ensure your commits use conventional commits
-npm run dev              # run demo app
+npm run dev              # run all workspaces in dev mode
 npm run fix              # lints, formats and attempts to fix any issues (requires `npm run build` has been ran)
 npm run format           # formats all workspaces, useful for debugging format issues (generally `npm run fix` is preferred)
 npm run lint             # runs the linter on all workspaces, useful for debugging lint issues (generally `npm run fix` is preferred)

@@ -31,7 +31,7 @@
     "@types/react-dom": "^18.2.6",
     "eslint": "^8.43.0",
     "eslint-config-custom": "*",
-    "eslint-config-next": "^13.4.7",
+    "eslint-config-next": "13.4.8",
     "jest": "^29.5.0",
     "jest-config-custom": "*",
     "jest-environment-jsdom": "^29.5.0",

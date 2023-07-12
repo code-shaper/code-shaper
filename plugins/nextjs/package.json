@@ -1,7 +1,7 @@
 {
   "name": "@code-shaper/nextjs",
   "description": "Next.js plugin",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
