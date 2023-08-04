@@ -100,6 +100,7 @@ const reactFixableRules = {
 
 const reactCustomRules = {
   'react/jsx-no-useless-fragment': 'off',
+  'react/prefer-read-only-props': 'off',
 };
 
 const importFixableRules = {

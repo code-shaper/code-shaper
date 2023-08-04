@@ -3,5 +3,5 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['custom'],
+  extends: ['custom/strict'],
 };
