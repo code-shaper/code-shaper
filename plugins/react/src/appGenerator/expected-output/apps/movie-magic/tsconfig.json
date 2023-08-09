@@ -1,7 +1,15 @@
 {
+  /* Required for cypress - see https://github.com/cypress-io/cypress/issues/26308#issuecomment-1499724602 */
+  "ts-node": {
+    "compilerOptions": {
+      "moduleResolution": "node"
+    }
+  },
+
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
     "esModuleInterop": true,
