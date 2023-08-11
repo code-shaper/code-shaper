@@ -101,6 +101,24 @@ remote.**
 npm test
 ```
 
+### Running end-to-end tests using dev build
+
+```shell
+npm run dev # starts a local server hosting the react app
+
+# run e2e tests (run in a different shell)
+npm run e2e
+
+# run e2e tests in the Playwright user interface (run in a different shell)
+npm run e2e:ui
+```
+
+### Running end-to-end tests using prod build (useful in CI pipeline)
+
+```shell
+npm run e2e:ci
+```
+
 ### Linting, formatting and fixing coding issues
 
 ```shell
