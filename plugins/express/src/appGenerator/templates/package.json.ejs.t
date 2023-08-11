@@ -16,6 +16,7 @@
     "format:fix": "npm run format -- --write",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "npm run lint -- --fix",
+    "start": "node dist",
     "test": "jest --coverage --passWithNoTests"
   },
   "dependencies": {
