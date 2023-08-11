@@ -6,7 +6,6 @@
   "scripts": {
     "build": "tsc && vite build",
     "clean": "rimraf .turbo node_modules dist coverage",
-    "cypress": "cypress open",
     "dev": "vite",
     "format": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,md}'",
     "format:fix": "npm run format -- --write",
@@ -31,7 +30,6 @@
     "@types/react": "^18.2.19",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.4",
-    "cypress": "^12.17.3",
     "eslint": "^8.46.0",
     "eslint-config-custom": "*",
     "jest": "^29.6.2",
