@@ -20,7 +20,6 @@
     "commit": "cz",
     "dev": "turbo run dev --concurrency 100",
     "e2e": "turbo run e2e",
-    "e2e:ci": "turbo run e2e:ci",
     "e2e:ui": "turbo run e2e:ui",
     "fix": "run-s _fix:root _fix:rest",
     "format": "run-s _format:root _format:rest",

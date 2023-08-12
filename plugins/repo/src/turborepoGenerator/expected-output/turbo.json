@@ -17,9 +17,6 @@
       "outputs": ["coverage/**", "test-output/**"]
     },
     "e2e": {
-      "cache": false
-    },
-    "e2e:ci": {
       "cache": false,
       "dependsOn": ["^build"]
     },
