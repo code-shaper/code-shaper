@@ -20,12 +20,12 @@ function registerGenerator(generator: Generator) {
 }
 
 // ----- Register Generators -----
-registerGenerator(appGenerator);
-registerGenerator(reactLibraryGenerator);
-registerGenerator(storybookGenerator);
-registerGenerator(pageGenerator);
 registerGenerator(componentGenerator);
 registerGenerator(contextGenerator);
+registerGenerator(appGenerator);
+registerGenerator(pageGenerator);
+registerGenerator(reactLibraryGenerator);
+registerGenerator(storybookGenerator);
 
 const reactPlugin: Plugin = {
   id: '@code-shaper/react',
