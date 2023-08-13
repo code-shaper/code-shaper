@@ -9,6 +9,7 @@ import { appGenerator } from './appGenerator';
 import { componentGenerator } from './componentGenerator';
 import { contextGenerator } from './contextGenerator';
 import { pageGenerator } from './pageGenerator';
+import { playwrightGenerator } from './playwrightGenerator';
 import { reactLibraryGenerator } from './reactLibraryGenerator';
 import { storybookGenerator } from './storybookGenerator';
 
@@ -26,6 +27,7 @@ registerGenerator(appGenerator);
 registerGenerator(pageGenerator);
 registerGenerator(reactLibraryGenerator);
 registerGenerator(storybookGenerator);
+registerGenerator(playwrightGenerator);
 
 const reactPlugin: Plugin = {
   id: '@code-shaper/react',

@@ -1,0 +1,7 @@
+!.*
+/.turbo/
+/node_modules/
+/playwright-report/
+/playwright.config.ts
+/playwright/.cache/
+/test-results/

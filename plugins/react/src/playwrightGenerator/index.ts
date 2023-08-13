@@ -7,14 +7,14 @@ import path from 'path';
 // Register inquirer prompts
 registerPrompt('directory', inquirerDirectory);
 
-export const storybookGenerator: Generator = {
-  id: 'storybook',
-  name: 'Storybook',
-  description: 'adds storybook support to your repository',
-  generate: generateStorybook,
+export const playwrightGenerator: Generator = {
+  id: 'playwright',
+  name: 'Playwright',
+  description: 'adds end-to-end test support to your repository',
+  generate: generatePlaywright,
 };
 
-async function generateStorybook(rootDir: string, inputOptions: Options) {
+async function generatePlaywright(rootDir: string, inputOptions: Options) {
   const questions = [
     {
       type: 'input',
@@ -34,7 +34,7 @@ async function generateStorybook(rootDir: string, inputOptions: Options) {
   const { repoName, parentDir } = options;
 
   // Create itemName & packageName
-  const itemName = `${repoName}-storybook`;
+  const itemName = `${repoName}-e2e`;
   const packageName = `@${repoName}/${itemName}`;
   options['itemName'] = itemName;
   options['packageName'] = packageName;
@@ -42,19 +42,22 @@ async function generateStorybook(rootDir: string, inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // Example: itemName = movie-magic-storybook
+  // Example: itemName = movie-magic-e2e
 
-  // itemNameKebabCase = movie-magic-storybook
+  // itemNameKebabCase = movie-magic-e2e
   options['itemNameKebabCase'] = cc.kebabCase(itemName);
 
-  // itemNameCamelCase = movieMagicStorybook
+  // itemNameCamelCase = movieMagicE2e
   options['itemNameCamelCase'] = cc.camelCase(itemName);
 
-  // itemNamePascalCase = MovieMagicStorybook
+  // itemNamePascalCase = MovieMagicE2e
   options['itemNamePascalCase'] = cc.pascalCase(itemName);
 
-  // itemNameCapitalCase = Movie Magic Storybook
+  // itemNameCapitalCase = Movie Magic E2e
   options['itemNameCapitalCase'] = cc.capitalCase(itemName);
+
+  // repoNameCapitalCase = Movie Magic
+  options['repoNameCapitalCase'] = cc.capitalCase(repoName);
   // --------------------------------------------------------------------------
 
   const { itemNameKebabCase } = options;
@@ -78,12 +81,12 @@ async function generateStorybook(rootDir: string, inputOptions: Options) {
   console.log();
   console.log('# Make a commit');
   console.log('git add .');
-  console.log(`git commit -m "chore: add storybook"`);
+  console.log(`git commit -m "chore: add playwright e2e tests"`);
   console.log();
-  console.log('# Start adding Storybook stories in your apps and packages.');
+  console.log(`# Start adding e2e tests in the ${itemNameKebabCase} folder.`);
   console.log();
-  console.log(`# Run Storybook from the root directory:`);
-  console.log('npm run dev');
+  console.log(`# Run e2e from the root directory:`);
+  console.log('npm run e2e');
   console.log();
 
   return Promise.resolve();

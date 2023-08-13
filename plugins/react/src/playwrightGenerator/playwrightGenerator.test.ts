@@ -1,9 +1,9 @@
 import path from 'path';
 import { FileUtils } from '@code-shaper/shaper-utils';
-import { storybookGenerator } from './index';
+import { playwrightGenerator } from './index';
 
-describe('storybookGenerator', () => {
-  test('should create a storybook app from templates', async () => {
+describe('playwrightGenerator', () => {
+  test('should create a new playwright workspace from templates', async () => {
     // suppress console logs
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(console, 'log').mockImplementation(() => {});
@@ -13,7 +13,7 @@ describe('storybookGenerator', () => {
     FileUtils.deletePath(testOutput);
 
     // Run the generator
-    await storybookGenerator.generate(testOutput, {
+    await playwrightGenerator.generate(testOutput, {
       repoName: 'movie-magic',
       parentDir: path.join(testOutput, 'apps'),
     });
