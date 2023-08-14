@@ -71,6 +71,8 @@ export async function selectGenerator(
     {
       type: 'list',
       name: 'generator',
+      pageSize: 20,
+      loop: false,
       message: 'Which generator would you like to run?',
       choices: getGeneratorChoices(generators),
     },
