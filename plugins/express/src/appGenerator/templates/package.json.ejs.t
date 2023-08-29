@@ -28,17 +28,17 @@
   "devDependencies": {
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
-    "@types/jest": "^29.5.2",
-    "@types/morgan": "^1.9.4",
-    "@types/node": "^18.16.18",
-    "eslint": "^8.43.0",
+    "@types/jest": "^29.5.4",
+    "@types/morgan": "^1.9.5",
+    "@types/node": "^20.5.7",
+    "eslint": "^8.48.0",
     "eslint-config-custom": "*",
-    "jest": "^29.5.0",
+    "jest": "^29.6.4",
     "jest-config-custom": "*",
-    "nodemon": "^2.0.22",
-    "ts-jest": "^29.1.0",
+    "nodemon": "^3.0.1",
+    "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
-    "typescript": "^5.1.3",
+    "typescript": "^5.2.2",
     "typescript-config-custom": "*"
   }
 }

@@ -24,7 +24,7 @@
     "@storybook/blocks": "^7.0.23",
     "@storybook/react": "^7.0.23",
     "@storybook/react-vite": "^7.0.23",
-    "@storybook/testing-library": "^0.0.14-next.2",
+    "@storybook/testing-library": "^0.2.0",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^5.60.0",

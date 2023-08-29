@@ -1,4 +1,4 @@
-import { rootRouter } from './routes';
+import { router } from './routes';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import type { Request, Response, NextFunction } from 'express';
@@ -35,7 +35,7 @@ export function createApp() {
   app.use(bodyParser.json());
 
   // Add routes
-  app.use(rootRouter);
+  app.use(router);
 
   // Add application error handler
   app.use(appErrorHandler);
