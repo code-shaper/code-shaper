@@ -22,6 +22,11 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
+  managerHead: (head) => `
+    ${head}
+    <link rel="shortcut icon" href="/favicon.ico">
+  `,
+  staticDirs: ['../public'],
   viteFinal(config) {
     return mergeConfig(config, {
       plugins: [tsconfigPaths()],
