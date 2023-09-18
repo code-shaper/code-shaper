@@ -30,7 +30,7 @@
     "ci-validate": "run-s _ci-validate:root _ci-validate:rest",
     "clean": "run-s _clean:rest _clean:root",
     "commit": "cz",
-    "dev": "turbo run dev",
+    "dev": "turbo run dev --concurrency 100",
     "fix": "run-s _fix:root _fix:rest",
     "format": "run-s _format:root _format:rest",
     "graph": "turbo run build --graph",

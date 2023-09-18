@@ -1,7 +1,7 @@
 import * as React from 'react';
 import '@testing-library/jest-dom';
 import { render, RenderOptions } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 // -----------------------------------------------------------------------------

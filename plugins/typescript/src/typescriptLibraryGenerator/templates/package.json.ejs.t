@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "build": "rimraf dist && run-s bundle",
-    "bundle": "tsup src/index.ts --format esm,cjs --dts",
+    "bundle": "tsup",
     "clean": "rimraf .turbo node_modules dist coverage",
     "copy-css": "copyfiles --all --up 1 \"src/**/*.css\" dist",
     "dev": "npm run bundle -- --watch",
@@ -31,7 +31,7 @@
     "jest": "^29.5.0",
     "jest-config-custom": "*",
     "ts-jest": "^29.1.0",
-    "tsup": "^6.7.0",
+    "tsup": "^7.2.0",
     "typescript": "^5.1.3",
     "typescript-config-custom": "*"
   }

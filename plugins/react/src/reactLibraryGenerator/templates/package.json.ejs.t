@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "build": "rimraf dist && run-s bundle copy-css",
-    "bundle": "tsup src/index.ts --format esm,cjs --dts --external react --inject ./react-import.js",
+    "bundle": "tsup",
     "clean": "rimraf .turbo node_modules dist coverage",
     "copy-css": "copyfiles --all --up 1 \"src/**/*.css\" dist",
     "dev": "npm run bundle -- --watch && npm run copy-css",
@@ -31,7 +31,7 @@
     "@testing-library/dom": "^9.3.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^14.4.3",
+    "@testing-library/user-event": "^14.5.1",
     "@types/jest": "^29.5.2",
     "@types/node": "^18.16.18",
     "@types/react": "^18.2.14",
@@ -42,7 +42,7 @@
     "jest-config-custom": "*",
     "jest-environment-jsdom": "^29.5.0",
     "ts-jest": "^29.1.0",
-    "tsup": "^6.7.0",
+    "tsup": "^7.2.0",
     "typescript": "^5.1.3",
     "typescript-config-custom": "*"
   },
