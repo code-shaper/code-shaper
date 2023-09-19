@@ -15,27 +15,27 @@
     "test": "jest"
   },
   "dependencies": {
-    "next": "^13.4.7",
+    "next": "^13.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@storybook/react": "^7.0.23",
-    "@testing-library/dom": "^9.3.1",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@storybook/react": "^7.4.2",
+    "@testing-library/dom": "^9.3.3",
+    "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
-    "@types/jest": "^29.5.2",
-    "@types/node": "^18.16.18",
-    "@types/react": "^18.2.14",
-    "@types/react-dom": "^18.2.6",
-    "eslint": "^8.43.0",
+    "@types/jest": "^29.5.5",
+    "@types/node": "^18.17.17",
+    "@types/react": "^18.2.22",
+    "@types/react-dom": "^18.2.7",
+    "eslint": "^8.49.0",
     "eslint-config-custom": "*",
-    "eslint-config-next": "13.4.8",
-    "jest": "^29.5.0",
+    "eslint-config-next": "13.5.1",
+    "jest": "^29.7.0",
     "jest-config-custom": "*",
-    "jest-environment-jsdom": "^29.5.0",
-    "ts-jest": "^29.1.0",
-    "typescript": "^5.1.3"
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2"
   }
 }

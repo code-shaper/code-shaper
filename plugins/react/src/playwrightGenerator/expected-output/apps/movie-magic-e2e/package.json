@@ -18,11 +18,11 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@playwright/test": "^1.37.0",
+    "@playwright/test": "^1.38.0",
     "dotenv": "16.3.1",
-    "eslint": "^8.43.0",
+    "eslint": "^8.49.0",
     "eslint-config-custom": "*",
-    "typescript": "^5.1.3",
+    "typescript": "^5.2.2",
     "typescript-config-custom": "*"
   }
 }
