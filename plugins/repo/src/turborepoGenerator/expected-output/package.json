@@ -46,6 +46,7 @@
   "devDependencies": {
     "@commitlint/cz-commitlint": "^17.7.2",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "code-shaper": "latest",
     "commitizen": "^4.3.0",
     "commitlint": "^17.7.2",
     "eslint": "^8.51.0",
