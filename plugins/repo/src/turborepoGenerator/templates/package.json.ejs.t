@@ -45,7 +45,6 @@
   },
   "devDependencies": {
     "@commitlint/cz-commitlint": "^17.7.2",
-    "@movie-magic/react-patterns": "*",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "commitizen": "^4.3.0",
     "commitlint": "^17.7.2",
