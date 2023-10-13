@@ -657,7 +657,7 @@ thead {
   --color-secondary-contrast-text: var(--color-blue-grey-900);
   --color-secondary-icon-muted: var(--color-blue-grey-500);
   --color-secondary-icon-bright: var(--color-blue-grey-900);
-  --color-background-default: var(--color-grey-custom-50);
+  --color-background-default: var(--color-white);
   --color-background-paper: var(--color-white);
   --color-text-primary: var(--color-blue-grey-900);
   --color-text-secondary: var(--color-blue-grey-600);

@@ -6,14 +6,16 @@ const config: StorybookConfig = {
   stories: [
     '../../../packages/*/src/**/*.stories.mdx',
     '../../../packages/*/src/**/*.stories.@(js|jsx|ts|tsx)',
-    '../../../apps/*/src/**/*.stories.mdx',
-    '../../../apps/*/src/**/*.stories.@(js|jsx|ts|tsx)',
+    '../src/**/*.mdx',
+    '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
   addons: [
+    '@storybook/addon-a11y',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-links',
-    '@storybook/addon-a11y',
+    '@storybook/addon-onboarding',
+    'storybook-dark-mode',
   ],
   framework: {
     name: '@storybook/react-vite',
@@ -22,11 +24,8 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
-  managerHead: (head) => `
-    ${head}
-    <link rel="shortcut icon" href="/favicon.ico">
-  `,
-  staticDirs: ['../public'],
+  // this is to pick up favicon.ico
+  staticDirs: ['../src'],
   viteFinal(config) {
     return mergeConfig(config, {
       plugins: [tsconfigPaths()],

@@ -11,7 +11,6 @@ import { contextGenerator } from './contextGenerator';
 import { pageGenerator } from './pageGenerator';
 import { playwrightGenerator } from './playwrightGenerator';
 import { reactLibraryGenerator } from './reactLibraryGenerator';
-import { storybookGenerator } from './storybookGenerator';
 
 const generators: GeneratorMap = {};
 
@@ -26,7 +25,6 @@ registerGenerator(contextGenerator);
 registerGenerator(appGenerator);
 registerGenerator(pageGenerator);
 registerGenerator(reactLibraryGenerator);
-registerGenerator(storybookGenerator);
 registerGenerator(playwrightGenerator);
 
 const reactPlugin: Plugin = {

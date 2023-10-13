@@ -25,3 +25,6 @@ yarn-error.log*
 
 # local env files
 .env*.local
+
+# storybook
+/storybook-static/

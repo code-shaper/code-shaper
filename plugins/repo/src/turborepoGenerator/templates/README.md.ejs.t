@@ -13,6 +13,9 @@ This repository was bootstrapped with [Code Shaper](https://code-shaper.dev).
 nvm use        # use the required version of node
 npm ci         # install dependencies
 npm run dev    # run apps and storybook
+
+# in a separate shell
+npm run storybook
 ```
 
 > Note: Do not run `npm install` or `npm ci` in any of the subdirectories. It
@@ -31,6 +34,7 @@ npm run dev              # run demo app
 npm run fix              # lints, formats and attempts to fix any issues (requires `npm run build` has been ran)
 npm run format           # formats all workspaces, useful for debugging format issues (generally `npm run fix` is preferred)
 npm run lint             # runs the linter on all workspaces, useful for debugging lint issues (generally `npm run fix` is preferred)
+npm run storybook        # runs storybook
 npm run test             # runs full build, lint, format, and all tests - run before pushing to remote
 ```
 

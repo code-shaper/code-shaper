@@ -15,6 +15,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "build-storybook": "turbo run build-storybook",
     "ci-validate": "run-s _ci-validate:root _ci-validate:rest",
     "clean": "run-s _clean:rest _clean:root",
     "commit": "cz",
@@ -27,6 +28,7 @@
     "lint": "run-s _lint:root _lint:rest",
     "postdeploy": "turbo run postdeploy",
     "prepare": "husky install",
+    "storybook": "turbo run storybook",
     "test": "turbo run test",
     "_ci-validate:rest": "turbo run ci-validate",
     "_ci-validate:root": "run-s _lint:root _format:root",
@@ -42,18 +44,18 @@
     "_lint:root:fix": "npm run --silent _lint:root -- --fix"
   },
   "devDependencies": {
-    "@commitlint/cz-commitlint": "^17.7.1",
+    "@commitlint/cz-commitlint": "^17.7.2",
+    "@movie-magic/react-patterns": "*",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "code-shaper": "latest",
     "commitizen": "^4.3.0",
-    "commitlint": "^17.7.1",
-    "eslint": "^8.49.0",
+    "commitlint": "^17.7.2",
+    "eslint": "^8.51.0",
     "eslint-config-custom": "*",
     "husky": "^8.0.3",
     "lint-staged": "^13.3.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.8",
-    "rimraf": "^5.0.1",
+    "rimraf": "^5.0.5",
     "turbo": "latest"
   },
   "overrides": {
