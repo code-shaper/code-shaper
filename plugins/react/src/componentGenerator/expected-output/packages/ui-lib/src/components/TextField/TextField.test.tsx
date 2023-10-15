@@ -1,5 +1,5 @@
 import { TextField } from './TextField';
-import { render, screen } from '../../test/test-utils';
+import { render, screen } from '@/test/test-utils';
 
 describe('<TextField />', () => {
   it('should render correctly', () => {
