@@ -3,6 +3,7 @@
     "autodocs",
     "camelcase",
     "clsx",
+    "codegen",
     "commitlint",
     "copyfiles",
     "ghpages",
@@ -10,8 +11,8 @@
     "heroicons",
     "hookform",
     "klaw",
+    "manypkg",
     "nextjs",
-    "postdeploy",
     "signin",
     "tailwindcss",
     "tanstack",
@@ -20,7 +21,7 @@
     "turborepo"
   ],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",

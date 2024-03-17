@@ -26,7 +26,6 @@
     "format": "run-s _format:root _format:rest",
     "graph": "turbo run build --graph",
     "lint": "run-s _lint:root _lint:rest",
-    "postdeploy": "turbo run postdeploy",
     "prepare": "husky install",
     "storybook": "turbo run storybook",
     "test": "turbo run test",
@@ -65,10 +64,5 @@
   "engines": {
     "npm": "9.5.1",
     "node": "18.16.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "@commitlint/cz-commitlint"
-    }
   }
 }

@@ -29,9 +29,6 @@
     "ci-validate": {
       "dependsOn": ["test"]
     },
-    "postdeploy": {
-      "dependsOn": ["build"]
-    },
     "lint:fix": {},
     "format:fix": {
       "dependsOn": ["lint:fix"]

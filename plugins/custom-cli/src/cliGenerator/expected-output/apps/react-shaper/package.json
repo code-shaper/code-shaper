@@ -15,10 +15,11 @@
     "react-shaper": "bin/react-shaper"
   },
   "scripts": {
-    "build": "rimraf dist && tsc && copyfiles --all --up 1 \"src/**/templates/**/*\" dist",
+    "build": "rimraf dist && tsc && _copyTemplates",
     "lint": "eslint src/**/*.ts*",
     "test": "echo No tests in this package yet",
-    "clean": "rimraf .turbo node_modules dist coverage"
+    "clean": "rimraf .turbo node_modules dist coverage",
+    "_copyTemplates": "copyfiles --all --up 1 \"src/*/templates/**/*\" dist"
   },
   "dependencies": {
     "@code-shaper/shaper-utils": "latest",

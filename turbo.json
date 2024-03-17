@@ -5,6 +5,9 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
+    "build-storybook": {
+      "outputs": ["storybook-static"]
+    },
     "lint": {
       "dependsOn": ["build"],
       "outputs": []
@@ -19,9 +22,6 @@
     "ci-validate": {
       "dependsOn": ["test"]
     },
-    "postdeploy": {
-      "dependsOn": ["build"]
-    },
     "lint:fix": {},
     "format:fix": {
       "dependsOn": ["lint:fix"]
@@ -35,6 +35,7 @@
     "dev": {
       "cache": false,
       "persistent": true
-    }
+    },
+    "storybook": {}
   }
 }

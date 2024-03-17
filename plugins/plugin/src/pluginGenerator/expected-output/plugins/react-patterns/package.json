@@ -11,7 +11,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "rimraf dist && run-s _bundle _copyfiles",
+    "build": "rimraf dist && run-s _bundle _copyTemplates",
     "clean": "rimraf --glob .turbo node_modules dist coverage ./**/test-output",
     "format": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,md}'",
     "format:fix": "npm run format -- --write",
@@ -19,7 +19,7 @@
     "lint:fix": "npm run lint -- --fix",
     "test": "jest",
     "_bundle": "tsc --project tsconfig.build.json",
-    "_copyfiles": "copyfiles --all --up 1 \"src/**/templates/**/*\" dist"
+    "_copyTemplates": "copyfiles --all --up 1 \"src/*/templates/**/*\" dist"
   },
   "dependencies": {
     "@code-shaper/shaper-utils": "latest",
