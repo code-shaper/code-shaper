@@ -98,6 +98,7 @@ function readFile(
  *
  * @param path to the file
  * @param data to be appended
+ * @deprecated use appendFileSync directly
  */
 function appendToFile(path: string, data: string) {
   // The following method was recommended by a dev.to article:
@@ -172,17 +173,78 @@ function resolvePaths(
   return specs;
 }
 
+// ---------- Transformer functions ----------
+
+export interface FileTransformerParams {
+  isEjsTemplate: boolean;
+  srcPath: string;
+  dstPath: string;
+  options: Options;
+}
+
+export type FileTransformer = (params: FileTransformerParams) => void;
+
+function overwriteTransformer({
+  isEjsTemplate,
+  srcPath,
+  dstPath,
+  options,
+}: FileTransformerParams) {
+  if (isEjsTemplate) {
+    renderFile(srcPath, options, {}, function (err, outputString) {
+      if (err) {
+        console.error(err);
+      }
+
+      outputFileSync(dstPath, outputString);
+    });
+  } else {
+    copySync(srcPath, dstPath, {});
+  }
+}
+
+function appendTransformer({
+  isEjsTemplate,
+  srcPath,
+  dstPath,
+  options,
+}: FileTransformerParams) {
+  if (isEjsTemplate) {
+    renderFile(srcPath, options, {}, function (err, outputString) {
+      if (err) {
+        console.error(err);
+      }
+
+      appendFileSync(dstPath, outputString);
+    });
+  } else {
+    const outputString = readFileSync(srcPath, 'utf-8');
+    appendFileSync(dstPath, outputString);
+  }
+}
+
+// -------------------------------------------
+
 /**
  * Transforms files from source directory to destination directory.
  *
  * - Files with ".ejs.t" extension are transformed using the options
  * - Files without ".ejs.t" extension are copied as is
+ * - By default, transformed files are overwritten in the destination directory.
+ *   However that behavior can be changed by sending a different transformer
+ *   such as appendTransformer
  *
  * @param srcDir
  * @param dstDir
  * @param options
+ * @param transformer = overwriteTransformer
  */
-function transformFiles(srcDir: string, dstDir: string, options: Options) {
+function transformFiles(
+  srcDir: string,
+  dstDir: string,
+  options: Options,
+  transformer: FileTransformer = overwriteTransformer
+) {
   // get all source files (no directories)
   const srcFiles = treeWalk(srcDir, { nodir: true });
 
@@ -209,18 +271,13 @@ function transformFiles(srcDir: string, dstDir: string, options: Options) {
     // compute full destination path
     const dstPath = path.join(dstDir, dstRelativePath);
 
-    // Copy srcFile to destination
-    if (isEjsTemplate) {
-      renderFile(srcPath, options, {}, function (err, outputString) {
-        if (err) {
-          console.error(err);
-        }
-
-        outputFileSync(dstPath, outputString);
-      });
-    } else {
-      copySync(srcPath, dstPath, {});
-    }
+    // transform file and write to destination
+    transformer({
+      isEjsTemplate,
+      srcPath,
+      dstPath,
+      options,
+    });
   });
 }
 
@@ -233,4 +290,16 @@ export const FileUtils = {
   readFile,
   resolvePaths,
   transformFiles,
+
+  // reexport fs-extra
+  appendFileSync,
+  copySync,
+  existsSync,
+  outputFileSync,
+  readFileSync,
+  removeSync,
+
+  // transformer functions
+  appendTransformer,
+  overwriteTransformer,
 };
