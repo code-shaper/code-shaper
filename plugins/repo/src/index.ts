@@ -32,3 +32,4 @@ const repoPlugin: Plugin = {
 };
 
 export default repoPlugin;
+export { turborepoGenerator };
