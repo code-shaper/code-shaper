@@ -1,3 +1,12 @@
+import { turborepoGenerator } from '@code-shaper/repo-generators';
+import {
+  appGenerator,
+  componentGenerator,
+  contextGenerator,
+  pageGenerator,
+  playwrightGenerator,
+  reactLibraryGenerator,
+} from '@code-shaper/react-generators';
 import {
   Options,
   Plugin,
@@ -5,12 +14,6 @@ import {
   GeneratorMap,
   selectGenerator,
 } from '@code-shaper/shaper-utils';
-import { appGenerator } from './appGenerator';
-import { componentGenerator } from './componentGenerator';
-import { contextGenerator } from './contextGenerator';
-import { pageGenerator } from './pageGenerator';
-import { playwrightGenerator } from './playwrightGenerator';
-import { reactLibraryGenerator } from './reactLibraryGenerator';
 
 const generators: GeneratorMap = {};
 
@@ -22,10 +25,11 @@ function registerGenerator(generator: Generator) {
 // ----- Register Generators -----
 registerGenerator(componentGenerator);
 registerGenerator(contextGenerator);
-registerGenerator(appGenerator);
 registerGenerator(pageGenerator);
+registerGenerator(appGenerator);
 registerGenerator(reactLibraryGenerator);
 registerGenerator(playwrightGenerator);
+registerGenerator(turborepoGenerator);
 
 const reactPlugin: Plugin = {
   id: '@code-shaper/react',

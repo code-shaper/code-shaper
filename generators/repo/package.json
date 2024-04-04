@@ -1,6 +1,6 @@
 {
   "name": "@code-shaper/repo-generators",
-  "description": "Repo Generators",
+  "description": "Repo generators",
   "version": "1.0.0",
   "license": "MIT",
   "publishConfig": {

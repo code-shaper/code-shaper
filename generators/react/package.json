@@ -1,7 +1,7 @@
 {
-  "name": "@code-shaper/react",
-  "description": "React plugin",
-  "version": "1.1.8",
+  "name": "@code-shaper/react-generators",
+  "description": "React generators",
+  "version": "1.0.0",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -12,23 +12,26 @@
     "README.md"
   ],
   "scripts": {
-    "build": "rimraf dist && run-s _bundle",
+    "build": "rimraf dist && run-s _bundle _copyTemplates",
     "clean": "rimraf --glob .turbo node_modules dist coverage ./**/test-output",
     "format": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,md}'",
     "format:fix": "npm run format -- --write",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "npm run lint -- --fix",
-    "test": "echo No tests in this package",
-    "_bundle": "tsc --project tsconfig.build.json"
+    "test": "jest",
+    "_bundle": "tsc --project tsconfig.build.json",
+    "_copyTemplates": "copyfiles --all --up 1 \"src/*/templates/**/*\" dist"
   },
   "dependencies": {
-    "@code-shaper/react-generators": "^1.*",
-    "@code-shaper/repo-generators": "^1.*",
-    "@code-shaper/shaper-utils": "^1.*"
+    "@code-shaper/shaper-utils": "^1.*",
+    "inquirer": "^8.2.6",
+    "inquirer-directory": "^2.2.0"
   },
   "devDependencies": {
+    "@types/inquirer": "^8.2.6",
     "@types/jest": "^29.5.5",
     "@types/node": "^18.17.17",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.49.0",
     "eslint-config-custom": "*",
     "jest": "^29.7.0",

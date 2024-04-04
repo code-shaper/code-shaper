@@ -1,3 +1,11 @@
+import { turborepoGenerator } from '@code-shaper/repo-generators';
+import { appGenerator, pageGenerator } from '@code-shaper/nextjs-generators';
+import {
+  componentGenerator,
+  contextGenerator,
+  playwrightGenerator,
+  reactLibraryGenerator,
+} from '@code-shaper/react-generators';
 import {
   Options,
   Plugin,
@@ -5,8 +13,6 @@ import {
   GeneratorMap,
   selectGenerator,
 } from '@code-shaper/shaper-utils';
-import { appGenerator } from './appGenerator';
-import { pageGenerator } from './pageGenerator';
 
 const generators: GeneratorMap = {};
 
@@ -16,8 +22,13 @@ function registerGenerator(generator: Generator) {
 }
 
 // ----- Register Generators Here -----
-registerGenerator(appGenerator);
+registerGenerator(componentGenerator);
+registerGenerator(contextGenerator);
 registerGenerator(pageGenerator);
+registerGenerator(appGenerator);
+registerGenerator(reactLibraryGenerator);
+registerGenerator(playwrightGenerator);
+registerGenerator(turborepoGenerator);
 
 const nextjsPlugin: Plugin = {
   id: '@code-shaper/nextjs',
