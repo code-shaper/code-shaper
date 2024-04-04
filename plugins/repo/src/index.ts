@@ -5,7 +5,7 @@ import {
   GeneratorMap,
   selectGenerator,
 } from '@code-shaper/shaper-utils';
-import { turborepoGenerator } from './turborepoGenerator';
+import { turborepoGenerator } from '@code-shaper/repo-generators';
 
 const generators: GeneratorMap = {};
 

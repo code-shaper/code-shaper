@@ -23,13 +23,13 @@
     "_copyTemplates": "copyfiles --all --up 1 \"src/*/templates/**/*\" dist"
   },
   "dependencies": {
-    "@code-shaper/shaper-utils": "latest",
+    "@code-shaper/shaper-utils": "^1.*",
     "inquirer": "^8.2.6",
     "inquirer-directory": "^2.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.5",
     "@types/inquirer": "^8.2.6",
+    "@types/jest": "^29.5.5",
     "@types/node": "^18.17.17",
     "copyfiles": "^2.4.1",
     "eslint": "^8.49.0",

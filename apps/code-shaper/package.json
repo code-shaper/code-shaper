@@ -27,7 +27,7 @@
     "format:fix": "npm run format -- --write",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "npm run lint -- --fix",
-    "test": "echo No tests in this package yet"
+    "test": "echo No tests in this package"
   },
   "dependencies": {
     "@code-shaper/shaper-utils": "latest",

@@ -22,6 +22,7 @@
   "workspaces": [
     "apps/*",
     "configs/*",
+    "generators/*",
     "packages/*",
     "plugins/*"
   ],
@@ -67,7 +68,7 @@
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "commitizen": "^4.3.0",
     "commitlint": "^19.2.0",
-    "eslint": "^8.57.0",
+    "eslint": "^8.49.0",
     "eslint-config-custom": "*",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.2",

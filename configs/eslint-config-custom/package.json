@@ -23,6 +23,9 @@
     "eslint-plugin-tailwindcss": "^3.13.0",
     "eslint-plugin-testing-library": "^5.11.1"
   },
+  "devDependencies": {
+    "eslint": "^8.49.0"
+  },
   "peerDependencies": {
     "eslint": ">= 8"
   },
