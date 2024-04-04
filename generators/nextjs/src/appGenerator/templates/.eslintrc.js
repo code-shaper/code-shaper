@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ['custom/strict', 'next/core-web-vitals'],
+  extends: ['@code-shaper/eslint-config/strict-react', 'next/core-web-vitals'],
 };

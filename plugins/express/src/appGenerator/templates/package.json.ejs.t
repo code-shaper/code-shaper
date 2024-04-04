@@ -31,14 +31,14 @@
     "@types/jest": "^29.5.5",
     "@types/morgan": "^1.9.5",
     "@types/node": "^20.6.2",
-    "eslint": "^8.49.0",
-    "eslint-config-custom": "*",
+    "eslint": "^8.57.0",
+    "@code-shaper/eslint-config": "^1.*",
     "jest": "^29.7.0",
-    "jest-config-custom": "*",
+    "@code-shaper/jest-config": "^1.*",
     "nodemon": "^3.0.1",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
-    "typescript-config-custom": "*"
+    "@code-shaper/typescript-config": "^1.*"
   }
 }

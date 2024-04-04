@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['custom/strict'],
+  extends: ['@code-shaper/eslint-config/strict'],
   env: {
     node: true,
   },

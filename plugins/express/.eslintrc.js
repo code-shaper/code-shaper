@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['custom/lenient'],
+  extends: ['@code-shaper/eslint-config/lenient'],
   env: {
     node: true,
   },

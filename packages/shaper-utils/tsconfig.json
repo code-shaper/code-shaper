@@ -1,5 +1,5 @@
 {
-  "extends": "typescript-config-custom/base.json",
+  "extends": "@code-shaper/typescript-config/base.json",
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist"

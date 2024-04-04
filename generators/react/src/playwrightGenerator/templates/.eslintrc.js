@@ -5,5 +5,5 @@ module.exports = {
     es2020: true,
     node: true,
   },
-  extends: ['custom/strict'],
+  extends: ['@code-shaper/eslint-config/strict'],
 };

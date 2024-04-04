@@ -1,5 +1,5 @@
 {
-  "extends": "typescript-config-custom/typescript-library.json",
+  "extends": "@code-shaper/typescript-config/typescript-library.json",
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist",

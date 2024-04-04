@@ -49,9 +49,11 @@ npm publish  # you will be prompted for an OTP from Google Authenticator
 
 #### Package publishing order
 
-1. packages/shaper-utils
-2. apps/code-shaper
-3. plugins
+1. configs
+2. packages/shaper-utils
+3. apps/code-shaper
+4. generators
+5. plugins
 
 ### Clean build
 

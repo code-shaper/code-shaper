@@ -1,5 +1,5 @@
 {
-  "extends": "typescript-config-custom/react-library.json",
+  "extends": "@code-shaper/typescript-config/react-library.json",
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist",

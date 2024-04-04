@@ -1,0 +1,20 @@
+{
+  "name": "@code-shaper/typescript-config",
+  "description": "Code Shaper TypeScript configuration",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/code-shaper/code-shaper",
+    "directory": "configs/typescript-config"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "base.json",
+    "react-library.json",
+    "typescript-library.json",
+    "README.md"
+  ]
+}

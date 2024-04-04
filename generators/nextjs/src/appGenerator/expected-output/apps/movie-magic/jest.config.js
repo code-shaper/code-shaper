@@ -1,6 +1,6 @@
 const nextJest = require('next/jest');
 
 module.exports = nextJest({ dir: './' })({
-  preset: 'jest-config-custom',
+  preset: '@code-shaper/jest-config',
   testEnvironment: 'jest-environment-jsdom',
 });

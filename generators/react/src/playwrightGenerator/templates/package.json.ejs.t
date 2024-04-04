@@ -20,9 +20,9 @@
   "devDependencies": {
     "@playwright/test": "^1.38.0",
     "dotenv": "16.3.1",
-    "eslint": "^8.49.0",
-    "eslint-config-custom": "*",
+    "eslint": "^8.57.0",
+    "@code-shaper/eslint-config": "^1.*",
     "typescript": "^5.2.2",
-    "typescript-config-custom": "*"
+    "@code-shaper/typescript-config": "^1.*"
   }
 }

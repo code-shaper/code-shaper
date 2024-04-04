@@ -35,7 +35,7 @@
     "@types/react-dom": "^18.0.5",
     "eslint": "^8.17.0",
     "jest": "^28.1.1",
-    "jest-config-custom": "*",
+    "@code-shaper/jest-config": "^1.*",
     "jest-environment-jsdom": "^28.1.1",
     "ts-jest": "^28.0.5",
     "typescript": "^4.7.3"

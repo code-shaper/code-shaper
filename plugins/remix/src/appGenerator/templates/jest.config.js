@@ -1,4 +1,4 @@
 module.exports = {
-  preset: 'jest-config-custom',
+  preset: '@code-shaper/jest-config',
   testEnvironment: 'jsdom',
 };

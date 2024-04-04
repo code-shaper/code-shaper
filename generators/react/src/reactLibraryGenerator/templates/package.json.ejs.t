@@ -33,18 +33,18 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
     "@types/jest": "^29.5.5",
-    "@types/node": "^18.17.17",
+    "@types/node": "^20.6.2",
     "@types/react": "^18.2.22",
     "copyfiles": "^2.4.1",
-    "eslint": "^8.49.0",
-    "eslint-config-custom": "*",
+    "eslint": "^8.57.0",
+    "@code-shaper/eslint-config": "^1.*",
     "jest": "^29.7.0",
-    "jest-config-custom": "*",
+    "@code-shaper/jest-config": "^1.*",
     "jest-environment-jsdom": "^29.7.0",
     "ts-jest": "^29.1.1",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
-    "typescript-config-custom": "*"
+    "@code-shaper/typescript-config": "^1.*"
   },
   "peerDependencies": {
     "react": "^18.*"

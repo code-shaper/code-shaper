@@ -1,0 +1,22 @@
+{
+  "name": "@code-shaper/jest-config",
+  "description": "Code Shaper Jest configuration",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/code-shaper/code-shaper",
+    "directory": "configs/jest-config"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "jest-preset.js",
+  "files": [
+    "jest-preset.js",
+    "file-stub.js",
+    "file-transformer.js",
+    "match-media-polyfill.js",
+    "README.md"
+  ]
+}

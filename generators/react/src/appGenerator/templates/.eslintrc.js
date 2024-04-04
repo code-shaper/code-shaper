@@ -1,4 +1,7 @@
 module.exports = {
   root: true,
-  extends: ['custom/strict', 'plugin:storybook/recommended'],
+  extends: [
+    '@code-shaper/eslint-config/strict-react',
+    'plugin:storybook/recommended',
+  ],
 };

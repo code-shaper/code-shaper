@@ -1,0 +1,28 @@
+{
+  "name": "@code-shaper/commitlint-config",
+  "description": "Code Shaper commitlint configuration",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/code-shaper/code-shaper",
+    "directory": "configs/commitlint-config"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./index.js",
+  "files": [
+    "./index.js"
+  ],
+  "scripts": {
+    "format": "prettier --list-different '**/*.{js,ts}'",
+    "format:fix": "npm run format -- --write",
+    "lint": "eslint '**/*.{js,ts}'",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "devDependencies": {
+    "@code-shaper/eslint-config": "^1.*",
+    "eslint": "^8.57.0"
+  }
+}
