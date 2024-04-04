@@ -1,4 +1,3 @@
-import { turborepoGenerator } from '@code-shaper/repo-generators';
 import { appGenerator, pageGenerator } from '@code-shaper/nextjs-generators';
 import {
   componentGenerator,
@@ -28,7 +27,6 @@ registerGenerator(pageGenerator);
 registerGenerator(appGenerator);
 registerGenerator(reactLibraryGenerator);
 registerGenerator(playwrightGenerator);
-registerGenerator(turborepoGenerator);
 
 const nextjsPlugin: Plugin = {
   id: '@code-shaper/nextjs',

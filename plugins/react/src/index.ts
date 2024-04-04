@@ -1,4 +1,3 @@
-import { turborepoGenerator } from '@code-shaper/repo-generators';
 import {
   appGenerator,
   componentGenerator,
@@ -29,7 +28,6 @@ registerGenerator(pageGenerator);
 registerGenerator(appGenerator);
 registerGenerator(reactLibraryGenerator);
 registerGenerator(playwrightGenerator);
-registerGenerator(turborepoGenerator);
 
 const reactPlugin: Plugin = {
   id: '@code-shaper/react',
