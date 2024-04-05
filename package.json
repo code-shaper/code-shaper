@@ -49,10 +49,10 @@
     "_fix:rest": "turbo run fix",
     "_fix:root": "run-s _lint:root:fix _format:root:fix",
     "_format:rest": "turbo run format",
-    "_format:root": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,md}' '!apps/**/*.*' '!packages/**/*.*' '!plugins/**/*.*'",
+    "_format:root": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,md}' '!apps/**/*.*' '!generators/**/*.*' '!packages/**/*.*' '!plugins/**/*.*'",
     "_format:root:fix": "npm run --silent _format:root -- --write",
     "_lint:rest": "turbo run lint",
-    "_lint:root": "eslint '**/*.{js,jsx,ts,tsx}' --ignore-pattern '/apps/' --ignore-pattern '/packages/' --ignore-pattern '/plugins/'",
+    "_lint:root": "eslint '**/*.{js,jsx,ts,tsx}' --ignore-pattern '/apps/' --ignore-pattern '/generators/' --ignore-pattern '/packages/' --ignore-pattern '/plugins/'",
     "_lint:root:fix": "npm run --silent _lint:root -- --fix"
   },
   "dependencies": {
@@ -68,7 +68,7 @@
     "@manypkg/cli": "latest",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "commitizen": "^4.3.0",
-    "commitlint": "^19.2.0",
+    "commitlint": "^19.2.1",
     "eslint": "^8.57.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.2",

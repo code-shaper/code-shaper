@@ -9,7 +9,6 @@
   },
   "workspaces": [
     "apps/*",
-    "configs/*",
     "packages/*",
     "plugins/*"
   ],
@@ -26,6 +25,8 @@
     "format": "run-s _format:root _format:rest",
     "graph": "turbo run build --graph",
     "lint": "run-s _lint:root _lint:rest",
+    "pkg-check": "manypkg check",
+    "pkg-fix": "manypkg fix",
     "prepare": "husky install",
     "storybook": "turbo run storybook",
     "test": "turbo run test",
@@ -42,14 +43,15 @@
     "_lint:root": "eslint '**/*.{js,jsx,ts,tsx}' --ignore-pattern '/apps/' --ignore-pattern '/packages/' --ignore-pattern '/plugins/'",
     "_lint:root:fix": "npm run --silent _lint:root -- --fix"
   },
-  "devDependencies": {
+  "dependencies": {
+    "@code-shaper/eslint-config": "^1.*",
     "@commitlint/cz-commitlint": "^17.7.2",
+    "@manypkg/cli": "latest",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "code-shaper": "latest",
     "commitizen": "^4.3.0",
     "commitlint": "^17.7.2",
     "eslint": "^8.51.0",
-    "@code-shaper/eslint-config": "^1.*",
     "husky": "^8.0.3",
     "lint-staged": "^13.3.0",
     "npm-run-all": "^4.1.5",
@@ -62,7 +64,7 @@
     "react-dom": "^18.2.0"
   },
   "engines": {
-    "npm": "9.5.1",
-    "node": "18.16.0"
+    "npm": "10.2.3",
+    "node": "20.10.0"
   }
 }

@@ -4,6 +4,7 @@
     "clsx",
     "commitlint",
     "copyfiles",
+    "manypkg",
     "nextjs",
     "tsup",
     "turborepo"
