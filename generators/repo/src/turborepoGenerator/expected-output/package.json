@@ -51,7 +51,7 @@
     "code-shaper": "latest",
     "commitizen": "^4.3.0",
     "commitlint": "^17.7.2",
-    "eslint": "^8.51.0",
+    "eslint": "^8.57.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.3.0",
     "npm-run-all": "^4.1.5",

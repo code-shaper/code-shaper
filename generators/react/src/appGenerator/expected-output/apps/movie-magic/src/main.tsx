@@ -5,15 +5,19 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './styles/main.css';
 
 // Start mock service worker in dev environment
-async function startMockServiceWorker() {
+async function enableMocking() {
   if (import.meta.env.DEV) {
     const { worker } = await import('./mocks/browser');
+
+    /*
+     * `worker.start()` returns a Promise that resolves
+     * once the Service Worker is up and ready to intercept requests.
+     */
     await worker.start();
-    worker.printHandlers();
   }
 }
 
-startMockServiceWorker()
+enableMocking()
   .then(() => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const root = createRoot(document.getElementById('root')!);

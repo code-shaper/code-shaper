@@ -51,7 +51,7 @@
     "storybook-dark-mode": "^3.0.3",
     "ts-jest": "^29.1.2",
     "typescript": "^5.4.4",
-    "vite": "^4.5.3",
+    "vite": "^5.2.0",
     "vite-tsconfig-paths": "^4.3.2"
   },
   "msw": {
