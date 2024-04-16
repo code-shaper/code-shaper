@@ -118,6 +118,14 @@ const typescriptFixableRules = {
 };
 
 const typescriptCustomRules = {
+  '@typescript-eslint/no-misused-promises': [
+    'error',
+    {
+      checksVoidReturn: {
+        attributes: false,
+      },
+    },
+  ],
   '@typescript-eslint/no-unused-vars': [
     'error',
     { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
@@ -153,6 +161,8 @@ const jestCustomRules = {
   'jest/require-to-throw-message': 'error',
   'jest/require-top-level-describe': 'error',
   'jest/unbound-method': 'error',
+  '@typescript-eslint/consistent-type-imports': 'off',
+  '@typescript-eslint/no-var-requires': 'off',
   '@typescript-eslint/unbound-method': 'off',
 };
 
