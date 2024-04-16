@@ -10,7 +10,7 @@ export const turborepoGenerator: Generator = {
 };
 
 async function generateTurborepo(rootDir: string, inputOptions: Options) {
-  const okToProceedQuestions = [
+  const questions = [
     {
       type: 'confirm',
       name: 'okToProceed',
@@ -18,28 +18,21 @@ async function generateTurborepo(rootDir: string, inputOptions: Options) {
       default: false,
     },
   ];
-  const okToProceedOptions = await prompt(okToProceedQuestions, inputOptions);
-  const { okToProceed } = okToProceedOptions;
+
+  const options = await prompt(questions, inputOptions);
+  const { okToProceed } = options;
   if (!okToProceed) {
     console.log('Aborting...');
     return;
   }
 
-  const questions = [
-    {
-      type: 'input',
-      name: 'itemName',
-      message: 'Repository name? (e.g. movie-magic)',
-    },
-  ];
-
-  const options = await prompt(questions, inputOptions);
-  const { itemName } = options;
-
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
+  // Get itemName from directory name
   // Example: itemName = movie-magic
+  const itemName = cc.kebabCase(path.basename(rootDir));
+  options['itemName'] = itemName;
 
   // itemNameKebabCase = movie-magic
   options['itemNameKebabCase'] = cc.kebabCase(itemName);

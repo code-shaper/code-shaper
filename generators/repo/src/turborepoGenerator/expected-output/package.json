@@ -1,11 +1,11 @@
 {
-  "name": "movie-magic",
+  "name": "test-output",
   "description": "",
   "version": "0.0.1",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/movie-magic/movie-magic"
+    "url": "https://github.com/test-output/test-output"
   },
   "workspaces": [
     "apps/*",

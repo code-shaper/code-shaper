@@ -114,6 +114,11 @@ function appendToFile(path: string, data: string) {
   appendFileSync(path, data);
 }
 
+interface DirectorySpec {
+  name: string;
+  path: string;
+}
+
 /**
  * Expands an array of relative directory paths into an array of
  * directory specs. A path could include a glob pattern, which is
@@ -138,11 +143,6 @@ function appendToFile(path: string, data: string) {
  * @param relativePaths array of relative directory paths
  * @return Array<DirectorySpec>
  */
-interface DirectorySpec {
-  name: string;
-  path: string;
-}
-
 function resolvePaths(
   rootDir: string,
   relativePaths: Array<string>
