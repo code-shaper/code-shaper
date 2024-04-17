@@ -51,8 +51,8 @@ npm run test             # runs full build, lint, format, and all tests - run be
 ### Creating New Components
 
 Use [Code Shaper](https://www.code-shaper.dev/) to create new components. This
-will give you a good starting point that is consistent with Cruise's coding
-guidelines.
+will give you a good starting point that is consistent with React best
+practices.
 
 Here's an example of creating a component called `EventList` using Code Shaper:
 
