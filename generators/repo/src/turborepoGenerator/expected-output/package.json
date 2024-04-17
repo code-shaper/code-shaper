@@ -44,6 +44,7 @@
     "_lint:root:fix": "npm run --silent _lint:root -- --fix"
   },
   "dependencies": {
+    "@code-shaper/commitlint-config": "^1.*",
     "@code-shaper/eslint-config": "^1.*",
     "@commitlint/cz-commitlint": "^19.2.0",
     "@manypkg/cli": "latest",
