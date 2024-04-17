@@ -3,16 +3,7 @@ module.exports = {
   verbose: false,
   roots: ['<rootDir>/src'],
   transform: {
-    '^.+\\.tsx?$': [
-      'ts-jest',
-      {
-        /*
-         * Display warnings for ts errors instead of failing tests entirely.
-         * TS errors will still be thrown during normal builds and linting.
-         */
-        diagnostics: { warnOnly: true },
-      },
-    ],
+    '^.+\\.tsx?$': 'ts-jest',
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '@code-shaper/jest-config/file-transformer.js',
   },
