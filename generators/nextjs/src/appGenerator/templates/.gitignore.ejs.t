@@ -6,15 +6,14 @@
 /.swc
 .pnp.js
 
-# testing
-/coverage
-
-# next.js
+# build
 /.next/
+/.turbo/
+/build
 /out/
 
-# production
-/build
+# testing
+/coverage
 
 # misc
 .DS_Store
@@ -34,6 +33,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# codegen
+/src/generated/
 
 # storybook
 /build-storybook.log

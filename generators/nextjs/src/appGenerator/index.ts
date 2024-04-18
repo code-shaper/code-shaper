@@ -73,6 +73,9 @@ async function generateApp(rootDir: string, inputOptions: Options) {
   console.log('What to do next?');
   console.log('----------------');
   console.log();
+  console.log(`# Create a local environment file for ${itemName}`);
+  console.log(`cp apps/${itemName}/.env.example apps/${itemName}/.env.local"`);
+  console.log();
   console.log('# Install newly added dependencies');
   console.log('npm install');
   console.log();

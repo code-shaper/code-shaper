@@ -1,10 +1,8 @@
-import { Header } from '@/components/Header';
-import * as React from 'react';
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <>
-      <Header />
-    </>
+    <div className="container relative max-w-screen-xl py-4">
+      This app is bootstrapped with{' '}
+      <a href="https://code-shaper.dev">Code Shaper</a>.
+    </div>
   );
 }

@@ -1,9 +1,9 @@
-import { Header } from './Header';
+import { AppHeader } from './AppHeader';
 import { render, screen } from '@/test/test-utils';
 
-describe('<Header />', () => {
+describe('<AppHeader />', () => {
   it('should render correctly', () => {
-    render(<Header />);
+    render(<AppHeader />);
     expect(screen.getByText('<%= itemNameCapitalCase %>')).toBeInTheDocument();
   });
 });
