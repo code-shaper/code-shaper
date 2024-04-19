@@ -1,7 +1,7 @@
 export function SettingsPage() {
   return (
-    <div className="p-4">
-      <h2>Settings Page</h2>
+    <div>
+      <h1>Settings Page</h1>
     </div>
   );
 }

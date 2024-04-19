@@ -1,3 +1,7 @@
 import { http, HttpResponse } from 'msw';
 
-export const handlers = [http.get('/products', () => HttpResponse.json([]))];
+const API_URL = 'http://localhost:8080';
+
+export const handlers = [
+  http.get(`${API_URL}/products`, () => HttpResponse.json([])),
+];

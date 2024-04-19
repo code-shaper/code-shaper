@@ -5,13 +5,16 @@ const meta = {
   title: 'Components/<%= itemNamePascalCase %>',
   component: <%= itemNamePascalCase %>,
   tags: ['autodocs'],
+  argTypes: {
+    children: { table: { disable: true } },
+  },
 } satisfies Meta<typeof <%= itemNamePascalCase %>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Basic = {
   args: {
-    children: '<%= itemNamePascalCase %>',
+    children: 'Hello, World!',
   },
 } satisfies Story;

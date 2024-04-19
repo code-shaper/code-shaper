@@ -3,7 +3,7 @@ import { render, screen } from '@/test/test-utils';
 
 describe('<TextField />', () => {
   it('should render correctly', () => {
-    render(<TextField>TextField</TextField>);
-    expect(screen.getByText('TextField')).toBeInTheDocument();
+    render(<TextField>Hello, World!</TextField>);
+    expect(screen.getByText('Hello, World!')).toBeInTheDocument();
   });
 });

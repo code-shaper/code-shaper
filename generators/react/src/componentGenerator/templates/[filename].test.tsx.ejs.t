@@ -3,7 +3,7 @@ import { render, screen } from '@/test/test-utils';
 
 describe('<<%= itemNamePascalCase %> />', () => {
   it('should render correctly', () => {
-    render(<<%= itemNamePascalCase %>><%= itemNamePascalCase %></<%= itemNamePascalCase %>>);
-    expect(screen.getByText('<%= itemNamePascalCase %>')).toBeInTheDocument();
+    render(<<%= itemNamePascalCase %>>Hello, World!</<%= itemNamePascalCase %>>);
+    expect(screen.getByText('Hello, World!')).toBeInTheDocument();
   });
 });

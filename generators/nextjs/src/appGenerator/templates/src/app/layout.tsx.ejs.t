@@ -1,6 +1,7 @@
 import { AppHeader } from '@/components/AppHeader';
 import { AppProvider } from '@/providers';
 import type { Metadata } from 'next';
+import { unstable_noStore as noStore } from 'next/cache';
 import { Inter, Roboto_Mono as RobotoMono } from 'next/font/google';
 import './globals.css';
 
@@ -22,19 +23,14 @@ export const metadata: Metadata = {
   description: '<%= itemNameCapitalCase %>',
 };
 
-/*
- * This allows us to read environment variables at run-time instead of build-time
- * see https://github.com/vercel/next.js/discussions/44628#discussioncomment-7015224
- */
-/* istanbul ignore next */
-export const dynamic = 'force-dynamic';
-
 interface RootLayoutProps {
   children: React.ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  const baseApiUrl = process.env.BASE_API_URL ?? 'http://localhost:8080';
+  noStore();
+
+  const baseApiUrl = process.env.BASE_API_URL ?? '';
   const useMockData = process.env.USE_MOCK_DATA === 'true';
 
   return (
