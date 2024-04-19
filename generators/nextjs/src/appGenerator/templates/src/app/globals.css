@@ -9,7 +9,7 @@
 *:before,
 *:after {
   box-sizing: border-box;
-  border: 0 solid hsl(var(--border));
+  border: 0 solid #e5e7eb;
 }
 
 html {
@@ -59,10 +59,6 @@ ul {
 /* ----- Layout: Container ----- */
 .container {
   width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 2rem;
-  padding-left: 2rem;
 }
 
 /* ----- Layout: Position ----- */
@@ -96,6 +92,17 @@ ul {
   padding-bottom: 1rem; /* 16px */
 }
 
+.px-8 {
+  padding-left: 2rem; /* 32px */
+  padding-right: 2rem; /* 32px */
+}
+
+/* ----- Spacing: Margin ----- */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* ----- Sizing: Width ----- */
 .w-full {
   width: 100%;
@@ -126,41 +133,7 @@ ul {
   font-weight: 700;
 }
 
-/* ----- Backgrounds: Color ----- */
-.bg-background {
-  background-color: hsl(var(--background));
-}
-
 /* ----- Borders: Width ----- */
 .border-b {
   border-bottom-width: 1px;
-}
-
-/* ----- Borders: Color ----- */
-.border-border {
-  border-color: hsl(var(--border));
-}
-
-/* ----- CSS Variables ----- */
-:root {
-  --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
-  --primary: 240 5.9% 10%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 240 4.8% 95.9%;
-  --secondary-foreground: 240 5.9% 10%;
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 240 5.9% 10%;
-  --radius: 0.5rem;
 }
