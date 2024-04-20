@@ -84,17 +84,22 @@ async function generateApp(rootDir: string, inputOptions: Options) {
   console.log('----------------');
   console.log();
   console.log(`# Create a local environment file for ${itemName}`);
-  console.log(`cp apps/${itemName}/.env.example apps/${itemName}/.env.local"`);
+  console.log(`cp apps/${itemName}/.env.example apps/${itemName}/.env.local`);
   console.log();
   console.log('# Install newly added dependencies');
   console.log('npm install');
   console.log();
-  console.log('# Make a commit');
+  console.log('# Build and run the app to make sure it works');
+  console.log('npm run build');
+  console.log('npm run dev');
+  console.log();
+  console.log(
+    '# Point your browser to http://localhost:3000/ to make sure the app runs.'
+  );
+  console.log();
+  console.log('# Commit');
   console.log('git add .');
   console.log(`git commit -m "chore: add ${itemName} app"`);
-  console.log();
-  console.log(`# Run ${itemName} from the root directory:`);
-  console.log('npm run dev');
   console.log();
 
   return Promise.resolve();

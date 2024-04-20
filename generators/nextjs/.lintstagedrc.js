@@ -5,7 +5,7 @@
 
 const ignoredFiles = [
   '**/expected-output*',
-  '**/templates',
+  '**/templates*',
   '**/test-output*',
   '/.turbo/',
   '/dist/',

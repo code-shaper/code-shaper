@@ -68,11 +68,6 @@ async function generateTurborepo(rootDir: string, inputOptions: Options) {
   console.log('nvm use        # use the required version of node');
   console.log('npm install    # install dependencies');
   console.log();
-  console.log(
-    '# Install Code Shaper plugins that you need for your project, for example:'
-  );
-  console.log('npm install @code-shaper/react');
-  console.log();
   console.log('# Initialize your git');
   console.log('git init');
   console.log();
