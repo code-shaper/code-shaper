@@ -1,0 +1,10 @@
+/.next/
+/.swc/
+/.turbo/
+/build-storybook.log
+/coverage/
+/node_modules/
+/out/
+/src/generated/
+/storybook-static/
+/public/mockServiceWorker.js

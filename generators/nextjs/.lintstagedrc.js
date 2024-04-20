@@ -4,9 +4,9 @@
 // see https://github.com/okonet/lint-staged/issues/123
 
 const ignoredFiles = [
-  '**/expected-output',
+  '**/expected-output*',
   '**/templates',
-  '**/test-output',
+  '**/test-output*',
   '/.turbo/',
   '/dist/',
   '/node_modules/',

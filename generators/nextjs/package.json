@@ -1,7 +1,7 @@
 {
   "name": "@code-shaper/nextjs-generators",
   "description": "Next.js generators",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -12,15 +12,16 @@
     "README.md"
   ],
   "scripts": {
-    "build": "rimraf dist && run-s _bundle _copyTemplates",
-    "clean": "rimraf --glob .turbo node_modules dist coverage ./**/test-output",
+    "build": "rimraf dist && run-s _bundle _copyTemplates _copyTemplatesTailwindcss",
+    "clean": "rimraf --glob .turbo node_modules dist coverage ./**/test-output*",
     "format": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,md}'",
     "format:fix": "npm run format -- --write",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest",
     "_bundle": "tsc --project tsconfig.build.json",
-    "_copyTemplates": "copyfiles --all --up 1 \"src/*/templates/**/*\" dist"
+    "_copyTemplates": "copyfiles --all --up 1 \"src/*/templates/**/*\" dist",
+    "_copyTemplatesTailwindcss": "copyfiles --all --up 1 \"src/*/templates-tailwindcss/**/*\" dist"
   },
   "dependencies": {
     "@code-shaper/shaper-utils": "^1.*",

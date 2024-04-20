@@ -1,0 +1,12 @@
+!.*
+/.next/
+/.swc/
+/.turbo/
+/coverage/
+/build-storybook.log
+/next-env.d.ts
+/node_modules/
+/out/
+/src/generated/
+/storybook-static/
+/public/mockServiceWorker.js

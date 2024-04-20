@@ -34,6 +34,12 @@ async function generateApp(rootDir: string, inputOptions: Options) {
       message:
         'Package name used for publishing? (e.g. "movie-magic" or "@movie-magic/movie-magic")',
     },
+    {
+      type: 'confirm',
+      name: 'useTailwindcss',
+      message: 'Would you like to use Tailwind CSS?',
+      default: true,
+    },
   ];
 
   const options = await prompt(questions, inputOptions);
@@ -57,15 +63,19 @@ async function generateApp(rootDir: string, inputOptions: Options) {
   options['itemNameCapitalCase'] = cc.capitalCase(itemName);
   // --------------------------------------------------------------------------
 
-  const { itemNameKebabCase } = options;
+  const { itemNameKebabCase, useTailwindcss } = options;
 
   const srcDir = path.join(__dirname, 'templates');
+  const srcTailwindcssDir = path.join(__dirname, 'templates-tailwindcss');
   const dstDir = path.join(parentDir, itemNameKebabCase);
 
   console.log();
   console.log(`Creating ${itemName}...`);
 
   FileUtils.transformFiles(srcDir, dstDir, options);
+  if (useTailwindcss) {
+    FileUtils.transformFiles(srcTailwindcssDir, dstDir, options);
+  }
 
   console.log();
   console.log('Done.');

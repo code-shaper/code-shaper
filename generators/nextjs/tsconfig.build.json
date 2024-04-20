@@ -3,7 +3,7 @@
   "exclude": [
     "**/*.test.ts",
     "**/templates",
-    "**/expected-output",
-    "**/test-output"
+    "**/expected-output*",
+    "**/test-output*"
   ]
 }

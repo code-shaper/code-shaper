@@ -1,3 +1,8 @@
+<% if (useTailwindcss){ -%>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+<% } else { -%>
 /*
   This file contains simple utility classes modeled after Tailwind CSS. We
   created it to style this simple app without adding dependencies to any
@@ -137,3 +142,4 @@ ul {
 .border-b {
   border-bottom-width: 1px;
 }
+<% } -%>

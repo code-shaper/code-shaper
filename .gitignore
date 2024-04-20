@@ -7,7 +7,7 @@ node_modules
 
 # testing
 coverage
-test-output
+test-output*
 
 # next.js
 .next/
