@@ -16,6 +16,7 @@
     "./index.js"
   ],
   "scripts": {
+    "clean": "rimraf node_modules",
     "format": "prettier --list-different '**/*.{js,ts}'",
     "format:fix": "npm run format -- --write",
     "lint": "eslint '**/*.{js,ts}'",

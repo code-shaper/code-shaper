@@ -46,8 +46,10 @@ const reactCustomRules = {
 };
 
 const testingLibraryFixableRules = {
+  'testing-library/await-async-events': 'error',
+  'testing-library/no-dom-import': 'error',
   'testing-library/no-global-regexp-flag-in-query': 'error',
-  'testing-library/prefer-wait-for': 'error',
+  'testing-library/prefer-find-by': 'error',
 };
 
 /*
