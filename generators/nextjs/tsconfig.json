@@ -5,5 +5,5 @@
     "outDir": "dist"
   },
   "include": ["**/*.ts"],
-  "exclude": ["**/templates", "**/expected-output*", "**/test-output*"]
+  "exclude": ["**/templates*", "**/expected-output*", "**/test-output*"]
 }

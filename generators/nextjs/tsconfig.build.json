@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "exclude": [
     "**/*.test.ts",
-    "**/templates",
+    "**/templates*",
     "**/expected-output*",
     "**/test-output*"
   ]
