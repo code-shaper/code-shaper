@@ -97,6 +97,13 @@ async function generateApp(rootDir: string, inputOptions: Options) {
     '# Point your browser to http://localhost:3000/ to make sure the app runs.'
   );
   console.log();
+  console.log('# Run Storybook to make sure it works');
+  console.log('npm run storybook');
+  console.log();
+  console.log(
+    '# Point your browser to http://localhost:6006/ to make sure Storybook runs.'
+  );
+  console.log();
   console.log('# Commit');
   console.log('git add .');
   console.log(`git commit -m "chore: add ${itemName} app"`);

@@ -138,6 +138,11 @@ ul {
   font-weight: 700;
 }
 
+/* ----- Typography: Text Color ----- */
+.text-blue-600 {
+  color: rgb(37 99 235);
+}
+
 /* ----- Borders: Width ----- */
 .border-b {
   border-bottom-width: 1px;

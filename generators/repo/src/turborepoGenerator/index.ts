@@ -61,15 +61,15 @@ async function generateTurborepo(rootDir: string, inputOptions: Options) {
   console.log('What to do next?');
   console.log('----------------');
   console.log();
+  console.log('# Initialize your git');
+  console.log('git init');
+  console.log();
   console.log(
     '# Do a clean install with the newly generated package.json file'
   );
   console.log('rm -rf package-lock.json node_modules');
   console.log('nvm use        # use the required version of node');
   console.log('npm install    # install dependencies');
-  console.log();
-  console.log('# Initialize your git');
-  console.log('git init');
   console.log();
   console.log('# Make an initial commit');
   console.log(

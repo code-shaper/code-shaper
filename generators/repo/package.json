@@ -1,7 +1,7 @@
 {
   "name": "@code-shaper/repo-generators",
   "description": "Repo generators",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
