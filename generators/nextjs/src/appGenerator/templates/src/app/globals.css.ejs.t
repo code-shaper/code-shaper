@@ -2,6 +2,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* ----- Colors ----- */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --border: 240 5.9% 90%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground min-h-screen font-sans antialiased;
+  }
+}
 <% } else { -%>
 /*
   This file contains simple utility classes modeled after Tailwind CSS. We
@@ -14,7 +32,7 @@
 *:before,
 *:after {
   box-sizing: border-box;
-  border: 0 solid #e5e7eb;
+  border: 0 solid hsl(var(--border));
 }
 
 html {
@@ -24,9 +42,11 @@ html {
 
 body {
   margin: 0;
+  min-height: 100vh;
   line-height: inherit;
-  color: var(--color-text-primary);
-  background-color: var(--color-background-default);
+  color: var(--foreground);
+  background-color: var(--background);
+  font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -146,5 +166,12 @@ ul {
 /* ----- Borders: Width ----- */
 .border-b {
   border-bottom-width: 1px;
+}
+
+:root {
+  /* ----- Colors ----- */
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --border: 240 5.9% 90%;
 }
 <% } -%>

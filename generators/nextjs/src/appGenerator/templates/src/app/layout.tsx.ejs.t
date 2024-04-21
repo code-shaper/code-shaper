@@ -40,7 +40,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       suppressHydrationWarning
     >
       <head />
-      <body className="min-h-screen font-sans antialiased">
+      <body>
         <AppProvider baseApiUrl={baseApiUrl} useMockData={useMockData}>
           <div className="relative flex min-h-screen flex-col">
             <AppHeader />
