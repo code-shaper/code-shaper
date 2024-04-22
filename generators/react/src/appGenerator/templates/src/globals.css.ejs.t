@@ -1,3 +1,30 @@
+<% if (useTailwindcss){ -%>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ----- Colors ----- */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --border: 240 5.9% 90%;
+
+    /* ----- Fonts ----- */
+    --font-inter: Inter;
+    --font-roboto-mono: 'Roboto Mono';
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground min-h-screen font-sans antialiased;
+  }
+}
+<% } else { -%>
 /*
   This file contains simple utility classes modeled after Tailwind CSS. We
   created it to style this simple app without adding dependencies to any
@@ -155,3 +182,4 @@ ul {
   --font-inter: Inter;
   --font-roboto-mono: 'Roboto Mono';
 }
+<% } -%>

@@ -1,6 +1,6 @@
 {
-  "name": "<%= packageName %>",
-  "description": "<%= itemNameCapitalCase %>",
+  "name": "@movie-magic/movie-magic",
+  "description": "Movie Magic",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -52,24 +52,18 @@
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "@vitejs/plugin-react": "^4.2.1",
-<% if (useTailwindcss){ -%>
     "autoprefixer": "^10.4.19",
-<% } -%>
     "deepmerge": "^4.3.1",
     "eslint": "^8.57.0",
     "eslint-plugin-storybook": "^0.8.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "msw": "^2.2.14",
-<% if (useTailwindcss){ -%>
     "postcss": "^8.4.38",
     "postcss-import": "^16.1.0",
-<% } -%>
     "storybook": "^8.0.8",
     "storybook-dark-mode": "^4.0.1",
-<% if (useTailwindcss){ -%>
     "tailwindcss": "^3.4.3",
-<% } -%>
     "ts-jest": "^29.1.2",
     "typescript": "^5.4.5",
     "vite": "^5.2.0"
