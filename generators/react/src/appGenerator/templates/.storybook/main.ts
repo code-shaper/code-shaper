@@ -1,9 +1,8 @@
 import type { StorybookConfig } from '@storybook/react-vite';
-import { mergeConfig } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
 const config: StorybookConfig = {
   addons: [
+    '@chromatic-com/storybook',
     '@storybook/addon-a11y',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
@@ -25,11 +24,6 @@ const config: StorybookConfig = {
     '../../../packages/*/src/**/*.mdx',
     '../../../packages/*/src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
-  viteFinal(config) {
-    return mergeConfig(config, {
-      plugins: [tsconfigPaths()],
-    });
-  },
 };
 
 export default config;

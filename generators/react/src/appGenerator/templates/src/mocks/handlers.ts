@@ -1,6 +1,7 @@
-import { MOCK_API_URL } from './constants';
 import { http, HttpResponse } from 'msw';
 
+const API_URL = 'http://localhost:8080';
+
 export const handlers = [
-  http.get(`${MOCK_API_URL}/products`, () => HttpResponse.json([])),
+  http.get(`${API_URL}/products`, () => HttpResponse.json([])),
 ];

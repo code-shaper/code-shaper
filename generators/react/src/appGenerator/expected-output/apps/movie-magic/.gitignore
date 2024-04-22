@@ -5,12 +5,13 @@
 /.pnp
 .pnp.js
 
-# testing
-/coverage
-
-# production
+# build
+/.turbo/
 dist
 dist-ssr
+
+# testing
+/coverage
 
 # misc
 .DS_Store
@@ -26,6 +27,9 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# codegen
+/src/generated/
+
 # storybook
-/build-storybook.log
+*storybook.log
 /storybook-static/

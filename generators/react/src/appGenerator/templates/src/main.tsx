@@ -1,12 +1,14 @@
 import { App } from './App';
+import { AppProvider } from './providers';
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
-import './styles/main.css';
+import './globals.css';
+
+const useMockData = import.meta.env.VITE_USE_MOCK_DATA === 'true';
 
 // Start mock service worker in dev environment
 async function enableMocking() {
-  if (import.meta.env.DEV) {
+  if (useMockData) {
     const { worker } = await import('./mocks/browser');
 
     /*
@@ -23,9 +25,9 @@ enableMocking()
     const root = createRoot(document.getElementById('root')!);
     root.render(
       <React.StrictMode>
-        <Router>
+        <AppProvider>
           <App />
-        </Router>
+        </AppProvider>
       </React.StrictMode>
     );
     return true;

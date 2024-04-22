@@ -2,11 +2,12 @@
 /.turbo/
 /coverage/
 /dist/
+/build-storybook.log
 /node_modules/
-/public/mockServiceWorker.js
-.eslintrc.js
+.eslintrc.cjs
 .lintstagedrc.js
 jest.config.js
 vite.config.ts
 src/vite-env.d.ts
 /storybook-static/
+/public/mockServiceWorker.js

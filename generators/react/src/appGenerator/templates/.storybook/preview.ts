@@ -6,7 +6,7 @@ import * as React from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 
 // Import any required css here
-import '@/styles/main.css';
+import '@/globals.css';
 
 /*
  * We need to override the DocsContainer to work with the dark mode theme until this issue is resolved:
@@ -22,12 +22,10 @@ function ThemedDocsContainer(props: DocsContainerProps) {
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
-
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/,
+        date: /Date$/i,
       },
     },
 
