@@ -34,6 +34,12 @@ async function generateApp(rootDir: string, inputOptions: Options) {
       message:
         'Package name used for publishing? (e.g. "movie-magic" or "@movie-magic/movie-magic")',
     },
+    {
+      type: 'confirm',
+      name: 'useTailwindcss',
+      message: 'Would you like to use Tailwind CSS?',
+      default: true,
+    },
   ];
 
   const options = await prompt(questions, inputOptions);
@@ -57,15 +63,19 @@ async function generateApp(rootDir: string, inputOptions: Options) {
   options['itemNameCapitalCase'] = cc.capitalCase(itemName);
   // --------------------------------------------------------------------------
 
-  const { itemNameKebabCase } = options;
+  const { itemNameKebabCase, useTailwindcss } = options;
 
   const srcDir = path.join(__dirname, 'templates');
+  const srcTailwindcssDir = path.join(__dirname, 'templates-tailwindcss');
   const dstDir = path.join(parentDir, itemNameKebabCase);
 
   console.log();
   console.log(`Creating ${itemName}...`);
 
   FileUtils.transformFiles(srcDir, dstDir, options);
+  if (useTailwindcss) {
+    FileUtils.transformFiles(srcTailwindcssDir, dstDir, options);
+  }
 
   console.log();
   console.log('Done.');
@@ -73,15 +83,30 @@ async function generateApp(rootDir: string, inputOptions: Options) {
   console.log('What to do next?');
   console.log('----------------');
   console.log();
+  console.log(`# Create a local environment file for ${itemName}`);
+  console.log(`cp apps/${itemName}/.env.example apps/${itemName}/.env.local`);
+  console.log();
   console.log('# Install newly added dependencies');
   console.log('npm install');
   console.log();
-  console.log('# Make a commit');
+  console.log('# Build and run the app to make sure it works');
+  console.log('npm run build');
+  console.log('npm run dev');
+  console.log();
+  console.log(
+    '# Point your browser to http://localhost:3000/ to make sure the app runs.'
+  );
+  console.log();
+  console.log('# Run Storybook to make sure it works');
+  console.log('npm run storybook');
+  console.log();
+  console.log(
+    '# Point your browser to http://localhost:6006/ to make sure Storybook runs.'
+  );
+  console.log();
+  console.log('# Commit');
   console.log('git add .');
   console.log(`git commit -m "chore: add ${itemName} app"`);
-  console.log();
-  console.log(`# Run ${itemName} from the root directory:`);
-  console.log('npm run dev');
   console.log();
 
   return Promise.resolve();
