@@ -67,7 +67,7 @@
     "@code-shaper/typescript": "*",
     "@commitlint/cz-commitlint": "^19.2.0",
     "@manypkg/cli": "latest",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
     "commitizen": "^4.3.0",
     "commitlint": "^19.2.2",
     "eslint": "^8.57.0",
