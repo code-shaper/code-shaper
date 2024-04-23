@@ -1,11 +1,11 @@
 import {
-  appGenerator,
   componentGenerator,
   contextGenerator,
   pageGenerator,
-  playwrightGenerator,
   reactLibraryGenerator,
 } from '@code-shaper/react-generators';
+import { playwrightGenerator } from '@code-shaper/playwright-generators';
+import { appGenerator } from '@code-shaper/vite-generators';
 import {
   Options,
   Plugin,

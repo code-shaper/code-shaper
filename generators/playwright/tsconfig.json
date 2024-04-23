@@ -1,0 +1,9 @@
+{
+  "extends": "@code-shaper/typescript-config/base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["**/templates*", "**/expected-output*", "**/test-output*"]
+}

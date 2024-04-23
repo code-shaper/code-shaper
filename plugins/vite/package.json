@@ -1,7 +1,7 @@
 {
-  "name": "@code-shaper/react",
-  "description": "React plugin",
-  "version": "1.1.9",
+  "name": "@code-shaper/vite",
+  "description": "Vite plugin",
+  "version": "1.0.0",
   "license": "MIT",
   "publishConfig": {
     "access": "public"

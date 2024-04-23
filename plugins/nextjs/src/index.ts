@@ -1,8 +1,8 @@
 import { appGenerator, pageGenerator } from '@code-shaper/nextjs-generators';
+import { playwrightGenerator } from '@code-shaper/playwright-generators';
 import {
   componentGenerator,
   contextGenerator,
-  playwrightGenerator,
   reactLibraryGenerator,
 } from '@code-shaper/react-generators';
 import {
