@@ -10,7 +10,7 @@ registerPrompt('directory', inquirerDirectory);
 export const appGenerator: Generator = {
   id: 'app',
   name: 'Application',
-  description: 'generates a React application',
+  description: 'generates a React application using Vite',
   generate: generateApp,
 };
 

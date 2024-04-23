@@ -32,7 +32,7 @@ registerGenerator(playwrightGenerator);
 const vitePlugin: Plugin = {
   id: '@code-shaper/vite',
   name: 'Vite',
-  description: 'generates Vite applications',
+  description: 'generates React applications using Vite',
   run: async (inputOptions: Options) => {
     const generator = await selectGenerator(generators, inputOptions);
     if (!generator) {
