@@ -29,10 +29,10 @@ registerGenerator(appGenerator);
 registerGenerator(reactLibraryGenerator);
 registerGenerator(playwrightGenerator);
 
-const reactPlugin: Plugin = {
-  id: '@code-shaper/react',
-  name: 'React',
-  description: 'generates React applications',
+const vitePlugin: Plugin = {
+  id: '@code-shaper/vite',
+  name: 'Vite',
+  description: 'generates Vite applications',
   run: async (inputOptions: Options) => {
     const generator = await selectGenerator(generators, inputOptions);
     if (!generator) {
@@ -43,4 +43,4 @@ const reactPlugin: Plugin = {
   },
 };
 
-export default reactPlugin;
+export default vitePlugin;
