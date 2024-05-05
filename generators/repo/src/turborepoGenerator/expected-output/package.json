@@ -60,10 +60,6 @@
     "rimraf": "^5.0.5",
     "turbo": "latest"
   },
-  "overrides": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
   "engines": {
     "npm": "10.2.3",
     "node": "20.10.0"

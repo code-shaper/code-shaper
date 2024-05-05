@@ -1,7 +1,7 @@
 {
   "name": "@code-shaper/nextjs-generators",
   "description": "Next.js generators",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
