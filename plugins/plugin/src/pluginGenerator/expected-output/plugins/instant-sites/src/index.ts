@@ -8,8 +8,8 @@ import {
 
 const generators: GeneratorMap = {};
 
-// TODO: Remove ts-ignore once you start using registerGenerator
-// @ts-ignore
+// TODO: Remove eslint-disable-next-line once you start using registerGenerator
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function registerGenerator(generator: Generator) {
   const { id } = generator;
   generators[id] = generator;
@@ -17,10 +17,10 @@ function registerGenerator(generator: Generator) {
 
 // ----- Register Generators Here -----
 
-const reactPatternsPlugin: Plugin = {
-  id: '@movie-magic/react-patterns',
-  name: 'React Patterns',
-  description: 'generates React Patterns artifacts',
+const instantSitesPlugin: Plugin = {
+  id: '@movie-magic/instant-sites',
+  name: 'Instant Sites',
+  description: 'generates Instant Sites artifacts',
   run: async (inputOptions: Options) => {
     const generator = await selectGenerator(generators, inputOptions);
     if (!generator) {
@@ -31,4 +31,4 @@ const reactPatternsPlugin: Plugin = {
   },
 };
 
-export default reactPatternsPlugin;
+export default instantSitesPlugin;

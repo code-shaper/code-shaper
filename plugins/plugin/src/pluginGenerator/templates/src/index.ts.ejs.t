@@ -8,8 +8,8 @@ import {
 
 const generators: GeneratorMap = {};
 
-// TODO: Remove ts-ignore once you start using registerGenerator
-// @ts-ignore
+// TODO: Remove eslint-disable-next-line once you start using registerGenerator
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function registerGenerator(generator: Generator) {
   const { id } = generator;
   generators[id] = generator;

@@ -19,7 +19,7 @@ async function generatePlugin(rootDir: string, inputOptions: Options) {
     {
       type: 'input',
       name: 'pluginName',
-      message: 'Plugin name? (e.g. "react-patterns")',
+      message: 'Plugin name? (e.g. "instant-sites")',
     },
     {
       type: 'directory',
@@ -32,7 +32,7 @@ async function generatePlugin(rootDir: string, inputOptions: Options) {
       type: 'input',
       name: 'packageName',
       message:
-        'Package name used for publishing? (e.g. "@movie-magic/react-patterns")',
+        'Package name used for publishing? (e.g. "@movie-magic/instant-sites")',
     },
   ];
 
@@ -42,19 +42,19 @@ async function generatePlugin(rootDir: string, inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // Example pluginName: react-patterns
+  // Example pluginName: instant-sites
 
-  // pluginNameCamelCase = reactPatterns
+  // pluginNameCamelCase = instantSites
   const pluginNameCamelCase = cc.camelCase(pluginName);
   options['pluginNameCamelCase'] = pluginNameCamelCase;
 
-  // pluginNamePascalCase = ReactPatterns
+  // pluginNamePascalCase = InstantSites
   options['pluginNamePascalCase'] = cc.pascalCase(pluginName);
 
-  // pluginNameCapitalCase = React Patterns
+  // pluginNameCapitalCase = Instant Sites
   options['pluginNameCapitalCase'] = cc.capitalCase(pluginName);
 
-  // pluginModuleName = reactPatternsPlugin
+  // pluginModuleName = instantSitesPlugin
   options['pluginModuleName'] = `${pluginNameCamelCase}Plugin`;
   // --------------------------------------------------------------------------
 

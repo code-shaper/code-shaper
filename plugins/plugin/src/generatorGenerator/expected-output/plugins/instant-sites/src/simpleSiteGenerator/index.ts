@@ -1,4 +1,4 @@
-import { cc, Generator, Options } from '@code-shaper/shaper-utils';
+import { cc, FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
 import { prompt, registerPrompt } from 'inquirer';
 // @ts-ignore
 import inquirerDirectory from 'inquirer-directory';
@@ -7,19 +7,19 @@ import path from 'path';
 // Register inquirer prompts
 registerPrompt('directory', inquirerDirectory);
 
-export const reactLibraryGenerator: Generator = {
-  id: 'react-library',
-  name: 'React Library',
-  description: 'generates a React Library',
-  generate: generateReactLibrary,
+export const simpleSiteGenerator: Generator = {
+  id: 'simple-site',
+  name: 'Simple Site',
+  description: 'generates a Simple Site',
+  generate: generateSimpleSite,
 };
 
-async function generateReactLibrary(rootDir: string, inputOptions: Options) {
+async function generateSimpleSite(rootDir: string, inputOptions: Options) {
   const questions = [
     {
       type: 'input',
       name: 'itemName',
-      message: 'React Library name? (e.g. "reactLibrary")',
+      message: 'Simple Site name? (e.g. "simpleSite")',
     },
     {
       type: 'directory',
@@ -36,18 +36,18 @@ async function generateReactLibrary(rootDir: string, inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // Example: itemName = movie-magic
+  // Example: itemName = simple-site
 
-  // itemNameKebabCase = movie-magic
+  // itemNameKebabCase = simple-site
   options['itemNameKebabCase'] = cc.kebabCase(itemName);
 
-  // itemNameCamelCase = movieMagic
+  // itemNameCamelCase = simpleSite
   options['itemNameCamelCase'] = cc.camelCase(itemName);
 
-  // itemNamePascalCase = MovieMagic
+  // itemNamePascalCase = SimpleSite
   options['itemNamePascalCase'] = cc.pascalCase(itemName);
 
-  // itemNameCapitalCase = Movie Magic
+  // itemNameCapitalCase = Simple Site
   options['itemNameCapitalCase'] = cc.capitalCase(itemName);
   // --------------------------------------------------------------------------
 
@@ -59,8 +59,7 @@ async function generateReactLibrary(rootDir: string, inputOptions: Options) {
   console.log();
   console.log(`Creating ${itemName}...`);
 
-  // TODO: Create templates and then uncomment this line
-  // FileUtils.transformFiles(srcDir, dstDir, options);
+  FileUtils.transformFiles(srcDir, dstDir, options);
   console.log();
   console.log('TODO: Run FileUtils.transformFiles() with following arguments:');
   console.log(`srcDir: ${path.relative(rootDir, srcDir)}`);

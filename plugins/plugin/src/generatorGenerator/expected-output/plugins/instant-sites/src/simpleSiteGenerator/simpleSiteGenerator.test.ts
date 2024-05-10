@@ -1,9 +1,9 @@
 import path from 'path';
 import { FileUtils } from '@code-shaper/shaper-utils';
-import { reactLibraryGenerator } from './index';
+import { simpleSiteGenerator } from './index';
 
-describe('reactLibraryGenerator', () => {
-  test('should create a new reactLibrary from templates', async () => {
+describe('simpleSiteGenerator', () => {
+  test('should create a new simpleSite from templates', async () => {
     // suppress console logs
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(console, 'log').mockImplementation(() => {});
@@ -13,9 +13,9 @@ describe('reactLibraryGenerator', () => {
     FileUtils.deletePath(testOutput);
 
     // Run the generator
-    await reactLibraryGenerator.generate(testOutput, {
+    await simpleSiteGenerator.generate(testOutput, {
       // ----- insert options here -----
-      itemName: 'reactLibrary',
+      itemName: 'simpleSite',
     });
 
     // restore console logs

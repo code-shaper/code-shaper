@@ -14,9 +14,9 @@ describe('pluginGenerator', () => {
 
     // Run the generator
     await pluginGenerator.generate(testOutput, {
-      pluginName: 'react-patterns',
+      pluginName: 'instant-sites',
       parentDir: path.join(testOutput, 'plugins'),
-      packageName: '@movie-magic/react-patterns',
+      packageName: '@movie-magic/instant-sites',
     });
 
     // restore console logs

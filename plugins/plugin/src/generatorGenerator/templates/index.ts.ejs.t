@@ -1,4 +1,4 @@
-import { cc, Generator, Options } from '@code-shaper/shaper-utils';
+import { cc, FileUtils, Generator, Options } from '@code-shaper/shaper-utils';
 import { prompt, registerPrompt } from 'inquirer';
 // @ts-ignore
 import inquirerDirectory from 'inquirer-directory';
@@ -36,18 +36,18 @@ async function <%= generatorFunctionName %>(rootDir: string, inputOptions: Optio
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // Example: itemName = movie-magic
+  // Example: itemName = <%= generatorNameKebabCase %>
 
-  // itemNameKebabCase = movie-magic
+  // itemNameKebabCase = <%= generatorNameKebabCase %>
   options['itemNameKebabCase'] = cc.kebabCase(itemName);
 
-  // itemNameCamelCase = movieMagic
+  // itemNameCamelCase = <%= generatorNameCamelCase %>
   options['itemNameCamelCase'] = cc.camelCase(itemName);
 
-  // itemNamePascalCase = MovieMagic
+  // itemNamePascalCase = <%= generatorNamePascalCase %>
   options['itemNamePascalCase'] = cc.pascalCase(itemName);
 
-  // itemNameCapitalCase = Movie Magic
+  // itemNameCapitalCase = <%= generatorNameCapitalCase %>
   options['itemNameCapitalCase'] = cc.capitalCase(itemName);
   // --------------------------------------------------------------------------
 
@@ -59,8 +59,7 @@ async function <%= generatorFunctionName %>(rootDir: string, inputOptions: Optio
   console.log();
   console.log(`Creating ${itemName}...`);
 
-  // TODO: Create templates and then uncomment this line
-  // FileUtils.transformFiles(srcDir, dstDir, options);
+  FileUtils.transformFiles(srcDir, dstDir, options);
   console.log();
   console.log('TODO: Run FileUtils.transformFiles() with following arguments:');
   console.log(`srcDir: ${path.relative(rootDir, srcDir)}`);

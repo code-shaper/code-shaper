@@ -24,7 +24,7 @@ async function generateGenerator(rootDir: string, inputOptions: Options) {
     {
       type: 'input',
       name: 'generatorName',
-      message: 'Generator name? (e.g. "app" or "react-library")',
+      message: 'Generator name? (e.g. "app" or "simple-site")',
     },
     {
       type: 'list',
@@ -48,24 +48,28 @@ async function generateGenerator(rootDir: string, inputOptions: Options) {
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // Example: generatorName = component-library
+  // Example: generatorName = simple-site
 
-  // generatorNameCamelCase = componentLibrary
+  // generatorNameKebabCase = simple-site
+  const generatorNameKebabCase = cc.kebabCase(generatorName);
+  options['generatorNameKebabCase'] = generatorNameKebabCase;
+
+  // generatorNameCamelCase = simpleSite
   const generatorNameCamelCase = cc.camelCase(generatorName);
   options['generatorNameCamelCase'] = generatorNameCamelCase;
 
-  // generatorNamePascalCase = ComponentLibrary
+  // generatorNamePascalCase = SimpleSite
   const generatorNamePascalCase = cc.pascalCase(generatorName);
   options['generatorNamePascalCase'] = generatorNamePascalCase;
 
-  // generatorNameCapitalCase = Component Library
+  // generatorNameCapitalCase = Simple Site
   options['generatorNameCapitalCase'] = cc.capitalCase(generatorName);
 
-  // generatorModuleName = componentLibraryGenerator
+  // generatorModuleName = simpleSiteGenerator
   const generatorModuleName = `${generatorNameCamelCase}Generator`;
   options['generatorModuleName'] = generatorModuleName;
 
-  // generatorFunctionName = generateComponentLibrary
+  // generatorFunctionName = generateSimpleSite
   options['generatorFunctionName'] = `generate${generatorNamePascalCase}`;
   // --------------------------------------------------------------------------
 

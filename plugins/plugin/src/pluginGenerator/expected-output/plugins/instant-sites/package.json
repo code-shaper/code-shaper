@@ -1,6 +1,6 @@
 {
-  "name": "@movie-magic/react-patterns",
-  "description": "react-patterns plugin",
+  "name": "@movie-magic/instant-sites",
+  "description": "instant-sites plugin",
   "version": "0.0.1",
   "publishConfig": {
     "access": "public"

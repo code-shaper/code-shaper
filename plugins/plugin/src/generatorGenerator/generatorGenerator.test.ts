@@ -14,9 +14,9 @@ describe('generatorGenerator', () => {
 
     // Run the generator
     await generatorGenerator.generate(testOutput, {
-      itemName: 'SettingsPage',
-      generatorName: 'react-library',
-      workspace: path.join(testOutput, 'plugins', 'react'),
+      itemName: 'movie-magic-website',
+      generatorName: 'simple-site',
+      workspace: path.join(testOutput, 'plugins', 'instant-sites'),
     });
 
     // restore console logs
