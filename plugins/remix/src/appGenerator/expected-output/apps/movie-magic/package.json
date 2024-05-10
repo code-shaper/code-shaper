@@ -22,6 +22,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@code-shaper/jest-config": "^1.*",
     "@remix-run/dev": "^1.6.0",
     "@remix-run/eslint-config": "^1.6.0",
     "@storybook/react": "^7.0.23",
@@ -35,7 +36,6 @@
     "@types/react-dom": "^18.0.5",
     "eslint": "^8.17.0",
     "jest": "^28.1.1",
-    "@code-shaper/jest-config": "^1.*",
     "jest-environment-jsdom": "^28.1.1",
     "ts-jest": "^28.0.5",
     "typescript": "^4.7.3"

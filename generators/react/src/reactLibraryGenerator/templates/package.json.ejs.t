@@ -26,6 +26,9 @@
     "clsx": "^1.2.1"
   },
   "devDependencies": {
+    "@code-shaper/eslint-config": "^1.*",
+    "@code-shaper/jest-config": "^1.*",
+    "@code-shaper/typescript-config": "^1.*",
     "@storybook/react": "^7.6.17",
     "@swc/core": "^1.4.12",
     "@testing-library/dom": "^9.3.4",
@@ -37,14 +40,11 @@
     "@types/react": "^18.2.74",
     "copyfiles": "^2.4.1",
     "eslint": "^8.57.0",
-    "@code-shaper/eslint-config": "^1.*",
     "jest": "^29.7.0",
-    "@code-shaper/jest-config": "^1.*",
     "jest-environment-jsdom": "^29.7.0",
     "ts-jest": "^29.1.2",
     "tsup": "^7.2.0",
-    "typescript": "^5.4.4",
-    "@code-shaper/typescript-config": "^1.*"
+    "typescript": "^5.4.4"
   },
   "peerDependencies": {
     "react": "^18.*"
