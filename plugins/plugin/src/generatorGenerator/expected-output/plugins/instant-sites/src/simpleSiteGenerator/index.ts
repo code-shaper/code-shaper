@@ -61,10 +61,6 @@ async function generateSimpleSite(rootDir: string, inputOptions: Options) {
 
   FileUtils.transformFiles(srcDir, dstDir, options);
   console.log();
-  console.log('TODO: Run FileUtils.transformFiles() with following arguments:');
-  console.log(`srcDir: ${path.relative(rootDir, srcDir)}`);
-  console.log(`dstDir: ${path.relative(rootDir, dstDir)}`);
-  console.log();
   console.log('options available for this generator:');
   console.log(JSON.stringify(options, null, '  '));
   console.log();

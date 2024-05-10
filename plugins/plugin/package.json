@@ -1,7 +1,7 @@
 {
   "name": "@code-shaper/plugin",
   "description": "Plugin to generate a plugin",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
