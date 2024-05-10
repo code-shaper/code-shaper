@@ -15,7 +15,7 @@ describe('simpleSiteGenerator', () => {
     // Run the generator
     await simpleSiteGenerator.generate(testOutput, {
       // ----- insert options here -----
-      itemName: 'simple-site',
+      itemName: 'simple-website',
       parentDir: path.join(testOutput, 'apps'),
     });
 

@@ -8,14 +8,22 @@ import {
 
 const generators: GeneratorMap = {};
 
-// TODO: Remove eslint-disable-next-line once you start using registerGenerator
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function registerGenerator(generator: Generator) {
   const { id } = generator;
   generators[id] = generator;
 }
 
 // ----- Register Generators Here -----
+// TODO: delete this dummyGenerator once you have a real one
+export const dummyGenerator: Generator = {
+  id: 'dummy',
+  name: 'Dummy',
+  description: 'a dummy generator',
+  generate: async (rootDir: string, inputOptions: Options) => {
+    console.log('Dummy Generator:', rootDir, inputOptions);
+  },
+};
+registerGenerator(dummyGenerator);
 
 const <%= pluginModuleName %>: Plugin = {
   id: '<%= packageName %>',
