@@ -15,7 +15,8 @@ describe('<%= generatorModuleName %>', () => {
     // Run the generator
     await <%= generatorModuleName %>.generate(testOutput, {
       // ----- insert options here -----
-      itemName: '<%= generatorNameCamelCase %>',
+      itemName: 'simple-site',
+      parentDir: path.join(testOutput, 'apps'),
     });
 
     // restore console logs
