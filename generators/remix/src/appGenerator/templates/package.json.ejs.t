@@ -31,8 +31,16 @@
     "@types/node": "^20.12.11",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
+<% if (useTailwindcss){ -%>
+    "autoprefixer": "^10.4.19",
+<% } -%>
     "eslint": "^8.57.0",
     "jest": "^29.7.0",
+<% if (useTailwindcss){ -%>
+    "postcss": "^8.4.38",
+    "postcss-import": "^16.1.0",
+    "tailwindcss": "^3.4.3",
+<% } -%>
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vite-tsconfig-paths": "^4.3.2"
