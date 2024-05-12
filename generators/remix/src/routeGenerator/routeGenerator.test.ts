@@ -1,9 +1,9 @@
 import path from 'path';
 import { FileUtils } from '@code-shaper/shaper-utils';
-import { pageGenerator } from './index';
+import { routeGenerator } from './index';
 
-describe('pageGenerator', () => {
-  test('should create a new page from templates', async () => {
+describe('routeGenerator', () => {
+  test('should create a new route from templates', async () => {
     // suppress console logs
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(console, 'log').mockImplementation(() => {});
@@ -13,10 +13,9 @@ describe('pageGenerator', () => {
     FileUtils.deletePath(testOutput);
 
     // Run the generator
-    await pageGenerator.generate(testOutput, {
-      itemName: 'SettingsPage',
+    await routeGenerator.generate(testOutput, {
+      itemName: 'Settings',
       workspace: path.join(testOutput, 'apps', 'movie-magic'),
-      dirInWorkspace: 'src/pages',
       filename: 'settings.tsx',
     });
 

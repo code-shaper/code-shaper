@@ -8,14 +8,14 @@ import {
 import { prompt } from 'inquirer';
 import path from 'path';
 
-export const pageGenerator: Generator = {
-  id: 'page',
-  name: 'Page',
-  description: 'generates a page',
-  generate: generatePage,
+export const routeGenerator: Generator = {
+  id: 'route',
+  name: 'Route',
+  description: 'generates a route',
+  generate: generateRoute,
 };
 
-async function generatePage(rootDir: string, inputOptions: Options) {
+async function generateRoute(rootDir: string, inputOptions: Options) {
   // Get workspaces
   const workspaces = PackageJsonUtils.getWorkspacesFromPackageJson(rootDir);
 
@@ -24,12 +24,12 @@ async function generatePage(rootDir: string, inputOptions: Options) {
     {
       type: 'input',
       name: 'itemName',
-      message: 'Page name? (e.g. "SettingsPage")',
+      message: 'Component name? (e.g. "Settings" or "SettingsPage")',
     },
     {
       type: 'list',
       name: 'workspace',
-      pageSize: 20,
+      routeSize: 20,
       loop: false,
       message: 'Which workspace should this go to?',
       choices: () => {
@@ -42,24 +42,18 @@ async function generatePage(rootDir: string, inputOptions: Options) {
     },
     {
       type: 'input',
-      name: 'dirInWorkspace',
-      message: 'Parent directory within workspace?',
-      default: 'src/routes',
-    },
-    {
-      type: 'input',
       name: 'filename',
-      message: 'Filename of the page? (e.g. "settings.tsx")',
+      message: 'Filename of the route? (e.g. "settings.tsx")',
     },
   ];
 
   const options = await prompt(questions, inputOptions);
-  const { itemName, workspace, dirInWorkspace } = options;
+  const { itemName, workspace } = options;
 
   // --------------------------------------------------------------------------
   // Add more options for code generation here
   // --------------------------------------------------------------------------
-  // Example: itemName = settings-page
+  // Example: itemName = SettingsPage
 
   // itemNameKebabCase = settings-page
   options['itemNameKebabCase'] = cc.kebabCase(itemName);
@@ -72,9 +66,12 @@ async function generatePage(rootDir: string, inputOptions: Options) {
 
   // itemNameCapitalCase = Settings Page
   options['itemNameCapitalCase'] = cc.capitalCase(itemName);
+
+  // Remix uses this fixed directory for routes
+  options['dirInWorkspace'] = 'src/routes';
   // --------------------------------------------------------------------------
 
-  const { itemNamePascalCase } = options;
+  const { dirInWorkspace, itemNamePascalCase } = options;
 
   const srcDir = path.join(__dirname, 'templates');
   const dstDir = path.join(workspace, dirInWorkspace);
@@ -82,15 +79,15 @@ async function generatePage(rootDir: string, inputOptions: Options) {
   console.log();
   console.log(`Creating ${itemNamePascalCase}...`);
 
-  // Create the page
+  // Create the route
   FileUtils.transformFiles(srcDir, dstDir, options);
 
   console.log();
   console.log('Done.');
   console.log();
-  console.log('1. Implement the page.');
+  console.log('1. Implement the route.');
   console.log();
-  console.log('2. Run your app to see the page in action:');
+  console.log('2. Run your app to see the route in action:');
   console.log('     npm run dev');
   console.log();
 

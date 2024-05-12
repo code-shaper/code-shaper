@@ -1,4 +1,4 @@
-import { appGenerator, pageGenerator } from '@code-shaper/remix-generators';
+import { appGenerator, routeGenerator } from '@code-shaper/remix-generators';
 import { playwrightGenerator } from '@code-shaper/playwright-generators';
 import {
   componentGenerator,
@@ -23,7 +23,7 @@ function registerGenerator(generator: Generator) {
 // ----- Register Generators Here -----
 registerGenerator(componentGenerator);
 registerGenerator(contextGenerator);
-registerGenerator(pageGenerator);
+registerGenerator(routeGenerator);
 registerGenerator(appGenerator);
 registerGenerator(reactLibraryGenerator);
 registerGenerator(playwrightGenerator);

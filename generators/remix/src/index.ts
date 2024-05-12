@@ -1,2 +1,2 @@
 export * from './appGenerator';
-export * from './pageGenerator';
+export * from './routeGenerator';
