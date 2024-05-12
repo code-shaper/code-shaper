@@ -1,0 +1,13 @@
+!.*
+/.turbo/
+/coverage/
+/build/
+/build-storybook.log
+/node_modules/
+.eslintrc.cjs
+.lintstagedrc.cjs
+postcss.config.cjs
+tailwind.config.ts
+vite.config.ts
+/storybook-static/
+/public/mockServiceWorker.js

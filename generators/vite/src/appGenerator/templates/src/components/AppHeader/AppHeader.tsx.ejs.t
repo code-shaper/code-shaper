@@ -1,5 +1,3 @@
-'use client';
-
 export function AppHeader() {
   return (
     <header className="w-full border-b">

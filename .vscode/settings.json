@@ -6,10 +6,12 @@
     "codegen",
     "commitlint",
     "copyfiles",
+    "dword",
     "ghpages",
     "headlessui",
     "heroicons",
     "hookform",
+    "isbot",
     "klaw",
     "manypkg",
     "nextjs",
@@ -18,7 +20,8 @@
     "tanstack",
     "testid",
     "tsup",
-    "turborepo"
+    "turborepo",
+    "typecheck"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"

@@ -1,5 +1,5 @@
-# React Generators
+# Vite Generators
 
-This plugin generates React related artifacts such as React apps and libraries,
+This plugin generates Vite related artifacts such as Vite apps and libraries,
 components, pages and contexts. Please see
-[React plugin](https://code-shaper.dev/docs/reference/react-plugin) for details.
+[Vite plugin](https://code-shaper.dev/docs/reference/vite-plugin) for details.

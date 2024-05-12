@@ -1,0 +1,8 @@
+/.turbo/
+/build/
+/build-storybook.log
+/coverage/
+/node_modules/
+/src/generated/
+/storybook-static/
+/public/mockServiceWorker.js
