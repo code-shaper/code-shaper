@@ -1,15 +1,15 @@
 import movies from './data/movies.json';
 import { Router } from 'express';
 
-export const top10MoviesRouter = Router();
+export const moviesRouter = Router();
 
-/** get top 10 movies */
-top10MoviesRouter.get('/', (_, res) => {
+/** get all movies */
+moviesRouter.get('/', (_, res) => {
   res.send(movies);
 });
 
-/** get movie with specified id */
-top10MoviesRouter.get('/:id', (req, res) => {
+/** get movie with the specified id */
+moviesRouter.get('/:id', (req, res) => {
   const movie = movies.find((movie) => movie.id === req.params.id);
   if (movie) {
     res.send(movie);
