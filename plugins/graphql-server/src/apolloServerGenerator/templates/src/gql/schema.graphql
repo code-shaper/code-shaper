@@ -1,0 +1,15 @@
+type Movie {
+  id: ID!
+  name: String!
+  year: Int!
+  rating: Float!
+}
+
+type Query {
+  movies: [Movie!]!
+  movie(id: ID!): Movie
+}
+
+type Mutation {
+  dummyMutation: String!
+}

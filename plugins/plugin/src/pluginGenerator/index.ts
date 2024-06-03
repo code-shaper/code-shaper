@@ -80,7 +80,7 @@ async function generatePlugin(rootDir: string, inputOptions: Options) {
   console.log(
     '3. Run shaper in the root directory and confirm that your plugin shows up:'
   );
-  console.log('     shaper');
+  console.log('     npx shaper');
   console.log();
   console.log('4. Start adding generators to your plugin');
   console.log();

@@ -98,7 +98,7 @@ async function generateGenerator(rootDir: string, inputOptions: Options) {
   console.log(
     '4. Run shaper in the root directory and confirm that your generator shows up:'
   );
-  console.log('     shaper');
+  console.log('     npx shaper');
   console.log();
   console.log(
     `5. Finally implement ${generatorModuleName} to generate real code.`
