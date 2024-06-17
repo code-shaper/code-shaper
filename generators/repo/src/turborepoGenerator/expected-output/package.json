@@ -47,9 +47,9 @@
     "@code-shaper/commitlint-config": "^1.*",
     "@code-shaper/eslint-config": "^1.*",
     "@commitlint/cz-commitlint": "^19.2.0",
-    "@manypkg/cli": "latest",
+    "@manypkg/cli": "^0.21.4",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "code-shaper": "latest",
+    "code-shaper": "^1.*",
     "commitizen": "^4.3.0",
     "commitlint": "^19.2.2",
     "eslint": "^8.57.0",
@@ -58,7 +58,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.8",
     "rimraf": "^5.0.5",
-    "turbo": "latest"
+    "turbo": "^1.*"
   },
   "engines": {
     "npm": "10.2.3",
