@@ -1,13 +1,23 @@
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HomePage } from '@/routes/home';
+import { RootLayout } from '@/routes/root';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-export interface AppProviderProps {
-  children?: React.ReactNode;
-}
+const router = createBrowserRouter([
+  {
+    element: <RootLayout />,
+    children: [
+      {
+        path: '/',
+        element: <HomePage />,
+      },
+    ],
+  },
+]);
 
-export function AppProvider({ children }: AppProviderProps) {
+export function AppProvider() {
   return (
-    <>
-      <Router>{children}</Router>
-    </>
+    <QueryProvider>
+      <RouterProvider router={router} />
+    </QueryProvider>
   );
 }

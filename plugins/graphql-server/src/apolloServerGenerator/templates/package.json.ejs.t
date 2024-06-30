@@ -13,7 +13,7 @@
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "npm run lint -- --fix",
     "start": "node dist/index.js",
-    "test": "jest",
+    "test": "jest --coverage --passWithNoTests",
     "_build": "tsc",
     "_codegen": "graphql-codegen --config codegen.ts"
   },

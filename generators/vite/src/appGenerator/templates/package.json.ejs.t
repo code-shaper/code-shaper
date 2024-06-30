@@ -23,7 +23,7 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.23.0"
+    "react-router-dom": "^6.24.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.3.3",

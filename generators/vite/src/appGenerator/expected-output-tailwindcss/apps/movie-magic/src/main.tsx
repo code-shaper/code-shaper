@@ -1,4 +1,3 @@
-import { App } from './App';
 import { AppProvider } from './providers';
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
@@ -25,9 +24,7 @@ enableMocking()
     const root = createRoot(document.getElementById('root')!);
     root.render(
       <React.StrictMode>
-        <AppProvider>
-          <App />
-        </AppProvider>
+        <AppProvider />
       </React.StrictMode>
     );
     return true;
