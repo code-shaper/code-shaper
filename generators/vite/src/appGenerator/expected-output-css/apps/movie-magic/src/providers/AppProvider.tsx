@@ -15,9 +15,5 @@ const router = createBrowserRouter([
 ]);
 
 export function AppProvider() {
-  return (
-    <QueryProvider>
-      <RouterProvider router={router} />
-    </QueryProvider>
-  );
+  return <RouterProvider router={router} />;
 }
