@@ -1,11 +1,12 @@
-import { AppProvider } from './providers';
+import { routes } from './routes';
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './globals.css';
 
 const useMockData = import.meta.env.VITE_USE_MOCK_DATA === 'true';
 
-// Start mock service worker in dev environment
+// Start mock service worker if useMockData is true
 async function enableMocking() {
   if (useMockData) {
     const { worker } = await import('./mocks/browser');
@@ -22,9 +23,10 @@ enableMocking()
   .then(() => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const root = createRoot(document.getElementById('root')!);
+    const router = createBrowserRouter(routes);
     root.render(
       <React.StrictMode>
-        <AppProvider />
+        <RouterProvider router={router} />
       </React.StrictMode>
     );
     return true;
@@ -39,9 +41,10 @@ enableMocking()
  * -----------------------------------------------------------------------------
  * // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
  * const root = createRoot(document.getElementById('root')!);
+ * const router = createBrowserRouter(routes);
  * root.render(
  *   <React.StrictMode>
- *     <AppProvider />
+ *     <RouterProvider router={router} />
  *   </React.StrictMode>
  * );
  */
