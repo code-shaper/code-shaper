@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "run-s _codegen _build",
+    "clean": "rimraf .turbo node_modules build coverage src/generated storybook-static",
     "dev": "remix --port=3000 vite:dev",
     "format": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,md}'",
     "format:fix": "npm run format -- --write",
