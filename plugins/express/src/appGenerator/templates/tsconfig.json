@@ -1,12 +1,27 @@
 {
-  "extends": "@code-shaper/typescript-config/typescript-library.json",
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist",
+    "baseUrl": ".",
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["esnext", "esnext.asynciterable", "DOM"],
+    "module": "commonjs",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "outDir": "./dist",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "rootDir": "./src",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "esnext",
+    "types": ["node", "jest"]
   },
-  "include": ["src"],
-  "exclude": ["**/*.test.ts", "**/*.test.tsx", "**/*.stories.tsx", "**/test/*"]
+  "exclude": ["**/*.test.ts", "dist"]
 }

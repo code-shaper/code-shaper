@@ -1,0 +1,7 @@
+{
+  "verbose": false,
+  "watch": ["src"],
+  "ignore": ["src/generated"],
+  "ext": "ts,json,graphql",
+  "exec": "npm run build && npm run start"
+}
