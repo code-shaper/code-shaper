@@ -11,7 +11,7 @@ const config = {
       },
       fontFamily: {
         /*
-         * Customize the `sans` to font Inter
+         * customize `sans` to font Inter
          * Sets `font-family: var(--font-inter)` on the `html` element
          */
         sans: ['var(--font-inter)'],
