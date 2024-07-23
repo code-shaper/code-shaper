@@ -1,12 +1,22 @@
 import { MoviesApi } from './datasources/MoviesApi';
 import { resolvers } from './resolvers';
 import type { DataSourceContext } from './types/DataSourceContext';
+import type { GraphQLRequestContext } from '@apollo/server';
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { readFileSync } from 'fs';
 import { gql } from 'graphql-tag';
 
 const port = process.env.PORT ?? '4000';
+
+const loggerPlugin = {
+  async requestDidStart(
+    requestContext: GraphQLRequestContext<DataSourceContext>
+  ) {
+    console.log('Request:', requestContext.request.operationName);
+    await Promise.resolve();
+  },
+};
 
 async function main() {
   const typeDefs = gql(
@@ -18,6 +28,7 @@ async function main() {
   const server = new ApolloServer<DataSourceContext>({
     typeDefs,
     resolvers,
+    plugins: [loggerPlugin],
   });
 
   /*

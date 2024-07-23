@@ -1,7 +1,7 @@
 {
   "name": "@code-shaper/graphql-server",
   "description": "graphql-server plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "publishConfig": {
     "access": "public"
   },

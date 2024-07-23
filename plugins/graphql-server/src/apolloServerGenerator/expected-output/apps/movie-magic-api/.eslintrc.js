@@ -3,7 +3,6 @@ module.exports = {
   extends: [
     '@code-shaper/eslint-config/strict',
     'plugin:@dword-design/import-alias/recommended',
-    'plugin:storybook/recommended',
   ],
   env: {
     node: true,
