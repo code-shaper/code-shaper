@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/code-shaper/code-shaper",
+    "url": "git+https://github.com/code-shaper/code-shaper.git",
     "directory": "configs/eslint-config"
   },
   "publishConfig": {
