@@ -1,32 +1,67 @@
 # eslint-config
 
-This package publishes 4 shared ESLint configurations from which all other
-`.eslintrc.js`'s inherit.
+This package publishes 4 shared ESLint configurations:
 
-1. `@code-shaper/eslint-config`: This is the default configuration and points to
-   `@code-shaper/eslint-config-lenient`.
-2. `@code-shaper/eslint-config-lenient`: A rather lenient configuration which
-   can be used with code bases that don't follow very opinionated coding
-   conventions.
-3. `@code-shaper/eslint-config-strict`: A stricter configuration intended for
-   code bases that follow very opinionated coding conventions.
-4. `@code-shaper/eslint-config/strict-react`: The same as
-   @code-shaper/eslint-config/strict, but with added rules specifically for
-   React.
+1. `@code-shaper/eslint-config`: Default configuration pointing to
+   `@code-shaper/eslint-config-lenient`
+2. `@code-shaper/eslint-config-lenient`: A lenient configuration for code bases
+   that don't follow very opinionated coding conventions
+3. `@code-shaper/eslint-config-strict`: A strict configuration for code bases
+   that follow very opinionated coding conventions
+4. `@code-shaper/eslint-config/strict-react`: The strict configuration +
+   additional rules for React.
 
-To switch from `lenient` to `strict` configuration, simply change line 1 in
-`./index.js` to `module.exports = require('./strict');`. This will change the
-entire repo to enforce strict coding conventions. You can also opt to switch
-over gradually by specifying `strict` mode one workspace at a time. To do this,
-change the `.eslintrc.js` file of the desired workspace to extend
-`@code-shaper/eslint-config/strict` instead of `@code-shaper/eslint-config`.
+## Installation
+
+```shell
+npm install -D @code-shaper/eslint-config
+```
+
+Then modify your `.eslintrc.js` to extend one of the above configurations, e.g.
+
+```js
+module.exports = {
+  root: true,
+  env: { node: true },
+  extends: ['@code-shaper/eslint-config/strict-react'],
+};
+```
+
+Add the following dependencies to your `package.json`:
+
+```json
+{
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.*",
+    "eslint": "^8.*",
+    "eslint-config-prettier": "^9.*",
+    "eslint-import-resolver-typescript": "^3.*",
+    "eslint-plugin-eslint-comments": "^3.*",
+    "eslint-plugin-import": "^2.*",
+    "eslint-plugin-jest": "^28.*",
+    "eslint-plugin-jest-dom": "^5.*",
+    "eslint-plugin-jsx-a11y": "^6.*",
+    "eslint-plugin-only-error": "^1.*",
+    "eslint-plugin-promise": "^7.*",
+    "eslint-plugin-react": "^7.*",
+    "eslint-plugin-react-hooks": "^4.*",
+    "eslint-plugin-regexp": "^2.*",
+    "eslint-plugin-tailwindcss": "^3.*",
+    "eslint-plugin-testing-library": "^6.*"
+  }
+}
+```
+
+> Note: If you are using `eslint-config-next` version 14, you may have to
+> downgrade `@typescript-eslint/eslint-plugin` to version 7.
+> `eslint-config-next` does not support `@typescript-eslint/eslint-plugin`
+> version 8 yet.
 
 ## Plugins
 
 This config pulls in the following eslint rules/plugins. In addition to these
 plugins, there are a few customizations that have been made to select individual
-rules. These customizations and all rules used are clearly marked in the
-package's [lenient.js](lenient.js) & [strict.js](strict.js).
+rules. These customizations and rules are clearly marked in the source code.
 
 ### eslint
 
