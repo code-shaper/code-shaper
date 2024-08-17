@@ -23,7 +23,7 @@
     "lint:fix": "npm run lint -- --fix"
   },
   "devDependencies": {
-    "@code-shaper/eslint-config": "^1.*",
+    "@code-shaper/eslint-config": "^2.*",
     "eslint": "^8.57.0"
   }
 }

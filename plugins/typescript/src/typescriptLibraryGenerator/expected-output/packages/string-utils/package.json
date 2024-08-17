@@ -23,16 +23,16 @@
     "test": "jest --coverage"
   },
   "devDependencies": {
-    "@code-shaper/eslint-config": "^1.*",
+    "@code-shaper/eslint-config": "^2.*",
     "@code-shaper/jest-config": "^1.*",
     "@code-shaper/typescript-config": "^1.*",
     "@swc/core": "^1.3.66",
     "@types/jest": "^29.5.2",
-    "@types/node": "^18.16.18",
+    "@types/node": "^22.4.0",
     "eslint": "^8.43.0",
     "jest": "^29.5.0",
-    "ts-jest": "^29.1.0",
+    "ts-jest": "^29.2.4",
     "tsup": "^7.2.0",
-    "typescript": "^5.1.3"
+    "typescript": "^5.5.4"
   }
 }

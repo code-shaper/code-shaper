@@ -58,7 +58,7 @@
   "dependencies": {
     "@code-shaper/commitlint-config": "^1.*",
     "@code-shaper/custom-cli": "*",
-    "@code-shaper/eslint-config": "^1.*",
+    "@code-shaper/eslint-config": "^2.*",
     "@code-shaper/express": "*",
     "@code-shaper/graphql-server": "*",
     "@code-shaper/nextjs": "*",

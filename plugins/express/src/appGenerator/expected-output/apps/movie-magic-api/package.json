@@ -23,7 +23,7 @@
     "tslib": "^2.6.3"
   },
   "devDependencies": {
-    "@code-shaper/eslint-config": "^1.*",
+    "@code-shaper/eslint-config": "^2.*",
     "@code-shaper/jest-config": "^1.*",
     "@code-shaper/typescript-config": "^1.*",
     "@dword-design/eslint-plugin-import-alias": "^5.0.0",
@@ -31,11 +31,11 @@
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.12",
     "@types/morgan": "^1.9.9",
-    "@types/node": "^20.13.0",
+    "@types/node": "^22.4.0",
     "eslint": "^8.57.0",
     "jest": "^29.7.0",
     "nodemon": "^3.1.2",
     "tsup": "^8.1.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.4"
   }
 }
