@@ -52,15 +52,6 @@ const testingLibraryFixableRules = {
   'testing-library/prefer-find-by': 'error',
 };
 
-/*
- * eslint-plugin-tailwindcss does not list fixable rules explicitly,
- * hence we don't have a tailwindcssFixableRules section
- */
-
-const tailwindcssCustomRules = {
-  'tailwindcss/no-custom-classname': 'off',
-};
-
 module.exports = {
   overrides: [
     {
@@ -92,7 +83,6 @@ module.exports = {
         'plugin:react/recommended',
         'plugin:react/jsx-runtime',
         'plugin:react-hooks/recommended',
-        'plugin:tailwindcss/recommended',
       ],
       parserOptions: { project: true },
       rules: {
@@ -100,7 +90,6 @@ module.exports = {
         ...reactCustomRules,
         ...typescriptFixableRules,
         ...typescriptCustomRules,
-        ...tailwindcssCustomRules,
       },
       settings: {
         'import/resolver': {

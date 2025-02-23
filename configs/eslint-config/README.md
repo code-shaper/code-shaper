@@ -46,7 +46,6 @@ Add the following dependencies to your `package.json`:
     "eslint-plugin-react": "^7.*",
     "eslint-plugin-react-hooks": "^4.*",
     "eslint-plugin-regexp": "^2.*",
-    "eslint-plugin-tailwindcss": "^3.*",
     "eslint-plugin-testing-library": "^6.*"
   }
 }
@@ -170,15 +169,6 @@ Applies the following
 JavaScript and TypeScript test files:
 
 - all react rules
-- all automatically fixable rules
-
-### eslint-plugin-tailwindcss
-
-Applies the following
-[rules](https://github.com/francoismassart/eslint-plugin-tailwindcss) to all
-TypeScript files:
-
-- all recommended rules
 - all automatically fixable rules
 
 ### eslint-config-prettier
